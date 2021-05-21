@@ -8,7 +8,7 @@ export default {
   name: 'index',
   mounted () {
     indexInfo().then((data)=> {
-      console.log(data)
+      console.log(data.data)
     })
   }
 }

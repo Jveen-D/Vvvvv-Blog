@@ -10,12 +10,12 @@
 │   └── favicon.ico
 ├── src
 │   ├── App.vue  
-│   ├── api										//api存放地址
+│   ├── api//api存放地址
 │   │   └── index.js
 │   ├── assets
 │   ├── components
 │   ├── config							
-│   │   └── index.js					//配置api地址与api_access_key
+│   │   └── index.js//配置api地址与api_access_key
 │   ├── main.js
 │   ├── pages
 │   │   └── Index
@@ -23,7 +23,7 @@
 │   ├── router
 │   │   └── index.js
 │   └── utils
-│       └── request.js				//axios.create
+│       └── request.js//axios.create
 └── vite.config.js
 
 ```
