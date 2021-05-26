@@ -1,15 +1,16 @@
 <template>
-  Index
+  {{ a }}
 </template>
 
 <script>
-import {indexInfo} from '/@/api/index'
+import {  } from '/@/api/index'
 export default {
   name: 'index',
-  mounted () {
-    indexInfo().then((data)=> {
-      console.log(data.data)
-    })
+  setup(){
+    const a = 1
+    return{
+      a
+    }
   }
 }
 </script>
