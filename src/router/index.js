@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router"
-import Index from "/@/pages/Index/index.vue"
+import Index from "/@/pages/index.vue"
 
 const routes = [
     { path: '/:pathMatch(.*)*', name: '', component: Index },//捕获所有路由
