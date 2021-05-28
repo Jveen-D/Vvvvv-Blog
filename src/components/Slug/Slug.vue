@@ -1,9 +1,9 @@
 <template>
-  <div class="w-64 h-screen bg-white font-bold pt-20">
-    <div class="flex flex-col h-full w-full overflow-y-auto cursor-pointer">
+  <div class="w-64 h-screen font-bold pt-20">
+    <div class="flex flex-col h-full w-full overflow-y-auto cursor-pointer bg-white bg-opacity-70">
       <p class="pl-4 py-4 text-black"> All Slugs</p>
       <p v-for="(item,index) in listsTags"
-         :class="[selectSlug === index?'bg-blue-700 text-white':'','py-4 pl-8']"
+         :class="[selectSlug === index && active === true?'bg-blue-700 text-white':'','py-4 pl-8']"
          :key="'listsTags'+index"
          @click="goSlug(index)"
       >
@@ -15,21 +15,28 @@
 
 <script>
 import { ListsTags } from './Slug'
-import { ref } from "vue"
+import { computed, ref } from "vue"
+import { useStore } from 'vuex'
 
 export default {
   name: 'Slug',
   async setup () {
-    // slug
+    const store = useStore()
+
+    // slug列表
     let listsTags = await ListsTags()
+
+    // 切换slug
     let selectSlug = ref(0)
     const goSlug = ( index ) => {
       selectSlug.value = index
+      store.dispatch('SelectSlug')
     }
     return {
       listsTags,
       selectSlug,
-      goSlug
+      goSlug,
+      active:computed(()=>store.getters.getSlug)
     }
   }
 }

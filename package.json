@@ -9,7 +9,8 @@
     "axios": "^0.21.1",
     "normalize.css": "^8.0.1",
     "vue": "^3.0.11",
-    "vue-router": "^4.0.8"
+    "vue-router": "^4.0.8",
+    "vuex": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.1.2",
