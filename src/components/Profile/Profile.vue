@@ -1,7 +1,7 @@
 <template>
-  <div class="w-auto pt-28">
-    <div class="h-full w-full rounded-l-xl overflow-hidden">
-      <div class="bg-white font-bold divide-y divide-gray-200">
+  <div class="flex h-screen justify-between flex-col pt-28 w-auto rounded-l-xl">
+    <div>
+      <div class="bg-white rounded-tl-xl font-bold divide-y divide-gray-200">
         <div class="py-2 ml-4">Profile</div>
         <div></div>
       </div>
@@ -33,7 +33,9 @@
           </svg>
         </div>
       </div>
-      <div class="rounded-l-xl w-full bg-white my-2 pb-2">
+    </div>
+    <div>
+      <div class="rounded-l-xl w-full bg-white mt-2 pb-2">
         <div class="text-xs font-bold px-4 py-2">Description:</div>
         <div class="flex pl-2">
           <svg class="icon cursor-pointer" aria-hidden="true">
@@ -42,7 +44,9 @@
           <div class="text-sm">:{{ profile.user.description }}</div>
         </div>
       </div>
-      <div class="rounded-l-xl w-full bg-white mt-2 h-full text-sm">
+    </div>
+    <div class="flex flex-col justify-between h-full flex-1 bg-white rounded-tl-xl w-full  mt-2 text-sm">
+      <div>
         <div class="text-xs font-bold px-4 py-2">Other:</div>
         <div class="flex items-center pl-2">
           <svg class="icon cursor-pointer" aria-hidden="true">
@@ -65,17 +69,19 @@
           <div class="text-sm">累计访问:</div>
         </div>
         <div class="flex justify-end pr-2">{{ profile.visitCount }}</div>
-        <div class="flex justify-center items-center">
-          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=100 src="//music.163.com/outchain/player?type=0&id=4968696828&auto=1&height=90"></iframe>
-        </div>
+      </div>
+      <div class="mb-4">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=100
+                src="//music.163.com/outchain/player?type=0&id=4968696828&auto=1&height=90"></iframe>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { GetsBloggerProfile,getDuration,getUpdateTime } from './Profile'
-import {ref} from 'vue'
+import { GetsBloggerProfile, getDuration, getUpdateTime } from './Profile'
+import { ref } from 'vue'
+
 export default {
   name: 'Profile',
   async setup () {
@@ -83,12 +89,12 @@ export default {
     const profile = await GetsBloggerProfile()
     // 运行时间
     let time = ref('')
-    setInterval(()=>{
+    setInterval(() => {
       time.value = getDuration(profile.user.createTime)
-    },1000)
+    }, 1000)
     // 更新时间
     let updateTime = getUpdateTime(profile.user.updateTime)
-    return{
+    return {
       profile,
       time,
       updateTime
