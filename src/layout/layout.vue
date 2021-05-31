@@ -2,8 +2,8 @@
   <Header></Header>
   <div class="flex">
     <Slug></Slug>
-    <div class="flex-1 mt-28">
-      <router-view class="mx-8"></router-view>
+    <div class="flex-1">
+      <router-view></router-view>
     </div>
     <Profile></Profile>
   </div>
