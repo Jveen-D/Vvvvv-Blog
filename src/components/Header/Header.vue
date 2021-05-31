@@ -7,7 +7,7 @@
       <div class="flex pl-12">
         <span v-for="(item,index) in listCategories"
               :key="'listCategories'+index"
-              :class="[activeCategory === item.slug && active === false?'text-blue-700':'','cursor-pointer font-medium text-sm pr-4']"
+              :class="[slug === item.slug?'text-blue-700':'','cursor-pointer font-medium text-sm pr-4']"
               @click="goCategory(index,item.slug)">
           {{ item.name }}
         </span>
@@ -24,7 +24,7 @@
 
 <script>
 import { GetsBloggerProfile, ListCategories } from './Header'
-import { ref, computed } from "vue"
+import { ref, computed, onMounted } from "vue"
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 export default {
@@ -32,6 +32,26 @@ export default {
   setup () {
     const Router = useRouter()
     const store = useStore()
+
+    let slug = computed({
+      get:()=>store.getters.getSlug,
+      set:(val)=>store.dispatch('ChangeSlug',val)
+    })
+
+    // 目前所在slug分类
+    let activeCategory = computed(() => Router.currentRoute.value.params.slug)
+    // 提交mutation修改slug
+    onMounted(()=>{
+      slug.value = activeCategory
+    })
+
+    // 点击分类切换
+    const goCategory = ( index, val ) => {
+      slug = val
+      Router.push({
+        path: `/category/slug/${ val }`,
+      })
+    }
 
     // profile 博主信息
     const profile = ref({})
@@ -44,21 +64,13 @@ export default {
       listCategories.value = res
     })
 
-    // 点击分类切换
-    let activeCategory = computed(() => Router.currentRoute.value.params.slug)
-    const goCategory = ( index, slug ) => {
-      store.dispatch('CancelSelectSlug')
-      Router.push({
-        path: `/category/slug/${ slug }`,
-      })
-    }
 
     return {
       profile,
       listCategories,
       goCategory,
       activeCategory,
-      active: computed(() => store.getters.getSlug)
+      slug
     }
   }
 }

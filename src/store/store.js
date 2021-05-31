@@ -3,23 +3,19 @@ import { createStore } from 'vuex'
 export const store = createStore({
     state () {
         return {
-            slug: false
+            slug: ''
         }
     },
     mutations: {
-        SELECT_SLUG ( state ) {
-            state.slug = true
-        },
-        CANCEL_SELECT_SLUG ( state ) {
-            state.slug = false
+        CHANGE_SLUG ( state, data ) {
+            state.slug = data
+            console.log(state.slug)
         },
     },
     actions: {
-        SelectSlug({commit}){
-            commit('SELECT_SLUG')
-        },
-        CancelSelectSlug({commit}){
-            commit('CANCEL_SELECT_SLUG')
+        ChangeSlug({commit},data){
+            commit('CHANGE_SLUG',data)
+            console.log(data)
         }
     },
     getters:{
