@@ -9,17 +9,15 @@ export const store = createStore({
     mutations: {
         CHANGE_SLUG ( state, data ) {
             state.slug = data
-            console.log(state.slug)
-        },
-    },
-    actions: {
-        ChangeSlug({commit},data){
-            commit('CHANGE_SLUG',data)
-            console.log(data)
         }
     },
-    getters:{
-        getSlug(state){
+    actions: {
+        ChangeSlug ( { commit }, data ) {
+            commit('CHANGE_SLUG', data)
+        }
+    },
+    getters: {
+        getSlug ( state ) {
             return state.slug
         }
     }

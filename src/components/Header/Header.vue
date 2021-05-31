@@ -49,7 +49,7 @@ export default {
     const goCategory = ( index, val ) => {
       slug = val
       Router.push({
-        path: `/category/slug/${ val }`,
+        path: `/category/${ val }`,
       })
     }
 

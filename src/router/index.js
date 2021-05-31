@@ -6,12 +6,17 @@ const routes = [
         path: '/category',
         name: 'Category',
         component: Layout,
-        redirect: '/category/slug/vue3',
+        redirect: '/category/vue3',
         children: [
             {
-                path: '/category/slug/:slug',
+                path: '/category/:slug',
                 name: 'category-slug',
                 component: () => import('/@/pages/categoryLists/categoryLists.vue'),
+            },
+            {
+                path: '/sluglist/:slug',
+                name: 'sluglist-slug',
+                component: () => import('/@/pages/slugLists/slugLists.vue'),
             }
         ]
     }

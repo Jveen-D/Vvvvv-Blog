@@ -40,6 +40,9 @@ export default {
     // 点击slug切换
     const goSlug = ( index,val ) => {
       slug = val
+      Router.push({
+        path: `/sluglist/${ val }`,
+      })
     }
 
     // slug列表
