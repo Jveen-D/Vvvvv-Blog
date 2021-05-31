@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import {ListsPostsByCategorySlug} from './categoryLists'
+import {ListsPostsByCategorySlug,GetPostsById} from './categoryLists'
 import { watch, computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -26,6 +26,10 @@ export default {
     const slug = computed(() => Router.currentRoute.value.params.slug)
     let articleLists = ref({})
 
+    let test = ref({})
+    GetPostsById().then((res)=>{
+      console.log(res)
+    })
     watch(slug, ( currentV, preV ) => {
       ListsPostsByCategorySlug(currentV).then((res)=>{
         articleLists.value = res

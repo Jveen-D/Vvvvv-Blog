@@ -86,12 +86,16 @@ export function getPostsBySlug ( params ) {
 }
 
 /**
- * 根据postId获取文章
+ * 根据postId获取文章 formatDisabled一定要为false，为false才会返回解析之后的md文档
  * @method getPostsById
  * @param {string} postId - 必填，文章id
  */
-export function getPostsById (postId) {
-    return axios({ url: `/content/posts/${postId}`, method: 'get' })
+export function getPostsById ( postId ) {
+    return axios({
+        url: `/content/posts/${ postId }`, method: 'get', params: {
+            formatDisabled: false
+        }
+    })
 }
 
 /**
@@ -99,8 +103,8 @@ export function getPostsById (postId) {
  * @method listsCommentWithListView
  * @param {string} postId - 必填，文章id
  */
-export function listsCommentWithListView (postId) {
-    return axios({ url: `/content/posts/${postId}/comments/list_view`, method: 'get' })
+export function listsCommentWithListView ( postId ) {
+    return axios({ url: `/content/posts/${ postId }/comments/list_view`, method: 'get' })
 }
 
 /**
@@ -108,8 +112,8 @@ export function listsCommentWithListView (postId) {
  * @method listTopComments
  * @param {string} postId - 必填，文章id
  */
-export function listTopComments (postId) {
-    return axios({ url: `/content/posts/${postId}/comments/top_view`, method: 'get' })
+export function listTopComments ( postId ) {
+    return axios({ url: `/content/posts/${ postId }/comments/top_view`, method: 'get' })
 }
 
 /**
@@ -117,8 +121,8 @@ export function listTopComments (postId) {
  * @method getsNextPostByCurrentPostId
  * @param {string} postId - 必填，文章id
  */
-export function getsNextPostByCurrentPostId (postId) {
-    return axios({ url: `/content/posts/${postId}/next`, method: 'get' })
+export function getsNextPostByCurrentPostId ( postId ) {
+    return axios({ url: `/content/posts/${ postId }/next`, method: 'get' })
 }
 
 /**
@@ -126,8 +130,8 @@ export function getsNextPostByCurrentPostId (postId) {
  * @method getsPreviousPostByCurrentPostId
  * @param {string} postId - 必填，文章id
  */
-export function getsPreviousPostByCurrentPostId (postId) {
-    return axios({ url: `/content/posts/${postId}/prev`, method: 'get' })
+export function getsPreviousPostByCurrentPostId ( postId ) {
+    return axios({ url: `/content/posts/${ postId }/prev`, method: 'get' })
 }
 
 /**
@@ -150,8 +154,8 @@ export function listsTags () {
  * 根据slug获取文章列表
  * @method listsPostsByTagSlug
  */
-export function listsPostsByTagSlug (slug) {
-    return axios({ url: `/content/tags/${slug}/posts`, method: 'get' })
+export function listsPostsByTagSlug ( slug ) {
+    return axios({ url: `/content/tags/${ slug }/posts`, method: 'get' })
 }
 
 /**
