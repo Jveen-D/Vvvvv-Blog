@@ -7,8 +7,8 @@
       <div class="flex pl-12">
         <span v-for="(item,index) in listCategories"
               :key="'listCategories'+index"
-              :class="[activeCategory === index && active === false?'text-blue-700':'','cursor-pointer font-medium text-sm pr-4']"
-              @click="goCategory(index)">
+              :class="[activeCategory === item.slug && active === false?'text-blue-700':'','cursor-pointer font-medium text-sm pr-4']"
+              @click="goCategory(index,item.slug)">
           {{ item.name }}
         </span>
       </div>
@@ -24,23 +24,33 @@
 
 <script>
 import { GetsBloggerProfile, ListCategories } from './Header'
-import { ref,computed } from "vue"
+import { ref, computed } from "vue"
 import { useStore } from 'vuex'
-
+import { useRouter } from 'vue-router'
 export default {
   name: 'Header',
-  async setup () {
+  setup () {
+    const Router = useRouter()
     const store = useStore()
+
     // profile 博主信息
-    const profile = await GetsBloggerProfile()
+    const profile = ref({})
+    GetsBloggerProfile().then(( res ) => {
+      profile.value = res
+    })
     // 文章分类
-    const listCategories = await ListCategories()
+    const listCategories = ref({})
+    ListCategories().then(( res ) => {
+      listCategories.value = res
+    })
 
     // 点击分类切换
-    let activeCategory = ref(0)
-    const goCategory = ( index ) => {
-      activeCategory.value = index
+    let activeCategory = computed(() => Router.currentRoute.value.params.slug)
+    const goCategory = ( index, slug ) => {
       store.dispatch('CancelSelectSlug')
+      Router.push({
+        path: `/category/slug/${ slug }`,
+      })
     }
 
     return {
@@ -48,7 +58,7 @@ export default {
       listCategories,
       goCategory,
       activeCategory,
-      active:computed(()=>store.getters.getSlug)
+      active: computed(() => store.getters.getSlug)
     }
   }
 }

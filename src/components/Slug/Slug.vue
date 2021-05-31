@@ -20,12 +20,14 @@ import { useStore } from 'vuex'
 
 export default {
   name: 'Slug',
-  async setup () {
+  setup () {
     const store = useStore()
 
     // slug列表
-    let listsTags = await ListsTags()
-
+    let listsTags = ref({})
+    ListsTags().then((data)=>{
+      listsTags.value = data
+    })
     // 切换slug
     let selectSlug = ref(0)
     const goSlug = ( index ) => {

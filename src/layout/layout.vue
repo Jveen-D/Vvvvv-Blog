@@ -2,7 +2,9 @@
   <Header></Header>
   <div class="flex">
     <Slug></Slug>
-    <ArticleList></ArticleList>
+    <div class="flex-1 mt-28">
+      <router-view class="mx-8"></router-view>
+    </div>
     <Profile></Profile>
   </div>
 </template>
@@ -10,12 +12,11 @@
 <script>
 import Slug from '/@/components/Slug/Slug.vue'
 import Header from '/@/components/Header/Header.vue'
-import ArticleList from '/@/components/ArticleList/ArticleList.vue'
 import Profile from '/@/components/Profile/Profile.vue'
 
 export default {
   name: 'Layout',
-  components: { Slug, Header, ArticleList, Profile }
+  components: { Slug, Header, Profile }
 }
 </script>
 
