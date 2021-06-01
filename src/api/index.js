@@ -93,7 +93,8 @@ export function getPostsBySlug ( params ) {
 export function getPostsById ( postId ) {
     return axios({
         url: `/content/posts/${ postId }`, method: 'get', params: {
-            formatDisabled: false
+            formatDisabled: false,
+            sourceDisabled: true
         }
     })
 }
