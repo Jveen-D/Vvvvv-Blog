@@ -1,13 +1,13 @@
 <template>
   <div class="flex fixed w-full top-0 bg-opacity-70 bg-white">
-    <div class="flex justify-center items-center shadow-2xl cursor-pointer font-bold text-black w-52 h-20">
+    <div class="flex justify-center items-center shadow-2xl font-bold text-black w-52 h-20">
       Vvvvv-Blog
     </div>
     <div class="flex flex-1 justify-between items-center h-20 pr-6">
       <div class="flex pl-12">
         <span v-for="(item,index) in listCategories"
               :key="'listCategories'+index"
-              :class="[slug === item.slug?'text-blue-700':'','cursor-pointer font-medium text-sm pr-4']"
+              :class="[slug === item.slug?'text-blue-700':'',' font-medium text-sm pr-4']"
               @click="goCategory(index,item.slug)">
           {{ item.name }}
         </span>

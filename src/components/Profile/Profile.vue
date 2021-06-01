@@ -12,7 +12,7 @@
         {{ profile.user.nickname }}
       </div>
       <div class="flex justify-center items-center bg-white pt-2 text-xs">
-        <svg class="icon cursor-pointer" aria-hidden="true">
+        <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-12"></use>
         </svg>
         <p>南京</p>
@@ -22,13 +22,13 @@
       </div>
       <div class="rounded-bl-xl flex pt-4 pb-4 justify-center items-center bg-white">
         <div class="flex justify-between w-3/6">
-          <svg class="icon cursor-pointer" aria-hidden="true">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-weixin"></use>
           </svg>
-          <svg class="icon cursor-pointer" aria-hidden="true">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-github"></use>
           </svg>
-          <svg class="icon cursor-pointer" aria-hidden="true">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-QQ"></use>
           </svg>
         </div>
@@ -38,7 +38,7 @@
       <div class="rounded-l-xl w-full bg-white mt-2 pb-2">
         <div class="text-xs font-bold px-4 py-2">Description:</div>
         <div class="flex pl-2">
-          <svg class="icon cursor-pointer" aria-hidden="true">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-biaoqian"></use>
           </svg>
           <div class="text-sm">:{{ profile.user.description }}</div>
@@ -49,21 +49,21 @@
       <div>
         <div class="text-xs font-bold px-4 py-2">Other:</div>
         <div class="flex items-center pl-2">
-          <svg class="icon cursor-pointer" aria-hidden="true">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-shijian"></use>
           </svg>
           <div class="text-sm">博客已运行:</div>
         </div>
         <div class="flex justify-end pr-2">{{ time }}</div>
         <div class="flex items-center pl-2">
-          <svg class="icon cursor-pointer" aria-hidden="true">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-shijian"></use>
           </svg>
           <div class="text-sm">更新时间:</div>
         </div>
         <div class="flex justify-end pr-2">{{ updateTime }}</div>
         <div class="flex items-center pl-2">
-          <svg class="icon cursor-pointer" aria-hidden="true">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-renshu"></use>
           </svg>
           <div class="text-sm">累计访问:</div>

@@ -4,7 +4,8 @@
       <div
           v-for="(item,index) in articleLists.content"
           :key="'articleLists'+ index"
-          :class="[index != 0?'mt-4':'','w-full bg-white opacity-70 p-4 rounded-lg']">
+          :class="[index != 0?'mt-4':'','w-full bg-white opacity-70 p-4 rounded-lg']"
+          @click="goDetails(item.id)">
         <div class="text-black font-bold">
           {{ item.title }}
         </div>
@@ -18,7 +19,6 @@
 import {ListsPostsByTagSlug} from './slugLists'
 import { watch, computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { ListsPostsByCategorySlug } from '../categoryLists/categoryLists'
 export default {
   name: 'slugLists',
   setup(){
@@ -33,9 +33,15 @@ export default {
     },{
       immediate:true
     })
+    const goDetails = (id) =>{
+      Router.push({
+        path:`/detail/${id}`
+      })
+    }
     return {
       slug,
-      articleLists
+      articleLists,
+      goDetails
     }
   }
 }

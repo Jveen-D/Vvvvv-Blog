@@ -1,6 +1,6 @@
 <template>
   <div class="w-64 h-screen font-bold pt-20">
-    <div class="flex flex-col h-full w-full overflow-y-auto cursor-pointer bg-white bg-opacity-70">
+    <div class="flex flex-col h-full w-full overflow-y-auto bg-white bg-opacity-70">
       <p class="pl-4 py-4 text-black"> All Slugs</p>
       <p v-for="(item,index) in listsTags"
          :class="[slug === item.slug?'bg-blue-700 text-white':'','py-4 pl-8']"
