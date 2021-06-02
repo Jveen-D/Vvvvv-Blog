@@ -79,7 +79,8 @@
 </template>
 
 <script>
-import { GetsBloggerProfile, getDuration, getUpdateTime } from './Profile'
+import { GetsBloggerProfile } from './Profile'
+import {getDuration, getUpdateTime} from '/@/utils/date'
 import { ref } from 'vue'
 
 export default {

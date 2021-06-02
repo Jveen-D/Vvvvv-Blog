@@ -1,7 +1,7 @@
 <template>
   <Header></Header>
   <div class="flex">
-    <Slug></Slug>
+<!--    <Slug></Slug>-->
     <div class="flex-1">
       <router-view></router-view>
     </div>

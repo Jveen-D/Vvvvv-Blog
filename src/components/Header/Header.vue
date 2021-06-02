@@ -24,9 +24,10 @@
 
 <script>
 import { GetsBloggerProfile, ListCategories } from './Header'
-import { ref, computed, onMounted } from "vue"
+import { ref, computed, watch } from "vue"
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+
 export default {
   name: 'Header',
   setup () {
@@ -34,20 +35,19 @@ export default {
     const store = useStore()
 
     let slug = computed({
-      get:()=>store.getters.getSlug,
-      set:(val)=>store.dispatch('ChangeSlug',val)
+      get: () => store.getters.getSlug,
+      set: ( val ) => store.dispatch('ChangeSlug', val)
     })
 
     // 目前所在slug分类
     let activeCategory = computed(() => Router.currentRoute.value.params.slug)
-    // 提交mutation修改slug
-    onMounted(()=>{
+    watch(activeCategory, ( currentV ) => {
       slug.value = activeCategory
+    }, {
+      immediate: true
     })
-
     // 点击分类切换
     const goCategory = ( index, val ) => {
-      slug = val
       Router.push({
         path: `/category/${ val }`,
       })

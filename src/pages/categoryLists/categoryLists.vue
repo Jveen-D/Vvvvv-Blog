@@ -28,9 +28,11 @@ export default {
     let articleLists = ref({})
 
     watch(slug, ( currentV, preV ) => {
-      ListsPostsByCategorySlug(currentV).then((res)=>{
-        articleLists.value = res
-      })
+      if(currentV){
+        ListsPostsByCategorySlug(currentV).then((res)=>{
+          articleLists.value = res
+        })
+      }
     },{
       immediate:true
     })
