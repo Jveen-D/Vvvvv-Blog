@@ -1,12 +1,4 @@
-import { getsBloggerProfile, listCategories } from '/@/api'
-
-// 博主信息
-export function GetsBloggerProfile() {
-    return getsBloggerProfile().then((res)=>{
-//        console.log(res.data.data)
-        return res.data.data
-    })
-}
+import { listCategories } from '/@/api'
 
 // 文章分类
 export function ListCategories() {

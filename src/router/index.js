@@ -14,11 +14,6 @@ const routes = [
                 component: () => import('/@/pages/categoryLists/categoryLists.vue'),
             },
             {
-                path: '/sluglist/:slug',
-                name: 'sluglist-slug',
-                component: () => import('/@/pages/slugLists/slugLists.vue'),
-            },
-            {
                 path: '/detail/:id',
                 name: 'detail-id',
                 component: () => import('/@/pages/postDetail/postDetail.vue'),
