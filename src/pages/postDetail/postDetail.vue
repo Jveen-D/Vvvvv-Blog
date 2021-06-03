@@ -1,6 +1,6 @@
 <template>
-  <div class="h-screen mx-4 pt-28">
-    <div class="flex flex-col items-center h-full w-full overflow-y-auto pb-8 bg-white p-4 rounded-lg">
+  <div :class="[mode === 'light'?'bg-lightMode text-lightMode':'bg-darkMode  text-darkMode','mx-4 mt-28 rounded-2xl bg-white overflow-hidden mb-24']">
+    <div class="flex flex-col items-center w-full overflow-y-auto pb-8 p-4 ">
       <div class="flex justify-center text-2xl font-medium subpixel-antialiased">
         {{ postDetail.title }}
       </div>
@@ -33,7 +33,7 @@
 <script>
 import { GetPostsById } from './postDetail'
 import { useRouter } from 'vue-router'
-import { watch, computed, ref } from 'vue'
+import { reactive, toRefs, watch, computed } from 'vue'
 import { useStore } from 'vuex'
 import './postDetail.scss'
 import '/src/assets/css/xcode.css'
@@ -45,24 +45,25 @@ export default {
   setup () {
     const Router = useRouter()
     const store = useStore()
-    const id = computed(() => Router.currentRoute.value.params.id)
-    let postDetail = ref('')
-    let markdownBody = ref(null)
-    let createTime = ref('')
-    let slug = computed({
-      get: () => store.getters.getSlug,
-      set: ( val ) => store.dispatch('ChangeSlug', val)
+    const state = reactive({
+      id: computed(() => Router.currentRoute.value.params.id),
+      postDetail:'',
+      markdownBody:'',
+      createTime:'',
+      slug:computed(()=>store.state.slug),
+      mode:computed(()=>store.state.mode)
     })
+    let { id } = { ...toRefs(state) }
 
-    watch(id, ( currentV, preV ) => {
-      if(currentV){
+    watch(id, ( currentV ) => {
+      if (currentV) {
         GetPostsById(currentV).then(( res ) => {
-          postDetail.value = res
-          createTime.value = getUpdateTime(postDetail.value.createTime)
-          slug.value = computed(()=>postDetail.value.categories[0].slug)
-          markdownBody.value.innerHTML += postDetail.value.formatContent
+          state.postDetail = res
+          state.createTime = getUpdateTime(state.postDetail.createTime)
+          state.markdownBody.innerHTML += state.postDetail.formatContent
+          store.dispatch('ChangeSlug', computed(()=>state.postDetail.categories[0].slug))
           let pre = Array.from(document.getElementsByTagName('pre'))
-          pre.forEach(( item, index ) => {
+          pre.forEach(( item ) => {
             item.insertAdjacentHTML('beforebegin', '<figcaption class="line-numbers-head">' +
                 '<div class="custom-carbon">' +
                 '<div class="custom-carbon-dot custom-carbon-dot--red"></div>' +
@@ -79,9 +80,7 @@ export default {
       immediate: true
     })
     return {
-      markdownBody,
-      postDetail,
-      createTime
+      ...toRefs(state)
     }
   }
 }

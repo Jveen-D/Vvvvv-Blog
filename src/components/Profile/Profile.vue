@@ -1,26 +1,26 @@
 <template>
-  <div class="flex h-screen justify-between flex-col pt-28 w-auto rounded-l-xl">
-    <div>
-      <div class="bg-white rounded-tl-xl font-bold divide-y divide-gray-200">
+  <div class="flex h-full justify-between flex-col mt-28 w-auto rounded-l-xl">
+    <div :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','rounded-l-xl overflow-hidden']">
+      <div :class="[mode === 'light'?'divide-gray-200':'divide-black','font-bold divide-y']">
         <div class="py-2 ml-4">Profile</div>
         <div></div>
       </div>
-      <div class="flex justify-center items-end bg-white w-full h-24">
+      <div class="flex justify-center items-end  w-full h-24">
         <img :src="profile.user.avatar" alt="avatar" class="w-20 h-20 rounded-full"/>
       </div>
-      <div class="flex justify-center items-center bg-white pt-4 font-bold text-black text-sm">
+      <div :class="[mode === 'light'?'text-black':'','flex justify-center items-center  pt-4 font-bold text-sm']">
         {{ profile.user.nickname }}
       </div>
-      <div class="flex justify-center items-center bg-white pt-2 text-xs">
+      <div class="flex justify-center items-center  pt-2 text-xs">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-12"></use>
         </svg>
         <p>南京</p>
       </div>
-      <div class="flex justify-center items-center bg-white pt-2 text-xs">
+      <div class="flex justify-center items-center  pt-2 text-xs">
         {{ profile.user.email }}
       </div>
-      <div class="rounded-bl-xl flex pt-4 pb-4 justify-center items-center bg-white">
+      <div class="rounded-bl-xl flex pt-4 pb-4 justify-center items-center ">
         <div class="flex justify-between w-3/6">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-weixin"></use>
@@ -34,18 +34,16 @@
         </div>
       </div>
     </div>
-    <div>
-      <div class="rounded-l-xl w-full bg-white mt-2 pb-2">
-        <div class="text-xs font-bold px-4 py-2">Description:</div>
-        <div class="flex pl-2">
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-biaoqian"></use>
-          </svg>
-          <div class="text-sm">:{{ profile.user.description }}</div>
-        </div>
+    <div :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','mt-2 rounded-l-xl w-full pb-2']">
+      <div class="text-xs font-bold px-4 py-2">Description:</div>
+      <div class="flex pl-2">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-biaoqian"></use>
+        </svg>
+        <div class="text-sm">:{{ profile.user.description }}</div>
       </div>
     </div>
-    <div class="flex flex-col justify-between h-full flex-1 bg-white rounded-tl-xl w-full  mt-2 text-sm">
+    <div :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','flex flex-col justify-between h-full flex-1  rounded-l-xl w-full  mt-2 text-sm']">
       <div>
         <div class="text-xs font-bold px-4 py-2">Other:</div>
         <div class="flex items-center pl-2">
@@ -80,30 +78,33 @@
 
 <script>
 import { GetsBloggerProfile } from './Profile'
-import {getDuration, getUpdateTime} from '/@/utils/date'
-import { ref } from 'vue'
+import { getDuration, getUpdateTime } from '/@/utils/date'
+import { computed, reactive, toRefs } from 'vue'
+import { useStore } from 'vuex'
 
 export default {
   name: 'Profile',
   async setup () {
-    // profile 博主信息
-    const profile = await GetsBloggerProfile()
-    // 运行时间
-    let time = ref('')
+    const store = useStore()
+    const state = reactive({
+      profile: '',// profile 博主信息
+      time: '',// 运行时间
+      updateTime: '', // 更新时间,
+      mode: computed(() => store.state.mode),//模式
+    })
+    state.profile = await GetsBloggerProfile()
     setInterval(() => {
-      time.value = getDuration(profile.user.createTime)
+      state.time = getDuration(state.profile.user.createTime)
     }, 1000)
     // 更新时间
-    let updateTime = getUpdateTime(profile.user.updateTime)
+    state.updateTime = getUpdateTime(state.profile.user.updateTime)
     return {
-      profile,
-      time,
-      updateTime
+      ...toRefs(state)
     }
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

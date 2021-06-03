@@ -5,7 +5,13 @@ module.exports = {
     extend: {
       colors: {
         'regal-blue': '#E1EEFB',
-        'regal-pink':'#FFF4EF'
+        'regal-pink':'#FFF4EF',
+        'lightMode':'#FFF',
+        'darkMode': '#202124'
+      },
+      textColor:{
+        'lightMode':'#24292e',
+        'darkMode':'#2c3e50'
       }
     },
   },

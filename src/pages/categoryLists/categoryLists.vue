@@ -4,14 +4,14 @@
       <div
           v-for="(item,index) in articleLists.content"
           :key="'articleLists'+ index"
-          :class="[index != 0?'mt-4':'','w-full bg-white p-4 rounded-lg']"
+          :class="[mode === 'light'?'bg-lightMode':'bg-darkMode',index !== 0?'mt-4':'','w-full bg-white p-4 rounded-lg']"
           @click="goDetails(item.id)">
         <div class="flex justify-between">
           <div class="text-black font-bold">{{ item.title }}</div>
           <div class="mr-4 text-sm">发布于 {{ getUpdateTime(item.createTime) }}</div>
         </div>
         <div class="mt-4 tracking-wide leading-8">{{ item.summary }}</div>
-        <div class="flex bg-white flex-wrap">
+        <div class="flex flex-wrap">
           <div v-for="(tag,tagIndex) in item.tags"
                :key="'tagIndex' + tagIndex"
                class="flex flex-nowrap items-center bg-blue-700 rounded-l-lg text-white text-xs pl-2 pr-2 mr-2 mt-2"
@@ -28,24 +28,26 @@
 <script>
 import { getUpdateTime } from '/@/utils/date'
 import { ListsPostsByCategorySlug, ListsPostsByTagSlug } from './categoryLists'
-import { reactive, toRefs, watch, computed, ref } from 'vue'
+import { reactive, toRefs, watch, computed } from 'vue'
 import { useRouter } from 'vue-router'
-
+import { useStore } from 'vuex'
 export default {
   name: 'categoryLists',
   setup () {
     const Router = useRouter()
+    const store = useStore()
     const state = reactive({
       slug: computed(() => Router.currentRoute.value.params.slug),
       articleLists: '',
-      tagSlug: ''
+      tagSlug: '',
+      mode: computed(()=>store.state.mode)
     })
-    let { slug, tagSlug, articleLists } = { ...toRefs(state) }
+    let { slug, tagSlug } = { ...toRefs(state) }
 
     watch(slug, ( currentV ) => {
       if (currentV) {
         ListsPostsByCategorySlug(currentV).then(( res ) => {
-          articleLists.value = res
+          state.articleLists = res
         })
       }
     }, {
@@ -53,7 +55,7 @@ export default {
     })
     watch(tagSlug, ( currentV ) => {
       ListsPostsByTagSlug(currentV).then(( res ) => {
-        articleLists.value = res
+        state.articleLists = res
       })
     })
 
