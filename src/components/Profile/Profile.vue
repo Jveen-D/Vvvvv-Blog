@@ -25,9 +25,11 @@
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-weixin"></use>
           </svg>
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-github"></use>
-          </svg>
+          <a target="_blank" href="https://github.com/Jveen-D">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-github"></use>
+            </svg>
+          </a>
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-QQ"></use>
           </svg>
