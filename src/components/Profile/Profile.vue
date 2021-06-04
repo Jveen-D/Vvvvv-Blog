@@ -22,17 +22,21 @@
       </div>
       <div class="rounded-bl-xl flex pt-4 pb-4 justify-center items-center ">
         <div class="flex justify-between w-3/6">
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-weixin"></use>
-          </svg>
-          <a target="_blank" href="https://github.com/Jveen-D">
+          <a href="weixin://" title="和俺聊天">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-weixin"></use>
+            </svg>
+          </a>
+          <a target="_blank" href="https://github.com/Jveen-D" title="github">
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-github"></use>
             </svg>
           </a>
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-QQ"></use>
-          </svg>
+          <a target="_blank" href="https://wpa.qq.com/msgrd?v=3&uin=85066965&site=qq&menu=yes" title="和俺聊天">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-QQ"></use>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
@@ -45,7 +49,8 @@
         <div class="text-sm">:{{ profile.user.description }}</div>
       </div>
     </div>
-    <div :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','flex flex-col justify-between h-full flex-1  rounded-l-xl w-full  mt-2 text-sm']">
+    <div
+        :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','flex flex-col justify-between h-full flex-1  rounded-l-xl w-full  mt-2 text-sm']">
       <div>
         <div class="text-xs font-bold px-4 py-2">Other:</div>
         <div class="flex items-center pl-2">
