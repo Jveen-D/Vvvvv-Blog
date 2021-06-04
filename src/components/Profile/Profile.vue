@@ -12,7 +12,7 @@
         {{ profile.user.nickname }}
       </div>
       <div class="flex justify-center items-center  pt-2 text-xs">
-        <svg class="icon" aria-hidden="true">
+        <svg class="icon animate-ping" aria-hidden="true">
           <use xlink:href="#icon-12"></use>
         </svg>
         <p>南京</p>

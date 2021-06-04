@@ -1,19 +1,20 @@
 <template>
   <div
-      class="flex justify-center items-center rounded-md fixed top-8 left-8 w-8 h-8 border-solid border-2 border-gray-400"
+      class="flex justify-center items-center animate-pulse rounded-md fixed top-2 left-4 w-8 h-8 border-solid border-2 border-gray-400"
       @click="showCategoriesList">
-    <svg class="icon  " aria-hidden="true">
+    <svg class="icon" aria-hidden="true">
       <use xlink:href="#icon-gengduo"></use>
     </svg>
   </div>
   <div
       :class="[
-          showList ? 'showList' : 'hiddenList',
+          showList ? 'showList' : 'w-0',
+          showList === false ?'hiddenList' : '',
           mode === 'light'?'lightMode bg-gradient-to-t from-regal-blue to-regal-pink':'darkMode ',
-          ' h-screen overflow-hidden items-center fixed top-0 bg-white ' +
+          'h-screen overflow-hidden items-center fixed top-0 bg-white ' +
           'md:w-2/4 md:flex md:h-20 md:w-full md:bg-opacity-70']">
     <div class="md:hidden relative mt-4" @click="showCategoriesList">
-      <svg class="icon absolute right-4" aria-hidden="true">
+      <svg class="icon animate-bounce absolute right-4" aria-hidden="true">
         <use xlink:href="#icon-cha"></use>
       </svg>
     </div>
@@ -26,7 +27,7 @@
                   md:flex md:pt-0">
         <div v-for="(item,index) in listCategories"
              :key="'listCategories'+index"
-             :class="[slug === item.slug?'text-blue-700':'','mt-2 md:mt-0 font-medium text-sm pr-4']"
+             :class="[slug === item.slug?'text-blue-700':'','whitespace-nowrap mt-2 md:mt-0 font-medium text-sm pr-4']"
              @click="goCategory(index,item.slug)">
           {{ item.name }}
         </div>
@@ -34,12 +35,12 @@
       <div class="w-full justify-end md:justify-between md:w-auto flex items-center" @click="changeMode">
         <div class="relative flex justify-between items-center w-20 h-8 bg-gray-100 rounded-md">
           <div class="z-20 flex justify-center items-center w-10 h-full rounded-md">
-            <svg class="icon" aria-hidden="true">
+            <svg :class="[mode === 'light'?'animate-bounce mt-1':'','icon']" aria-hidden="true">
               <use xlink:href="#icon-taiyang"></use>
             </svg>
           </div>
           <div class="z-20 flex justify-center items-center w-10 h-full">
-            <svg class="icon" aria-hidden="true">
+            <svg :class="[mode === 'light'?'':'animate-bounce mt-1','icon']" aria-hidden="true">
               <use xlink:href="#icon-yueliang"></use>
             </svg>
           </div>
@@ -68,7 +69,7 @@ export default {
       mode: computed(() => store.state.mode),
       listCategories:'',
       activeCategory:computed(() => Router.currentRoute.value.params.slug),// 目前所在slug分类
-      showList: false
+      showList: ''
     })
     let {activeCategory} = {...toRefs(state)}
 
@@ -98,7 +99,6 @@ export default {
     // 移动端显示分类
     const showCategoriesList = () => {
       state.showList = !state.showList
-      console.log(state.showList)
     }
     return {
       goCategory,

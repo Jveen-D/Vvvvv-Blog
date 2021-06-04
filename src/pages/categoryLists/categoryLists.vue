@@ -1,23 +1,23 @@
 <template>
-  <div class="h-screen mx-8 pt-28 overflow-hidden">
-    <div class="hideScrollAxis h-full overflow-y-scroll pb-8">
+  <div class="mx-4 md:mx-8 pt-12 md:pt-28 h-screen overflow-hidden">
+    <div class="md:-mr-4 h-full overflow-y-scroll pb-8">
       <div
           v-for="(item,index) in articleLists.content"
           :key="'articleLists'+ index"
           :class="[mode === 'light'?'bg-lightMode':'bg-darkMode',index !== 0?'mt-4':'','w-full bg-white p-4 rounded-lg']"
           @click="goDetails(item.id)">
-        <div class="flex justify-between">
-          <div class="text-black font-bold">{{ item.title }}</div>
-          <div class="mr-4 text-sm">发布于 {{ getUpdateTime(item.createTime) }}</div>
+        <div class="md:flex md:justify-between">
+          <div class="text-black font-bold underline">{{ item.title }}</div>
+          <div class="text-right mr-4 text-sm italic">发布于 {{ getUpdateTime(item.createTime) }}</div>
         </div>
-        <div class="mt-4 tracking-wide leading-8">{{ item.summary }}</div>
-        <div class="flex flex-wrap">
+        <div class="md:mt-4 tracking-wide leading-6">{{ item.summary }}</div>
+        <div class="flex items-center flex-wrap">
           <div v-for="(tag,tagIndex) in item.tags"
                :key="'tagIndex' + tagIndex"
-               class="flex flex-nowrap items-center bg-blue-700 rounded-l-lg text-white text-xs pl-2 pr-2 mr-2 mt-2"
+               class="flex flex-nowrap items-center bg-blue-700  rounded-l-lg text-white text-xs pl-2 pr-2 mr-2 mt-2"
                @click.stop="changeSlug(tag.slug)">
-            <div class="w-1 h-1 bg-white rounded-full mr-2"></div>
-            <div>{{ tag.name }}</div>
+            <div class="animate-ping w-1 h-1 bg-white rounded-full mr-2"></div>
+            <span class="text-xs pt-0.5">{{ tag.name }}</span>
           </div>
         </div>
       </div>
@@ -77,9 +77,6 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.hideScrollAxis {
-  width: calc(100% + 15px);
-  padding-left: 15px;
-}
+<style scoped>
+
 </style>
