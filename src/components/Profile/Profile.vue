@@ -97,7 +97,7 @@ export default {
       profile: '',// profile 博主信息
       time: '',// 运行时间
       updateTime: '', // 更新时间,
-      mode: computed(() => store.state.mode),//模式
+      mode: computed(() => store.state.mode)//模式
     })
     state.profile = await GetsBloggerProfile()
     setInterval(() => {

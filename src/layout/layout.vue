@@ -1,10 +1,10 @@
 <template>
-  <Header></Header>
+  <Header ></Header>
   <div :class="[mode === 'dark'?'darkMode':'bg-gradient-to-tr from-regal-blue to-regal-pink','flex']">
     <div class="flex-1">
       <router-view></router-view>
     </div>
-    <Profile></Profile>
+    <Profile class="hidden sm:block"></Profile>
   </div>
 </template>
 
