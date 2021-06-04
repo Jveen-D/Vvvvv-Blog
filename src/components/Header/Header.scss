@@ -190,13 +190,11 @@
 
 // 移动端分类切换动画
 .showList{
-  width: 50%;
-  animation: showListAnimation .2s alternate;
+  animation: showListAnimation .2s;
   animation-fill-mode: forwards;
 }
 .hiddenList{
-  width: 0;
-  animation: hiddenListAnimation .2s alternate;
+  animation: hiddenListAnimation .2s;
   animation-fill-mode: forwards;
 }
 @keyframes showListAnimation {

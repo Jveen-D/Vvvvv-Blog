@@ -8,10 +8,10 @@
   </div>
   <div
       :class="[
-          showList === true?'showList':'hiddenList',
-          mode === 'light'?'lightMode bg-gradient-to-t from-regal-blue to-regal-pink':'darkMode',
-          'md:w-2/4 h-screen overflow-hidden items-center fixed top-0 bg-white ' +
-          'md:flex md:h-20 md:w-full md:bg-opacity-70']">
+          showList ? 'showList' : 'hiddenList',
+          mode === 'light'?'lightMode bg-gradient-to-t from-regal-blue to-regal-pink':'darkMode ',
+          ' h-screen overflow-hidden items-center fixed top-0 bg-white ' +
+          'md:w-2/4 md:flex md:h-20 md:w-full md:bg-opacity-70']">
     <div class="md:hidden relative mt-4" @click="showCategoriesList">
       <svg class="icon absolute right-4" aria-hidden="true">
         <use xlink:href="#icon-cha"></use>
@@ -111,5 +111,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "/Header.scss";
+@import "Header.scss";
 </style>
