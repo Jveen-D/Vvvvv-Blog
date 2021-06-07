@@ -1,6 +1,6 @@
 <template>
   <div
-      class="flex justify-center items-center animate-pulse rounded-md fixed top-2 left-4 w-8 h-8 border-solid border-2 border-gray-400"
+      class="md:hidden flex justify-center items-center animate-pulse rounded-md fixed top-2 left-4 w-8 h-8 border-solid border-2 border-gray-400"
       @click="showCategoriesList">
     <svg class="icon" aria-hidden="true">
       <use xlink:href="#icon-gengduo"></use>
@@ -58,6 +58,7 @@ import { ListCategories } from './Header'
 import { reactive, toRefs, computed, watch } from "vue"
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+import { preventScrollY } from '/@/utils/utils'
 
 export default {
   name: 'Header',
@@ -67,12 +68,16 @@ export default {
     const state = reactive({
       slug: computed(() => store.state.slug),
       mode: computed(() => store.state.mode),
-      listCategories:'',
-      activeCategory:computed(() => Router.currentRoute.value.params.slug),// 目前所在slug分类
+      listCategories: '',
+      activeCategory: computed(() => Router.currentRoute.value.params.slug),// 目前所在slug分类
       showList: ''
     })
-    let {activeCategory} = {...toRefs(state)}
+    let { activeCategory,showList } = { ...toRefs(state) }
 
+
+    watch(showList,(newVal)=>{
+      preventScrollY(newVal)
+    })
     // 目前所在slug分类
     watch(activeCategory, () => {
       store.dispatch('ChangeSlug', activeCategory)
@@ -85,21 +90,18 @@ export default {
       Router.push({
         path: `/category/${ val }`,
       })
+      showCategoriesList()
     }
 
     // 文章分类
-    ListCategories().then(( res ) => {
-      state.listCategories = res
-    })
+    ListCategories().then(( res ) => state.listCategories = res)
     // 切换主题模式
     const changeMode = () => {
       let mode = store.state.mode === 'light' ? 'dark' : 'light'
       store.dispatch('ChangeMode', mode)
     }
     // 移动端显示分类
-    const showCategoriesList = () => {
-      state.showList = !state.showList
-    }
+    const showCategoriesList = () => state.showList = !state.showList
     return {
       goCategory,
       changeMode,

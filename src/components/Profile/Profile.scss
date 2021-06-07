@@ -1,0 +1,79 @@
+// 移动端分类切换动画
+.showProfile{
+  animation: showProfileAnimation .2s;
+  animation-fill-mode: forwards;
+}
+.hiddenProfile{
+  animation: hiddenProfileAnimation .2s;
+  animation-fill-mode: forwards;
+}
+@keyframes showProfileAnimation {
+  0% {
+    width: 0;
+  }
+  10% {
+    width: 5%;
+  }
+  20% {
+    width: 10%;
+  }
+  30% {
+    width: 15%;
+  }
+  40% {
+    width: 20%;
+  }
+  50% {
+    width: 25%;
+  }
+  60% {
+    width: 30%;
+  }
+  70% {
+    width: 35%;
+  }
+  80% {
+    width: 40%;
+  }
+  90% {
+    width: 45%;
+  }
+  100% {
+    width: 50%;
+  }
+}
+@keyframes hiddenProfileAnimation {
+  0% {
+    width: 50%;
+  }
+  10% {
+    width: 45%;
+  }
+  20% {
+    width: 40%;
+  }
+  30% {
+    width: 35%;
+  }
+  40% {
+    width: 30%;
+  }
+  50% {
+    width: 25%;
+  }
+  60% {
+    width: 20%;
+  }
+  70% {
+    width: 15%;
+  }
+  80% {
+    width: 10%;
+  }
+  90% {
+    width: 5%;
+  }
+  100% {
+    width: 0;
+  }
+}

@@ -1,8 +1,23 @@
 <template>
-  <div class="flex h-full justify-between flex-col mt-28 w-auto rounded-l-xl">
+  <div
+      class="md:hidden flex justify-center items-center animate-pulse rounded-md fixed top-2 right-4 w-8 h-8"
+      @click="showProfileWrap">
+    <img :src="profile.user.avatar" alt="avatar" class="rounded-full"/>
+  </div>
+  <div :class="[
+      showProfile ? 'showProfile' : 'w-0',
+      showProfile === false ?'hiddenProfile' : '',
+      'fixed right-0 md:static md:inset-0 md:block overflow-hidden flex h-full justify-between flex-col md:mt-28 md:w-auto whitespace-nowrap rounded-l-xl']">
     <div :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','rounded-l-xl overflow-hidden']">
       <div :class="[mode === 'light'?'divide-gray-200':'divide-black','font-bold divide-y']">
-        <div class="py-2 ml-4">Profile</div>
+        <div class="flex justify-between py-2 ml-4">
+          <div>Profile</div>
+          <div class="md:hidden mt-2 mr-4" @click="showProfileWrap">
+            <svg class="icon animate-bounce" aria-hidden="true">
+              <use xlink:href="#icon-cha"></use>
+            </svg>
+          </div>
+        </div>
         <div></div>
       </div>
       <div class="flex justify-center items-end  w-full h-24">
@@ -20,7 +35,7 @@
       <div class="flex justify-center items-center  pt-2 text-xs">
         {{ profile.user.email }}
       </div>
-      <div class="rounded-bl-xl flex pt-4 pb-4 justify-center items-center ">
+      <div class="rounded-l-xl flex pt-4 pb-4 justify-center items-center ">
         <div class="flex justify-between w-3/6">
           <a href="weixin://" title="和俺聊天">
             <svg class="icon" aria-hidden="true">
@@ -86,26 +101,36 @@
 <script>
 import { GetsBloggerProfile } from './Profile'
 import { getDuration, getUpdateTime } from '/@/utils/date'
-import { computed, reactive, toRefs } from 'vue'
+import { computed, reactive, toRefs, watch } from 'vue'
 import { useStore } from 'vuex'
-
+import { preventScrollY } from '/@/utils/utils'
 export default {
   name: 'Profile',
   async setup () {
     const store = useStore()
     const state = reactive({
+      showProfile: '',
       profile: '',// profile 博主信息
       time: '',// 运行时间
       updateTime: '', // 更新时间,
       mode: computed(() => store.state.mode)//模式
     })
+    let { showProfile } = { ...toRefs(state) }
+
+    watch(showProfile,(newVal)=>{
+      preventScrollY(newVal)
+    })
+
     state.profile = await GetsBloggerProfile()
     setInterval(() => {
       state.time = getDuration(state.profile.user.createTime)
     }, 1000)
     // 更新时间
     state.updateTime = getUpdateTime(state.profile.user.updateTime)
+
+    const showProfileWrap = () => state.showProfile = !state.showProfile
     return {
+      showProfileWrap,
       ...toRefs(state)
     }
   }
@@ -113,5 +138,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+@import "./Profile.scss";
 </style>
