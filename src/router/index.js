@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router"
 import Layout from "/@/layout/layout.vue"
+
 const routes = [
     { path: '/', name: 'Index', redirect: '/category' },//捕获所有路由
     {
