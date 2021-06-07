@@ -90,7 +90,6 @@ export default {
       Router.push({
         path: `/category/${ val }`,
       })
-      showCategoriesList()
     }
 
     // 文章分类
