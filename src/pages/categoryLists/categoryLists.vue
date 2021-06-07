@@ -10,7 +10,7 @@
           <div class="text-black font-bold underline">{{ item.title }}</div>
           <div class="text-right mr-4 text-sm italic">发布于 {{ getUpdateTime(item.createTime) }}</div>
         </div>
-        <div class="md:mt-4 tracking-wide leading-6">{{ item.summary }}</div>
+        <div class="md:mt-4 tracking-wide break-all leading-6">{{ item.summary }}</div>
         <div class="flex items-center flex-wrap">
           <div v-for="(tag,tagIndex) in item.tags"
                :key="'tagIndex' + tagIndex"

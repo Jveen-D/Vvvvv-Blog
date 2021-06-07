@@ -1,6 +1,6 @@
 <template>
-  <div :class="[mode === 'light'?'bg-lightMode text-lightMode':'bg-darkMode  text-darkMode','mx-4 mt-28 rounded-2xl bg-white overflow-hidden mb-24']">
-    <div class="flex flex-col items-center w-full overflow-y-auto pb-8 p-4 ">
+  <div :class="[mode === 'light'?'bg-lightMode text-lightMode':'bg-darkMode  text-darkMode','md:mx-4 mt-28 rounded-2xl bg-white overflow-hidden mb-24']">
+    <div class="flex flex-col items-center w-full overflow-x-none overflow-y-auto mt-6 md:mt-0 pb-8 md:pl-2 md:p-4">
       <div class="flex justify-center text-2xl font-medium subpixel-antialiased">
         {{ postDetail.title }}
       </div>
@@ -24,7 +24,7 @@
           <div>累计看过:{{ postDetail.visits }}</div>
         </div>
       </div>
-      <div ref="markdownBody" class="max-w-screen-md w-full markdown-body">
+      <div ref="markdownBody" class="max-w-screen-md w-screen markdown-body p-2 md:p-0 break-all">
       </div>
     </div>
   </div>
@@ -87,4 +87,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 </style>
