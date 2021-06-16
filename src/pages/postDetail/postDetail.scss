@@ -992,12 +992,26 @@
 figcaption.line-numbers-head {
   width: 100%;
   color: #8d949e;
-  background-color: #fff;
+  background-color: #21252b;
   zoom: 1;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding-right: 6px;
 }
-
+figcaption.line-numbers-head .language{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-family: Ubuntu,sans-serif;
+  font-weight: 700;
+}
 figcaption.line-numbers-head .custom-carbon-dot {
   display: inline-block;
   margin: 0 4px;
@@ -1019,7 +1033,7 @@ figcaption.line-numbers-head .custom-carbon-dot--green {
 }
 
 figcaption.line-numbers-head .custom-carbon {
-  padding: 2px 0 0 9px;
+  padding-left: 9px;
 }
 
 pre.line-numbers {

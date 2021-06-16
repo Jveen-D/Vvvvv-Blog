@@ -91,8 +91,8 @@
         <div class="flex justify-end pr-2">{{ profile.visitCount }}</div>
       </div>
       <div class="mb-4">
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=100
-                src="https://music.163.com/outchain/player?type=0&id=4968696828&auto=1&height=90"></iframe>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=100></iframe>
+<!--        src="https://music.163.com/outchain/player?type=0&id=4968696828&auto=1&height=90"-->
       </div>
     </div>
   </div>
