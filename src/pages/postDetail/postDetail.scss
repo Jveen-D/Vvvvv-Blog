@@ -1001,10 +1001,10 @@ figcaption.line-numbers-head {
   justify-content: space-between;
   text-align: center;
   padding-right: 6px;
+
 }
 figcaption.line-numbers-head .language{
-  position: absolute;
-  width: 100%;
+  position: relative;
   display: flex;
   justify-content: center;
   color: #fff;

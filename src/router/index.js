@@ -30,6 +30,7 @@ router.beforeEach(() => {
 })
 router.isReady().then(() => {
     console.log('Welcome Vvvv-Blog!')
+    console.log("%cGitHub： https://github.com/Jveen-D/Vvvvv-Blog ","color:orangered;font-weight:bolder")
 })
 
 export default router
