@@ -7,10 +7,11 @@
           :class="[mode === 'light'?'bg-lightMode':'bg-darkMode',index !== 0?'mt-4':'','w-full bg-white p-4 rounded-lg']"
           @click="goDetails(item.id)">
         <div class="md:flex md:justify-between">
-          <div class="text-black font-bold underline">{{ item.title }}</div>
+          <div :class="[mode === 'light'?'text-black':'darkModeTitleColor',' font-bold font hoverFont']"
+          @mouseleave="leaveTitle" @mouseenter="enterTitle">{{ item.title }}</div>
           <div class="text-right mr-4 text-sm italic">发布于 {{ getUpdateTime(item.createTime) }}</div>
         </div>
-        <div class="md:mt-4 tracking-wide break-all leading-6">{{ item.summary }}</div>
+        <div class="md:mt-4 tracking-wide break-all leading-6 font">{{ item.summary }}</div>
         <div class="flex items-center flex-wrap">
           <div v-for="(tag,tagIndex) in item.tags"
                :key="'tagIndex' + tagIndex"
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+import  './categoryLists.scss'
 import { getUpdateTime } from '/@/utils/date'
 import { ListsPostsByCategorySlug, ListsPostsByTagSlug } from './categoryLists'
 import { reactive, toRefs, watch, computed } from 'vue'
@@ -40,7 +42,7 @@ export default {
       slug: computed(() => Router.currentRoute.value.params.slug),
       articleLists: '',
       tagSlug: '',
-      mode: computed(()=>store.state.mode)
+      mode: computed(()=>store.state.mode),
     })
     let { slug, tagSlug } = { ...toRefs(state) }
 
@@ -58,7 +60,6 @@ export default {
         state.articleLists = res
       })
     })
-
     const changeSlug = ( val ) => {
       tagSlug.value = val
     }
@@ -67,16 +68,21 @@ export default {
         path: `/detail/${ id }`
       })
     }
+    const leaveTitle = (e) => {
+      e.target.classList.remove('hoverTitle')
+      e.target.classList.add('leaveTitle')
+    }
+    const enterTitle = (e) => {
+      e.target.classList.add('hoverTitle')
+    }
     return {
       ...toRefs(state),
       getUpdateTime,
       goDetails,
-      changeSlug
+      changeSlug,
+      leaveTitle,
+      enterTitle
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>

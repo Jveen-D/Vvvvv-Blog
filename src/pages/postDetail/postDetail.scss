@@ -1003,15 +1003,17 @@ figcaption.line-numbers-head {
   padding-right: 6px;
 
 }
-figcaption.line-numbers-head .language{
+
+figcaption.line-numbers-head .language {
   position: relative;
   display: flex;
   justify-content: center;
   color: #fff;
   font-size: 16px;
-  font-family: Ubuntu,sans-serif;
+  font-family: Ubuntu, sans-serif;
   font-weight: 700;
 }
+
 figcaption.line-numbers-head .custom-carbon-dot {
   display: inline-block;
   margin: 0 4px;
@@ -1049,7 +1051,7 @@ pre.line-numbers {
 // code高亮
 .markdown-body {
   code:not(.hljs) {
-    background: #21252b;
+    background: #f5f6f7;
     color: #e67474;
     word-break: break-word;
     font-family: Source Code Pro, monospace;

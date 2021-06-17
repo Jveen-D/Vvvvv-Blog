@@ -30,7 +30,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import { GetPostsById } from './postDetail'
 import { useRouter } from 'vue-router'
@@ -61,24 +60,26 @@ export default {
           state.postDetail = res
           state.createTime = getUpdateTime(state.postDetail.createTime)
           state.markdownBody.innerHTML += state.postDetail.formatContent
+
           store.dispatch('ChangeSlug', computed(() => state.postDetail.categories[0].slug))
           let pre = Array.from(document.getElementsByTagName('pre'))
-
-          pre.forEach(( item ) => {
+          code = Array.from(document.querySelectorAll('pre code'))
+          pre.forEach(( item,index ) => {
             let language = item.children[0].classList[0].split('-')[1].toUpperCase()
-            item.insertAdjacentHTML('beforebegin', '<figcaption class="line-numbers-head">' +
-                '<div class="custom-carbon">' +
-                '<div class="custom-carbon-dot custom-carbon-dot--red"></div>' +
-                '<div class="custom-carbon-dot custom-carbon-dot--yellow"></div>' +
-                '<div class="custom-carbon-dot custom-carbon-dot--green"></div>' +
-                '</div>' +
-                `<div class="language">${ language }</div>` +
-                '<a class="copy" title="点击复制">' +
-                '<svg class="icon" aria-hidden="true">' +
-                '<use xlink:href="#icon-fuzhi"></use>' +
-                '</svg>' +
-                '</a>' +
-                '</figcaption>')
+            let html = `<figcaption class="line-numbers-head">
+              <div class="custom-carbon">
+                <div class="custom-carbon-dot custom-carbon-dot--red"></div>
+                <div class="custom-carbon-dot custom-carbon-dot--yellow"></div>
+                <div class="custom-carbon-dot custom-carbon-dot--green"></div>
+              </div>
+              <div class="language">${ language }</div>
+              <a class="copy" onclick="copy(${ index })" title="点击复制">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-fuzhi"></use>
+                </svg>
+              </a>
+            </figcaption>`
+            item.insertAdjacentHTML('beforebegin', html)
             item.classList.add('line-numbers')
           })
           hljs.initHighlightingOnLoad()
@@ -87,13 +88,24 @@ export default {
     }, {
       immediate: true
     })
+    let code
+    window.copy=(index)=>{
+      const ele = document.createElement('div')
+      ele.innerHTML = code[index].innerHTML
+      let copyStr = ''
+      Array.from(ele.innerText).forEach((item)=>{
+        copyStr += item
+      })
+      const textarea = document.createElement('textarea')
+      document.body.appendChild(textarea)
+      textarea.value = copyStr
+      textarea.select()
+      document.execCommand('Copy'); // 执行浏览器复制命令
+      alert('已复制！')
+    }
     return {
-      ...toRefs(state)
+      ...toRefs(state),
     }
   }
 }
 </script>
-
-<style scoped lang="scss">
-
-</style>
