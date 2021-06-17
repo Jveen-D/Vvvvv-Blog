@@ -101,7 +101,7 @@ export default {
       textarea.value = copyStr
       textarea.select()
       document.execCommand('Copy'); // 执行浏览器复制命令
-      alert('已复制！')
+      alert('已复制')
     }
     return {
       ...toRefs(state),
