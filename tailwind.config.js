@@ -11,7 +11,11 @@ module.exports = {
             },
             textColor: {
                 'lightMode': '#24292e',
-                'darkMode': '#2c3e50'
+                'darkMode': '#2c3e50',
+                'FF9100': '#FF9100'
+            },
+            fontFamily:{
+                'mersan':['Merriweather Sans','Helvetica','Tahoma','Arial','PingFang SC','Hiragino Sans GB','Microsoft Yahei','WenQuanYi Micro Hei','sans-serif']
             }
         },
     },

@@ -12,22 +12,19 @@
           showList === false ?'hiddenList' : '',
           mode === 'light'?'lightMode bg-gradient-to-t from-regal-blue to-regal-pink':'darkMode ',
           'h-screen overflow-hidden items-center fixed top-0 bg-white ' +
-          'md:w-2/4 md:flex md:h-20 md:w-full md:bg-opacity-70']">
+          'md:w-2/4 md:flex md:h-20 md:w-full md:bg-opacity-70 z-10']">
     <div class="md:hidden relative mt-4" @click="showCategoriesList">
       <svg class="icon animate-bounce absolute right-4" aria-hidden="true">
         <use xlink:href="#icon-cha"></use>
       </svg>
     </div>
-    <div class="hidden md:malfunction">
-      <div>Vvvvv-Blog</div>
-    </div>
-    <div class="flex flex-col flex-1 justify-between items-center pr-6
-                md:flex-row md:h-20">
-      <div class="pl-12 pt-4
-                  md:flex md:pt-0">
+    <div class="flex flex-col flex-1 justify-between items-center pr-6 md:flex-row md:h-20">
+      <div class="pl-12 pt-4 md:flex md:pt-0">
         <div v-for="(item,index) in listCategories"
              :key="'listCategories'+index"
-             :class="[slug === item.slug?'text-blue-700':'','whitespace-nowrap mt-2 md:mt-0 font-medium text-sm pr-4']"
+             :class="[slug === item.slug?'text-FF9100':'',
+             mode === 'light'?'text-black':'',
+             'font-mersan whitespace-nowrap mt-2 md:mt-0 font-medium text-sm pr-4 transition-colors duration-500 ease-in-out  hover:text-FF9100']"
              @click="goCategory(index,item.slug)">
           {{ item.name }}
         </div>
@@ -72,10 +69,10 @@ export default {
       activeCategory: computed(() => Router.currentRoute.value.params.slug),// 目前所在slug分类
       showList: ''
     })
-    let { activeCategory,showList } = { ...toRefs(state) }
+    let { activeCategory, showList } = { ...toRefs(state) }
 
 
-    watch(showList,(newVal)=>{
+    watch(showList, ( newVal ) => {
       preventScrollY(newVal)
     })
     // 目前所在slug分类

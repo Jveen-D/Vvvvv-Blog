@@ -1,8 +1,8 @@
 <template>
   <div
-      :class="[mode === 'light'?'bg-lightMode text-lightMode':'bg-darkMode  text-darkMode','md:mx-4 mt-28 rounded-2xl bg-white overflow-hidden mb-24']">
+      :class="[mode === 'light'?'bg-lightMode text-lightMode':'bg-darkMode  text-darkMode','md:mx-4 mt-28 rounded-2xl bg-white font-mersan overflow-hidden mb-24 duration-500 ease-in-out']">
     <div class="flex flex-col items-center w-full overflow-x-none overflow-y-auto mt-6 md:mt-0 pb-8 md:pl-2 md:p-4">
-      <div class="flex justify-center text-2xl font-medium subpixel-antialiased">
+      <div class="flex justify-center text-2xl subpixel-antialiased transition-colors hover:text-FF9100">
         {{ postDetail.title }}
       </div>
       <div class="flex justify-center text-sm my-4">
