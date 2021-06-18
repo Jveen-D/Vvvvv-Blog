@@ -4,7 +4,8 @@
       @click="showProfileWrap">
     <img :src="profile.user.avatar" alt="avatar" class="rounded-full"/>
   </div>
-  <div :class="[
+  <div
+      :class="[
       showProfile ? 'showProfile' : 'w-0',
       showProfile === false ?'hiddenProfile' : '',
       'fixed right-0 md:static md:inset-0 md:block overflow-hidden flex h-full justify-between flex-col md:mt-28 md:w-auto whitespace-nowrap rounded-l-xl']">
@@ -55,13 +56,32 @@
         </div>
       </div>
     </div>
-    <div :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','mt-2 rounded-l-xl w-full pb-2']">
-      <div class="text-xs font-bold px-4 py-2">Description:</div>
+    <div :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','mt-2 rounded-l-xl w-full pb-2']"
+         style="width: 300px;">
+      <div class="text-xs font-bold px-4 py-2">博客技术细节:</div>
       <div class="flex pl-2">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-biaoqian"></use>
         </svg>
-        <div class="text-sm">:{{ profile.user.description }}</div>
+        <div class="text-sm">:使用Vue3 Components API</div>
+      </div>
+      <div class="flex pl-2">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-biaoqian"></use>
+        </svg>
+        <div class="text-sm">:代码支持高亮显示</div>
+      </div>
+      <div class="flex pl-2">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-biaoqian"></use>
+        </svg>
+        <div class="text-sm">:使用Docker创建Jenkins持续集成</div>
+      </div>
+      <div class="flex pl-2">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-biaoqian"></use>
+        </svg>
+        <div class="text-sm">:使用shell脚本实现自动化部署</div>
       </div>
     </div>
     <div
@@ -89,10 +109,6 @@
           <div class="text-sm">累计访问:</div>
         </div>
         <div class="flex justify-end pr-2">{{ profile.visitCount }}</div>
-      </div>
-      <div class="mb-4">
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=100></iframe>
-<!--        src="https://music.163.com/outchain/player?type=0&id=4968696828&auto=1&height=90"-->
       </div>
     </div>
   </div>
