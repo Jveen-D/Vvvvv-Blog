@@ -58,26 +58,32 @@
     </div>
     <div :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','mt-2 rounded-l-xl w-full pb-2']"
          style="width: 300px;">
-      <div class="text-xs font-bold px-4 py-2">博客技术细节:</div>
-      <div class="flex pl-2">
+      <div class="text-xs font-bold px-4 pt-2">博客技术细节:</div>
+      <div class="flex pl-2 pt-2">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-biaoqian"></use>
         </svg>
         <div class="text-sm">:使用Vue3 Components API</div>
       </div>
-      <div class="flex pl-2">
+      <div class="flex pl-2 pt-2">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-biaoqian"></use>
         </svg>
         <div class="text-sm">:代码支持高亮显示</div>
       </div>
-      <div class="flex pl-2">
+      <div class="flex pl-2 pt-2">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-biaoqian"></use>
         </svg>
         <div class="text-sm">:使用Docker创建Jenkins持续集成</div>
       </div>
-      <div class="flex pl-2">
+      <div class="flex pl-2 pt-2">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-biaoqian"></use>
+        </svg>
+        <div class="text-sm">:使用Docker创建Nginx服务</div>
+      </div>
+      <div class="flex pl-2 pt-2">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-biaoqian"></use>
         </svg>
