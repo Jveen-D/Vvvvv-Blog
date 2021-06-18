@@ -1,5 +1,7 @@
-const {resolve} = require('path')
+const { resolve } = require('path')
 module.exports = {
+    open: true,
+    ssr: true,
     devServer: {
         proxy: {
             '/api': {
