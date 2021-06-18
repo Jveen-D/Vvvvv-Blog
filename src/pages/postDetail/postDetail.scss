@@ -1060,3 +1060,9 @@ pre.line-numbers {
     border-radius: 5px;
   }
 }
+textarea{
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -10;
+}
