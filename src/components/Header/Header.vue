@@ -55,7 +55,7 @@ import { ListCategories } from './Header'
 import { reactive, toRefs, computed, watch } from "vue"
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import { preventScrollY } from '/@/utils/utils'
+import { preventScrollY } from '@/utils/utils'
 
 export default {
   name: 'Header',

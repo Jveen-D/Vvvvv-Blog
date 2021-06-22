@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router"
-import Layout from "/@/layout/layout.vue"
+import Layout from "@/layout/layout.vue"
 
 const routes = [
     { path: '/', name: 'Index', redirect: '/category' },//捕获所有路由
@@ -12,12 +12,12 @@ const routes = [
             {
                 path: '/category/:slug',
                 name: 'category-slug',
-                component: () => import('/@/pages/categoryLists/categoryLists.vue'),
+                component: () => import('@/pages/categoryLists/categoryLists.vue'),
             },
             {
                 path: '/detail/:id',
                 name: 'detail-id',
-                component: () => import('/@/pages/postDetail/postDetail.vue'),
+                component: () => import('@/pages/postDetail/postDetail.vue'),
             }
         ]
     }

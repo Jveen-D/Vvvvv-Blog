@@ -122,10 +122,10 @@
 
 <script>
 import { GetsBloggerProfile } from './Profile'
-import { getDuration, getUpdateTime } from '/@/utils/date'
+import { getDuration, getUpdateTime } from '@/utils/date'
 import { computed, reactive, toRefs, watch } from 'vue'
 import { useStore } from 'vuex'
-import { preventScrollY } from '/@/utils/utils'
+import { preventScrollY } from '@/utils/utils'
 export default {
   name: 'Profile',
   async setup () {

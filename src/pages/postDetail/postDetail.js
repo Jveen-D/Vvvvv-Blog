@@ -1,4 +1,4 @@
-import { getPostsById } from '/@/api'
+import { getPostsById } from '@/api'
 
 export function GetPostsById(id) {
     return getPostsById(id).then((res)=>{

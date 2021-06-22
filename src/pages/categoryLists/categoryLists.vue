@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { getUpdateTime } from '/@/utils/date'
+import { getUpdateTime } from '@/utils/date'
 import { ListsPostsByCategorySlug, ListsPostsByTagSlug } from './categoryLists'
 import { reactive, toRefs, watch, computed } from 'vue'
 import { useRouter } from 'vue-router'

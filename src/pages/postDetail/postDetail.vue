@@ -38,7 +38,7 @@ import { useStore } from 'vuex'
 import './postDetail.scss'
 import '/src/assets/css/xcode.css'
 import hljs from 'highlight.js'
-import { getUpdateTime } from '/@/utils/date'
+import { getUpdateTime } from '@/utils/date'
 
 export default {
   name: 'postDetail',

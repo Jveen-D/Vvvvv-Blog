@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Header from '/@/components/Header/Header.vue'
-import Profile from '/@/components/Profile/Profile.vue'
+import Header from '@/components/Header/Header.vue'
+import Profile from '@/components/Profile/Profile.vue'
 import { computed, reactive, toRefs } from "vue"
 import { useStore } from 'vuex'
 
