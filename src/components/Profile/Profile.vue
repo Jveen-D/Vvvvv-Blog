@@ -69,6 +69,12 @@
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-biaoqian"></use>
         </svg>
+        <div class="text-sm">:使用Tailwind Css响应式布局</div>
+      </div>
+      <div class="flex pl-2 pt-2">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-biaoqian"></use>
+        </svg>
         <div class="text-sm">:代码支持高亮显示</div>
       </div>
       <div class="flex pl-2 pt-2">
@@ -103,13 +109,6 @@
         <div class="flex justify-end pr-2">{{ time }}</div>
         <div class="flex items-center pl-2">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-shijian"></use>
-          </svg>
-          <div class="text-sm">更新时间:</div>
-        </div>
-        <div class="flex justify-end pr-2">{{ updateTime }}</div>
-        <div class="flex items-center pl-2">
-          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-renshu"></use>
           </svg>
           <div class="text-sm">累计访问:</div>
@@ -122,7 +121,7 @@
 
 <script>
 import { GetsBloggerProfile } from './Profile'
-import { getDuration, getUpdateTime } from '@/utils/date'
+import { getDuration } from '@/utils/date'
 import { computed, reactive, toRefs, watch } from 'vue'
 import { useStore } from 'vuex'
 import { preventScrollY } from '@/utils/utils'
@@ -134,7 +133,6 @@ export default {
       showProfile: '',
       profile: '',// profile 博主信息
       time: '',// 运行时间
-      updateTime: '', // 更新时间,
       mode: computed(() => store.state.mode)//模式
     })
     let { showProfile } = { ...toRefs(state) }
@@ -147,8 +145,6 @@ export default {
     setInterval(() => {
       state.time = getDuration(state.profile.user.createTime)
     }, 1000)
-    // 更新时间
-    state.updateTime = getUpdateTime(state.profile.user.updateTime)
 
     const showProfileWrap = () => state.showProfile = !state.showProfile
     return {
