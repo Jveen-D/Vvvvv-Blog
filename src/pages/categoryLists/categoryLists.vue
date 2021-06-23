@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-4 md:mx-8 pt-12 md:pt-28 h-screen overflow-hidden font-mersan">
+  <div class="mx-4 md:mx-8 pt-12 md:pt-28 h-screen-90vh md:h-screen md:overflow-hidden font-mersan">
     <div class="md:-mr-4 h-full overflow-y-scroll pb-8 duration-500 ease-in-out">
       <div
           v-for="(item,index) in articleLists.content"

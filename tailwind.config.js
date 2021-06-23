@@ -16,6 +16,9 @@ module.exports = {
             },
             fontFamily:{
                 'mersan':['Merriweather Sans','Helvetica','Tahoma','Arial','PingFang SC','Hiragino Sans GB','Microsoft Yahei','WenQuanYi Micro Hei','sans-serif']
+            },
+            height: {
+                'screen-90vh':'calc(90vh)'
             }
         },
     },

@@ -2,7 +2,7 @@
   "name": "Vvvvv-Blog",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "devOpen": "vite --open",
     "build": "vite build"
   },
