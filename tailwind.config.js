@@ -19,6 +19,9 @@ module.exports = {
             },
             height: {
                 'screen-90vh':'calc(90vh)'
+            },
+            margin: {
+                '-1+1/20': '-1.05rem'
             }
         },
     },
