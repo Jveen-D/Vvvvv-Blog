@@ -77,3 +77,82 @@
     width: 0;
   }
 }
+// 移动端分类蒙层切换动画
+.showShadowProfile{
+  animation: showShadowProfileAnimation .2s;
+  animation-fill-mode: forwards;
+}
+.hiddenShadowProfile{
+  animation: hiddenShadowProfileAnimation .2s;
+  animation-fill-mode: forwards;
+}
+@keyframes showShadowProfileAnimation {
+  0% {
+    width: 0;
+  }
+  10% {
+    width: 10%;
+  }
+  20% {
+    width: 20%;
+  }
+  30% {
+    width: 30%;
+  }
+  40% {
+    width: 40%;
+  }
+  50% {
+    width: 50%;
+  }
+  60% {
+    width: 60%;
+  }
+  70% {
+    width: 70%;
+  }
+  80% {
+    width: 80%;
+  }
+  90% {
+    width: 90%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes hiddenShadowProfileAnimation {
+  0% {
+    width: 100%;
+  }
+  10% {
+    width: 90%;
+  }
+  20% {
+    width: 80%;
+  }
+  30% {
+    width: 70%;
+  }
+  40% {
+    width: 60%;
+  }
+  50% {
+    width: 50%;
+  }
+  60% {
+    width: 40%;
+  }
+  70% {
+    width: 30%;
+  }
+  80% {
+    width: 20%;
+  }
+  90% {
+    width: 10%;
+  }
+  100% {
+    width: 0;
+  }
+}
