@@ -5,7 +5,7 @@
       <div class="flex justify-center text-2xl subpixel-antialiased transition-colors hover:text-FF9100">
         {{ postDetail.title }}
       </div>
-      <div class="flex justify-center text-sm my-4">
+      <div class="flex flex-col items-center md:flex-row md:justify-center text-sm my-4">
         <div class="flex items-center mr-4">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-rili"></use>
