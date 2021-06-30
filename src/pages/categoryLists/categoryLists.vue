@@ -1,6 +1,6 @@
 <template>
-  <div class="mx-4 md:mx-8 pt-12 md:pt-28 md:h-screen md:overflow-hidden font-mersan ">
-    <div class="md:-mr-1+1/20 md:h-full md:overflow-y-scroll pb-8 duration-500 ease-in-out">
+  <div class="mx-4 md:mx-8 pt-12 md:pt-28 h-screen md:overflow-hidden font-mersan ">
+    <div class="md:-mr-1+1/20 md:h-full pb-8 duration-500 md:overflow-y-scroll ease-in-out">
       <div
           v-for="(item,index) in articleLists.content"
           :key="'articleLists'+ index"

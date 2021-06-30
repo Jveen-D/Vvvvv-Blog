@@ -1,7 +1,7 @@
 <template>
   <Header ></Header>
   <div :class="[mode === 'dark'?'darkMode':'bg-gradient-to-tr from-regal-blue to-regal-pink','flex']">
-    <div class="flex-1 w-screen h-auto md:h-auto">
+    <div class="flex-1 w-screen overflow-scroll md:overflow-visible">
       <router-view></router-view>
     </div>
     <Profile></Profile>
