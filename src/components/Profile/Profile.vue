@@ -4,9 +4,9 @@
       @click="showProfileWrap">
     <img :src="profile.user.avatar" alt="avatar" class="rounded-full"/>
   </div>
-  <div :class="[showProfile ? 'showShadowProfile md:w-0' : '',
-        showProfile === false ? 'hiddenShadowProfile' : '',
-        'fixed h-screen w-screen bg-red-500 bg-opacity-5 md:bg-transparent']"
+  <div :class="[showProfile ? 'showShadowProfile w-screen bg-red-500 bg-opacity-5 md:w-0' : '',
+        showProfile === false ? 'hiddenShadowProfile w-screen bg-red-500 bg-opacity-5' : '',
+        'fixed h-screen md:bg-transparent']"
        @click.self="showShadowProfileWrap">
   </div>
   <div

@@ -79,15 +79,15 @@
 }
 // 移动端分类蒙层切换动画
 .showShadowProfile{
-  animation: hiddenShadowProfileAnimation .2s;
+  animation: showShadowProfileAnimation .2s;
   animation-fill-mode: forwards;
 
 }
 .hiddenShadowProfile{
-  animation: showShadowProfileAnimation .2s;
+  animation: hiddenShadowProfileAnimation .2s;
   animation-fill-mode: forwards;
 }
-@keyframes showShadowProfileAnimation {
+@keyframes hiddenShadowProfileAnimation {
   0% {
     left: 0;
   }
@@ -122,7 +122,7 @@
     left: 100%;
   }
 }
-@keyframes hiddenShadowProfileAnimation {
+@keyframes showShadowProfileAnimation {
   0% {
     left: 100%;
   }

@@ -1,6 +1,6 @@
 <template>
-  <div class="mx-4 md:mx-8 pt-12 md:pt-28 h-screen md:overflow-hidden font-mersan">
-    <div class="md:-mr-1+1/20 h-full overflow-y-scroll pb-8 duration-500 ease-in-out">
+  <div class="mx-4 md:mx-8 pt-12 md:pt-28 md:h-screen md:overflow-hidden font-mersan ">
+    <div class="md:-mr-1+1/20 md:h-full md:overflow-y-scroll pb-8 duration-500 ease-in-out">
       <div
           v-for="(item,index) in articleLists.content"
           :key="'articleLists'+ index"
@@ -10,7 +10,7 @@
           <div :class="[mode === 'light'?'text-black':'',' font-bold transition-colors  hover:text-FF9100']">{{ item.title }}</div>
           <div class="text-right mr-4 text-sm italic">发布于 {{ getUpdateTime(item.createTime) }}</div>
         </div>
-        <div class="md:mt-4 tracking-wide break-all leading-6 ">{{ item.summary }}</div>
+        <div class="md:mt-4 tracking-wide break-all leading-6 h-24 md:h-auto overflow-y-auto md:overflow-y-none ">{{ item.summary }}...</div>
         <div class="flex items-center flex-wrap">
           <div v-for="(tag,tagIndex) in item.tags"
                :key="'tagIndex' + tagIndex"
