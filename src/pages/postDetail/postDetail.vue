@@ -36,8 +36,6 @@ import { useRouter } from 'vue-router'
 import { reactive, toRefs, watch, computed } from 'vue'
 import { useStore } from 'vuex'
 import './postDetail.scss'
-import '/src/assets/css/xcode.css'
-import hljs from 'highlight.js'
 import { getUpdateTime } from '@/utils/date'
 
 export default {
@@ -82,6 +80,7 @@ export default {
             item.insertAdjacentHTML('beforebegin', html)
             item.classList.add('line-numbers')
           })
+          // eslint-disable-next-line no-undef
           hljs.initHighlightingOnLoad()
         })
       }
@@ -110,3 +109,6 @@ export default {
   }
 }
 </script>
+<style scoped>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.0/styles/xcode.min.css');
+</style>

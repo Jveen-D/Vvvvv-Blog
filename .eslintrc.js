@@ -165,10 +165,10 @@ module.exports = {
     'no-unneeded-ternary': 0, //禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
     'no-unreachable': 2, //不能有无法执行的代码
     'no-unsafe-finally': 0,
-    'no-unused-vars': [2, {
-      'vars': 'all',
-      'args': 'none'
-    }], //不能有声明后未被使用的变量或参数
+    'no-unused-vars': [
+      'error',
+      { varsIgnorePattern: '.*', args: 'none' }
+    ],
     'no-useless-call': 2, //禁止不必要的call和apply
     'no-useless-computed-key': 0, //没有必要使用带文字的计算属性
     'no-useless-constructor': 2, //可以在不改变类的工作方式的情况下安全地移除的类构造函数

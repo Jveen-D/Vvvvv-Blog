@@ -1,10 +1,9 @@
 import axios from 'axios'
-import config from '@/config/index.js'
 const httpRequest = axios.create({
-  baseURL: config.api,
-  timeout: config.timeout * 1000,
+  baseURL: 'http://124.71.57.28:8090/api',
+  timeout: 30000,
   params: {
-    api_access_key: config.api_access_key
+    api_access_key: 'kingofthekill'
   }
 })
 

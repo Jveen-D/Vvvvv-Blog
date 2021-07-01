@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '@/layout/layout.vue'
 
 const routes = [
@@ -32,16 +32,15 @@ const routes = [
     ]
   },
   {
-    path: '/:pathMatch(.*)*',
+    path: '/:catchAll(.*)',
     name: 'Notfound',
     meta: {
       title: 'Vvvvv-Blog! not fount'
     },
-    redirect: '/404',
     component: Layout,
     children: [
       {
-        path: '/404',
+        path: '/:catchAll(.*)',
         name: 'test',
         component: () => import('@/pages/notFound/index.vue')
       }
@@ -49,7 +48,7 @@ const routes = [
   }
 ]
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 router.beforeEach((to, from) => {
