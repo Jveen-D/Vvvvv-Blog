@@ -29,7 +29,7 @@
         <div></div>
       </div>
       <div class="flex justify-center items-end  w-full h-24">
-        <img :src="profile.user.avatar" alt="avatar" class="w-20 h-20 rounded-full" />
+        <img src="https://i.loli.net/2021/07/01/kETLbUZYSgdGr3A.jpg" alt="avatar" class="w-20 h-20 rounded-full" />
       </div>
       <div
         :class="[mode === 'light'?'text-black':'','flex justify-center items-center duration-500 ease-in-out pt-4 font-bold text-sm']">
