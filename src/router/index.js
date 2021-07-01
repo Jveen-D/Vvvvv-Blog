@@ -9,7 +9,7 @@ const routes = [
     meta: {
       title: 'Vvvvv-Blog!'
     }
-  }, //捕获所有路由
+  },
   {
     path: '/category',
     name: 'Category',
@@ -30,6 +30,22 @@ const routes = [
         component: () => import('@/pages/postDetail/postDetail.vue')
       }
     ]
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'Notfound',
+    meta: {
+      title: 'Vvvvv-Blog! not fount'
+    },
+    redirect: '/404',
+    component: Layout,
+    children: [
+      {
+        path: '/404',
+        name: 'test',
+        component: () => import('@/pages/notFound/index.vue')
+      }
+    ]
   }
 ]
 const router = createRouter({
@@ -37,6 +53,10 @@ const router = createRouter({
   routes
 })
 router.beforeEach((to, from) => {
+  console.log(to, from)
+  if (to.fullPath === '/') {
+    router.push({ name: 'Category' })
+  }
   document.title = to.meta.title
 })
 router.isReady().then(() => {
