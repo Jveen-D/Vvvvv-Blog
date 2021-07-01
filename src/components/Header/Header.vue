@@ -1,23 +1,24 @@
 <template>
   <div
-      class="md:hidden flex justify-center items-center animate-pulse rounded-md fixed top-2 left-4 w-8 h-8 border-solid border-2 border-gray-400"
-      @click="showCategoriesList">
+    class="md:hidden flex justify-center items-center animate-pulse rounded-md fixed top-2 left-4 w-8 h-8 border-solid border-2 border-gray-400"
+    @click="showCategoriesList">
     <svg aria-hidden="true" class="icon">
       <use xlink:href="#icon-gengduo"></use>
     </svg>
   </div>
-  <div :class="[showList ? 'showShadowList md:w-0': '',
-                showList === false ? 'hiddenShadowList' : '',
-                'absolute h-screen bg-red-500 bg-opacity-5 md:bg-transparent']"
-       @click.self="showShadowCategoriesList">
+  <div
+    :class="[showList ? 'showShadowList md:w-0': '',
+             showList === false ? 'hiddenShadowList' : '',
+             'absolute h-screen bg-red-500 bg-opacity-5 md:bg-transparent']"
+    @click.self="showShadowCategoriesList">
   </div>
   <div
-      :class="[
-          showList ? 'showList' : 'w-0',
-          showList === false ? 'hiddenList' : '',
-          mode === 'light'?'lightMode bg-gradient-to-t from-regal-blue to-regal-pink bg-red-400':'darkMode ',
-          'h-screen overflow-hidden items-center fixed top-0 ' +
-          'md:flex md:h-20 md:w-full md:bg-opacity-70 z-10']">
+    :class="[
+      showList ? 'showList' : 'w-0',
+      showList === false ? 'hiddenList' : '',
+      mode === 'light'?'lightMode bg-gradient-to-t from-regal-blue to-regal-pink bg-red-400':'darkMode ',
+      'h-screen overflow-hidden items-center fixed top-0 ' +
+        'md:flex md:h-20 md:w-full md:bg-opacity-70 z-10']">
     <div class="md:hidden relative mt-4" @click="showCategoriesList">
       <svg aria-hidden="true" class="icon animate-bounce absolute right-4">
         <use xlink:href="#icon-cha"></use>
@@ -25,12 +26,13 @@
     </div>
     <div class="flex flex-col flex-1 justify-between items-center pr-6 md:flex-row md:h-20">
       <div class="pl-12 pt-4 md:flex md:pt-0">
-        <div v-for="(item,index) in listCategories"
-             :key="'listCategories'+index"
-             :class="[slug === item.slug?'text-FF9100':'',
-             mode === 'light'?'text-black':'',
-             'font-mersan whitespace-nowrap mt-2 md:mt-0 font-medium text-sm pr-4 transition-colors duration-500 ease-in-out  hover:text-FF9100']"
-             @click="goCategory(index,item.slug)">
+        <div
+          v-for="(item,index) in listCategories"
+          :key="'listCategories'+index"
+          :class="[slug === item.slug?'text-FF9100':'',
+                   mode === 'light'?'text-black':'',
+                   'font-mersan whitespace-nowrap mt-2 md:mt-0 font-medium text-sm pr-4 transition-colors duration-500 ease-in-out  hover:text-FF9100']"
+          @click="goCategory(index,item.slug)">
           {{ item.name }}
         </div>
       </div>
@@ -47,38 +49,37 @@
             </svg>
           </div>
           <div
-              :class="[mode === 'light'?'light':'dark','z-10 absolute flex justify-center items-center bg-white w-10 h-8 rounded-md']">
+            :class="[mode === 'light'?'light':'dark','z-10 absolute flex justify-center items-center bg-white w-10 h-8 rounded-md']">
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
 import { ListCategories } from './Header'
-import { computed, reactive, toRefs, watch } from "vue"
+import { computed, reactive, toRefs, watch } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { preventScrollY } from '@/utils/utils'
 
 export default {
   name: 'Header',
-  setup () {
+  setup() {
     const Router = useRouter()
     const store = useStore()
     const state = reactive({
       slug: computed(() => store.state.slug),
       mode: computed(() => store.state.mode),
       listCategories: '',
-      activeCategory: computed(() => Router.currentRoute.value.params.slug),// 目前所在slug分类
+      activeCategory: computed(() => Router.currentRoute.value.params.slug), // 目前所在slug分类
       showList: ''
     })
-    let { activeCategory, showList } = { ...toRefs(state) }
+    const { activeCategory, showList } = { ...toRefs(state) }
 
 
-    watch(showList, ( newVal ) => {
+    watch(showList, (newVal) => {
       preventScrollY(newVal)
     })
     // 目前所在slug分类
@@ -89,17 +90,17 @@ export default {
     })
 
     // 点击分类切换
-    const goCategory = ( index, val ) => {
+    const goCategory = (index, val) => {
       Router.push({
-        path: `/category/${ val }`,
+        path: `/category/${val}`
       })
     }
 
     // 文章分类
-    ListCategories().then(( res ) => state.listCategories = res)
+    ListCategories().then((res) => state.listCategories = res)
     // 切换主题模式
     const changeMode = () => {
-      let mode = store.state.mode === 'light' ? 'dark' : 'light'
+      const mode = store.state.mode === 'light' ? 'dark' : 'light'
       store.dispatch('ChangeMode', mode)
     }
     // 移动端显示分类

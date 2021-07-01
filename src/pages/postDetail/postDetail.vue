@@ -1,6 +1,6 @@
 <template>
   <div
-      :class="[mode === 'light'?'bg-lightMode text-lightMode':'bg-darkMode  text-darkMode','md:mx-4 mt-28 rounded-2xl bg-white font-mersan overflow-hidden mb-24 duration-500 ease-in-out']">
+    :class="[mode === 'light'?'bg-lightMode text-lightMode':'bg-darkMode  text-darkMode','md:mx-4 mt-28 rounded-2xl bg-white font-mersan overflow-hidden mb-24 duration-500 ease-in-out']">
     <div class="flex flex-col items-center w-full overflow-x-none overflow-y-auto mt-6 md:mt-0 pb-8 md:pl-2 md:p-4">
       <div class="flex justify-center text-2xl subpixel-antialiased transition-colors hover:text-FF9100">
         {{ postDetail.title }}
@@ -41,8 +41,8 @@ import hljs from 'highlight.js'
 import { getUpdateTime } from '@/utils/date'
 
 export default {
-  name: 'postDetail',
-  setup () {
+  name: 'PostDetail',
+  setup() {
     const Router = useRouter()
     const store = useStore()
     const state = reactive({
@@ -53,27 +53,27 @@ export default {
       slug: computed(() => store.state.slug),
       mode: computed(() => store.state.mode)
     })
-    let { id } = { ...toRefs(state) }
-    watch(id, ( currentV ) => {
+    const { id } = { ...toRefs(state) }
+    watch(id, (currentV) => {
       if (currentV) {
-        GetPostsById(currentV).then(( res ) => {
+        GetPostsById(currentV).then((res) => {
           state.postDetail = res
           document.title = `Vvvvv-Blog! - ` + state.postDetail.title
           state.createTime = getUpdateTime(state.postDetail.createTime)
           state.markdownBody.innerHTML += state.postDetail.formatContent
           store.dispatch('ChangeSlug', computed(() => state.postDetail.categories[0].slug))
-          let pre = Array.from(document.getElementsByTagName('pre'))
+          const pre = Array.from(document.getElementsByTagName('pre'))
           code = Array.from(document.querySelectorAll('pre code'))
-          pre.forEach(( item,index ) => {
-            let language = item.children[0].classList[0].split('-')[1].toUpperCase()
-            let html = `<figcaption class="line-numbers-head">
+          pre.forEach((item, index) => {
+            const language = item.children[0].classList[0].split('-')[1].toUpperCase()
+            const html = `<figcaption class="line-numbers-head">
               <div class="custom-carbon">
                 <div class="custom-carbon-dot custom-carbon-dot--red"></div>
                 <div class="custom-carbon-dot custom-carbon-dot--yellow"></div>
                 <div class="custom-carbon-dot custom-carbon-dot--green"></div>
               </div>
-              <div class="language">${ language }</div>
-              <a class="copy" onclick="copy(${ index })" title="点击复制">
+              <div class="language">${language}</div>
+              <a class="copy" onclick="copy(${index})" title="点击复制">
                 <svg class="icon" aria-hidden="true">
                   <use xlink:href="#icon-fuzhi"></use>
                 </svg>
@@ -89,23 +89,23 @@ export default {
       immediate: true
     })
     let code
-    window.copy=(index)=>{
+    window.copy = (index) => {
       const ele = document.createElement('div')
       ele.innerHTML = code[index].innerHTML
       let copyStr = ''
-      Array.from(ele.innerText).forEach((item)=>{
+      Array.from(ele.innerText).forEach((item) => {
         copyStr += item
       })
       const textarea = document.createElement('textarea')
       document.body.appendChild(textarea)
       textarea.value = copyStr
       textarea.select()
-      document.execCommand('Copy'); // 执行浏览器复制命令
+      document.execCommand('Copy') // 执行浏览器复制命令
       document.body.removeChild(textarea)
       alert('已复制')
     }
     return {
-      ...toRefs(state),
+      ...toRefs(state)
     }
   }
 }

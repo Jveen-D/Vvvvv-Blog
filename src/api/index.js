@@ -4,24 +4,24 @@ import { axios } from '@/utils/request'
  * 获取文章月份归档
  * @method listMonthArchives
  */
-export function listMonthArchives () {
-    return axios({ url: '/content/archives/month', method: 'get' })
+export function listMonthArchives() {
+  return axios({ url: '/content/archives/month', method: 'get' })
 }
 
 /**
  * 获取文章年份归档
  * @method listYearArchives
  */
-export function listYearArchives () {
-    return axios({ url: '/content/archives/years', method: 'get' })
+export function listYearArchives() {
+  return axios({ url: '/content/archives/years', method: 'get' })
 }
 
 /**
  * 获取文章分类，不包括首页与友情链接
  * @method listCategories
  */
-export function listCategories () {
-    return axios({ url: '/content/categories', method: 'get' })
+export function listCategories() {
+  return axios({ url: '/content/categories', method: 'get' })
 }
 
 /**
@@ -29,40 +29,40 @@ export function listCategories () {
  * @method listsPostsByCategorySlug
  * @param {string} sluy 类型
  */
-export function listsPostsByCategorySlug ( sluy ) {
-    return axios({ url: `/content/categories/${ sluy }/posts`, method: 'get' })
+export function listsPostsByCategorySlug(sluy) {
+  return axios({ url: `/content/categories/${sluy}/posts`, method: 'get' })
 }
 
 /**
  * 获取所有分类，包括首页与友情链接
  * @method listsAllMenus
  */
-export function listsAllMenus () {
-    return axios({ url: 'content/menus', method: 'get' })
+export function listsAllMenus() {
+  return axios({ url: 'content/menus', method: 'get' })
 }
 
 /**
  *  获取所有分类，包括首页与友情链接，与listsAllMenus没啥区别
  * @method listsAllMenusTree
  */
-export function listsAllMenusTree () {
-    return axios({ url: 'content/menus/tree_view', method: 'get' })
+export function listsAllMenusTree() {
+  return axios({ url: 'content/menus/tree_view', method: 'get' })
 }
 
 /**
  *  各种小选项
  * @method listsAllOptionsWithListView
  */
-export function listsAllOptionsWithListView () {
-    return axios({ url: '/content/options/list_view', method: 'get' })
+export function listsAllOptionsWithListView() {
+  return axios({ url: '/content/options/list_view', method: 'get' })
 }
 
 /**
  *  各种小选项，选取一个
  * @method listsOptionsWithListView
  */
-export function listsOptionsWithListView ( key ) {
-    return axios({ url: `/content/options/keys/${ key }`, method: 'get' })
+export function listsOptionsWithListView(key) {
+  return axios({ url: `/content/options/keys/${key}`, method: 'get' })
 }
 
 /**
@@ -72,8 +72,8 @@ export function listsOptionsWithListView ( key ) {
  * @param {number} size - 大小
  * @param {array} sort - 排序
  */
-export function postList ( params ) {
-    return axios({ url: '/content/posts', method: 'get', params })
+export function postList(params) {
+  return axios({ url: '/content/posts', method: 'get', params })
 }
 
 /**
@@ -81,8 +81,8 @@ export function postList ( params ) {
  * @method getPostsBySlug
  * @param {string} slug - 必填，类型
  */
-export function getPostsBySlug ( params ) {
-    return axios({ url: '/content/posts/slug', method: 'get', params })
+export function getPostsBySlug(params) {
+  return axios({ url: '/content/posts/slug', method: 'get', params })
 }
 
 /**
@@ -90,13 +90,13 @@ export function getPostsBySlug ( params ) {
  * @method getPostsById
  * @param {string} postId - 必填，文章id
  */
-export function getPostsById ( postId ) {
-    return axios({
-        url: `/content/posts/${ postId }`, method: 'get', params: {
-            formatDisabled: false,
-            sourceDisabled: true
-        }
-    })
+export function getPostsById(postId) {
+  return axios({
+    url: `/content/posts/${postId}`, method: 'get', params: {
+      formatDisabled: false,
+      sourceDisabled: true
+    }
+  })
 }
 
 /**
@@ -104,8 +104,8 @@ export function getPostsById ( postId ) {
  * @method listsCommentWithListView
  * @param {string} postId - 必填，文章id
  */
-export function listsCommentWithListView ( postId ) {
-    return axios({ url: `/content/posts/${ postId }/comments/list_view`, method: 'get' })
+export function listsCommentWithListView(postId) {
+  return axios({ url: `/content/posts/${postId}/comments/list_view`, method: 'get' })
 }
 
 /**
@@ -113,8 +113,8 @@ export function listsCommentWithListView ( postId ) {
  * @method listTopComments
  * @param {string} postId - 必填，文章id
  */
-export function listTopComments ( postId ) {
-    return axios({ url: `/content/posts/${ postId }/comments/top_view`, method: 'get' })
+export function listTopComments(postId) {
+  return axios({ url: `/content/posts/${postId}/comments/top_view`, method: 'get' })
 }
 
 /**
@@ -122,8 +122,8 @@ export function listTopComments ( postId ) {
  * @method getsNextPostByCurrentPostId
  * @param {string} postId - 必填，文章id
  */
-export function getsNextPostByCurrentPostId ( postId ) {
-    return axios({ url: `/content/posts/${ postId }/next`, method: 'get' })
+export function getsNextPostByCurrentPostId(postId) {
+  return axios({ url: `/content/posts/${postId}/next`, method: 'get' })
 }
 
 /**
@@ -131,40 +131,40 @@ export function getsNextPostByCurrentPostId ( postId ) {
  * @method getsPreviousPostByCurrentPostId
  * @param {string} postId - 必填，文章id
  */
-export function getsPreviousPostByCurrentPostId ( postId ) {
-    return axios({ url: `/content/posts/${ postId }/prev`, method: 'get' })
+export function getsPreviousPostByCurrentPostId(postId) {
+  return axios({ url: `/content/posts/${postId}/prev`, method: 'get' })
 }
 
 /**
  * 获取博客统计信息并携带个人信息，去除个人信息移除路径/user
  * @method getBlogStatistics
  */
-export function getBlogStatistics () {
-    return axios({ url: '/content/statistics/user', method: 'get' })
+export function getBlogStatistics() {
+  return axios({ url: '/content/statistics/user', method: 'get' })
 }
 
 /**
  * 获取所有的slug
  * @method listsTags
  */
-export function listsTags () {
-    return axios({ url: '/content/tags', method: 'get' })
+export function listsTags() {
+  return axios({ url: '/content/tags', method: 'get' })
 }
 
 /**
  * 根据slug获取文章列表
  * @method listsPostsByTagSlug
  */
-export function listsPostsByTagSlug ( slug ) {
-    return axios({ url: `/content/tags/${ slug }/posts`, method: 'get' })
+export function listsPostsByTagSlug(slug) {
+  return axios({ url: `/content/tags/${slug}/posts`, method: 'get' })
 }
 
 /**
  * 获取博主资料
  * @method getsBloggerProfile
  */
-export function getsBloggerProfile () {
-    return axios({ url: '/content/users/profile', method: 'get' })
+export function getsBloggerProfile() {
+  return axios({ url: '/content/users/profile', method: 'get' })
 }
 
 
