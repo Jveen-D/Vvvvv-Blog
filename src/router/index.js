@@ -53,10 +53,6 @@ const router = createRouter({
   routes
 })
 router.beforeEach((to, from) => {
-  console.log(to, from)
-  if (to.fullPath === '/') {
-    router.push({ name: 'Category' })
-  }
   document.title = to.meta.title
 })
 router.isReady().then(() => {
