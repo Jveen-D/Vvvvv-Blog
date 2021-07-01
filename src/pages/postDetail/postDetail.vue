@@ -58,9 +58,9 @@ export default {
       if (currentV) {
         GetPostsById(currentV).then(( res ) => {
           state.postDetail = res
+          document.title = `Vvvvv-Blog! - ` + state.postDetail.title
           state.createTime = getUpdateTime(state.postDetail.createTime)
           state.markdownBody.innerHTML += state.postDetail.formatContent
-
           store.dispatch('ChangeSlug', computed(() => state.postDetail.categories[0].slug))
           let pre = Array.from(document.getElementsByTagName('pre'))
           code = Array.from(document.querySelectorAll('pre code'))

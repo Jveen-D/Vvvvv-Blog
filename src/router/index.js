@@ -2,11 +2,21 @@ import { createRouter, createWebHashHistory } from "vue-router"
 import Layout from "@/layout/layout.vue"
 
 const routes = [
-    { path: '/', name: 'Index', redirect: '/category' },//捕获所有路由
+    {
+        path: '/',
+        name: 'Index',
+        redirect: '/category',
+        meta: {
+            title: 'Vvvvv-Blog!'
+        }
+    },//捕获所有路由
     {
         path: '/category',
         name: 'Category',
         component: Layout,
+        meta: {
+            title: 'Vvvvv-Blog!'
+        },
         redirect: '/category/vue3',
         children: [
             {
@@ -26,11 +36,12 @@ const router = createRouter({
     history: createWebHashHistory(),
     routes
 })
-router.beforeEach(() => {
+router.beforeEach(( to, from ) => {
+    document.title = to.meta.title
 })
 router.isReady().then(() => {
     console.log('Welcome Vvvv-Blog!')
-    console.log("%cGitHub： https://github.com/Jveen-D/Vvvvv-Blog ","color:orangered;font-weight:bolder")
+    console.log("%cGitHub： https://github.com/Jveen-D/Vvvvv-Blog ", "color:orangered;font-weight:bolder")
 })
 
 export default router
