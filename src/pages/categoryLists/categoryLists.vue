@@ -1,5 +1,6 @@
 <template>
-  <div class="mx-4 md:mx-8 pt-12 md:pt-28 h-screen font-mersan ">
+  <div
+    class="mx-4 md:mx-8 pt-12 md:pt-28 h-screen font-mersan ">
     <div class="md:-mr-1+1/20 md:h-full pb-8 duration-500  ease-in-out">
       <div
         v-for="(item,index) in articleLists.content"
@@ -7,7 +8,9 @@
         :class="[mode === 'light'?'bg-lightMode':'bg-darkMode',index !== 0?'mt-4':'','w-full bg-white p-4 rounded-lg duration-500 ease-in-out']"
         @click="goDetails(item.id)">
         <div class="md:flex md:justify-between">
-          <div :class="[mode === 'light'?'text-black':'',' font-bold transition-colors  hover:text-FF9100']">{{ item.title }}</div>
+          <div :class="[mode === 'light'?'text-black':'',' font-bold transition-colors  hover:text-FF9100']">
+            {{ item.title }}
+          </div>
           <div class="text-right mr-4 text-sm italic">发布于 {{ getUpdateTime(item.createTime) }}</div>
         </div>
         <div class="md:mt-4 tracking-wide break-all leading-6 md:h-auto  md:overflow-y-none">{{ item.summary }}...</div>
@@ -29,9 +32,10 @@
 <script>
 import { getUpdateTime } from '@/utils/date'
 import { ListsPostsByCategorySlug, ListsPostsByTagSlug } from './categoryLists'
-import { reactive, toRefs, watch, computed } from 'vue'
+import { computed, reactive, toRefs, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
+
 export default {
   name: 'CategoryLists',
   setup() {
