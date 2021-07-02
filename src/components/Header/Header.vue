@@ -16,7 +16,7 @@
     :class="[
       showList ? 'showList' : 'w-0',
       showList === false ? 'hiddenList' : '',
-      mode === 'light'?'lightMode bg-gradient-to-t from-regal-blue to-regal-pink bg-red-400':'darkMode ',
+      mode === 'light'?'lightMode bg-gradient-to-t from-regal-blue to-regal-pink bg-red-400 shadow-xl':'darkMode ',
       'h-screen overflow-hidden items-center fixed top-0 ' +
         'md:flex md:h-20 md:w-full md:bg-opacity-70 z-10']">
     <div class="md:hidden relative mt-4" @click="showCategoriesList">

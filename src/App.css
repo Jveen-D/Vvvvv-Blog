@@ -16,3 +16,10 @@
     fill: currentColor;
     overflow: hidden;
 }
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: #fe9600;
+}
