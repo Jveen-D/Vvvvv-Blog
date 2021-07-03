@@ -4,7 +4,7 @@
     ref="backTopEle"
     :class="[mode === 'dark'?'darkMode':'bg-gradient-to-tr from-regal-blue to-regal-pink','flex overflow-y-auto']"
     @scroll="getScroll($event)">
-    <div class="flex-1 w-screen h-screen ">
+    <div class="flex-1 w-screen h-screen">
       <router-view></router-view>
     </div>
     <Profile></Profile>
