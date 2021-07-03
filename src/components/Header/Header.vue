@@ -17,14 +17,13 @@
       showList ? 'showList' : 'w-0',
       showList === false ? 'hiddenList' : '',
       mode === 'light'?'lightMode bg-gradient-to-t from-regal-blue to-regal-pink bg-red-400 shadow-xl':'darkMode ',
-      'h-screen overflow-hidden items-center fixed top-0 ' +
-        'md:flex md:h-20 md:w-full md:bg-opacity-70 z-10']">
+      'h-screen md:h-20 overflow-hidden items-center fixed top-0 md:flex md:w-full md:bg-opacity-70 z-10']">
     <div class="md:hidden relative mt-4" @click="showCategoriesList">
       <svg aria-hidden="true" class="icon animate-bounce absolute right-4">
         <use xlink:href="#icon-cha"></use>
       </svg>
     </div>
-    <div class="flex flex-col flex-1 justify-between items-center pr-6 md:flex-row md:h-20">
+    <div class="flex flex-col flex-1 justify-between items-center pr-6 md:flex-row md:h-20 md:w-full">
       <div class="pl-12 pt-4 md:flex md:pt-0">
         <div
           v-for="(item,index) in listCategories"

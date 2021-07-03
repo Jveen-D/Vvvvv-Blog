@@ -1,0 +1,27 @@
+#backTop{
+  background: url('https://cdn.jsdelivr.net/gh/LIlGG/cdn@1.0.8/img/Sakura/images/scroll.png') no-repeat center;
+}
+.showBackTop{
+  animation: showBackTopAnimation .5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+.hiddenBackTop{
+  animation: hiddenBackTopAnimation .5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes showBackTopAnimation {
+  from {
+    top:-100%;
+  }
+  to {
+    top:0;
+  }
+}
+@keyframes hiddenBackTopAnimation {
+  from {
+    top:0;
+  }
+  to {
+    top:-100%;
+  }
+}

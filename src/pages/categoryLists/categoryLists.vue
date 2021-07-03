@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-4 md:mx-8 pt-12 md:pt-28 h-screen font-mersan ">
+    class="mx-4 md:mx-8 pt-12 md:pt-28 font-mersan ">
     <div class="md:-mr-1+1/20 md:h-full pb-8 duration-500  ease-in-out">
       <div
         v-for="(item,index) in articleLists.content"
