@@ -109,6 +109,6 @@ export default {
   }
 }
 </script>
-<style scoped>
-@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.0/styles/xcode.min.css');
+<style scoped lang="scss">
+@import "./postDetail.scss";
 </style>

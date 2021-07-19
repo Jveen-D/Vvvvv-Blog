@@ -1,6 +1,7 @@
 // 圆点开始
 
 figcaption.line-numbers-head {
+  margin-top:4px;
   width: 100%;
   color: #8d949e;
   background-color: #21252b;
@@ -12,7 +13,6 @@ figcaption.line-numbers-head {
   justify-content: space-between;
   text-align: center;
   padding-right: 6px;
-
 }
 
 figcaption.line-numbers-head .language {
@@ -51,7 +51,6 @@ figcaption.line-numbers-head .custom-carbon {
 
 pre.line-numbers {
   margin-top: 0;
-  padding: 10px 1em 1em 1em;
   background-color: #f5f6f7;
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
@@ -60,6 +59,12 @@ pre.line-numbers {
 
 // code高亮
 .markdown-body {
+  p{
+    margon-top:4px;
+  }
+  .hljs{
+    background-color: transparent;
+  }
   code:not(.hljs) {
     background: #f5f6f7;
     color: #e67474;
