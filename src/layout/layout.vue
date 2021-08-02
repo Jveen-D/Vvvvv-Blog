@@ -19,55 +19,44 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import Header from '@/components/Header/Header.vue'
 import Profile from '@/components/Profile/Profile.vue'
 import { computed, reactive, toRefs, ref } from 'vue'
 import { useStore } from 'vuex'
 
-export default {
-  name: 'Layout',
-  components: { Header, Profile },
-  setup() {
-    const store = useStore()
-    const state = reactive({
-      mode: computed(() => store.state.mode),
-      showBackTop: ref(''),
-      showBackTopBool: false,
-      backTopEle: ref(null)
-    })
-
-    const getScroll = (e) => {
-      const scrollTop = e.target.scrollTop
-      if (scrollTop >= 200) {
-        state.showBackTopBool = true
-        state.showBackTop = true
-      }
-      if (scrollTop < 200) {
-        if (state.showBackTopBool) {
-          state.showBackTop = false
-        }
-      }
-    }
-    const backToTop = () => {
-      let top = state.backTopEle.scrollTop
-      const backTopTimer = setInterval(() => {
-        top -= top / 10
-        state.backTopEle.scrollTo({
-          top
-        })
-        if (top <= 0.1) {
-          clearInterval(backTopTimer)
-        }
-      })
-
-    }
-    return {
-      ...toRefs(state),
-      getScroll,
-      backToTop
+const store = useStore()
+const state = reactive({
+  mode: computed(() => store.state.mode),
+  showBackTop: '',
+  showBackTopBool: false,
+  backTopEle: null
+})
+const { mode, showBackTop, backTopEle } = toRefs(state)
+const getScroll = (e) => {
+  const scrollTop = e.target.scrollTop
+  if (scrollTop >= 200) {
+    state.showBackTopBool = true
+    state.showBackTop = true
+  }
+  if (scrollTop < 200) {
+    if (state.showBackTopBool) {
+      state.showBackTop = false
     }
   }
+}
+const backToTop = () => {
+  let top = state.backTopEle.scrollTop
+  const backTopTimer = setInterval(() => {
+    top -= top / 10
+    state.backTopEle.scrollTo({
+      top
+    })
+    if (top <= 0.1) {
+      clearInterval(backTopTimer)
+    }
+  })
+
 }
 </script>
 

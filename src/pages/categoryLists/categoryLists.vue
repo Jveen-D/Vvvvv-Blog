@@ -29,54 +29,46 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { useRouter } from 'vue-router'
 import { getUpdateTime } from '@/utils/date'
 import { ListsPostsByCategorySlug, ListsPostsByTagSlug } from './categoryLists'
 import { computed, reactive, toRefs, watch } from 'vue'
-import { useRouter } from 'vue-router'
+
 import { useStore } from 'vuex'
 
-export default {
-  name: 'CategoryLists',
-  setup() {
-    const Router = useRouter()
-    const store = useStore()
-    const state = reactive({
-      slug: computed(() => Router.currentRoute.value.params.slug),
-      articleLists: '',
-      tagSlug: '',
-      mode: computed(() => store.state.mode)
-    })
-    const { slug, tagSlug } = { ...toRefs(state) }
 
-    watch(slug, (currentV) => {
-      if (currentV) {
-        ListsPostsByCategorySlug(currentV).then((res) => {
-          state.articleLists = res
-        })
-      }
-    }, {
-      immediate: true
+const Router = useRouter()
+const store = useStore()
+const state = reactive({
+  slug: computed(() => Router.currentRoute.value.params.slug),
+  articleLists: '',
+  tagSlug: '',
+  mode: computed(() => store.state.mode)
+})
+const { slug, articleLists, tagSlug, mode } = { ...toRefs(state) }
+
+watch(slug, (currentV) => {
+  if (currentV) {
+    ListsPostsByCategorySlug(currentV).then((res) => {
+      state.articleLists = res
     })
-    watch(tagSlug, (currentV) => {
-      ListsPostsByTagSlug(currentV).then((res) => {
-        state.articleLists = res
-      })
-    })
-    const changeSlug = (val) => {
-      tagSlug.value = val
-    }
-    const goDetails = (id) => {
-      Router.push({
-        path: `/detail/${id}`
-      })
-    }
-    return {
-      ...toRefs(state),
-      getUpdateTime,
-      goDetails,
-      changeSlug
-    }
   }
+}, {
+  immediate: true
+})
+watch(tagSlug, (currentV) => {
+  ListsPostsByTagSlug(currentV).then((res) => {
+    state.articleLists = res
+  })
+})
+const changeSlug = (val) => {
+  tagSlug.value = val
 }
+const goDetails = (id) => {
+  Router.push({
+    path: `/detail/${id}`
+  })
+}
+
 </script>

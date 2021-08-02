@@ -11,7 +11,7 @@
   <div
     :class="[showList ? 'showShadowList md:w-0': '',
              showList === false ? 'hiddenShadowList' : '',
-             'absolute h-screen bg-red-500 bg-opacity-5 md:bg-transparent']"
+             'absolute h-screen bg-red-500 bg-opacity-5 md:bg-transparent z-10']"
     @click.self="showShadowCategoriesList">
   </div>
   <!--  分类-->
@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="w-full justify-end md:justify-between md:w-auto flex items-center" @click="changeMode">
-        <div class="relative flex justify-between items-center w-20 h-8 bg-gray-100 rounded-md">
+        <div class="z-20 relative flex justify-between items-center w-20 h-8 bg-gray-100 rounded-md">
           <div class="z-20 flex justify-center items-center w-10 h-full rounded-md">
             <svg :class="[mode === 'light'?'animate-bounce mt-1':'','icon']" aria-hidden="true">
               <use xlink:href="#icon-taiyang"></use>
@@ -59,65 +59,53 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ListCategories } from './Header'
 import { computed, reactive, toRefs, watch } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { preventScrollY } from '@/utils/utils'
 
-export default {
-  name: 'Header',
-  setup() {
-    const Router = useRouter()
-    const store = useStore()
-    const state = reactive({
-      slug: computed(() => store.state.slug),
-      mode: computed(() => store.state.mode),
-      listCategories: '',
-      activeCategory: computed(() => Router.currentRoute.value.params.slug), // 目前所在slug分类
-      showList: ''
-    })
-    const { activeCategory, showList } = { ...toRefs(state) }
+const Router = useRouter()
+const store = useStore()
+const state = reactive({
+  slug: computed(() => store.state.slug),
+  mode: computed(() => store.state.mode),
+  listCategories: '',
+  activeCategory: computed(() => Router.currentRoute.value.params.slug), // 目前所在slug分类
+  showList: ''
+})
+const { slug, mode, listCategories, activeCategory, showList } = { ...toRefs(state) }
 
 
-    watch(showList, (newVal) => {
-      preventScrollY(newVal)
-    })
-    // 目前所在slug分类
-    watch(activeCategory, () => {
-      store.dispatch('ChangeSlug', activeCategory)
-    }, {
-      immediate: true
-    })
+watch(showList, (newVal) => {
+  preventScrollY(newVal)
+})
+// 目前所在slug分类
+watch(activeCategory, () => {
+  store.dispatch('ChangeSlug', activeCategory)
+}, {
+  immediate: true
+})
 
-    // 点击分类切换
-    const goCategory = (index, val) => {
-      Router.push({
-        path: `/category/${val}`
-      })
-    }
-
-    // 文章分类
-    ListCategories().then((res) => state.listCategories = res)
-    // 切换主题模式
-    const changeMode = () => {
-      const mode = store.state.mode === 'light' ? 'dark' : 'light'
-      store.dispatch('ChangeMode', mode)
-    }
-    // 移动端显示分类
-    const showCategoriesList = () => state.showList = !state.showList
-    // 移动端显示分类蒙层
-    const showShadowCategoriesList = () => state.showList = !state.showList
-    return {
-      goCategory,
-      changeMode,
-      showCategoriesList,
-      showShadowCategoriesList,
-      ...toRefs(state)
-    }
-  }
+// 点击分类切换
+const goCategory = (index, val) => {
+  Router.push({
+    path: `/category/${val}`
+  })
 }
+
+// 文章分类
+ListCategories().then((res) => state.listCategories = res)
+// 切换主题模式
+const changeMode = () => {
+  const mode = store.state.mode === 'light' ? 'dark' : 'light'
+  store.dispatch('ChangeMode', mode)
+}
+// 移动端显示分类
+const showCategoriesList = () => state.showList = !state.showList
+// 移动端显示分类蒙层
+const showShadowCategoriesList = () => state.showList = !state.showList
 </script>
 
 <style lang="scss" scoped>

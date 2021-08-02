@@ -132,44 +132,35 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { GetsBloggerProfile } from './Profile'
 import { getDuration } from '@/utils/date'
 import { computed, reactive, toRefs, watch } from 'vue'
 import { useStore } from 'vuex'
 import { preventScrollY } from '@/utils/utils'
 
-export default {
-  name: 'Profile',
-  async setup() {
-    const store = useStore()
-    const state = reactive({
-      showProfile: '',
-      profile: '', // profile 博主信息
-      time: '', // 运行时间
-      mode: computed(() => store.state.mode)//模式
-    })
-    const { showProfile } = { ...toRefs(state) }
+const store = useStore()
+const state = reactive({
+  showProfile: '',
+  profile: {}, // profile 博主信息
+  time: '', // 运行时间
+  mode: computed(() => store.state.mode)//模式
+})
+const { showProfile, profile,time, mode } = { ...toRefs(state) }
 
-    watch(showProfile, (newVal) => {
-      preventScrollY(newVal)
-    })
+watch(showProfile, (newVal) => {
+  preventScrollY(newVal)
+})
 
-    state.profile = await GetsBloggerProfile()
-    setInterval(() => {
-      state.time = getDuration(state.profile.user.createTime)
-    }, 1000)
-    //  移动端个人信息
-    const showProfileWrap = () => state.showProfile = !state.showProfile
-    // 移动端个人信息容器蒙层
-    const showShadowProfileWrap = () => state.showProfile = !state.showProfile
-    return {
-      showProfileWrap,
-      showShadowProfileWrap,
-      ...toRefs(state)
-    }
-  }
-}
+state.profile = await GetsBloggerProfile()
+setInterval(() => {
+  state.time = getDuration(state.profile.user.createTime)
+}, 1000)
+//  移动端个人信息
+const showProfileWrap = () => state.showProfile = !state.showProfile
+// 移动端个人信息容器蒙层
+const showShadowProfileWrap = () => state.showProfile = !state.showProfile
+
 </script>
 
 <style lang="scss" scoped>

@@ -30,7 +30,7 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import { GetPostsById } from './postDetail'
 import { useRouter } from 'vue-router'
 import { reactive, toRefs, watch, computed } from 'vue'
@@ -38,33 +38,31 @@ import { useStore } from 'vuex'
 import './postDetail.scss'
 import { getUpdateTime } from '@/utils/date'
 
-export default {
-  name: 'PostDetail',
-  setup() {
-    const Router = useRouter()
-    const store = useStore()
-    const state = reactive({
-      id: computed(() => Router.currentRoute.value.params.id),
-      postDetail: '',
-      markdownBody: '',
-      createTime: '',
-      slug: computed(() => store.state.slug),
-      mode: computed(() => store.state.mode)
-    })
-    const { id } = { ...toRefs(state) }
-    watch(id, (currentV) => {
-      if (currentV) {
-        GetPostsById(currentV).then((res) => {
-          state.postDetail = res
-          document.title = `Vvvvv-Blog! - ` + state.postDetail.title
-          state.createTime = getUpdateTime(state.postDetail.createTime)
-          state.markdownBody.innerHTML += state.postDetail.formatContent
-          store.dispatch('ChangeSlug', computed(() => state.postDetail.categories[0].slug))
-          const pre = Array.from(document.getElementsByTagName('pre'))
-          code = Array.from(document.querySelectorAll('pre code'))
-          pre.forEach((item, index) => {
-            const language = item.children[0].classList[0].split('-')[1].toUpperCase()
-            const html = `<figcaption class="line-numbers-head">
+const Router = useRouter()
+const store = useStore()
+const state = reactive({
+  id: computed(() => Router.currentRoute.value.params.id),
+  postDetail: '',
+  markdownBody: null,
+  createTime: '',
+  slug: computed(() => store.state.slug),
+  mode: computed(() => store.state.mode)
+})
+const { id, postDetail, markdownBody, createTime, mode } = { ...toRefs(state) }
+let code
+watch(id, (currentV) => {
+  if (currentV) {
+    GetPostsById(currentV).then((res) => {
+      state.postDetail = res
+      document.title = `Vvvvv-Blog! - ` + state.postDetail.title
+      state.createTime = getUpdateTime(state.postDetail.createTime)
+      state.markdownBody.innerHTML += state.postDetail.formatContent
+      store.dispatch('ChangeSlug', computed(() => state.postDetail.categories[0].slug))
+      const pre = Array.from(document.getElementsByTagName('pre'))
+      code = Array.from(document.querySelectorAll('pre code'))
+      pre.forEach((item, index) => {
+        const language = item.children[0].classList[0].split('-')[1].toUpperCase()
+        const html = `<figcaption class="line-numbers-head">
               <div class="custom-carbon">
                 <div class="custom-carbon-dot custom-carbon-dot--red"></div>
                 <div class="custom-carbon-dot custom-carbon-dot--yellow"></div>
@@ -77,36 +75,30 @@ export default {
                 </svg>
               </a>
             </figcaption>`
-            item.insertAdjacentHTML('beforebegin', html)
-            item.classList.add('line-numbers')
-          })
-          // eslint-disable-next-line no-undef
-          hljs.highlightAll()
-        })
-      }
-    }, {
-      immediate: true
-    })
-    let code
-    window.copy = (index) => {
-      const ele = document.createElement('div')
-      ele.innerHTML = code[index].innerHTML
-      let copyStr = ''
-      Array.from(ele.innerText).forEach((item) => {
-        copyStr += item
+        item.insertAdjacentHTML('beforebegin', html)
+        item.classList.add('line-numbers')
       })
-      const textarea = document.createElement('textarea')
-      document.body.appendChild(textarea)
-      textarea.value = copyStr
-      textarea.select()
-      document.execCommand('Copy') // 执行浏览器复制命令
-      document.body.removeChild(textarea)
-      alert('已复制')
-    }
-    return {
-      ...toRefs(state)
-    }
+      // eslint-disable-next-line no-undef
+      hljs.highlightAll()
+    })
   }
+}, {
+  immediate: true
+})
+window.copy = (index) => {
+  const ele = document.createElement('div')
+  ele.innerHTML = code[index].innerHTML
+  let copyStr = ''
+  Array.from(ele.innerText).forEach((item) => {
+    copyStr += item
+  })
+  const textarea = document.createElement('textarea')
+  document.body.appendChild(textarea)
+  textarea.value = copyStr
+  textarea.select()
+  document.execCommand('Copy') // 执行浏览器复制命令
+  document.body.removeChild(textarea)
+  alert('已复制')
 }
 </script>
 <style scoped lang="scss">

@@ -4,17 +4,9 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
-export default {
-  name: '404',
-  setup() {
-    const a = ref('404')
-    return {
-      a
-    }
-  }
-}
+const a = ref('404')
 </script>
 
 <style scoped>
