@@ -81,7 +81,7 @@ export default {
             item.classList.add('line-numbers')
           })
           // eslint-disable-next-line no-undef
-          hljs.initHighlightingOnLoad()
+          hljs.highlightAll()
         })
       }
     }, {
