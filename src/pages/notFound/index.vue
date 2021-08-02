@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-screen mt-20">
+  <div class="w-full  mt-8">
     {{ a }}
   </div>
 </template>

@@ -18,7 +18,7 @@ module.exports = {
         'mersan': ['Merriweather Sans', 'Helvetica', 'Tahoma', 'Arial', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', 'sans-serif']
       },
       height: {
-        'screen-90vh': 'calc(90vh)'
+        'screen-90vh': 'calc(100vh - 5rem)'
       },
       margin: {
         '-1+1/20': '-1.05rem'

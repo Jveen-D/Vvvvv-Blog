@@ -4,16 +4,17 @@
     ref="backTopEle"
     :class="[mode === 'dark'?'darkMode':'bg-gradient-to-tr from-regal-blue to-regal-pink','flex overflow-y-auto']"
     @scroll="getScroll($event)">
-    <div class="flex-1 w-screen h-screen">
+    <div class="flex-1 w-screen h-screen md:h-screen-90vh">
       <router-view></router-view>
     </div>
+    <!--    右侧的profile-->
     <Profile></Profile>
   </div>
   <!--回到顶部的动画-->
   <div
     id="backTop"
     :class="[showBackTop?'showBackTop':'',
-             showBackTop === false?'hiddenBackTop':'','hidden md:block fixed -top-full right-10 w-20 h-screen bg-red-200']"
+             showBackTop === false?'hiddenBackTop':'','hidden md:block fixed -top-full right-10 w-20 h-screen']"
     @click="backToTop">
   </div>
 </template>

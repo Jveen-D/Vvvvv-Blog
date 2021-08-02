@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[mode === 'light'?'bg-lightMode bg-white text-lightMode':'bg-darkMode  text-darkMode','md:mx-4 mt-28 rounded-2xl font-mersan duration-500 ease-in-out']">
+    :class="[mode === 'light'?'bg-lightMode bg-white text-lightMode':'bg-darkMode  text-darkMode','md:mx-4 mt-8 rounded-2xl font-mersan duration-500 ease-in-out']">
     <div id="xx" class="flex flex-col items-center w-full overflow-x-none pt-8 pb-8 md:pl-2 md:p-4">
       <div class="flex justify-center text-2xl subpixel-antialiased transition-colors hover:text-FF9100">
         {{ postDetail.title }}

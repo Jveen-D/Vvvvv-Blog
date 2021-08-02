@@ -1,22 +1,26 @@
 <template>
+  <!--  移动端头像-->
   <div
     class="md:hidden flex justify-center items-center animate-pulse rounded-md fixed top-2 right-4 w-8 h-8"
     @click="showProfileWrap">
     <img :src="profile.user.avatar" alt="avatar" class="rounded-full" />
   </div>
+  <!--  移动端蒙层-->
   <div
     :class="[showProfile ? 'showShadowProfile w-screen bg-red-500 bg-opacity-5 md:w-0' : '',
              showProfile === false ? 'hiddenShadowProfile w-screen bg-red-500 bg-opacity-5' : '',
              'fixed h-screen md:bg-transparent']"
     @click.self="showShadowProfileWrap">
   </div>
+  <!--  内容-->
   <div
     :class="[
       showProfile ? 'showProfile' : 'w-0',
-      showProfile === false ?'hiddenProfile' : '',
-      'fixed right-0 md:static md:inset-0 md:block overflow-hidden font-mersan flex h-full justify-between flex-col md:mt-28 md:w-auto whitespace-nowrap rounded-l-xl']">
+      showProfile === false ?'hiddenProfile ' : '',
+      'fixed right-0 md:static md:inset-0 md:block md:mt-8 md:w-auto ' +
+        'overflow-hidden font-mersan flex h-full justify-between flex-col whitespace-nowrap rounded-xl']">
     <div
-      :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','rounded-l-xl overflow-hidden duration-500 ease-in-out']">
+      :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','rounded-xl overflow-hidden duration-500 ease-in-out']">
       <div :class="[mode === 'light'?'divide-gray-200':'divide-black','font-bold divide-y']">
         <div class="flex justify-between py-2 ml-4">
           <div>Profile</div>
@@ -44,7 +48,7 @@
       <div class="flex justify-center items-center  pt-2 text-xs">
         {{ profile.user.email }}
       </div>
-      <div class="rounded-l-xl flex pt-4 pb-4 justify-center items-center ">
+      <div class="rounded-xl flex pt-4 pb-4 justify-center items-center ">
         <div class="flex justify-between w-3/6">
           <a href="weixin://" title="和俺聊天">
             <svg aria-hidden="true" class="icon">
@@ -65,7 +69,7 @@
       </div>
     </div>
     <div
-      :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','mt-2 rounded-l-xl w-full pb-2 duration-500 ease-in-out']"
+      :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','mt-2 rounded-xl w-full pb-2 duration-500 ease-in-out']"
       style="width: 300px;">
       <div class="text-xs font-bold px-4 pt-2">博客技术细节:</div>
       <div class="flex pl-2 pt-2">
@@ -106,7 +110,7 @@
       </div>
     </div>
     <div
-      :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','flex flex-col justify-between h-full flex-1  rounded-l-xl w-full  mt-2 text-sm duration-500 ease-in-out']">
+      :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','flex flex-col justify-between h-full flex-1  rounded-xl w-full  mt-2 text-sm duration-500 ease-in-out']">
       <div>
         <div class="text-xs font-bold px-4 py-2">Other:</div>
         <div class="flex items-center pl-2">

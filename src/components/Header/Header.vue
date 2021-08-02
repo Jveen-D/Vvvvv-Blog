@@ -1,4 +1,5 @@
 <template>
+  <!--  移动端的按钮-->
   <div
     class="md:hidden flex justify-center items-center animate-pulse rounded-md fixed top-2 left-4 w-8 h-8 border-solid border-2 border-gray-400"
     @click="showCategoriesList">
@@ -6,18 +7,20 @@
       <use xlink:href="#icon-gengduo"></use>
     </svg>
   </div>
+  <!--  移动端蒙层-->
   <div
     :class="[showList ? 'showShadowList md:w-0': '',
              showList === false ? 'hiddenShadowList' : '',
              'absolute h-screen bg-red-500 bg-opacity-5 md:bg-transparent']"
     @click.self="showShadowCategoriesList">
   </div>
+  <!--  分类-->
   <div
     :class="[
       showList ? 'showList' : 'w-0',
       showList === false ? 'hiddenList' : '',
       mode === 'light'?'lightMode bg-gradient-to-t from-regal-blue to-regal-pink bg-red-400 shadow-xl':'darkMode ',
-      'h-screen md:h-20 overflow-hidden items-center fixed top-0 md:flex md:w-full md:bg-opacity-70 z-10']">
+      'h-screen md:h-20 overflow-hidden items-center fixed top-0 md:static md:flex md:w-full md:bg-opacity-70 z-10']">
     <div class="md:hidden relative mt-4" @click="showCategoriesList">
       <svg aria-hidden="true" class="icon animate-bounce absolute right-4">
         <use xlink:href="#icon-cha"></use>
