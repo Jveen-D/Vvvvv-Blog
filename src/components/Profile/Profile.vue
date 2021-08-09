@@ -9,7 +9,7 @@
   <div
     :class="[showProfile ? 'showShadowProfile w-screen bg-red-500 bg-opacity-5 md:w-0' : '',
              showProfile === false ? 'hiddenShadowProfile w-screen bg-red-500 bg-opacity-5' : '',
-             'fixed h-screen md:bg-transparent']"
+             'fixed h-screen md:bg-transparent z-10']"
     @click.self="showShadowProfileWrap">
   </div>
   <!--  内容-->
@@ -18,7 +18,7 @@
       showProfile ? 'showProfile' : 'w-0',
       showProfile === false ?'hiddenProfile ' : '',
       'fixed right-0 md:static md:inset-0 md:block md:mt-8 md:w-auto ' +
-        'overflow-hidden font-mersan flex h-full justify-between flex-col whitespace-nowrap rounded-xl']">
+        'overflow-hidden font-mersan flex h-full justify-between flex-col whitespace-nowrap rounded-xl z-20 md:z-0']">
     <div
       :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','rounded-xl overflow-hidden duration-500 ease-in-out']">
       <div :class="[mode === 'light'?'divide-gray-200':'divide-black','font-bold divide-y']">

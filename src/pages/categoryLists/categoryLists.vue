@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-4 md:mx-8 pt-12 md:pt-8 font-mersan ">
+    :class="[transition?'animate__animated animate__fadeInLeft':'animate__animated animate__fadeInRight','mx-4 md:mx-8 pt-12 md:pt-8 font-mersan']">
     <div class="md:-mr-1+1/20 md:h-full pb-8 duration-500  ease-in-out">
       <div
         v-for="(item,index) in articleLists.content"
@@ -42,12 +42,14 @@ const state = reactive({
   slug: computed(() => Router.currentRoute.value.params.slug),
   articleLists: '',
   tagSlug: '',
-  mode: computed(() => store.state.mode)
+  mode: computed(() => store.state.mode),
+  transition: true
 })
-const { slug, articleLists, tagSlug, mode } = { ...toRefs(state) }
+const { slug, articleLists, tagSlug, mode, transition } = { ...toRefs(state) }
 
 watch(slug, (currentV) => {
   if (currentV) {
+    state.transition = !state.transition
     ListsPostsByCategorySlug(currentV).then((res) => {
       state.articleLists = res
     })

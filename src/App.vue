@@ -1,7 +1,9 @@
 <template>
-  <suspense>
-    <router-view></router-view>
-  </suspense>
+  <div class="animate__animated animate__fadeInTopLeft">
+    <suspense>
+      <router-view></router-view>
+    </suspense>
+  </div>
 </template>
 
 <script>

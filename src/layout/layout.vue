@@ -5,9 +5,9 @@
     :class="[mode === 'dark'?'darkMode':'bg-gradient-to-tr from-regal-blue to-regal-pink','flex overflow-y-auto']"
     @scroll="getScroll($event)">
     <div class="flex-1 w-screen h-screen md:h-screen-90vh">
-      <router-view></router-view>
+      <router-view class="animate__animated animate__fadeInLeftBig"></router-view>
     </div>
-    <!--    右侧的profile-->
+    <!--右侧的profile-->
     <Profile></Profile>
   </div>
   <!--回到顶部的动画-->
