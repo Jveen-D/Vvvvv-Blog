@@ -31,15 +31,7 @@
             发布于 {{ getUpdateTime(item.createTime) }}
           </div>
         </div>
-        <div
-          class="
-            md:mt-4
-            tracking-wide
-            break-all
-            leading-6
-            md:h-auto md:overflow-y-none
-          "
-        >
+        <div class="md:mt-4 tracking-wide break-all leading-6 md:h-auto md:overflow-y-none">
           {{ item.summary }}...
         </div>
         <div class="flex items-center flex-wrap">
@@ -69,48 +61,49 @@
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
-import { getUpdateTime } from "@/utils/date";
-import { ListsPostsByCategorySlug, ListsPostsByTagSlug } from "./categoryLists";
-import { computed, reactive, toRefs, watch } from "vue";
-import { useStore } from "vuex";
+  import { useRouter } from 'vue-router';
+  import { getUpdateTime } from '@/utils/date';
+  import { ListsPostsByCategorySlug, ListsPostsByTagSlug } from './categoryLists';
+  import { computed, reactive, toRefs, watch } from 'vue';
+  import { useStore } from 'vuex';
 
-const Router = useRouter();
-const store = useStore();
-const state = reactive({
-  slug: computed(() => Router.currentRoute.value.params.slug),
-  articleLists: "",
-  tagSlug: "",
-  mode: computed(() => store.state.mode),
-  transition: true,
-});
-const { slug, articleLists, tagSlug, mode, transition } = { ...toRefs(state) };
+  const Router = useRouter();
+  const store = useStore();
+  const state = reactive({
+    slug: computed(() => Router.currentRoute.value.params.slug),
+    articleLists: '',
+    tagSlug: '',
+    mode: computed(() => store.state.mode),
+    transition: true,
+  });
+  const { slug, articleLists, tagSlug, mode, transition } = { ...toRefs(state) };
 
-watch(
-  slug,
-  (currentV) => {
-    if (currentV) {
-      state.transition = !state.transition;
-      ListsPostsByCategorySlug(currentV).then((res) => {
-        state.articleLists = res;
-      });
+  watch(
+    slug,
+    (currentV) => {
+      if (currentV === 'friendLink') return;
+      if (currentV) {
+        state.transition = !state.transition;
+        ListsPostsByCategorySlug(currentV).then((res) => {
+          state.articleLists = res;
+        });
+      }
+    },
+    {
+      immediate: true,
     }
-  },
-  {
-    immediate: true,
-  }
-);
-watch(tagSlug, (currentV) => {
-  ListsPostsByTagSlug(currentV).then((res) => {
-    state.articleLists = res;
+  );
+  watch(tagSlug, (currentV) => {
+    ListsPostsByTagSlug(currentV).then((res) => {
+      state.articleLists = res;
+    });
   });
-});
-const changeSlug = (val) => {
-  tagSlug.value = val;
-};
-const goDetails = (id) => {
-  Router.push({
-    path: `/detail/${id}`,
-  });
-};
+  const changeSlug = (val) => {
+    tagSlug.value = val;
+  };
+  const goDetails = (id) => {
+    Router.push({
+      path: `/detail/${id}`,
+    });
+  };
 </script>

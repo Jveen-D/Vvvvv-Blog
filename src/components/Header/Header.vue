@@ -48,13 +48,7 @@
       </svg>
     </div>
     <div
-      class="
-        flex flex-col flex-1
-        justify-between
-        items-center
-        pr-6
-        md:flex-row md:h-20 md:w-full
-      "
+      class="flex flex-col flex-1 justify-between items-center pr-6 md:flex-row md:h-20 md:w-full"
     >
       <div class="pl-12 pt-4 md:flex md:pt-0">
         <div
@@ -71,31 +65,13 @@
         </div>
       </div>
       <div
-        class="
-          w-full
-          justify-end
-          md:justify-between md:w-auto
-          flex
-          items-center
-        "
+        class="w-full justify-end md:justify-between md:w-auto flex items-center"
         @click="changeMode"
       >
         <div
-          class="
-            z-20
-            relative
-            flex
-            justify-between
-            items-center
-            w-20
-            h-8
-            bg-gray-100
-            rounded-md
-          "
+          class="z-20 relative flex justify-between items-center w-20 h-8 bg-gray-100 rounded-md"
         >
-          <div
-            class="z-20 flex justify-center items-center w-10 h-full rounded-md"
-          >
+          <div class="z-20 flex justify-center items-center w-10 h-full rounded-md">
             <svg
               :class="[mode === 'light' ? 'animate-bounce mt-1' : '', 'icon']"
               aria-hidden="true"
@@ -124,59 +100,72 @@
 </template>
 
 <script setup>
-import { ListCategories } from "./Header";
-import { computed, reactive, toRefs, watch } from "vue";
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
-import { preventScrollY } from "@/utils/utils";
+  import { ListCategories } from './Header';
+  import { computed, reactive, toRefs, watch } from 'vue';
+  import { useStore } from 'vuex';
+  import { useRouter } from 'vue-router';
+  import { preventScrollY } from '@/utils/utils';
 
-const Router = useRouter();
-const store = useStore();
-const state = reactive({
-  slug: computed(() => store.state.slug),
-  mode: computed(() => store.state.mode),
-  listCategories: "",
-  activeCategory: computed(() => Router.currentRoute.value.params.slug), // 目前所在slug分类
-  showList: "",
-});
-const { slug, mode, listCategories, activeCategory, showList } = {
-  ...toRefs(state),
-};
-
-watch(showList, (newVal) => {
-  preventScrollY(newVal);
-});
-// 目前所在slug分类
-watch(
-  activeCategory,
-  () => {
-    store.dispatch("ChangeSlug", activeCategory);
-  },
-  {
-    immediate: true,
-  }
-);
-
-// 点击分类切换
-const goCategory = (index, val) => {
-  Router.push({
-    path: `/category/${val}`,
+  const Router = useRouter();
+  const store = useStore();
+  const state = reactive({
+    slug: computed(() => store.state.slug),
+    mode: computed(() => store.state.mode),
+    listCategories: '',
+    activeCategory: computed(() => Router.currentRoute.value.params.slug), // 目前所在slug分类
+    showList: '',
   });
-};
+  const { slug, mode, listCategories, activeCategory, showList } = {
+    ...toRefs(state),
+  };
 
-// 文章分类
-ListCategories().then((res) => (state.listCategories = res));
-// 切换主题模式
-const changeMode = () => {
-  const mode = store.state.mode === "light" ? "dark" : "light";
-  store.dispatch("ChangeMode", mode);
-};
-// 移动端显示分类
-const showCategoriesList = () => (state.showList = !state.showList);
-// 移动端显示分类蒙层
-const showShadowCategoriesList = () => (state.showList = !state.showList);
+  watch(showList, (newVal) => {
+    preventScrollY(newVal);
+  });
+  // 目前所在slug分类
+  watch(
+    activeCategory,
+    () => {
+      store.dispatch('ChangeSlug', activeCategory);
+    },
+    {
+      immediate: true,
+    }
+  );
+
+  // 点击分类切换
+  const goCategory = (index, val) => {
+    if (val === 'friendLink') {
+      Router.push({
+        path: `/friend/${val}`,
+      });
+    } else {
+      Router.push({
+        path: `/category/${val}`,
+      });
+    }
+  };
+
+  // 文章分类
+  ListCategories().then((res) => {
+    state.listCategories = res;
+    state.listCategories.push({
+      id: 7,
+      name: '友情链接',
+      slug: 'friendLink',
+    });
+  });
+  // 切换主题模式
+  const changeMode = () => {
+    const mode = store.state.mode === 'light' ? 'dark' : 'light';
+    store.dispatch('ChangeMode', mode);
+  };
+  // 移动端显示分类
+  const showCategoriesList = () => (state.showList = !state.showList);
+  // 移动端显示分类蒙层
+  const showShadowCategoriesList = () => (state.showList = !state.showList);
 </script>
 
 <style lang="scss" scoped>
-@import "Header.scss";
+  @import 'Header.scss';
 </style>

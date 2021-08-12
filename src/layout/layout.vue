@@ -3,9 +3,7 @@
   <div
     ref="backTopEle"
     :class="[
-      mode === 'dark'
-        ? 'darkMode'
-        : 'bg-gradient-to-tr from-regal-blue to-regal-pink',
+      mode === 'dark' ? 'darkMode' : 'bg-gradient-to-tr from-regal-blue to-regal-pink',
       'flex overflow-y-auto',
     ]"
     @scroll="getScroll($event)"
@@ -29,46 +27,46 @@
 </template>
 
 <script setup>
-import Header from "@/components/Header/Header.vue";
-import Profile from "@/components/Profile/Profile.vue";
-import { computed, reactive, toRefs, ref } from "vue";
-import { useStore } from "vuex";
+  import Header from '@/components/Header/Header.vue';
+  import Profile from '@/components/Profile/Profile.vue';
+  import { computed, reactive, toRefs, ref } from 'vue';
+  import { useStore } from 'vuex';
 
-const store = useStore();
-const state = reactive({
-  mode: computed(() => store.state.mode),
-  showBackTop: "",
-  showBackTopBool: false,
-  backTopEle: null,
-});
-const { mode, showBackTop, backTopEle } = toRefs(state);
-const getScroll = (e) => {
-  const scrollTop = e.target.scrollTop;
-  if (scrollTop >= 200) {
-    state.showBackTopBool = true;
-    state.showBackTop = true;
-  }
-  if (scrollTop < 200) {
-    if (state.showBackTopBool) {
-      state.showBackTop = false;
-    }
-  }
-};
-const backToTop = () => {
-  let top = state.backTopEle.scrollTop;
-  const backTopTimer = setInterval(() => {
-    top -= top / 10;
-    state.backTopEle.scrollTo({
-      top,
-    });
-    if (top <= 0.1) {
-      clearInterval(backTopTimer);
-    }
+  const store = useStore();
+  const state = reactive({
+    mode: computed(() => store.state.mode),
+    showBackTop: '',
+    showBackTopBool: false,
+    backTopEle: null,
   });
-};
+  const { mode, showBackTop, backTopEle } = toRefs(state);
+  const getScroll = (e) => {
+    const scrollTop = e.target.scrollTop;
+    if (scrollTop >= 200) {
+      state.showBackTopBool = true;
+      state.showBackTop = true;
+    }
+    if (scrollTop < 200) {
+      if (state.showBackTopBool) {
+        state.showBackTop = false;
+      }
+    }
+  };
+  const backToTop = () => {
+    let top = state.backTopEle.scrollTop;
+    const backTopTimer = setInterval(() => {
+      top -= top / 10;
+      state.backTopEle.scrollTo({
+        top,
+      });
+      if (top <= 0.1) {
+        clearInterval(backTopTimer);
+      }
+    });
+  };
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/css/mode";
-@import "@/assets/css/backTop";
+  @import '@/assets/css/mode';
+  @import '@/assets/css/backTop';
 </style>
