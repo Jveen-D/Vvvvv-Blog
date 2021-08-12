@@ -5,7 +5,6 @@
     "dev": "vite --host",
     "devOpen": "vite --open",
     "build": "vite build ",
-    "lint": "eslint --ext .js,.vue src --fix",
     "update": "npm outdated"
   },
   "dependencies": {

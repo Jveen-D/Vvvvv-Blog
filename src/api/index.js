@@ -1,11 +1,11 @@
-import { axios } from '@/utils/request'
+import { axios } from "@/utils/request";
 
 /**
  * 获取文章月份归档
  * @method listMonthArchives
  */
 export function listMonthArchives() {
-  return axios({ url: '/content/archives/month', method: 'get' })
+  return axios({ url: "/content/archives/month", method: "get" });
 }
 
 /**
@@ -13,7 +13,7 @@ export function listMonthArchives() {
  * @method listYearArchives
  */
 export function listYearArchives() {
-  return axios({ url: '/content/archives/years', method: 'get' })
+  return axios({ url: "/content/archives/years", method: "get" });
 }
 
 /**
@@ -21,7 +21,7 @@ export function listYearArchives() {
  * @method listCategories
  */
 export function listCategories() {
-  return axios({ url: '/content/categories', method: 'get' })
+  return axios({ url: "/content/categories", method: "get" });
 }
 
 /**
@@ -30,7 +30,7 @@ export function listCategories() {
  * @param {string} sluy 类型
  */
 export function listsPostsByCategorySlug(sluy) {
-  return axios({ url: `/content/categories/${sluy}/posts`, method: 'get' })
+  return axios({ url: `/content/categories/${sluy}/posts`, method: "get" });
 }
 
 /**
@@ -38,7 +38,7 @@ export function listsPostsByCategorySlug(sluy) {
  * @method listsAllMenus
  */
 export function listsAllMenus() {
-  return axios({ url: 'content/menus', method: 'get' })
+  return axios({ url: "content/menus", method: "get" });
 }
 
 /**
@@ -46,7 +46,7 @@ export function listsAllMenus() {
  * @method listsAllMenusTree
  */
 export function listsAllMenusTree() {
-  return axios({ url: 'content/menus/tree_view', method: 'get' })
+  return axios({ url: "content/menus/tree_view", method: "get" });
 }
 
 /**
@@ -54,7 +54,7 @@ export function listsAllMenusTree() {
  * @method listsAllOptionsWithListView
  */
 export function listsAllOptionsWithListView() {
-  return axios({ url: '/content/options/list_view', method: 'get' })
+  return axios({ url: "/content/options/list_view", method: "get" });
 }
 
 /**
@@ -62,7 +62,7 @@ export function listsAllOptionsWithListView() {
  * @method listsOptionsWithListView
  */
 export function listsOptionsWithListView(key) {
-  return axios({ url: `/content/options/keys/${key}`, method: 'get' })
+  return axios({ url: `/content/options/keys/${key}`, method: "get" });
 }
 
 /**
@@ -73,7 +73,7 @@ export function listsOptionsWithListView(key) {
  * @param {array} sort - 排序
  */
 export function postList(params) {
-  return axios({ url: '/content/posts', method: 'get', params })
+  return axios({ url: "/content/posts", method: "get", params });
 }
 
 /**
@@ -82,7 +82,7 @@ export function postList(params) {
  * @param {string} slug - 必填，类型
  */
 export function getPostsBySlug(params) {
-  return axios({ url: '/content/posts/slug', method: 'get', params })
+  return axios({ url: "/content/posts/slug", method: "get", params });
 }
 
 /**
@@ -92,11 +92,13 @@ export function getPostsBySlug(params) {
  */
 export function getPostsById(postId) {
   return axios({
-    url: `/content/posts/${postId}`, method: 'get', params: {
+    url: `/content/posts/${postId}`,
+    method: "get",
+    params: {
       formatDisabled: false,
-      sourceDisabled: true
-    }
-  })
+      sourceDisabled: true,
+    },
+  });
 }
 
 /**
@@ -105,7 +107,10 @@ export function getPostsById(postId) {
  * @param {string} postId - 必填，文章id
  */
 export function listsCommentWithListView(postId) {
-  return axios({ url: `/content/posts/${postId}/comments/list_view`, method: 'get' })
+  return axios({
+    url: `/content/posts/${postId}/comments/list_view`,
+    method: "get",
+  });
 }
 
 /**
@@ -114,7 +119,10 @@ export function listsCommentWithListView(postId) {
  * @param {string} postId - 必填，文章id
  */
 export function listTopComments(postId) {
-  return axios({ url: `/content/posts/${postId}/comments/top_view`, method: 'get' })
+  return axios({
+    url: `/content/posts/${postId}/comments/top_view`,
+    method: "get",
+  });
 }
 
 /**
@@ -123,7 +131,7 @@ export function listTopComments(postId) {
  * @param {string} postId - 必填，文章id
  */
 export function getsNextPostByCurrentPostId(postId) {
-  return axios({ url: `/content/posts/${postId}/next`, method: 'get' })
+  return axios({ url: `/content/posts/${postId}/next`, method: "get" });
 }
 
 /**
@@ -132,7 +140,7 @@ export function getsNextPostByCurrentPostId(postId) {
  * @param {string} postId - 必填，文章id
  */
 export function getsPreviousPostByCurrentPostId(postId) {
-  return axios({ url: `/content/posts/${postId}/prev`, method: 'get' })
+  return axios({ url: `/content/posts/${postId}/prev`, method: "get" });
 }
 
 /**
@@ -140,7 +148,7 @@ export function getsPreviousPostByCurrentPostId(postId) {
  * @method getBlogStatistics
  */
 export function getBlogStatistics() {
-  return axios({ url: '/content/statistics/user', method: 'get' })
+  return axios({ url: "/content/statistics/user", method: "get" });
 }
 
 /**
@@ -148,7 +156,7 @@ export function getBlogStatistics() {
  * @method listsTags
  */
 export function listsTags() {
-  return axios({ url: '/content/tags', method: 'get' })
+  return axios({ url: "/content/tags", method: "get" });
 }
 
 /**
@@ -156,7 +164,7 @@ export function listsTags() {
  * @method listsPostsByTagSlug
  */
 export function listsPostsByTagSlug(slug) {
-  return axios({ url: `/content/tags/${slug}/posts`, method: 'get' })
+  return axios({ url: `/content/tags/${slug}/posts`, method: "get" });
 }
 
 /**
@@ -164,30 +172,5 @@ export function listsPostsByTagSlug(slug) {
  * @method getsBloggerProfile
  */
 export function getsBloggerProfile() {
-  return axios({ url: '/content/users/profile', method: 'get' })
+  return axios({ url: "/content/users/profile", method: "get" });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
