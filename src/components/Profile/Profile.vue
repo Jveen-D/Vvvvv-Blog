@@ -1,26 +1,26 @@
 <template>
   <!--  移动端头像-->
   <div
-    class="md:hidden flex justify-center items-center animate-pulse rounded-md fixed top-2 right-4 w-8 h-8"
-    @click="showProfileWrap">
-    <img :src="profile.user.avatar" alt="avatar" class="rounded-full" />
+      class="md:hidden flex justify-center items-center animate-pulse rounded-md fixed top-2 right-4 w-8 h-8"
+      @click="showProfileWrap">
+    <img :src="profile.user.avatar" alt="avatar" class="rounded-full"/>
   </div>
   <!--  移动端蒙层-->
   <div
-    :class="[showProfile ? 'showShadowProfile w-screen bg-red-500 bg-opacity-5 md:w-0' : '',
+      :class="[showProfile ? 'showShadowProfile w-screen bg-red-500 bg-opacity-5 md:w-0' : '',
              showProfile === false ? 'hiddenShadowProfile w-screen bg-red-500 bg-opacity-5' : '',
              'fixed h-screen md:bg-transparent z-10']"
-    @click.self="showShadowProfileWrap">
+      @click.self="showShadowProfileWrap">
   </div>
   <!--  内容-->
   <div
-    :class="[
+      :class="[
       showProfile ? 'showProfile' : 'w-0',
       showProfile === false ?'hiddenProfile ' : '',
       'fixed right-0 md:static md:inset-0 md:block md:mt-8 md:w-auto ' +
         'overflow-hidden font-mersan flex h-full justify-between flex-col whitespace-nowrap rounded-xl z-20 md:z-0']">
     <div
-      :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','rounded-xl overflow-hidden duration-500 ease-in-out']">
+        :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','rounded-xl overflow-hidden duration-500 ease-in-out']">
       <div :class="[mode === 'light'?'divide-gray-200':'divide-black','font-bold divide-y']">
         <div class="flex justify-between py-2 ml-4">
           <div>Profile</div>
@@ -33,10 +33,10 @@
         <div></div>
       </div>
       <div class="flex justify-center items-end  w-full h-24">
-        <img :src="profile.user.avatar" alt="avatar" class="w-20 h-20 rounded-full" />
+        <img :src="profile.user.avatar" alt="avatar" class="w-20 h-20 rounded-full"/>
       </div>
       <div
-        :class="[mode === 'light'?'text-black':'','flex justify-center items-center duration-500 ease-in-out pt-4 font-bold text-sm']">
+          :class="[mode === 'light'?'text-black':'','flex justify-center items-center duration-500 ease-in-out pt-4 font-bold text-sm']">
         {{ profile.user.nickname }}
       </div>
       <div class="flex justify-center items-center  pt-2 text-xs">
@@ -69,8 +69,8 @@
       </div>
     </div>
     <div
-      :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','mt-2 rounded-xl w-full pb-2 duration-500 ease-in-out']"
-      style="width: 300px;">
+        :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','mt-2 rounded-xl w-full pb-2 duration-500 ease-in-out']"
+        style="width: 300px;">
       <div class="text-xs font-bold px-4 pt-2">博客技术细节:</div>
       <div class="flex pl-2 pt-2">
         <svg aria-hidden="true" class="icon">
@@ -110,7 +110,7 @@
       </div>
     </div>
     <div
-      :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','flex flex-col justify-between h-full flex-1  rounded-xl w-full  mt-2 text-sm duration-500 ease-in-out']">
+        :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','flex flex-col justify-between h-full flex-1  rounded-xl w-full  mt-2 text-sm duration-500 ease-in-out']">
       <div>
         <div class="text-xs font-bold px-4 py-2">Other:</div>
         <div class="flex items-center pl-2">
@@ -146,9 +146,9 @@ const state = reactive({
   time: '', // 运行时间
   mode: computed(() => store.state.mode)//模式
 })
-const { showProfile, profile,time, mode } = { ...toRefs(state) }
+const { showProfile, profile, time, mode } = { ...toRefs(state) }
 
-watch(showProfile, (newVal) => {
+watch(showProfile, ( newVal ) => {
   preventScrollY(newVal)
 })
 
