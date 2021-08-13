@@ -27,12 +27,8 @@ H
 src/assets/css/mode.scss,4\c\4ca8a83461a9a55d65bc2cb6c6d02f01ce5e1469
 <
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
-S
-#src/components/Profile/Profile.scss,4\e\4e844e9aa487c276a5a27b891a31a0f002b2693d
 Q
 !src/components/Profile/Profile.js,c\1\c15c819766755c2247a3289b3f2205bd8e60ab15
-R
-"src/components/Profile/Profile.vue,0\5\052083b9b41c3fee208370d08281401ab8d28e2b
 L
 src/pages/notFound/index.vue,8\0\8093d35b2d79d2db20bc9d467682aa13496b61a5
 B
@@ -63,17 +59,21 @@ O
 src/components/Header/Header.js,c\a\caa79197723a9578d728293db3f20893a9c66c89
 R
 "src/pages/friendLink/friendLink.js,b\2\b2199e248762ac8ba9c715b96711c71c5f28692d
-S
-#src/pages/friendLink/friendLink.vue,f\d\fdfa833dca7376752e9afec9e4ec391888a82451
 X
 (src/pages/categoryLists/categoryLists.js,1\2\125bdbca302fdbbe303d48b6b95b8dcdadd21a22
-Y
-)src/pages/categoryLists/categoryLists.vue,5\2\52416f677d5cc4c16bbfbe240af1f12fc10f9ecc
-@
-src/api/index.js,3\7\37864a18575bc7717a4c7c8ddaf7f14a70f0d60f
 C
 src/router/index.js,0\5\05dc69393f11c15b01b3283d5d501694c999875c
+@
+src/api/index.js,3\7\37864a18575bc7717a4c7c8ddaf7f14a70f0d60f
+Y
+)src/pages/categoryLists/categoryLists.vue,5\2\52416f677d5cc4c16bbfbe240af1f12fc10f9ecc
+S
+#src/pages/postDetail/postDetail.vue,5\2\52c736d112c9ff793abb1f40fc38a01a29533214
 P
  src/components/Header/Header.vue,3\0\30361c92a2fd8e8f00c68db5d10063e799503d65
 S
-#src/pages/postDetail/postDetail.vue,5\2\52c736d112c9ff793abb1f40fc38a01a29533214
+#src/pages/friendLink/friendLink.vue,f\d\fdfa833dca7376752e9afec9e4ec391888a82451
+R
+"src/components/Profile/Profile.vue,0\5\052083b9b41c3fee208370d08281401ab8d28e2b
+S
+#src/components/Profile/Profile.scss,4\e\4e844e9aa487c276a5a27b891a31a0f002b2693d

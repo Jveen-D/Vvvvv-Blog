@@ -43,18 +43,18 @@
         <svg aria-hidden="true" class="icon animate-ping">
           <use xlink:href="#icon-12"></use>
         </svg>
-        <p>南京</p>
+        <p>南京 want to go to 北京</p>
       </div>
       <div class="flex justify-center items-center  pt-2 text-xs">
         {{ profile.user.email }}
       </div>
       <div class="rounded-xl flex pt-4 pb-4 justify-center items-center ">
         <div class="flex justify-between w-3/6">
-          <a href="weixin://" title="和俺聊天">
+          <div class="relative wx">
             <svg aria-hidden="true" class="icon">
               <use xlink:href="#icon-weixin"></use>
             </svg>
-          </a>
+          </div>
           <a href="https://github.com/Jveen-D" target="_blank" title="github">
             <svg aria-hidden="true" class="icon">
               <use xlink:href="#icon-github"></use>
@@ -82,13 +82,13 @@
         <svg aria-hidden="true" class="icon">
           <use xlink:href="#icon-biaoqian"></use>
         </svg>
-        <div class="text-sm">:使用Tailwind Css响应式布局</div>
+        <div class="text-sm">:使用Vue3 setup语法糖</div>
       </div>
       <div class="flex pl-2 pt-2">
         <svg aria-hidden="true" class="icon">
           <use xlink:href="#icon-biaoqian"></use>
         </svg>
-        <div class="text-sm">:代码支持高亮显示</div>
+        <div class="text-sm">:博客自动化部署与发布</div>
       </div>
       <div class="flex pl-2 pt-2">
         <svg aria-hidden="true" class="icon">
@@ -100,13 +100,19 @@
         <svg aria-hidden="true" class="icon">
           <use xlink:href="#icon-biaoqian"></use>
         </svg>
-        <div class="text-sm">:使用Docker创建Nginx服务</div>
+        <div class="text-sm">:使用Docker创建Nginx发布项目</div>
       </div>
       <div class="flex pl-2 pt-2">
         <svg aria-hidden="true" class="icon">
           <use xlink:href="#icon-biaoqian"></use>
         </svg>
-        <div class="text-sm">:使用shell脚本实现自动化部署</div>
+        <div class="text-sm">:博客内容代码支持高亮显示</div>
+      </div>
+      <div class="flex pl-2 pt-2">
+        <svg aria-hidden="true" class="icon">
+          <use xlink:href="#icon-biaoqian"></use>
+        </svg>
+        <div class="text-sm">:使用Tailwind Css响应式布局</div>
       </div>
     </div>
     <div
