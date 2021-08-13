@@ -25,8 +25,6 @@ B
 prettier.config.js,5\5\5545147ddef8ba341e646ddc20c3d3d456b3fe04
 H
 src/assets/css/mode.scss,4\c\4ca8a83461a9a55d65bc2cb6c6d02f01ce5e1469
-<
-package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 Q
 !src/components/Profile/Profile.js,c\1\c15c819766755c2247a3289b3f2205bd8e60ab15
 L
@@ -47,8 +45,6 @@ B
 .eslintrc.js,d\b\dbc0c31823b8f2e4ed04a397722fed33a67f123f
 =
 jsconfig.json,5\6\56f2d335ffa27c20b4ea310cf0214fa96f325894
->
-vite.config.js,2\3\23e488f27597a265a6ab2b1efbe18221c6f88c2f
 B
 tailwind.config.js,0\9\0918cbb76f2c44f223706cec9d31a32cd1177ce4
 E
@@ -73,7 +69,3 @@ P
  src/components/Header/Header.vue,3\0\30361c92a2fd8e8f00c68db5d10063e799503d65
 S
 #src/pages/friendLink/friendLink.vue,f\d\fdfa833dca7376752e9afec9e4ec391888a82451
-R
-"src/components/Profile/Profile.vue,0\5\052083b9b41c3fee208370d08281401ab8d28e2b
-S
-#src/components/Profile/Profile.scss,4\e\4e844e9aa487c276a5a27b891a31a0f002b2693d

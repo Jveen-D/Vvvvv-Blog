@@ -50,7 +50,7 @@
       </div>
       <div class="rounded-xl flex pt-4 pb-4 justify-center items-center ">
         <div class="flex justify-between w-3/6">
-          <div class="relative wx">
+          <div class="relative wx" content="dwj18066042960">
             <svg aria-hidden="true" class="icon">
               <use xlink:href="#icon-weixin"></use>
             </svg>
