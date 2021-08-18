@@ -69,3 +69,7 @@ P
  src/components/Header/Header.vue,3\0\30361c92a2fd8e8f00c68db5d10063e799503d65
 S
 #src/pages/friendLink/friendLink.vue,f\d\fdfa833dca7376752e9afec9e4ec391888a82451
+>
+vite.config.js,2\3\23e488f27597a265a6ab2b1efbe18221c6f88c2f
+<
+package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
