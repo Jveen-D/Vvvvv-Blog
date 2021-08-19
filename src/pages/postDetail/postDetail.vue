@@ -5,7 +5,19 @@
       'md:mx-4 mt-8 rounded-2xl font-mersan duration-500 ease-in-out',
     ]"
   >
-    <div id="xx" class="flex flex-col items-center w-full overflow-x-none pt-8 pb-8 md:pl-2 md:p-4">
+    <div
+      id="xx"
+      class="
+        flex flex-col
+        items-center
+        w-full
+        overflow-x-none
+        pt-8
+        pb-8
+        px-4
+        md:px-0 md:pl-2 md:p-4
+      "
+    >
       <div
         class="
           flex
@@ -16,9 +28,9 @@
           hover:text-FF9100
         "
       >
-        {{ postDetail.title }}
+        <h1>{{ postDetail.title }}</h1>
       </div>
-      <div class="flex flex-col items-center md:flex-row md:justify-center text-sm my-4">
+      <div class="flex flex-col items-center md:flex-row md:justify-center text-sm mt-4">
         <div class="flex items-center mr-4">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-rili" />
@@ -40,7 +52,7 @@
       </div>
       <div
         ref="markdownBody"
-        class="max-w-screen-md w-screen markdown-body p-2 md:p-0 break-all"
+        class="max-w-screen-md w-screen markdown-body p-4 md:p-0 break-all"
       ></div>
     </div>
   </div>

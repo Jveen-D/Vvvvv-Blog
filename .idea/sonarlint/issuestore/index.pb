@@ -15,12 +15,8 @@ A
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-;
-src/App.css,a\a\aa7165aefcf8ee3d73539e99ab007daf1aa18d8d
 K
 src/assets/css/backTop.scss,b\5\b51e19255fe348ab3d56ae43c32e27d938619433
-T
-$src/pages/postDetail/postDetail.scss,f\b\fb6475ea8432ab4f5488bca1eaaf86e2d6be677f
 B
 prettier.config.js,5\5\5545147ddef8ba341e646ddc20c3d3d456b3fe04
 H
@@ -63,13 +59,9 @@ C
 src/api/index.js,3\7\37864a18575bc7717a4c7c8ddaf7f14a70f0d60f
 Y
 )src/pages/categoryLists/categoryLists.vue,5\2\52416f677d5cc4c16bbfbe240af1f12fc10f9ecc
-S
-#src/pages/postDetail/postDetail.vue,5\2\52c736d112c9ff793abb1f40fc38a01a29533214
 P
  src/components/Header/Header.vue,3\0\30361c92a2fd8e8f00c68db5d10063e799503d65
 S
 #src/pages/friendLink/friendLink.vue,f\d\fdfa833dca7376752e9afec9e4ec391888a82451
 >
 vite.config.js,2\3\23e488f27597a265a6ab2b1efbe18221c6f88c2f
-<
-package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
