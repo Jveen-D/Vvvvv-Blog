@@ -23,8 +23,6 @@ H
 src/assets/css/mode.scss,4\c\4ca8a83461a9a55d65bc2cb6c6d02f01ce5e1469
 Q
 !src/components/Profile/Profile.js,c\1\c15c819766755c2247a3289b3f2205bd8e60ab15
-L
-src/pages/notFound/index.vue,8\0\8093d35b2d79d2db20bc9d467682aa13496b61a5
 B
 src/store/store.js,8\b\8bb307fb6db380ef753f957624efd76a44e602c7
 A
@@ -45,8 +43,6 @@ B
 tailwind.config.js,0\9\0918cbb76f2c44f223706cec9d31a32cd1177ce4
 E
 src/layout/layout.vue,a\7\a7a98534b2eab9b0870b3756ce3bc18e2226c25e
-R
-"src/pages/postDetail/postDetail.js,6\d\6d26066e1c9dfea5d38def0332322f51e4dff86a
 O
 src/components/Header/Header.js,c\a\caa79197723a9578d728293db3f20893a9c66c89
 R
@@ -63,5 +59,7 @@ P
  src/components/Header/Header.vue,3\0\30361c92a2fd8e8f00c68db5d10063e799503d65
 S
 #src/pages/friendLink/friendLink.vue,f\d\fdfa833dca7376752e9afec9e4ec391888a82451
->
-vite.config.js,2\3\23e488f27597a265a6ab2b1efbe18221c6f88c2f
+;
+src/App.css,a\a\aa7165aefcf8ee3d73539e99ab007daf1aa18d8d
+<
+package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a

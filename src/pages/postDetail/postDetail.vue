@@ -83,7 +83,7 @@
       if (currentV) {
         GetPostsById(currentV).then((res) => {
           state.postDetail = res;
-          document.title = `Vvvvv-Blog! - ` + state.postDetail.title;
+          document.title = `Vvvvv-Blog!-` + state.postDetail.title;
           state.createTime = getUpdateTime(state.postDetail.createTime);
           state.markdownBody.innerHTML += state.postDetail.formatContent;
           store.dispatch(
