@@ -1,22 +1,10 @@
 <template>
-  <div
-    :class="[
-      mode === 'light' ? 'bg-lightMode bg-white text-lightMode' : 'bg-darkMode  text-darkMode',
-      'md:mx-4 mt-8 rounded-2xl font-mersan duration-500 ease-in-out',
-    ]"
-  >
+  <div :class="['md:py-8 font-mersan duration-500 ease-in-out pt-12 md:mx-4']">
     <div
-      id="xx"
-      class="
-        flex flex-col
-        items-center
-        w-full
-        overflow-x-none
-        pt-8
-        pb-8
-        px-4
-        md:px-0 md:pl-2 md:p-4
-      "
+      :class="[
+        mode === 'light' ? 'bg-lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
+        'flex flex-col items-center w-full overflow-x-none rounded-2xl pt-4 md:px-0 md:pl-2 md:p-4 md:pb-8',
+      ]"
     >
       <div
         class="

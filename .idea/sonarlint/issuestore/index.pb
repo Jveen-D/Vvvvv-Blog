@@ -59,7 +59,5 @@ P
  src/components/Header/Header.vue,3\0\30361c92a2fd8e8f00c68db5d10063e799503d65
 S
 #src/pages/friendLink/friendLink.vue,f\d\fdfa833dca7376752e9afec9e4ec391888a82451
-;
-src/App.css,a\a\aa7165aefcf8ee3d73539e99ab007daf1aa18d8d
 <
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
