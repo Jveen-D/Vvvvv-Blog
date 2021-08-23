@@ -49,8 +49,6 @@ C
 src/api/index.js,3\7\37864a18575bc7717a4c7c8ddaf7f14a70f0d60f
 Y
 )src/pages/categoryLists/categoryLists.vue,5\2\52416f677d5cc4c16bbfbe240af1f12fc10f9ecc
-P
- src/components/Header/Header.vue,3\0\30361c92a2fd8e8f00c68db5d10063e799503d65
 S
 #src/pages/friendLink/friendLink.vue,f\d\fdfa833dca7376752e9afec9e4ec391888a82451
 <

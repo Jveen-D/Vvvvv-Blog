@@ -1,7 +1,7 @@
 <template>
   <!--  移动端头像-->
   <div
-      class="lg:hidden flex justify-center items-center animate-pulse rounded-md fixed top-2 right-4 w-8 h-8"
+      class="lg:hidden flex justify-center items-center animate-pulse rounded-md absolute top-2 right-4 w-8 h-8"
       @click="showProfileWrap">
     <img :src="profile.user.avatar" alt="avatar" class="rounded-full"/>
   </div>
