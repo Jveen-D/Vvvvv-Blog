@@ -8,7 +8,7 @@
       items-center
       animate-pulse
       rounded-md
-      absolute
+      fixed
       top-2
       left-4
       w-8
