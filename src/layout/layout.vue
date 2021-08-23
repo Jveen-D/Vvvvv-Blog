@@ -3,10 +3,14 @@
   <div
     :class="[
       mode === 'dark' ? 'darkMode' : 'bg-gradient-to-tr from-regal-blue to-regal-pink',
-      'flex h-full lg:h-screen-90vh',
+      'flex',
     ]"
   >
-    <div ref="backTopEle" class="w-full h-full overflow-y-auto" @scroll="getScroll($event)">
+    <div
+      ref="backTopEle"
+      class="flex-1 h-screen lg:h-screen-90vh overflow-y-scroll"
+      @scroll="getScroll($event)"
+    >
       <router-view class="animate__animated animate__fadeInLeftBig" />
     </div>
     <!--右侧的profile-->
