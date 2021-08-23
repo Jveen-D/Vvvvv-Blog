@@ -51,13 +51,9 @@ Y
 )src/pages/categoryLists/categoryLists.vue,5\2\52416f677d5cc4c16bbfbe240af1f12fc10f9ecc
 S
 #src/pages/friendLink/friendLink.vue,f\d\fdfa833dca7376752e9afec9e4ec391888a82451
-<
-package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 L
 src/pages/notFound/index.vue,8\0\8093d35b2d79d2db20bc9d467682aa13496b61a5
 R
 "src/pages/postDetail/postDetail.js,6\d\6d26066e1c9dfea5d38def0332322f51e4dff86a
-;
-src/App.css,a\a\aa7165aefcf8ee3d73539e99ab007daf1aa18d8d
 T
 $src/pages/postDetail/postDetail.scss,f\b\fb6475ea8432ab4f5488bca1eaaf86e2d6be677f
