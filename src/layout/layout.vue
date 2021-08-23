@@ -8,7 +8,7 @@
     ]"
     @scroll="getScroll($event)"
   >
-    <div class="flex-1 w-screen ld:h-screen-90vh overflow-y-auto">
+    <div class="flex-1 w-screen h-screen ld:h-screen-90vh overflow-y-auto">
       <router-view class="animate__animated animate__fadeInLeftBig" />
     </div>
     <!--右侧的profile-->
