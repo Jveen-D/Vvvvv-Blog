@@ -73,17 +73,11 @@
   // eslint-disable-next-line no-undef
   const weexPlatform = inWeex && WXEnvironment.platform.toLowerCase();
   const UA = inBrowser && window.navigator.userAgent.toLowerCase();
-  // const isIE = UA && /msie|trident/.test(UA);
-  // const isIE9 = UA && UA.indexOf('msie 9.0') > 0;
-  // const isEdge = UA && UA.indexOf('edge/') > 0;
-  // const isAndroid = (UA && UA.indexOf('android') > 0) || weexPlatform === 'android';
   const isIOS = ref((UA && /iphone|ipad|ipod|ios/.test(UA)) || weexPlatform === 'ios');
-  // const isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge;
-  // const isPhantomJS = UA && /phantomjs/.test(UA);
-  // const isFF = UA && UA.match(/firefox\/(\d+)/);
 
   const safariHacks = () => {
     let windowsVH = window.innerHeight / 100;
+
     document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px');
     window.addEventListener('resize', function () {
       document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px');
@@ -98,7 +92,6 @@
   @import '@/assets/css/mode';
   @import '@/assets/css/backTop';
   .wrap {
-    height: 100vh; /*給 Safari 以外的瀏覽器讀取*/
     height: calc(var(--vh, 1vh) * 100);
   }
 </style>
