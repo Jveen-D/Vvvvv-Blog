@@ -76,7 +76,7 @@
   const isIOS = ref((UA && /iphone|ipad|ipod|ios/.test(UA)) || weexPlatform === 'ios');
 
   const safariHacks = () => {
-    let windowsVH = window.innerHeight / 100;
+    let windowsVH = window.innerHeight;
 
     document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px');
     window.addEventListener('resize', function () {
@@ -92,6 +92,6 @@
   @import '@/assets/css/mode';
   @import '@/assets/css/backTop';
   .wrap {
-    height: calc(var(--vh, 1vh) * 100);
+    height: var(--vh);
   }
 </style>
