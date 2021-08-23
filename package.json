@@ -26,6 +26,7 @@
     "eslint-plugin-vue": "^7.15.1",
     "postcss": "^8.3.6",
     "prettier": "^2.3.2",
+    "rollup-plugin-gzip": "^2.5.0",
     "sass": "^1.37.5",
     "tailwindcss": "^2.2.7",
     "vite": "^2.4.4"

@@ -1,8 +1,12 @@
 const { resolve } = require('path');
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import gzipPlugin from 'rollup-plugin-gzip';
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(), gzipPlugin()],
+  build: {
+    brotliSize: true,
+  },
   server: {
     proxy: {
       '/api': {
