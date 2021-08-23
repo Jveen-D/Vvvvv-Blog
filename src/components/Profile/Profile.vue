@@ -16,9 +16,9 @@
   <div
       :class="[
       showProfile ? 'showProfile' : 'w-0',
-      showProfile === false ?'hiddenProfile ' : '',
+      showProfile === false ?'hiddenProfile' : '',
       'fixed right-0 lg:static lg:inset-0 lg:block lg:mt-8 lg:w-auto ' +
-        'overflow-hidden font-mersan flex h-full justify-between flex-col whitespace-nowrap rounded-xl z-20 lg:z-0']">
+        'overflow-hidden font-mersan flex justify-between flex-col whitespace-nowrap rounded-xl z-20 lg:z-0']">
     <div
         :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','rounded-xl overflow-hidden duration-500 ease-in-out']">
       <div :class="[mode === 'light'?'divide-gray-200':'divide-black','font-bold divide-y']">
@@ -43,7 +43,7 @@
         <svg aria-hidden="true" class="icon animate-ping">
           <use xlink:href="#icon-12"></use>
         </svg>
-        <p>南京 want to go to 北京</p>
+        <p>南京</p>
       </div>
       <div class="flex justify-center items-center  pt-2 text-xs">
         {{ profile.user.email }}
@@ -116,7 +116,7 @@
       </div>
     </div>
     <div
-        :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','flex flex-col justify-between h-full flex-1  rounded-xl w-full  mt-2 text-sm duration-500 ease-in-out']">
+        :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','flex flex-col justify-between rounded-xl w-full  mt-2 text-sm duration-500 ease-in-out']">
       <div>
         <div class="text-xs font-bold px-4 py-2">Other:</div>
         <div class="flex items-center pl-2">
