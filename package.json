@@ -29,6 +29,7 @@
     "rollup-plugin-gzip": "^2.5.0",
     "sass": "^1.37.5",
     "tailwindcss": "^2.2.7",
-    "vite": "^2.4.4"
+    "vite": "^2.4.4",
+    "vite-plugin-compression": "^0.3.3"
   }
 }
