@@ -4,10 +4,10 @@
       transition
         ? 'animate__animated animate__fadeInLeft'
         : 'animate__animated animate__fadeInRight',
-      'mx-4 md:mx-8 pt-12 md:pt-8 font-mersan',
+      'mx-4 lg:mx-8 pt-12 lg:pt-8 font-mersan',
     ]"
   >
-    <div class="md:-mr-1+1/20 md:h-full pb-8 duration-500 ease-in-out">
+    <div class="lg:-mr-1+1/20 lg:h-full pb-8 duration-500 ease-in-out">
       <div
         v-for="(item, index) in articleLists.content"
         :key="'articleLists' + index"
@@ -18,7 +18,7 @@
         ]"
         @click="goDetails(item.id)"
       >
-        <div class="md:flex md:justify-between">
+        <div class="lg:flex lg:justify-between">
           <div
             :class="[
               mode === 'light' ? 'text-black' : '',
@@ -31,7 +31,7 @@
             发布于 {{ getUpdateTime(item.createTime) }}
           </div>
         </div>
-        <div class="md:mt-4 tracking-wide break-all leading-6 md:h-auto md:overflow-y-none">
+        <div class="lg:mt-4 tracking-wide break-all leading-6 lg:h-auto lg:overflow-y-none">
           {{ item.summary }}...
         </div>
         <div class="flex items-center flex-wrap">

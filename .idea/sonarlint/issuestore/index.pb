@@ -32,17 +32,11 @@ D
 B
 src/utils/utils.js,8\3\834ac17c5746ea7353922890b8abc29952856cc2
 ;
-src/App.vue,5\4\5441d5289c77ce615f0e420c266cdee5d78f3ecd
-;
 src/main.js,4\1\41d348bfb8135a570c1d2675c884f60724201c5c
 <
 .eslintrc.js,d\b\dbc0c31823b8f2e4ed04a397722fed33a67f123f
 =
 jsconfig.json,5\6\56f2d335ffa27c20b4ea310cf0214fa96f325894
-B
-tailwind.config.js,0\9\0918cbb76f2c44f223706cec9d31a32cd1177ce4
-E
-src/layout/layout.vue,a\7\a7a98534b2eab9b0870b3756ce3bc18e2226c25e
 O
 src/components/Header/Header.js,c\a\caa79197723a9578d728293db3f20893a9c66c89
 R
@@ -61,3 +55,11 @@ S
 #src/pages/friendLink/friendLink.vue,f\d\fdfa833dca7376752e9afec9e4ec391888a82451
 <
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
+L
+src/pages/notFound/index.vue,8\0\8093d35b2d79d2db20bc9d467682aa13496b61a5
+R
+"src/pages/postDetail/postDetail.js,6\d\6d26066e1c9dfea5d38def0332322f51e4dff86a
+;
+src/App.css,a\a\aa7165aefcf8ee3d73539e99ab007daf1aa18d8d
+T
+$src/pages/postDetail/postDetail.scss,f\b\fb6475ea8432ab4f5488bca1eaaf86e2d6be677f

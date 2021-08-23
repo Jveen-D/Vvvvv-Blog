@@ -1,15 +1,15 @@
 <template>
   <!--  移动端头像-->
   <div
-      class="md:hidden flex justify-center items-center animate-pulse rounded-md fixed top-2 right-4 w-8 h-8"
+      class="lg:hidden flex justify-center items-center animate-pulse rounded-md fixed top-2 right-4 w-8 h-8"
       @click="showProfileWrap">
     <img :src="profile.user.avatar" alt="avatar" class="rounded-full"/>
   </div>
   <!--  移动端蒙层-->
   <div
-      :class="[showProfile ? 'showShadowProfile w-screen bg-red-500 bg-opacity-5 md:w-0' : '',
+      :class="[showProfile ? 'showShadowProfile w-screen bg-red-500 bg-opacity-5 lg:w-0' : '',
              showProfile === false ? 'hiddenShadowProfile w-screen bg-red-500 bg-opacity-5' : '',
-             'fixed h-screen md:bg-transparent z-10']"
+             'fixed h-screen lg:bg-transparent z-10']"
       @click.self="showShadowProfileWrap">
   </div>
   <!--  内容-->
@@ -17,14 +17,14 @@
       :class="[
       showProfile ? 'showProfile' : 'w-0',
       showProfile === false ?'hiddenProfile ' : '',
-      'fixed right-0 md:static md:inset-0 md:block md:mt-8 md:w-auto ' +
-        'overflow-hidden font-mersan flex h-full justify-between flex-col whitespace-nowrap rounded-xl z-20 md:z-0']">
+      'fixed right-0 lg:static lg:inset-0 lg:block lg:mt-8 lg:w-auto ' +
+        'overflow-hidden font-mersan flex h-full justify-between flex-col whitespace-nowrap rounded-xl z-20 lg:z-0']">
     <div
         :class="[mode === 'light'?'bg-lightMode':'bg-darkMode','rounded-xl overflow-hidden duration-500 ease-in-out']">
       <div :class="[mode === 'light'?'divide-gray-200':'divide-black','font-bold divide-y']">
         <div class="flex justify-between py-2 ml-4">
           <div>Profile</div>
-          <div class="md:hidden mt-2 mr-4" @click="showProfileWrap">
+          <div class="lg:hidden mt-2 mr-4" @click="showProfileWrap">
             <svg aria-hidden="true" class="icon animate-bounce">
               <use xlink:href="#icon-cha"></use>
             </svg>

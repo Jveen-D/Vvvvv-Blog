@@ -1,9 +1,9 @@
 <template>
-  <div :class="['md:py-8 font-mersan duration-500 ease-in-out pt-12 md:mx-4']">
+  <div :class="['lg:py-8 font-mersan duration-500 ease-in-out pt-12 lg:mx-4']">
     <div
       :class="[
         mode === 'light' ? 'bg-lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
-        'flex flex-col items-center w-full overflow-x-none rounded-2xl pt-4 md:px-0 md:pl-2 md:p-4 md:pb-8',
+        'flex flex-col items-center w-full overflow-x-none rounded-2xl pt-4 lg:px-0 lg:pl-2 lg:p-4 lg:pb-8',
       ]"
     >
       <div
@@ -18,7 +18,7 @@
       >
         <h1>{{ postDetail.title }}</h1>
       </div>
-      <div class="flex flex-col items-center md:flex-row md:justify-center text-sm mt-4">
+      <div class="flex flex-col items-center lg:flex-row lg:justify-center text-sm mt-4">
         <div class="flex items-center mr-4">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-rili" />
@@ -40,7 +40,7 @@
       </div>
       <div
         ref="markdownBody"
-        class="max-w-screen-md w-screen markdown-body p-4 md:p-0 break-all"
+        class="max-w-screen-md w-screen markdown-body p-4 lg:p-0 break-all"
       ></div>
     </div>
   </div>

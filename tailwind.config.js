@@ -28,5 +28,6 @@ module.exports = {
   variants: {
     extend: {}
   },
-  plugins: []
+  plugins: [],
+  important: '#app',
 }
