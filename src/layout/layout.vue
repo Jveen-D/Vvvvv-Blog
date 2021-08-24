@@ -76,13 +76,14 @@
   const isIOS = ref((UA && /iphone|ipad|ipod|ios/.test(UA)) || weexPlatform === 'ios');
 
   const safariHacks = () => {
-    let windowsVH = window.innerHeight;
-
-    document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px');
-    window.addEventListener('resize', function () {
+    let windowsVH = window.innerHeight; // 返回窗口的文档显示区的高度
+    document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px'); // 设置css变量
+    // 监听resize时间，回调函数同上
+    window.addEventListener('resize', () => {
       document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px');
     });
   };
+  // 挂在之后执行
   onMounted(() => {
     safariHacks();
   });
@@ -91,6 +92,7 @@
 <style scoped lang="scss">
   @import '@/assets/css/mode';
   @import '@/assets/css/backTop';
+  // 引用css变量
   .wrap {
     height: var(--vh);
   }
