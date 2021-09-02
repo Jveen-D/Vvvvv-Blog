@@ -135,14 +135,22 @@
 
   // 点击分类切换
   const goCategory = (index, val) => {
-    if (val === 'friendLink') {
-      Router.push({
-        path: `/friend/${val}`,
-      });
-    } else {
-      Router.push({
-        path: `/category/${val}`,
-      });
+    switch (val) {
+      case 'friendLink':
+        Router.push({
+          path: `/friend/${val}`,
+        });
+        break;
+      case 'utils':
+        Router.push({
+          path: `/utils/${val}`,
+        });
+        break;
+      default:
+        Router.push({
+          path: `/category/${val}`,
+        });
+        break;
     }
   };
 
