@@ -1,5 +1,8 @@
 #backTop{
-  background: url('https://cdn.jsdelivr.net/gh/LIlGG/cdn@1.0.8/img/Sakura/images/scroll.png') no-repeat top;
+  background-image: url('https://cdn.jsdelivr.net/gh/LIlGG/cdn@1.0.8/img/Sakura/images/scroll.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 60%;
 }
 .showBackTop{
   animation: showBackTopAnimation .5s ease-in-out;

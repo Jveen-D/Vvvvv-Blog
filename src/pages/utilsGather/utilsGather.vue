@@ -3,22 +3,29 @@
     <div
       :class="[
         mode === 'light' ? 'bg-lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
-        'flex flex-col items-center w-full overflow-x-none rounded-2xl pt-4 lg:px-0 lg:pl-2 lg:p-4 lg:pb-8',
+        'flex justify-center w-full overflow-x-none rounded-2xl pt-4 lg:px-0 lg:pl-2 lg:p-4 lg:pb-8',
       ]"
     >
+      <div class="lg:w-96">
+        <div>一、123</div>
+        <div>二、123</div>
+        <div>三、123</div>
+        <div>一、123</div>
+        <div>二、123</div>
+        <div>三、123</div>
+        <img src="/src/assets/img/bg.gif" alt="" />
+      </div>
       <div
         ref="markdownBody"
-        class="max-w-screen-md w-screen markdown-body p-4 lg:p-0 break-all"
+        class="w-screen max-w-screen-md markdown-body p-4 lg:p-0 break-all"
       ></div>
     </div>
   </div>
 </template>
-
 <script setup>
   import { GetPostsById } from './utilsGather';
-  import { ref, reactive, computed, toRefs, watch } from 'vue';
+  import { ref, reactive, computed, toRefs, onMounted } from 'vue';
   import { useStore } from 'vuex';
-
   const store = useStore();
   const state = reactive({
     postDetail: '',

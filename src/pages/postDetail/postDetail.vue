@@ -60,6 +60,7 @@
     postDetail: '',
     markdownBody: null,
     createTime: '',
+    slug: computed(() => store.state.slug),
     mode: computed(() => store.state.mode),
   });
   const { postDetail, markdownBody, createTime, mode } = { ...toRefs(state) };
@@ -69,6 +70,10 @@
     document.title = `Vvvvv-Blog! - ` + state.postDetail.title;
     state.createTime = getUpdateTime(state.postDetail.createTime);
     state.markdownBody.innerHTML += state.postDetail.formatContent;
+    store.dispatch(
+      'ChangeSlug',
+      computed(() => state.postDetail.categories[0].slug)
+    );
     const pre = Array.from(document.getElementsByTagName('pre'));
     code = Array.from(document.querySelectorAll('pre code'));
     pre.forEach((item, index) => {
