@@ -50,7 +50,7 @@
   import { useRouter } from 'vue-router';
   import { computed, reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
-  import './postDetail.scss';
+  import '/src/assets/css/markdown-body.scss';
   import { getUpdateTime } from '@/utils/date';
 
   const Router = useRouter();
