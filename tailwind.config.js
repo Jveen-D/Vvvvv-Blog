@@ -26,10 +26,14 @@ module.exports = {
         '17':'17rem'
       },
       maxWidth:{
-        '20':'20rem'
+        '20':'20rem',
       },
       minWidth:{
-        '10':'10rem'
+        '10':'10rem',
+        '1080':'1080px'
+      },
+      screens:{
+        'min':'1100px'
       }
     }
   },

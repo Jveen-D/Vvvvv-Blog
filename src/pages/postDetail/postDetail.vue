@@ -1,9 +1,9 @@
 <template>
-  <div :class="['lg:py-8 font-mersan duration-500 ease-in-out pt-12 lg:mx-4']">
+  <div :class="['lg:py-8 font-mersan duration-500 ease-in-out pt-12 lg:mx-2']">
     <div
       :class="[
         mode === 'light' ? 'bg-lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
-        'flex flex-col items-center w-full overflow-x-none rounded-2xl pt-4 lg:px-0 lg:pl-2 lg:p-4 lg:pb-8',
+        ' flex flex-col items-center w-full overflow-x-none rounded-2xl pt-4 lg:px-0 lg:pl-2 lg:p-4 lg:pb-8',
       ]"
     >
       <div
@@ -40,7 +40,7 @@
       </div>
       <div
         ref="markdownBody"
-        class="max-w-screen-md w-screen markdown-body p-4 lg:p-0 break-all"
+        class="max-w-screen-lg w-screen markdown-body p-4 lg:p-0 break-all"
       ></div>
     </div>
   </div>

@@ -8,7 +8,10 @@
   >
     <div
       ref="backTopEle"
-      :class="[isIOS ? '' : 'h-screen', 'wrap flex-1 lg:h-screen-90vh overflow-y-scroll']"
+      :class="[
+        isIOS ? '' : 'h-screen',
+        'wrap flex-1 lg:h-screen-90vh overflow-y-scroll lg:min-w-1080 ',
+      ]"
       @scroll="getScroll($event)"
     >
       <router-view class="animate__animated animate__fadeInLeftBig" />
