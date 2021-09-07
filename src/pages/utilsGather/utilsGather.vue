@@ -44,8 +44,8 @@
   </div>
 </template>
 <script setup>
-  import { GetPostsById } from './utilsGather';
-  import { ref, reactive, computed, toRefs, isRef } from 'vue';
+  import { GetPostsById } from './utilsGather.js';
+  import { ref, reactive, computed, toRefs, isRef, shallowRef } from 'vue';
   import { useStore } from 'vuex';
   import '/src/assets/css/markdown-body.scss';
   const store = useStore();
