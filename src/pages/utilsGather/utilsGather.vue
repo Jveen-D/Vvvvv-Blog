@@ -11,7 +11,7 @@
       h-util
       pt-4
       pl-4
-      font-mersan
+      font-bold
       whitespace-nowrap
       font-medium
       text-sm
