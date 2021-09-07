@@ -32,7 +32,7 @@
       <div
         :class="[
           mode === 'light' ? 'bg-lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
-          'flex justify-center w-full overflow-x-none rounded-2xl pt-4 lg:px-0 lg:pl-2 lg:p-4 lg:pb-8',
+          'flex justify-center w-full overflow-x-none rounded-2xl lg:p-4 lg:pb-8',
         ]"
       >
         <div
