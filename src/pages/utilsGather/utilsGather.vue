@@ -88,6 +88,7 @@
       item.innerHTML = `<a name='${item.innerText}'>${item.innerText}</a>`;
     });
   });
+
   let code;
   window.copy = (index) => {
     const ele = document.createElement('div');
