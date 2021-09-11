@@ -7,6 +7,12 @@ export default defineConfig({
   build: {
     brotliSize: false,
   },
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+      // 'vue': 'vue/dist/vue.esm-bundler.js',//配置template
+    },
+  },
   server: {
     proxy: {
       '/api': {
@@ -14,12 +20,6 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
-    },
-  },
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-      // 'vue': 'vue/dist/vue.esm-bundler.js',//配置template
     },
   },
 });
