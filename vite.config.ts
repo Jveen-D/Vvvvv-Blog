@@ -2,16 +2,27 @@ const { resolve } = require('path');
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import viteCompression from 'vite-plugin-compression';
+function pathResolve(dir: string) {
+  return resolve(process.cwd(), '.', dir);
+}
 export default defineConfig({
   plugins: [vue(), viteCompression()],
   build: {
     brotliSize: false,
   },
   resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-      // 'vue': 'vue/dist/vue.esm-bundler.js',//配置template
-    },
+    alias: [
+      // /@/xxxx => src/xxxx
+      {
+        find: /\/@\//,
+        replacement: pathResolve('src') + '/',
+      },
+      // /#/xxxx => types/xxxx
+      {
+        find: /\/#\//,
+        replacement: pathResolve('types') + '/',
+      },
+    ],
   },
   server: {
     proxy: {

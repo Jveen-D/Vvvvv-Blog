@@ -1,5 +1,5 @@
 const preventDefault = (e) => e.preventDefault();
-const root = document.getElementById('app');
+const root:any = document.getElementById('app');
 export const preventScrollY = (val) => {
   if (val === true) {
     root.addEventListener('touchmove', preventDefault, false);

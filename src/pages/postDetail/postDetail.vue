@@ -45,13 +45,13 @@
     </div>
   </div>
 </template>
-<script setup>
-  import { GetPostsById } from './postDetail';
+<script lang="ts" setup>
+  import { GetPostsById } from './postDetail.ts';
   import { useRouter } from 'vue-router';
   import { computed, reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
   import '/src/assets/css/markdown-body.scss';
-  import { getUpdateTime } from '@/utils/date';
+  import { getUpdateTime } from '/@/utils/date';
 
   const Router = useRouter();
   const store = useStore();

@@ -1,4 +1,4 @@
-import { axios } from '@/utils/request';
+import { axios } from '/@/utils/request';
 
 /**
  * 获取文章月份归档

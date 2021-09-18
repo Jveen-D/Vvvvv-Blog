@@ -60,10 +60,10 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { useRouter } from 'vue-router';
-  import { getUpdateTime } from '@/utils/date';
-  import { ListsPostsByCategorySlug, ListsPostsByTagSlug } from './categoryLists';
+  import { getUpdateTime } from '/@/utils/date';
+  import { ListsPostsByCategorySlug, ListsPostsByTagSlug } from './categoryLists.ts';
   import { computed, reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
 

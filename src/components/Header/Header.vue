@@ -99,12 +99,12 @@
   </div>
 </template>
 
-<script setup>
-  import { ListCategories } from './Header';
+<script lang="ts" setup>
+  import { ListCategories } from './Header.ts';
   import { computed, reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
-  import { preventScrollY } from '@/utils/utils';
+  import { preventScrollY } from '/@/utils/utils';
 
   const Router = useRouter();
   const store = useStore();

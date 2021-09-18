@@ -22,9 +22,9 @@
     />
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
   import { reactive, toRefs } from 'vue';
-  import { GetFriendLink } from './friendLink';
+  import { GetFriendLink } from './friendLink.ts';
   const state = reactive({
     friendList: [],
   });

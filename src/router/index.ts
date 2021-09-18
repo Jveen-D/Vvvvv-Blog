@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Layout from '@/layout/layout.vue';
+import Layout from '/@/layout/layout.vue';
 
 const routes = [
   {
@@ -22,22 +22,22 @@ const routes = [
       {
         path: '/friend/:slug',
         name: 'friendLink',
-        component: () => import('@/pages/friendLink/friendLink.vue'),
+        component: () => import('/@/pages/friendLink/friendLink.vue'),
       },
       {
         path: '/category/:slug',
         name: 'category',
-        component: () => import('@/pages/categoryLists/categoryLists.vue'),
+        component: () => import('/@/pages/categoryLists/categoryLists.vue'),
       },
       {
         path: '/utils/:slug',
         name: 'utils',
-        component: () => import('@/pages/utilsGather/utilsGather.vue'),
+        component: () => import('/@/pages/utilsGather/utilsGather.vue'),
       },
       {
         path: '/detail/:id',
         name: 'detail',
-        component: () => import('@/pages/postDetail/postDetail.vue'),
+        component: () => import('/@/pages/postDetail/postDetail.vue'),
       },
     ],
   },
@@ -52,7 +52,7 @@ const routes = [
       {
         path: '/:catchAll(.*)',
         name: 'test',
-        component: () => import('@/pages/notFound/index.vue'),
+        component: () => import('/@/pages/notFound/index.vue'),
       },
     ],
   },
@@ -61,8 +61,8 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 });
-router.beforeEach((to, from) => {
-  document.title = to.meta.title;
+router.beforeEach((to) => {
+  document.title = to.meta.title as string;
 });
 router.isReady().then(() => {
   console.log('Welcome Vvvv-Blog!');

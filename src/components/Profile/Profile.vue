@@ -176,12 +176,12 @@
   </div>
 </template>
 
-<script setup>
-  import { GetsBloggerProfile } from './Profile';
-  import { getDuration } from '@/utils/date';
+<script lang="ts" setup>
+  import { GetsBloggerProfile } from './Profile.ts';
+  import { getDuration } from '/@/utils/date';
   import { computed, reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
-  import { preventScrollY } from '@/utils/utils';
+  import { preventScrollY } from '/@/utils/utils';
 
   const store = useStore();
   const state = reactive({

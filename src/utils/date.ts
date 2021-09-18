@@ -1,5 +1,5 @@
 // 创建时间
-export function getDuration(createTime) {
+export function getDuration(createTime:number) {
   const millisecond = Date.now() - createTime;
   const days = millisecond / 1000 / 60 / 60 / 24;
   const daysRound = Math.floor(days);
@@ -15,6 +15,6 @@ export function getDuration(createTime) {
 }
 
 // 更新时间
-export function getUpdateTime(updateTime) {
+export function getUpdateTime(updateTime:number) {
   return new Date(updateTime).toLocaleString();
 }

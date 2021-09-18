@@ -31,9 +31,9 @@
   ></div>
 </template>
 
-<script setup>
-  import Header from '@/components/Header/Header.vue';
-  import Profile from '@/components/Profile/Profile.vue';
+<script lang="ts" setup>
+  import Header from '/@/components/Header/Header.vue';
+  import Profile from '/@/components/Profile/Profile.vue';
   import { computed, reactive, toRefs, ref, onMounted } from 'vue';
   import { useStore } from 'vuex';
 
@@ -93,8 +93,8 @@
 </script>
 
 <style scoped lang="scss">
-  @import '@/assets/css/mode';
-  @import '@/assets/css/backTop';
+  @import '/src/assets/css/mode';
+  @import '/src/assets/css/backTop';
   // 引用css变量
   .wrap {
     height: var(--vh);

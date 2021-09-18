@@ -1,4 +1,4 @@
-import { listCategories } from '@/api';
+import { listCategories } from '/@/api';
 
 // 文章分类
 export function ListCategories() {
