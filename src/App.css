@@ -16,10 +16,21 @@
     fill: currentColor;
     overflow: hidden;
 }
+
 ::-webkit-scrollbar {
     width: 6px;
-    height: 6px;
+    height: 0px;
 }
+/* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
     background: #fe9600;
 }
+
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+
+
