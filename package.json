@@ -17,7 +17,9 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.2.7",
-    "@types/node": "^15.14.7",
+    "@types/node": "^16.9.6",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
     "@vitejs/plugin-vue": "^1.4.0",
     "@vue/compiler-sfc": "^3.2.4",
     "autoprefixer": "^10.3.1",
@@ -32,7 +34,7 @@
     "tailwindcss": "^2.2.7",
     "typescript": "^4.3.2",
     "vite": "^2.4.4",
-    "vue-tsc": "^0.2.2",
-    "vite-plugin-compression": "^0.3.3"
+    "vite-plugin-compression": "^0.3.3",
+    "vue-tsc": "^0.2.2"
   }
 }

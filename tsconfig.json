@@ -22,7 +22,8 @@
     ],
     "types": [
       "vite/client",
-      "jest"
+      "jest",
+      "node"
     ],
     "typeRoots": [
       "./node_modules/@types/",
@@ -36,7 +37,7 @@
       ],
       "/#/*": [
         "types/*"
-      ]
+      ],
     }
   },
   "include": [
@@ -45,7 +46,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "types/**/*.d.ts",
-    "types/**/*.ts"
+    "types/**/*.ts",
+    "vite.config.ts"
   ],
   "exclude": [
     "node_modules",
