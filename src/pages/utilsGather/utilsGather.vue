@@ -26,7 +26,7 @@
     </div>
     <div
       :class="[
-        'lg:py-8 font-mersan duration-500 ease-in-out pt-12 lg:ml-17 h-full overflow-y-scroll',
+        'relative lg:py-8 font-mersan duration-500 ease-in-out pt-12 lg:ml-17 h-full overflow-y-scroll',
       ]"
     >
       <div
