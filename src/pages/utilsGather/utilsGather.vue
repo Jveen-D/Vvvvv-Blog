@@ -37,7 +37,7 @@
       >
         <div
           ref="markdownBody"
-          class="flex-1 w-screen min-w-screen-lg markdown-body p-4 lg:p-0 break-all"
+          class="flex-1 w-screen min-w-800 markdown-body p-4 lg:p-0 break-all"
         ></div>
       </div>
     </div>

@@ -30,7 +30,8 @@ module.exports = {
       },
       minWidth:{
         '10':'10rem',
-        '1080':'1080px'
+        '1080':'1080px',
+        '800':'800px'
       },
       screens:{
         'min':'1100px'
