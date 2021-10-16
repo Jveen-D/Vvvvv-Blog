@@ -12,9 +12,9 @@
         v-for="(item, index) in articleLists.content"
         :key="'articleLists' + index"
         :class="[
-          mode === 'light' ? 'bg-lightMode' : 'bg-darkMode',
+          mode === 'light' ? 'lightMode' : 'bg-darkMode',
           index !== 0 ? 'mt-4' : '',
-          'w-full bg-white p-4 rounded-lg duration-500 ease-in-out',
+          'w-full p-4 rounded-lg duration-500 ease-in-out',
         ]"
         @click="goDetails(item.id)"
       >
@@ -63,6 +63,7 @@
 <script lang="ts" setup>
   import { useRouter } from 'vue-router';
   import { getUpdateTime } from '/@/utils/date';
+  import '/src/assets/css/mode.scss';
   import { ListsPostsByCategorySlug, ListsPostsByTagSlug } from './categoryLists.ts';
   import { computed, reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
