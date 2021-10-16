@@ -100,11 +100,11 @@
 </template>
 
 <script lang="ts" setup>
-  import { ListCategories } from './Header.ts';
+  import {contentApi} from "/@/api/content";
+  import { preventScrollY } from '/@/utils/utils';
   import { computed, reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
-  import { preventScrollY } from '/@/utils/utils';
 
   const Router = useRouter();
   const store = useStore();
@@ -155,8 +155,8 @@
   };
 
   // 文章分类
-  ListCategories().then((res) => {
-    state.listCategories = res;
+  contentApi('listCategories').then((res) => {
+    state.listCategories = res.data;
     state.listCategories.push({
       id: 7,
       name: '友情链接',

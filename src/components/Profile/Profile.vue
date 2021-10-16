@@ -144,7 +144,7 @@
 </template>
 
 <script lang="ts" setup>
-import {GetsBloggerProfile} from './Profile.ts';
+import {contentApi} from "/@/api/content";
 import {getDuration} from '/@/utils/date';
 import {computed, reactive, toRefs, watch} from 'vue';
 import {useStore} from 'vuex';
@@ -172,9 +172,8 @@ const {showProfile, profile, time, mode, des} = {...toRefs(state)};
 watch(showProfile, (newVal) => {
   preventScrollY(newVal);
 });
-
-GetsBloggerProfile().then((res) => {
-  state.profile = res;
+contentApi('getBlogStatistics').then((res) => {
+  state.profile = res.data;
 });
 setInterval(() => {
   state.time = getDuration(state.profile.user.createTime);

@@ -63,8 +63,7 @@
 <script lang="ts" setup>
   import { useRouter } from 'vue-router';
   import { getUpdateTime } from '/@/utils/date';
-  import '/src/assets/css/mode.scss';
-  import { ListsPostsByCategorySlug, ListsPostsByTagSlug } from './categoryLists.ts';
+  import {contentApi} from "/@/api/content";
   import { computed, reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
 
@@ -85,8 +84,8 @@
       if (currentV === 'friendLink') return;
       if (currentV) {
         state.transition = !state.transition;
-        ListsPostsByCategorySlug(currentV).then((res) => {
-          state.articleLists = res;
+        contentApi('listsPostsByCategorySlug', {sluy: currentV}).then((res) => {
+          state.articleLists = res.data;
         });
       }
     },
@@ -95,8 +94,8 @@
     }
   );
   watch(tagSlug, (currentV) => {
-    ListsPostsByTagSlug(currentV).then((res) => {
-      state.articleLists = res;
+    contentApi('listsPostsByTagSlug',{sluy: currentV}).then((res) => {
+      state.articleLists = res.data;
     });
   });
   const changeSlug = (val) => {

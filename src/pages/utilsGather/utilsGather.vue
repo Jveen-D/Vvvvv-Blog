@@ -30,11 +30,10 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {GetPostsById} from './utilsGather.ts';
+import {contentApi} from "/@/api/content";
 import {computed, reactive, toRefs} from 'vue';
 import {useStore} from 'vuex';
 import '/src/assets/css/markdown-body.scss';
-import '/src/assets/css/mode.scss';
 
 const store = useStore();
 const state = reactive({
@@ -44,8 +43,12 @@ const state = reactive({
   h4Arr: '',
 });
 const {postDetail, markdownBody, mode, h4Arr} = {...toRefs(state)};
-GetPostsById('191').then((res) => {
-  state.postDetail = res;
+contentApi('getPostsById', {
+  postId: '191',
+  formatDisabled: false,
+  sourceDisabled: true,
+}).then((res) => {
+  state.postDetail = res.data;
   document.title = `Vvvvv-Blog! - ` + state.postDetail.title;
   state.markdownBody.innerHTML += state.postDetail.formatContent;
   const pre = Array.from(document.getElementsByTagName('pre'));
