@@ -18,9 +18,10 @@
       <div
           :class="[
           mode === 'light' ? 'lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
-          'flex justify-center w-full overflow-x-none rounded-2xl lg:p-4 lg:pb-8',
+          'flex justify-center w-full overflow-x-none rounded-2xl lg:p-4 lg:pb-8 relative',
         ]"
       >
+        <span class="absolute top-4 right-4 text-black font-mersan font-medium text-sm transition-colors ">累计看过：{{ postDetail.visits }}</span>
         <div
             ref="markdownBody"
             class="flex-1 w-screen min-w-800 markdown-body p-4 lg:p-0 break-all"
@@ -49,7 +50,7 @@ contentApi('getPostsById', {
   sourceDisabled: true,
 }).then((res) => {
   state.postDetail = res.data;
-  document.title = `Vvvvv-Blog! - ` + state.postDetail.title;
+  document.title = `Vvvvv-Blog! - ${state.postDetail.title}`;
   state.markdownBody.innerHTML += state.postDetail.formatContent;
   const pre = Array.from(document.getElementsByTagName('pre'));
   code = Array.from(document.querySelectorAll('pre code'));

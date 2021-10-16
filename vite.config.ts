@@ -12,6 +12,9 @@ function pathResolve(dir: string) {
 }
 
 export default ({ mode }: ConfigEnv): UserConfig => {
+  // mode 当前开发环境
+
+  // root项目根目录
   const root = process.cwd();
 
   const env = loadEnv(mode, root);
@@ -19,6 +22,12 @@ export default ({ mode }: ConfigEnv): UserConfig => {
   // 由loadEnv读取的布尔类型是一个字符串。此函数可以转换为布尔类型
   const viteEnv = wrapperEnv(env);
 
+  /*
+  * VITE_PORT         开发服务器端口
+  * VITE_PUBLIC_PATH  指定输出路径
+  * VITE_PROXY        代理
+  * VITE_DROP_CONSOLE 打包去除console
+  * */
   const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_DROP_CONSOLE } = viteEnv;
 
   return{
@@ -31,10 +40,10 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       terserOptions: {
         compress: {
           keep_infinity: true,
-          // 去除console
           drop_console: VITE_DROP_CONSOLE,
         },
       },
+      // 使用brotli进行压缩
       brotliSize: false,
       chunkSizeWarningLimit: 2000,
     },
