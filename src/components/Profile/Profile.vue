@@ -37,9 +37,10 @@
         'overflow-hidden font-mersan flex justify-between flex-col whitespace-nowrap rounded-xl z-20 lg:z-0',
     ]"
   >
+<!--    protile-->
     <div
         :class="[
-        mode === 'light' ? 'bg-lightMode' : 'bg-darkMode',
+        mode === 'light' ? 'lightMode' : 'bg-darkMode',
         'rounded-xl overflow-hidden duration-500 ease-in-out',
       ]"
     >
@@ -98,9 +99,10 @@
         </div>
       </div>
     </div>
+<!--    细节-->
     <div
         :class="[
-        mode === 'light' ? 'bg-lightMode' : 'bg-darkMode',
+        mode === 'light' ? 'lightMode' : 'bg-darkMode',
         'mt-2 rounded-xl w-full pb-2 duration-500 ease-in-out',
       ]"
         style="width: 300px"
@@ -113,9 +115,10 @@
         <div class="text-sm">:{{ item.title }}</div>
       </div>
     </div>
+<!--    other-->
     <div
         :class="[
-        mode === 'light' ? 'bg-lightMode' : 'bg-darkMode',
+        mode === 'light' ? 'lightMode' : 'bg-darkMode',
         'flex flex-col justify-between rounded-xl w-full  mt-2 text-sm duration-500 ease-in-out',
       ]"
     >

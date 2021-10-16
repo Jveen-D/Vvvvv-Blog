@@ -40,15 +40,17 @@ h6 {
     background-color: transparent;
   }
   code:not(.hljs) {
-    background: #f5f6f7;
     word-break: break-word;
     font-family: Source Code Pro, monospace;
     padding: 0 5px;
     margin:0 4px;
     text-shadow: none;
     color: #476582;
-    background-color: rgba(27, 31, 35, .05);
     border-radius: 3px;
+    background-color: #f8f5ff;
+  }
+  code:is(.hljs){
+    background-color: #f8f5ff;
   }
   // 圆点开始
   figcaption.line-numbers-head {
@@ -108,7 +110,16 @@ h6 {
   }
   // 圆点结束
 }
-
+// 复制选中样式
+.markdown-body ::selection {
+  color: #fff;
+  background-color: #a862ea;
+}
+.markdown-body pre>code::-webkit-scrollbar-thumb {
+  background-color: #e7daff;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
 textarea{
   position: absolute;
   top:0;

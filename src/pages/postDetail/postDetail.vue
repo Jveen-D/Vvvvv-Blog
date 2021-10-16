@@ -2,8 +2,8 @@
   <div :class="['lg:py-8 font-mersan duration-500 ease-in-out pt-12 lg:mx-2']">
     <div
       :class="[
-        mode === 'light' ? 'bg-lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
-        ' flex flex-col items-center w-full overflow-x-none rounded-2xl pt-4 lg:px-0 lg:pl-2 lg:p-4 lg:pb-8',
+        mode === 'light' ? 'lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
+        ' flex flex-col items-center w-full  rounded-2xl pt-4 lg:px-0 lg:pl-2 lg:p-4 lg:pb-8',
       ]"
     >
       <div
@@ -51,6 +51,7 @@
   import { computed, reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
   import '/src/assets/css/markdown-body.scss';
+  import '/src/assets/css/mode.scss';
   import { getUpdateTime } from '/@/utils/date';
 
   const Router = useRouter();

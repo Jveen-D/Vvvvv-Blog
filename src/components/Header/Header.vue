@@ -37,7 +37,7 @@
       showList ? 'showList' : 'w-0',
       showList === false ? 'hiddenList' : '',
       mode === 'light'
-        ? 'lightMode bg-gradient-to-t from-regal-blue to-regal-pink bg-red-400 shadow-xl'
+        ? 'bg-gradient-to-t from-regal-blue to-regal-pink bg-red-400 shadow-xl'
         : 'darkMode ',
       'h-screen lg:h-20 overflow-hidden items-center fixed top-0 lg:static lg:flex lg:w-full lg:bg-opacity-70 z-20',
     ]"
