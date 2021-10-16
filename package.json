@@ -1,11 +1,17 @@
 {
   "name": "Vvvvv-Blog",
   "version": "0.0.0",
+  "author": {
+    "name": "dwj",
+    "email": "d85066965@icloud.com",
+    "url": "https://github.com/Jveen-D"
+  },
   "scripts": {
+    "serve": "npm run dev",
     "dev": "vite --host",
-    "build": "vite build",
-    "serve": "vite preview --host",
-    "update": "npm outdated"
+    "build": "vite build --mode production",
+    "update": "npm outdated",
+    "preview:dist": "vite preview"
   },
   "dependencies": {
     "axios": "^0.21.1",
