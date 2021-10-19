@@ -11,8 +11,7 @@
     "dev": "vite --host",
     "build": "vite build --mode production",
     "update": "npm outdated",
-    "preview:dist": "vite preview",
-    "prepare": "husky install .config/verifyCommit"
+    "preview:dist": "vite preview"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -34,7 +33,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "^7.15.1",
-    "husky": "^7.0.2",
     "postcss": "^8.3.6",
     "prettier": "^2.3.2",
     "rollup-plugin-gzip": "^2.5.0",

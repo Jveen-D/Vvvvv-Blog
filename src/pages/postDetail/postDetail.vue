@@ -80,6 +80,17 @@ contentApi('getPostsById', {
   );
   const pre = Array.from(document.getElementsByTagName('pre'));
   code = Array.from(document.querySelectorAll('pre code'));
+  // 获取markdownBody中返回的img节点数组
+  const imgArr = Array.from(markdownBody.value.getElementsByTagName('img'))
+  if(imgArr.length){
+    imgArr.forEach((item,index) => {
+      // 为节点数组增加点击事件
+      item.onclick= () => {
+        // 获取各个图片节点相对于视口的位置还有图片的宽高
+        console.log(item.getBoundingClientRect());
+      }
+    })
+  }
   pre.forEach((item, index) => {
     const language = item.children[0].classList[0].split('-')[1].toUpperCase();
     const html = `<figcaption class="line-numbers-head">
@@ -116,6 +127,7 @@ window.copy = (index) => {
   document.body.removeChild(textarea);
   alert('已复制');
 };
+
 </script>
 <style scoped lang="scss">
 @import './postDetail.scss';
