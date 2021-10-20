@@ -62,8 +62,9 @@ const state = reactive({
   createTime: '',
   slug: computed(() => store.state.slug),
   mode: computed(() => store.state.mode),
+  shadow:computed(() => store.state.shadow),
 });
-const {postDetail, markdownBody, createTime, mode} = {...toRefs(state)};
+const {postDetail, markdownBody, createTime, mode,shadow} = {...toRefs(state)};
 let code;
 contentApi('getPostsById', {
   postId: state.id,
@@ -87,7 +88,9 @@ contentApi('getPostsById', {
       // 为节点数组增加点击事件
       item.onclick= () => {
         // 获取各个图片节点相对于视口的位置还有图片的宽高
-        console.log(item.getBoundingClientRect());
+        let {top,left} = item.getBoundingClientRect()
+        console.log(top,left);
+        store.dispatch('ChangeShadow', true);
       }
     })
   }

@@ -1,6 +1,7 @@
 export interface AppState {
     slug:String,
-    mode:String
+    mode:String,
+    shadow:String
 }
 
 export interface Sluy {
@@ -9,4 +10,7 @@ export interface Sluy {
 
 export interface Mode {
     mode:String
+}
+export interface Shadow {
+    shadow:Boolean
 }

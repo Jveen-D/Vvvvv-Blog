@@ -1,0 +1,31 @@
+.shadow{
+  background: rgba(0, 0, 0, 0.7);
+  cursor: zoom-out;
+}
+.showShadow{
+  display: block!important;
+  animation: showShadowAnimation .3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes showShadowAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hiddenShadow{
+  display: none!important;
+  animation: hiddenShadowAnimation .3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes hiddenShadowAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

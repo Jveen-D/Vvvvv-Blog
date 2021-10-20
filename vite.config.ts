@@ -44,7 +44,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         },
       },
       // 使用brotli进行压缩
-      brotliSize: false,
+      brotliSize: true,
       chunkSizeWarningLimit: 2000,
     },
     resolve: {
