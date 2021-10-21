@@ -29,11 +29,13 @@
     ]"
     @click="backToTop"
   ></div>
+  <Shadow/>
 </template>
 
 <script lang="ts" setup>
   import Header from '/@/components/Header/Header.vue';
   import Profile from '/@/components/Profile/Profile.vue';
+  import Shadow from '/@/components/Shadow/Shadow.vue';
   import { computed, reactive, toRefs, ref, onMounted } from 'vue';
   import { useStore } from 'vuex';
 
