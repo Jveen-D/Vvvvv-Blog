@@ -1,9 +1,10 @@
 .shadow{
+  display: none;
   background: rgba(0, 0, 0, 0.7);
   cursor: zoom-out;
 }
 .showShadow{
-  display: block!important;
+  display: block;
   animation: showShadowAnimation .3s ease-in-out;
   animation-fill-mode: forwards;
 }
@@ -17,7 +18,7 @@
 }
 
 .hiddenShadow{
-  display: none!important;
+  display: block;
   animation: hiddenShadowAnimation .3s ease-in-out;
   animation-fill-mode: forwards;
 }

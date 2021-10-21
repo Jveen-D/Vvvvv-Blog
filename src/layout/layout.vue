@@ -29,13 +29,6 @@
     ]"
     @click="backToTop"
   ></div>
-  <!--全局阴影-->
-  <div :class="[
-      shadow ? 'showShadow' : '',
-      shadow === false ? 'hiddenShadow':'',
-      'shadow hidden fixed top-0 right-0 bottom-0 left-0 z-50']"
-      @click="hiddenShadow"
-  >{{ shadow }}</div>
 </template>
 
 <script lang="ts" setup>
@@ -47,12 +40,11 @@
   const store = useStore();
   const state = reactive({
     mode: computed(() => store.state.mode),
-    shadow:computed(() => store.state.shadow),
     showBackTop: '',
     showBackTopBool: false,
     backTopEle: null,
   });
-  const { mode, showBackTop, backTopEle,shadow } = toRefs(state);
+  const { mode, showBackTop, backTopEle } = toRefs(state);
   const getScroll = (e) => {
     const scrollTop = e.target.scrollTop;
     if (scrollTop >= 200) {
@@ -99,16 +91,12 @@
     safariHacks();
   });
 
-  //隐藏阴影
-  const hiddenShadow = () => {
-    store.dispatch('ChangeShadow', false);
-  }
+
 </script>
 
 <style scoped lang="scss">
   @import '/src/assets/css/mode';
   @import '/src/assets/css/backTop';
-  @import '/src/assets/css/showShadow';
   // 引用css变量
   .wrap {
     height: var(--vh);
