@@ -1,16 +1,26 @@
 export interface AppState {
-    slug:String,
-    mode:String,
-    shadow:String
+    slug: String,
+    mode: String,
+    shadow: String
+    shadowImg: ShadowImg
 }
 
 export interface Sluy {
-    slug:String,
+    slug: String,
 }
 
 export interface Mode {
-    mode:String
+    mode: String;
 }
+
 export interface Shadow {
-    shadow:Boolean
+    shadow: Boolean;
+}
+
+export interface ShadowImg {
+    width: Number,
+    height: Number,
+    left: Number,
+    top: Number,
+    src: String
 }

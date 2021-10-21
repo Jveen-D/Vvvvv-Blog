@@ -53,11 +53,31 @@ import {computed, reactive, toRefs} from 'vue';
 import {useStore} from 'vuex';
 import '/src/assets/css/markdown-body.scss';
 
+interface State {
+  id:any,
+  postDetail:{
+    title:String,
+    createTime:String,
+    formatContent:String,
+    categories:Array<String>
+  },
+  markdownBody:any,
+  createTime:String,
+  slug:any,
+  mode:any,
+  shadow:any
+}
+
 const Router = useRouter();
 const store = useStore();
-const state = reactive({
+const state = reactive<State>({
   id: computed(() => Router.currentRoute.value.params.id),
-  postDetail: '',
+  postDetail: {
+    title:'',
+    createTime:'',
+    formatContent:'',
+    categories:[]
+  },
   markdownBody: null,
   createTime: '',
   slug: computed(() => store.state.slug),
@@ -73,7 +93,7 @@ contentApi('getPostsById', {
 }).then((res) => {
   state.postDetail = res.data;
   document.title = `Vvvvv-Blog! - ` + state.postDetail.title;
-  state.createTime = getUpdateTime(state.postDetail.createTime);
+  state.createTime = getUpdateTime(Number(state.postDetail.createTime));
   state.markdownBody.innerHTML += state.postDetail.formatContent;
   store.dispatch(
       'ChangeSlug',
@@ -84,13 +104,21 @@ contentApi('getPostsById', {
   // 获取markdownBody中返回的img节点数组
   const imgArr = Array.from(markdownBody.value.getElementsByTagName('img'))
   if(imgArr.length){
-    imgArr.forEach((item,index) => {
+    imgArr.forEach((item:any,index) => {
       // 为节点数组增加点击事件
       item.onclick= () => {
+        console.log(item.src);
+        console.log(item.getBoundingClientRect());
         // 获取各个图片节点相对于视口的位置还有图片的宽高
-        let {top,left} = item.getBoundingClientRect()
-        console.log(top,left);
+        let {width,height,left,top} = item.getBoundingClientRect()
         store.dispatch('ChangeShadow', true);
+        store.dispatch('ChangeShadowImg', {
+          width,
+          height,
+          left,
+          top,
+          src:item.src
+        });
       }
     })
   }
@@ -112,7 +140,6 @@ contentApi('getPostsById', {
     item.insertAdjacentHTML('beforebegin', html);
     item.classList.add('line-numbers');
   });
-  // eslint-disable-next-line no-undef
   hljs.highlightAll();
 });
 window.copy = (index) => {
