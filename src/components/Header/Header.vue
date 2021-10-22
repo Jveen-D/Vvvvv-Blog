@@ -102,17 +102,23 @@
 <script lang="ts" setup>
   import {contentApi} from "/@/api/content";
   import { preventScrollY } from '/@/utils/utils';
-  import { computed, reactive, toRefs, watch } from 'vue';
+  import { computed, reactive, toRefs, watch,ComputedRef } from 'vue';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
-
+  interface State {
+    slug:ComputedRef<string>,
+    mode:ComputedRef<string>,
+    listCategories:string,
+    activeCategory:ComputedRef<string>,
+    showList:string
+  }
   const Router = useRouter();
   const store = useStore();
-  const state = reactive({
+  const state = reactive<State>({
     slug: computed(() => store.state.slug),
     mode: computed(() => store.state.mode),
     listCategories: '',
-    activeCategory: computed(() => Router.currentRoute.value.params.slug), // 目前所在slug分类
+    activeCategory: computed(() => Router.currentRoute.value.params.slug as string), // 目前所在slug分类
     showList: '',
   });
   const { slug, mode, listCategories, activeCategory, showList } = {

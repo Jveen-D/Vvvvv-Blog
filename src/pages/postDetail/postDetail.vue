@@ -49,29 +49,29 @@
 import {contentApi} from "/@/api/content";
 import {getUpdateTime} from '/@/utils/date';
 import {useRouter} from 'vue-router';
-import {computed, reactive, toRefs} from 'vue';
+import {computed, reactive, toRefs,ComputedRef} from 'vue';
 import {useStore} from 'vuex';
 import '/src/assets/css/markdown-body.scss';
 
 interface State {
-  id:any,
+  id:ComputedRef<string>,
   postDetail:{
-    title:String,
-    createTime:String,
-    formatContent:String,
-    categories:Array<String>
+    title:string,
+    createTime:string,
+    formatContent:string,
+    categories:Array<string>
   },
   markdownBody:any,
-  createTime:String,
-  slug:any,
-  mode:any,
-  shadow:any
+  createTime:string,
+  slug:ComputedRef<string>,
+  mode:ComputedRef<string>,
+  shadow:ComputedRef<string>
 }
 
 const Router = useRouter();
 const store = useStore();
 const state = reactive<State>({
-  id: computed(() => Router.currentRoute.value.params.id),
+  id: computed(() => Router.currentRoute.value.params.id as string),
   postDetail: {
     title:'',
     createTime:'',
