@@ -64,13 +64,21 @@
   import { useRouter } from 'vue-router';
   import { getUpdateTime } from '/@/utils/date';
   import {contentApi} from "/@/api/content";
-  import { computed, reactive, toRefs, watch } from 'vue';
+  import { computed,ComputedRef, reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
+
+  interface State{
+    slug:ComputedRef<string>,
+    articleLists:string,
+    tagSlug:string,
+    mode:ComputedRef<string>,
+    transition:boolean
+  }
 
   const Router = useRouter();
   const store = useStore();
-  const state = reactive({
-    slug: computed(() => Router.currentRoute.value.params.slug),
+  const state = reactive<State>({
+    slug: computed(() => Router.currentRoute.value.params.slug as string),
     articleLists: '',
     tagSlug: '',
     mode: computed(() => store.state.mode),

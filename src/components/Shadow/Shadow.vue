@@ -12,12 +12,15 @@
 </template>
 
 <script setup lang="ts">
-import {computed, reactive, toRefs} from "vue";
+import {computed, ComputedRef, reactive, toRefs} from "vue";
 import {useStore} from "vuex";
 
+interface State{
+  shadow:ComputedRef<boolean>
+}
 const store = useStore();
 
-const state = reactive({
+const state = reactive<State>({
   shadow: computed(() => store.state.shadow),
 });
 const {shadow} = toRefs(state);
@@ -29,5 +32,5 @@ const hiddenShadow = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "./shadow";
+@import "Shadow";
 </style>

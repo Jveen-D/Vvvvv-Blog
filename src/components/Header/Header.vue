@@ -108,16 +108,16 @@
   interface State {
     slug:ComputedRef<string>,
     mode:ComputedRef<string>,
-    listCategories:string,
+    listCategories: object[],
     activeCategory:ComputedRef<string>,
-    showList:string
+    showList:boolean | ''
   }
   const Router = useRouter();
   const store = useStore();
   const state = reactive<State>({
     slug: computed(() => store.state.slug),
     mode: computed(() => store.state.mode),
-    listCategories: '',
+    listCategories: [],
     activeCategory: computed(() => Router.currentRoute.value.params.slug as string), // 目前所在slug分类
     showList: '',
   });

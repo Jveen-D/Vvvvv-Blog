@@ -2,7 +2,7 @@
   <Header />
   <div
     :class="[
-      mode === 'dark' ? 'darkMode' : 'bg-gradient-to-tr from-regal-blue to-regal-pink',
+      state.mode === 'dark' ? 'darkMode' : 'bg-gradient-to-tr from-regal-blue to-regal-pink',
       'flex',
     ]"
   >
@@ -23,8 +23,8 @@
   <div
     id="backTop"
     :class="[
-      showBackTop ? 'showBackTop' : '',
-      showBackTop === false ? 'hiddenBackTop' : '',
+      state.showBackTop ? 'showBackTop' : '',
+      state.showBackTop === false ? 'hiddenBackTop' : '',
       'hidden lg:block fixed -top-full right-10 w-20 h-screen',
     ]"
     @click="backToTop"
@@ -36,17 +36,22 @@
   import Header from '/@/components/Header/Header.vue';
   import Profile from '/@/components/Profile/Profile.vue';
   import Shadow from '/@/components/Shadow/Shadow.vue';
-  import { computed, reactive, toRefs, ref, onMounted } from 'vue';
+  import { computed,ComputedRef, reactive, toRefs, ref, onMounted } from 'vue';
   import { useStore } from 'vuex';
-
+  interface State{
+    mode:ComputedRef<string>,
+    showBackTop:boolean|'',
+    showBackTopBool:boolean,
+    backTopEle:any
+  }
   const store = useStore();
-  const state = reactive({
+  const state = reactive<State>({
     mode: computed(() => store.state.mode),
     showBackTop: '',
     showBackTopBool: false,
     backTopEle: null,
   });
-  const { mode, showBackTop, backTopEle } = toRefs(state);
+  const { backTopEle } = toRefs(state);
   const getScroll = (e) => {
     const scrollTop = e.target.scrollTop;
     if (scrollTop >= 200) {

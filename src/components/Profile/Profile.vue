@@ -37,7 +37,7 @@
         'overflow-hidden font-mersan flex justify-between flex-col whitespace-nowrap rounded-xl z-20 lg:z-0',
     ]"
   >
-<!--    protile-->
+    <!--    protile-->
     <div
         :class="[
         mode === 'light' ? 'lightMode' : 'bg-darkMode',
@@ -99,7 +99,7 @@
         </div>
       </div>
     </div>
-<!--    细节-->
+    <!--    细节-->
     <div
         :class="[
         mode === 'light' ? 'lightMode' : 'bg-darkMode',
@@ -115,7 +115,7 @@
         <div class="text-sm">:{{ item.title }}</div>
       </div>
     </div>
-<!--    other-->
+    <!--    other-->
     <div
         :class="[
         mode === 'light' ? 'lightMode' : 'bg-darkMode',
@@ -146,12 +146,20 @@
 <script lang="ts" setup>
 import {contentApi} from "/@/api/content";
 import {getDuration} from '/@/utils/date';
-import {computed, reactive, toRefs, watch} from 'vue';
+import {computed, ComputedRef, reactive, toRefs, watch} from 'vue';
 import {useStore} from 'vuex';
 import {preventScrollY} from '/@/utils/utils';
 
+interface State {
+  showProfile: boolean | '',
+  profile: any,
+  time: string,
+  mode: ComputedRef<string>
+  des: {title:string}[]
+}
+
 const store = useStore();
-const state = reactive({
+const state = reactive<State>({
   showProfile: '',
   profile: {}, // profile 博主信息
   time: '', // 运行时间
