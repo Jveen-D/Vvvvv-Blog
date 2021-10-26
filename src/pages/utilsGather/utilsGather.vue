@@ -36,6 +36,11 @@ import {computed, reactive, toRefs} from 'vue';
 import {useStore} from 'vuex';
 import '/src/assets/css/markdown-body.scss';
 
+interface State{
+  postDetail:string,
+  markdownBody:any
+}
+
 const store = useStore();
 const state = reactive({
   postDetail: '',
