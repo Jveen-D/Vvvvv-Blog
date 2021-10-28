@@ -3,9 +3,9 @@
     <!--    友链列表-->
     <a :href="item.url"
        target="_blank"
-       v-for="(item, index) in friendList"
+       v-for="(item, index) in state.friendList"
        :key="index"
-       :class="[mode === 'light' ? 'lightMode' : 'bg-darkMode','flex w-5/6 h-24 bg-white rounded-lg py-2 px-4 overflow-hidden mb-4 animate__animated animate__bounceInUp']"
+       :class="[state.mode === 'light' ? 'lightMode' : 'bg-darkMode','flex w-5/6 h-24 bg-white rounded-lg py-2 px-4 overflow-hidden mb-4 animate__animated animate__bounceInUp']"
     >
       <div class="w-20 h-20 mask mask-hexagon animate-pulse">
         <img :src="item.logo"/>
@@ -32,7 +32,6 @@ const state = reactive({
   friendList: [],
   mode: computed(() => store.state.mode),
 });
-const {mode, friendList} = {...toRefs(state)};
 contentApi('getFriendLink').then((res) => {
   state.friendList = res.data;
 });
