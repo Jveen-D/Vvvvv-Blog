@@ -1,9 +1,9 @@
 <template>
   <div class="w-full h-full relativex py-8 flex flex-col items-center">
     <!--    友链列表-->
-    <a :href="item.url"
+    <a v-for="(item, index) in state.friendList"
+       :href="item.url"
        target="_blank"
-       v-for="(item, index) in state.friendList"
        :key="index"
        :class="[state.mode === 'light' ? 'lightMode' : 'bg-darkMode','flex w-5/6 h-24 bg-white rounded-lg py-2 px-4 overflow-hidden mb-4 animate__animated animate__bounceInUp']"
     >
@@ -23,17 +23,27 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {computed, reactive, toRefs} from 'vue';
+import {computed, reactive, ComputedRef} from 'vue';
 import {contentApi} from "/@/api/content";
 import {useStore} from 'vuex';
-
+interface State {
+  friendList:Array<{
+    name:string,
+    logo:string,
+    description:string,
+    url:string
+  }>,
+  mode:ComputedRef<string>
+}
 const store = useStore();
-const state = reactive({
+const state = reactive<State>({
   friendList: [],
-  mode: computed(() => store.state.mode),
+  mode: computed(() => store.state.mode as string),
 });
 contentApi('getFriendLink').then((res) => {
   state.friendList = res.data;
+  console.log(res.data);
+  
 });
 </script>
 <style lang="scss" scoped>

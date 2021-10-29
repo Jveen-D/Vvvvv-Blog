@@ -78,18 +78,20 @@
   };
   // 浏览器检测 来自vue工具函数 地址https://github.com/vuejs/vue/blob/dev/dist/vue.runtime.esm.js
   const inBrowser = typeof window !== 'undefined';
-  // eslint-disable-next-line no-undef
+  // @ts-ignore
   const inWeex = typeof WXEnvironment !== 'undefined' && !!WXEnvironment.platform;
-  // eslint-disable-next-line no-undef
+  // @ts-ignore
   const weexPlatform = inWeex && WXEnvironment.platform.toLowerCase();
   const UA = inBrowser && window.navigator.userAgent.toLowerCase();
   const isIOS = ref((UA && /iphone|ipad|ipod|ios/.test(UA)) || weexPlatform === 'ios');
 
   const safariHacks = () => {
     let windowsVH = window.innerHeight; // 返回窗口的文档显示区的高度
+    // @ts-ignore
     document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px'); // 设置css变量
     // 监听resize时间，回调函数同上
     window.addEventListener('resize', () => {
+      // @ts-ignore
       document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px');
     });
   };

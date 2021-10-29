@@ -1,54 +1,66 @@
 <template>
   <div class="h-full">
     <div
-        :class="[
-            mode === 'light' ? 'lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
-        'hidden min:block  min:w-64 fixed top-0 left-0 mt-8 rounded-xl hidden bg-white h-util pt-4 pl-4 font-bold whitespace-nowrap font-medium text-sm']
-      "
+      :class="[
+        mode === 'light' ? 'lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
+        'hidden min:block  min:w-64 fixed top-0 left-0 mt-8 rounded-xl hidden bg-white h-util pt-4 pl-4 font-bold whitespace-nowrap font-medium text-sm',
+      ]"
     >
       <div v-for="(item, index) in h4Arr" :key="index" class="hover:text-FF9100">
         <a :href="'#' + item.innerText">{{ item.innerText }}</a>
       </div>
     </div>
     <div
-        :class="[
+      :class="[
         'relative lg:py-8 font-mersan duration-500 ease-in-out pt-12 lg:ml-17 h-full overflow-y-scroll',
       ]"
     >
       <div
-          :class="[
+        :class="[
           mode === 'light' ? 'lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
           'flex justify-center w-full overflow-x-none rounded-2xl lg:p-4 lg:pb-8 relative',
         ]"
       >
-        <span class="absolute top-4 right-4 text-black font-mersan font-medium text-sm transition-colors ">累计看过：{{ postDetail.visits }}</span>
+        <span
+          class="absolute top-4 right-4 text-black font-mersan font-medium text-sm transition-colors"
+        >累计看过：{{ postDetail.visits }}</span>
         <div
-            ref="markdownBody"
-            class="flex-1 w-screen min-w-800 markdown-body p-4 lg:p-0 break-all"
+          ref="markdownBody"
+          class="flex-1 w-screen min-w-800 markdown-body p-4 lg:p-0 break-all"
         ></div>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import {contentApi} from "/@/api/content";
-import {computed, reactive, toRefs} from 'vue';
-import {useStore} from 'vuex';
+import { contentApi } from '/@/api/content';
+import { computed, reactive, toRefs, ComputedRef } from 'vue';
+import { useStore } from 'vuex';
 import '/src/assets/css/markdown-body.scss';
 
-interface State{
-  postDetail:string,
-  markdownBody:any
+interface State {
+  postDetail: {
+    title:string,
+    visits:string,
+    formatContent:string
+  };
+  markdownBody: any;
+  mode:ComputedRef<string>,
+  h4Arr:any
 }
 
 const store = useStore();
-const state = reactive({
-  postDetail: '',
+const state = reactive<State>({
+  postDetail: {
+    title:'',
+    visits:'',
+    formatContent:''
+  },
   markdownBody: null,
-  mode: computed(() => store.state.mode),
-  h4Arr: '',
+  mode: computed(() => store.state.mode as string),
+  h4Arr: [],
 });
-const {postDetail, markdownBody, mode, h4Arr} = {...toRefs(state)};
+const { postDetail, markdownBody, mode, h4Arr } = { ...toRefs(state) };
 contentApi('getPostsById', {
   postId: '191',
   formatDisabled: false,
@@ -77,16 +89,17 @@ contentApi('getPostsById', {
     item.insertAdjacentHTML('beforebegin', html);
     item.classList.add('line-numbers');
   });
-  // eslint-disable-next-line no-undef
+  // @ts-ignore
   hljs.highlightAll();
   // 取出h4标签集合
   state.h4Arr = Array.from(document.getElementsByTagName('h4'));
-  state.h4Arr.forEach((item, index) => {
+  state.h4Arr.forEach((item) => {
     item.innerHTML = `<a name='${item.innerText}'>${item.innerText}</a>`;
   });
 });
 
 let code;
+// @ts-ignore
 window.copy = (index) => {
   const ele = document.createElement('div');
   ele.innerHTML = code[index].innerHTML;
@@ -105,5 +118,5 @@ window.copy = (index) => {
 </script>
 
 <style lang="scss" scoped>
-@import './utilsGather.scss';
+@import "./utilsGather.scss";
 </style>

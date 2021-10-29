@@ -59,7 +59,7 @@
             mode === 'light' ? 'text-black' : '',
             'font-mersan whitespace-nowrap mt-2 lg:mt-0 font-medium text-sm pr-4 transition-colors duration-500 ease-in-out  hover:text-FF9100',
           ]"
-          @click="goCategory(index, item.slug)"
+          @click="goCategory(item.slug)"
         >
           {{ item.name }}
         </div>
@@ -105,13 +105,19 @@
   import { computed, reactive, toRefs, watch,ComputedRef } from 'vue';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
+
   interface State {
     slug:ComputedRef<string>,
     mode:ComputedRef<string>,
-    listCategories: object[],
+    listCategories: Array<{
+      id:number,
+      name:string,
+      slug:string
+    }>,
     activeCategory:ComputedRef<string>,
     showList:boolean | ''
   }
+
   const Router = useRouter();
   const store = useStore();
   const state = reactive<State>({
@@ -140,7 +146,7 @@
   );
 
   // 点击分类切换
-  const goCategory = (index, val) => {
+  const goCategory = (val) => {
     switch (val) {
       case 'friendLink':
         Router.push({
@@ -162,6 +168,8 @@
 
   // 文章分类
   contentApi('listCategories').then((res) => {
+    console.log(res.data);
+    
     state.listCategories = res.data;
     state.listCategories.push({
       id: 7,

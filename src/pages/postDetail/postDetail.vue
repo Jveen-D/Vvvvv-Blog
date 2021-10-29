@@ -59,7 +59,11 @@ interface State {
     title:string,
     createTime:string,
     formatContent:string,
-    categories:Array<string>
+    categories:Array<{
+      slug:string
+    }>,
+    wordCount:string,
+    visits:string
   },
   markdownBody:any,
   createTime:string,
@@ -76,7 +80,9 @@ const state = reactive<State>({
     title:'',
     createTime:'',
     formatContent:'',
-    categories:[]
+    categories:[],
+    wordCount:'',
+    visits:''
   },
   markdownBody: null,
   createTime: '',
@@ -84,7 +90,7 @@ const state = reactive<State>({
   mode: computed(() => store.state.mode),
   shadow:computed(() => store.state.shadow),
 });
-const {postDetail, markdownBody, createTime, mode,shadow} = {...toRefs(state)};
+const {postDetail, markdownBody, createTime, mode} = {...toRefs(state)};
 let code;
 contentApi('getPostsById', {
   postId: state.id,
@@ -104,7 +110,7 @@ contentApi('getPostsById', {
   // 获取markdownBody中返回的img节点数组
   const imgArr = Array.from(markdownBody.value.getElementsByTagName('img'))
   if(imgArr.length){
-    imgArr.forEach((item:any,index) => {
+    imgArr.forEach((item:any) => {
       // 为节点数组增加点击事件
       item.onclick= () => {
         console.log(item.src);
@@ -140,8 +146,10 @@ contentApi('getPostsById', {
     item.insertAdjacentHTML('beforebegin', html);
     item.classList.add('line-numbers');
   });
+  // @ts-ignore
   hljs.highlightAll();
 });
+// @ts-ignore
 window.copy = (index) => {
   const ele = document.createElement('div');
   ele.innerHTML = code[index].innerHTML;

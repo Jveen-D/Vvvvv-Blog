@@ -1,5 +1,5 @@
-import {httpRequest} from '/@/utils/request';
-import {Method} from 'axios';
+import { httpRequest } from '/@/utils/request';
+import { Method } from 'axios';
 
 type apiType =
     | 'listMonthArchives'
@@ -116,14 +116,17 @@ export const contentApi = (apiName: apiType, item: any = {}): any => {
     if (path === '') {
         return {};
     }
-
+    // @ts-ignore
     if (method === 'POST' || method === 'post') {
         return httpRequest.post(path, item, config).then(res => res.data);
+        // @ts-ignore
     } else if (method === 'GET' || method === 'get') {
-        return httpRequest.get(path, {params: item, ...config}).then(res => res.data);
+        return httpRequest.get(path, { params: item, ...config }).then(res => res.data);
+        // @ts-ignore
     } else if (method === 'PUT' || method === 'put') {
         return httpRequest.put(path, item, config).then(res => res.data);
+        // @ts-ignore
     } else if (method === 'DELETE' || method === 'delete') {
-        return httpRequest.delete(path, {data: item, ...config}).then(res => res.data);
+        return httpRequest.delete(path, { data: item, ...config }).then(res => res.data);
     }
 };
