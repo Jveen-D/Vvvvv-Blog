@@ -1,10 +1,10 @@
 <template>
-  <div id="test" class="w-full mt-8 ml-8">
-    <p>hello</p>
-  </div>
+  <teleport to="#test">
+      <p>hello</p>
+  </teleport>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 const theme = {
   color: 'red'
 }

@@ -30,21 +30,26 @@
     @click="backToTop"
   ></div>
   <Shadow/>
+  <test/>
 </template>
 
 <script lang="ts" setup>
+import test from '/@/pages/notFound/text.vue'
   import Header from '/@/components/Header/Header.vue';
   import Profile from '/@/components/Profile/Profile.vue';
   import Shadow from '/@/components/Shadow/Shadow.vue';
   import { computed,ComputedRef, reactive, toRefs, ref, onMounted } from 'vue';
   import { useStore } from 'vuex';
+
+  const store = useStore();
+
   interface State{
     mode:ComputedRef<string>,
     showBackTop:boolean|'',
     showBackTopBool:boolean,
     backTopEle:any
   }
-  const store = useStore();
+
   const state = reactive<State>({
     mode: computed(() => store.state.mode),
     showBackTop: '',
@@ -106,7 +111,7 @@
 <style scoped lang="scss">
   @import '/src/assets/css/mode';
   @import '/src/assets/css/backTop';
-  // 引用css变量
+  /* 引用css变量 */
   .wrap {
     height: var(--vh);
   }
