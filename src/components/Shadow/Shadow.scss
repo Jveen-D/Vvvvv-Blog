@@ -2,6 +2,7 @@
   background: rgba(0, 0, 0, 0.7);
   cursor: zoom-out;
 }
+// transition动画
 .appear-enter-active,
 .appear-leave-active {
   transition: all 0.3s ease-in-out;
@@ -11,4 +12,15 @@
 }
 .appear-leave-to {
   opacity: 0;
+}
+
+// img动画
+.moveImgAnimation{
+  animation: moveImgAnimation .3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes moveImgAnimation {
+  to {
+    top:50%;
+  }
 }

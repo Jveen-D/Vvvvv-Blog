@@ -42,8 +42,6 @@ const state = reactive<State>({
 });
 contentApi('getFriendLink').then((res) => {
   state.friendList = res.data;
-  console.log(res.data);
-  
 });
 </script>
 <style lang="scss" scoped>

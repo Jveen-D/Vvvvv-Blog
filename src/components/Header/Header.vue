@@ -168,8 +168,6 @@
 
   // 文章分类
   contentApi('listCategories').then((res) => {
-    console.log(res.data);
-    
     state.listCategories = res.data;
     state.listCategories.push({
       id: 7,

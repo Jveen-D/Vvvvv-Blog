@@ -80,7 +80,6 @@ watch(
       state.transition = !state.transition;
       contentApi('listsPostsByCategorySlug', { sluy: currentV }).then((res) => {
         state.articleLists = res.data;
-        console.log(res.data);
       });
     }
   },
