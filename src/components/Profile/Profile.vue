@@ -16,7 +16,7 @@
     "
       @click="showProfileWrap"
   >
-    <img :src="profile.user?.avatar" alt="avatar" class="rounded-full"/>
+    <img :src="profile.user.avatar" alt="avatar" class="rounded-full"/>
   </div>
   <!--  移动端蒙层-->
   <div
@@ -56,7 +56,7 @@
         <div></div>
       </div>
       <div class="flex justify-center items-end w-full h-24">
-        <img :src="profile.user?.avatar" alt="avatar" class="w-20 h-20 rounded-full"/>
+        <img :src="profile.user.avatar" alt="avatar" class="w-20 h-20 rounded-full"/>
       </div>
       <div
           :class="[
@@ -64,7 +64,7 @@
           'flex justify-center items-center duration-500 ease-in-out pt-4 font-bold text-sm',
         ]"
       >
-        {{ profile.user?.nickname }}
+        {{ profile.user.nickname }}
       </div>
       <div class="flex justify-center items-center pt-2 text-xs">
         <svg aria-hidden="true" class="icon animate-ping">
@@ -73,7 +73,7 @@
         <p>南京</p>
       </div>
       <div class="flex justify-center items-center pt-2 text-xs">
-        {{ profile.user?.email }}
+        {{ profile.user.email }}
       </div>
       <div class="rounded-xl flex pt-4 pb-4 justify-center items-center">
         <div class="flex justify-between w-3/6">
@@ -152,7 +152,15 @@ import {preventScrollY} from '/@/utils/utils';
 
 interface State {
   showProfile: boolean | '',
-  profile: any,
+  profile: {
+    user:{
+      avatar:string,
+      nickname:string,
+      email:string,
+      createTime:number
+    },
+    visitCount:string
+  },
   time: string,
   mode: ComputedRef<string>
   des: {title:string}[]
@@ -161,7 +169,15 @@ interface State {
 const store = useStore();
 const state = reactive<State>({
   showProfile: '',
-  profile: {}, // profile 博主信息
+  profile: {
+    user:{
+      avatar:'',
+      nickname:'',
+      email:'',
+      createTime:0
+    },
+    visitCount:'0'
+  }, // profile 博主信息
   time: '', // 运行时间
   mode: computed(() => store.state.mode), //模式,
   des: [
