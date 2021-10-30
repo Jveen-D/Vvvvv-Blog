@@ -17,9 +17,7 @@
         />
       </div>
     </transition>
-  <p>123</p>
   </teleport>
-  <p>123</p>
 </template>
 
 <script setup lang="ts">
@@ -38,12 +36,14 @@ interface State {
   }>,
   left: ComputedRef<string>,
   top: ComputedRef<string>,
+  color:string
 }
 const state = reactive<State>({
   shadow: computed(() => store.state.shadow),
   shadowImg: computed(() => store.state.shadowImg),
   top: computed(() =>store.state.shadowImg.top + 'px'),
   left:computed(() => store.state.shadowImg.left + 'px') ,
+  color:'red'
 });
 //隐藏阴影
 const hiddenShadow = () => {
@@ -60,7 +60,9 @@ const theme = {
 <style lang="scss" scoped>
 @import "Shadow";
 img{
-  top:v-bind('theme.left');
+  padding-left: v-bind('theme.left');;
+  color: v-bind('theme.color');
+  // top:v-bind('theme.left');
   // left:v-bind('state.left');
 }
 p {

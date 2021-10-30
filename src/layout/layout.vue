@@ -30,11 +30,9 @@
     @click="backToTop"
   ></div>
   <Shadow/>
-  <test/>
 </template>
 
 <script lang="ts" setup>
-import test from '/@/pages/notFound/text.vue'
   import Header from '/@/components/Header/Header.vue';
   import Profile from '/@/components/Profile/Profile.vue';
   import Shadow from '/@/components/Shadow/Shadow.vue';

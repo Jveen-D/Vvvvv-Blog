@@ -1,17 +1,13 @@
 <template>
-  <div id="test" class="w-full mt-8 ml-8">
-    <p>hello</p>
+  <div class="w-full mt-8 ml-8">
+    404
   </div>
 </template>
 
 <script lang="ts" setup>
-const theme = {
-  color: 'red'
-}
+
 </script>
 
 <style lang="scss" scoped>
-p {
-  color: v-bind('theme.color');
-}
+
 </style>
