@@ -198,7 +198,6 @@ watch(showProfile, (newVal) => {
 });
 contentApi('getBlogStatistics').then((res) => {
   state.profile = res.data;
-  
   setInterval(() => {
     state.time = getDuration(state.profile.user.createTime);
   }, 1000);
