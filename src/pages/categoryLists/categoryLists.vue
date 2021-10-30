@@ -9,7 +9,7 @@
   >
     <div class="lg:-mr-1+1/20 lg:h-full pb-8 duration-500 ease-in-out">
       <div
-        v-for="(item, index) in articleLists.content"
+        v-for="(item, index) in articleLists"
         :key="'articleLists' + index"
         :class="[
           mode === 'light' ? 'lightMode' : 'bg-darkMode',
@@ -55,7 +55,16 @@ import { useStore } from 'vuex';
 
 interface State {
   slug: ComputedRef<string>;
-  articleLists: any;
+  articleLists: Array<{
+    id:string
+    title:string
+    createTime:number
+    summary:string
+    tags:Array<{
+      slug:string,
+      name:string
+    }>
+  }>
   tagSlug: string;
   mode: ComputedRef<string>;
   transition: boolean;
@@ -65,7 +74,16 @@ const Router = useRouter();
 const store = useStore();
 const state = reactive<State>({
   slug: computed(() => Router.currentRoute.value.params.slug as string),
-  articleLists: '',
+  articleLists: [{
+    id:'',
+    title:'',
+    createTime:0,
+    summary:'',
+    tags:[{
+      slug:'',
+      name:''
+    }]
+  }],
   tagSlug: '',
   mode: computed(() => store.state.mode),
   transition: true,
@@ -79,7 +97,8 @@ watch(
     if (currentV) {
       state.transition = !state.transition;
       contentApi('listsPostsByCategorySlug', { sluy: currentV }).then((res) => {
-        state.articleLists = res.data;
+        
+        state.articleLists = res.data.content;
       });
     }
   },
