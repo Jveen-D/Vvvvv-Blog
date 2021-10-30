@@ -1,0 +1,1 @@
+import{_ as e}from"./index.248a20b2.js";import{o,e as r}from"./vendor.bffd7ede.js";const s={},t={class:"w-full mt-8 ml-8"};function c(n,a){return o(),r("div",t," 404 ")}var f=e(s,[["render",c]]);export{f as default};

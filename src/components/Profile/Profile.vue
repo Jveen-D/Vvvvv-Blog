@@ -146,7 +146,7 @@
 <script lang="ts" setup>
 import {contentApi} from "/@/api/content";
 import {getDuration} from '/@/utils/date';
-import {computed, ComputedRef, reactive, toRefs, watch} from 'vue';
+import {computed, ComputedRef, reactive, toRefs, watch, onUnmounted} from 'vue';
 import {useStore} from 'vuex';
 import {preventScrollY} from '/@/utils/utils';
 
@@ -198,10 +198,11 @@ watch(showProfile, (newVal) => {
 });
 contentApi('getBlogStatistics').then((res) => {
   state.profile = res.data;
+  
+  setInterval(() => {
+    state.time = getDuration(state.profile.user.createTime);
+  }, 1000);
 });
-setInterval(() => {
-  state.time = getDuration(state.profile.user.createTime);
-}, 1000);
 //  移动端个人信息
 const showProfileWrap = () => (state.showProfile = !state.showProfile);
 // 移动端个人信息容器蒙层
