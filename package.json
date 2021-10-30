@@ -10,6 +10,7 @@
     "serve": "npm run dev",
     "dev": "vite --host",
     "build": "vite build --mode production",
+    "buildGithub": "vite build --mode github",
     "update": "npm outdated",
     "preview:dist": "vite preview"
   },

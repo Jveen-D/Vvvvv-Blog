@@ -5,7 +5,6 @@ import vue from '@vitejs/plugin-vue';
 import viteCompression from 'vite-plugin-compression';
 import { createProxy } from './build/vite/proxy';
 import { wrapperEnv } from './build/utils';
-import { OUTPUT_DIR } from './build/constant';
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
@@ -28,7 +27,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
   * VITE_PROXY        代理
   * VITE_DROP_CONSOLE 打包去除console
   * */
-  const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_DROP_CONSOLE } = viteEnv;
+  const { VITE_OUTPUT_DIR,VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_DROP_CONSOLE } = viteEnv;
 
   return{
     base: VITE_PUBLIC_PATH,
@@ -36,7 +35,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     plugins: [vue(), viteCompression()],
     build: {
       target: 'es2015',
-      outDir: OUTPUT_DIR,
+      outDir: VITE_OUTPUT_DIR,
       terserOptions: {
         compress: {
           keep_infinity: true,
