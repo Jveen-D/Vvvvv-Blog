@@ -16,7 +16,7 @@
     "
       @click="showProfileWrap"
   >
-    <img :src="profile.user.avatar" alt="avatar" class="rounded-full"/>
+    <img :src="state.profile.user.avatar" alt="avatar" class="rounded-full"/>
   </div>
   <!--  移动端蒙层-->
   <div
@@ -56,7 +56,7 @@
         <div></div>
       </div>
       <div class="flex justify-center items-end w-full h-24">
-        <img :src="profile.user.avatar" alt="avatar" class="w-20 h-20 rounded-full"/>
+        <img :src="state.profile.user.avatar" alt="avatar" class="w-20 h-20 rounded-full"/>
       </div>
       <div
           :class="[
@@ -64,7 +64,7 @@
           'flex justify-center items-center duration-500 ease-in-out pt-4 font-bold text-sm',
         ]"
       >
-        {{ profile.user.nickname }}
+        {{ state.profile.user.nickname }}
       </div>
       <div class="flex justify-center items-center pt-2 text-xs">
         <svg aria-hidden="true" class="icon animate-ping">
@@ -73,7 +73,7 @@
         <p>南京</p>
       </div>
       <div class="flex justify-center items-center pt-2 text-xs">
-        {{ profile.user.email }}
+        {{ state.profile.user.email }}
       </div>
       <div class="rounded-xl flex pt-4 pb-4 justify-center items-center">
         <div class="flex justify-between w-3/6">
@@ -137,7 +137,7 @@
           </svg>
           <div class="text-sm">累计访问:</div>
         </div>
-        <div class="flex justify-end pr-2">{{ profile.visitCount }}</div>
+        <div class="flex justify-end pr-2">{{ state.profile.visitCount }}</div>
       </div>
     </div>
   </div>
@@ -146,7 +146,7 @@
 <script lang="ts" setup>
 import {contentApi} from "/@/api/content";
 import {getDuration} from '/@/utils/date';
-import {computed, ComputedRef, reactive, toRefs, watch, onUnmounted} from 'vue';
+import {computed, ComputedRef, reactive, toRefs, watch} from 'vue';
 import {useStore} from 'vuex';
 import {preventScrollY} from '/@/utils/utils';
 
@@ -191,7 +191,7 @@ const state = reactive<State>({
     {title: '使用Tailwind Css响应式布局'},
   ]
 });
-const {showProfile, profile, time, mode, des} = {...toRefs(state)};
+const {showProfile, time, mode, des} = {...toRefs(state)};
 
 watch(showProfile, (newVal) => {
   preventScrollY(newVal);
