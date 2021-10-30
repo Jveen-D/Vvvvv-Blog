@@ -168,12 +168,12 @@
 
   // 文章分类
   contentApi('listCategories').then((res) => {
-    state.listCategories = res.data;
-    state.listCategories.push({
+    res.data.push({
       id: 7,
       name: '友情链接',
       slug: 'friendLink',
     });
+    state.listCategories = res.data
     
   });
   // 切换主题模式
