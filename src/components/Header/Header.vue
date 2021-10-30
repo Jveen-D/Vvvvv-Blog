@@ -174,6 +174,7 @@
       name: '友情链接',
       slug: 'friendLink',
     });
+    
   });
   // 切换主题模式
   const changeMode = () => {

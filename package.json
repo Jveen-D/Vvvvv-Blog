@@ -7,41 +7,39 @@
     "url": "https://github.com/Jveen-D"
   },
   "scripts": {
-    "serve": "npm run dev",
     "dev": "vite --host",
     "build": "vite build --mode production",
     "buildGithub": "vite build --mode github",
-    "update": "npm outdated",
-    "preview:dist": "vite preview"
+    "serve": "vite preview --port 8080",
+    "update": "npm outdated"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.24.0",
     "babel-eslint": "^10.1.0",
-    "node": "^16.6.1",
     "vue": "^3.2.19",
     "vue-router": "^4.0.8",
     "vuex": "^4.0.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss7-compat": "^2.2.7",
-    "@types/node": "^16.9.6",
-    "@typescript-eslint/eslint-plugin": "^4.29.0",
-    "@typescript-eslint/parser": "^4.29.0",
-    "@vitejs/plugin-vue": "^1.4.0",
-    "@vue/compiler-sfc": "^3.2.4",
-    "autoprefixer": "^10.3.1",
-    "eslint": "^7.32.0",
+    "@tailwindcss/postcss7-compat": "^2.2.17",
+    "@types/node": "^16.11.6",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "@vitejs/plugin-vue": "^1.9.4",
+    "@vue/compiler-sfc": "^3.2.20",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.1.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-vue": "^7.15.1",
-    "postcss": "^8.3.6",
-    "prettier": "^2.3.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "postcss": "^8.3.11",
+    "prettier": "^2.4.1",
     "rollup-plugin-gzip": "^2.5.0",
-    "sass": "^1.37.5",
-    "tailwindcss": "^2.2.7",
-    "typescript": "^4.3.2",
-    "vite": "^2.4.4",
+    "sass": "^1.43.4",
+    "tailwindcss": "^2.2.19",
+    "typescript": "^4.4.4",
+    "vite": "^2.6.13",
     "vite-plugin-compression": "^0.3.5",
-    "vue-tsc": "^0.3.0"
+    "vue-tsc": "^0.28.10"
   }
 }
