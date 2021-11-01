@@ -152,7 +152,15 @@ import {preventScrollY} from '/@/utils/utils';
 
 interface State {
   showProfile: boolean | '',
-  profile:any,
+  profile: {
+    user:{
+      avatar:string,
+      nickname:string,
+      email:string,
+      createTime:number
+    },
+    visitCount:string
+  },
   time: string,
   mode: ComputedRef<string>
   des: {title:string}[]
@@ -161,7 +169,15 @@ interface State {
 const store = useStore();
 const state = reactive<State>({
   showProfile: '',
-  profile: {}, // profile 博主信息
+  profile: {
+    user:{
+      avatar:'',
+      nickname:'',
+      email:'',
+      createTime:0
+    },
+    visitCount:'0'
+  }, // profile 博主信息
   time: '', // 运行时间
   mode: computed(() => store.state.mode), //模式,
   des: [
