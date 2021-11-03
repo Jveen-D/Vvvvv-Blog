@@ -3,7 +3,7 @@
     <div
       :class="[
         mode === 'light' ? 'lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
-        'hidden min:block  min:w-64 fixed top-0 left-0 mt-8 rounded-xl hidden bg-white h-util pt-4 pl-4 font-bold whitespace-nowrap font-medium text-sm',
+        'hidden min:block  min:w-64 fixed top-0 left-0 mt-28 rounded-xl hidden bg-white h-util pt-4 pl-4 font-bold whitespace-nowrap font-medium text-sm',
       ]"
     >
       <div v-for="(item, index) in h4Arr" :key="index" class="hover:text-FF9100">
