@@ -102,3 +102,6 @@ typings/
 
 ### IntelliJ IDEA ###
 .idea
+
+### vue3 build
+dist
