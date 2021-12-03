@@ -30,7 +30,7 @@ export const contentApi = (apiName: apiType, item: any = {}): any => {
     const config: any = {};
     const params: any = {
         api_access_key: 'kingofthekill',
-        item
+        ...item
     }
     switch (apiName) {
         case 'listMonthArchives': // 获取文章月份归档
