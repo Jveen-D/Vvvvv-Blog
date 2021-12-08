@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-06-28 10:55:47
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2021-12-08 13:05:59
+ * @LastEditTime: 2021-12-08 13:43:05
  * @FilePath: \Vvvvv-Blog\src\pages\categoryLists\categoryLists.vue
 -->
 <template>
@@ -44,7 +44,6 @@
             v-for="(tag, tagIndex) in item.tags"
             :key="'tagIndex' + tagIndex"
             class="flex items-center pl-2 pr-2 mt-2 mr-2 text-xs text-white bg-blue-700 rounded-l-lg flex-nowrap"
-            @click.stop="changeSlug(tag.slug)"
           >
             <div class="w-1 h-1 mr-2 bg-white rounded-full animate-ping"></div>
             <span class="text-xs pt-0.5">{{ tag.name }}</span>
@@ -59,13 +58,15 @@
   import { useRouter } from 'vue-router';
   import { getUpdateTime } from '/@/utils/date';
   import { contentApi } from '/@/api/content';
-  import { computed, ComputedRef, reactive, toRefs, watch } from 'vue';
-  import { useStore } from 'vuex';
+  import { reactive, toRefs, watch } from 'vue';
 
-  import { currentDevelopment } from '/@/hooks/core/currentDevelopment';
-  
-  const { getCurrentSlug } = currentDevelopment();
-  const slug = getCurrentSlug()
+  import { currentSlug } from '/@/hooks/core/slugHooks';
+  import { currentMode } from '/@/hooks/core/modeHooks';
+  const { getCurrentSlug } = currentSlug();
+  const slug = getCurrentSlug();
+
+  const { getCurrentMode } = currentMode();
+  const mode = getCurrentMode();
   
   interface State {
     articleLists: Array<{
@@ -78,13 +79,10 @@
         name: string;
       }>;
     }>;
-    tagSlug: string;
-    mode: ComputedRef<string>;
     transition: boolean;
   }
 
   const Router = useRouter();
-  const store = useStore();
   const state = reactive<State>({
     articleLists: [
       {
@@ -100,11 +98,9 @@
         ],
       },
     ],
-    tagSlug: '',
-    mode: computed(() => store.state.mode),
     transition: true,
   });
-  const {articleLists, tagSlug, mode, transition } = { ...toRefs(state) };
+  const { articleLists, transition } = { ...toRefs(state) };
 
   watch(
     slug,
@@ -121,14 +117,6 @@
       immediate: true,
     }
   );
-  watch(tagSlug, (currentV) => {
-    contentApi('listsPostsByTagSlug', { sluy: currentV }).then((res) => {
-      state.articleLists = res.data;
-    });
-  });
-  const changeSlug = (val) => {
-    tagSlug.value = val;
-  };
   const goDetails = (id) => {
     Router.push({
       path: `/detail/${id}`,
