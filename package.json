@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "babel-eslint": "^10.1.0",
+    "echarts": "^5.2.2",
     "lodash-es": "^4.17.21",
     "qs": "^6.10.1",
     "vue": "^3.2.19",
