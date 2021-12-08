@@ -1,21 +1,7 @@
 <template>
   <!--  移动端的按钮-->
   <div
-    class="
-      lg:hidden
-      flex
-      justify-center
-      items-center
-      animate-pulse
-      rounded-md
-      fixed
-      top-2
-      left-4
-      w-8
-      h-8
-      border-solid border-2 border-gray-400
-      z-10
-    "
+    class="fixed z-10 flex items-center justify-center w-8 h-8 border-2 border-gray-400 border-solid rounded-md lg:hidden animate-pulse top-2 left-4"
     @click="showCategoriesList"
   >
     <svg aria-hidden="true" class="icon">
@@ -42,20 +28,20 @@
       'h-screen lg:h-20 overflow-hidden items-center fixed top-0 lg:static lg:flex lg:w-full lg:bg-opacity-70 z-20',
     ]"
   >
-    <div class="lg:hidden relative mt-4" @click="showCategoriesList">
-      <svg aria-hidden="true" class="icon animate-bounce absolute right-4">
+    <div class="relative mt-4 lg:hidden" @click="showCategoriesList">
+      <svg aria-hidden="true" class="absolute icon animate-bounce right-4">
         <use xlink:href="#icon-cha" />
       </svg>
     </div>
     <div
-      class="flex flex-col flex-1 justify-between items-center pr-6 lg:flex-row lg:h-20 lg:w-full"
+      class="flex flex-col items-center justify-between flex-1 pr-6 lg:flex-row lg:h-20 lg:w-full"
     >
-      <div class="pl-12 pt-4 lg:flex lg:pt-0">
+      <div class="pt-4 pl-12 lg:flex lg:pt-0">
         <div
           v-for="(item, index) in listCategories"
           :key="'listCategories' + index"
           :class="[
-            slug === item.slug ? 'text-FF9100' : '',
+            storeSlug === item.slug ? 'text-FF9100' : '',
             mode === 'light' ? 'text-black' : '',
             'font-mersan whitespace-nowrap mt-2 lg:mt-0 font-medium text-sm pr-4 transition-colors duration-500 ease-in-out  hover:text-FF9100',
           ]"
@@ -65,13 +51,13 @@
         </div>
       </div>
       <div
-        class="w-full justify-end lg:justify-between lg:w-auto flex items-center"
+        class="flex items-center justify-end w-full lg:justify-between lg:w-auto"
         @click="changeMode"
       >
         <div
-          class="z-20 relative flex justify-between items-center w-20 h-8 bg-gray-100 rounded-md"
+          class="relative z-20 flex items-center justify-between w-20 h-8 bg-gray-100 rounded-md"
         >
-          <div class="z-20 flex justify-center items-center w-10 h-full rounded-md">
+          <div class="z-20 flex items-center justify-center w-10 h-full rounded-md">
             <svg
               :class="[mode === 'light' ? 'animate-bounce mt-1' : '', 'icon']"
               aria-hidden="true"
@@ -79,7 +65,7 @@
               <use xlink:href="#icon-taiyang" />
             </svg>
           </div>
-          <div class="z-20 flex justify-center items-center w-10 h-full">
+          <div class="z-20 flex items-center justify-center w-10 h-full">
             <svg
               :class="[mode === 'light' ? '' : 'animate-bounce mt-1', 'icon']"
               aria-hidden="true"
@@ -100,34 +86,33 @@
 </template>
 
 <script lang="ts" setup>
-  import {contentApi} from "/@/api/content";
+  import { contentApi } from '/@/api/content';
   import { preventScrollY } from '/@/utils/utils';
-  import { computed, reactive, toRefs, watch,ComputedRef } from 'vue';
+  import { reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
 
+  import { coreHooks } from '/@/hooks/core/coreHooks';
+  const { getCurrentMode, getCurrentSlug,getStoreSlug } = coreHooks();
+  const mode = getCurrentMode();
+  const activeCategory = getCurrentSlug();
+  const storeSlug = getStoreSlug()
   interface State {
-    slug:ComputedRef<string>,
-    mode:ComputedRef<string>,
     listCategories: Array<{
-      id:number,
-      name:string,
-      slug:string
-    }>,
-    activeCategory:ComputedRef<string>,
-    showList:boolean | ''
+      id: number;
+      name: string;
+      slug: string;
+    }>;
+    showList: boolean | '';
   }
 
   const Router = useRouter();
   const store = useStore();
   const state = reactive<State>({
-    slug: computed(() => store.state.slug),
-    mode: computed(() => store.state.mode),
     listCategories: [],
-    activeCategory: computed(() => Router.currentRoute.value.params.slug as string), // 目前所在slug分类
     showList: '',
   });
-  const { slug, mode, listCategories, activeCategory, showList } = {
+  const { listCategories, showList } = {
     ...toRefs(state),
   };
 
@@ -173,8 +158,7 @@
       name: '友情链接',
       slug: 'friendLink',
     });
-    state.listCategories = res.data
-    
+    state.listCategories = res.data;
   });
   // 切换主题模式
   const changeMode = () => {

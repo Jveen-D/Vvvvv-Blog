@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-06-28 10:55:47
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2021-12-08 13:43:05
+ * @LastEditTime: 2021-12-08 14:21:11
  * @FilePath: \Vvvvv-Blog\src\pages\categoryLists\categoryLists.vue
 -->
 <template>
@@ -60,14 +60,11 @@
   import { contentApi } from '/@/api/content';
   import { reactive, toRefs, watch } from 'vue';
 
-  import { currentSlug } from '/@/hooks/core/slugHooks';
-  import { currentMode } from '/@/hooks/core/modeHooks';
-  const { getCurrentSlug } = currentSlug();
+  import { coreHooks } from '/@/hooks/core/coreHooks';
+  const { getCurrentMode,getCurrentSlug } = coreHooks();
   const slug = getCurrentSlug();
-
-  const { getCurrentMode } = currentMode();
   const mode = getCurrentMode();
-  
+
   interface State {
     articleLists: Array<{
       id: string;
