@@ -38,6 +38,6 @@
     "build/**/*.d.ts",
     "mock/**/*.ts",
     "vite.config.ts"
-  ],
+, "src/utils/ecahrts/transtionEcharts.js"  ],
   "exclude": ["node_modules", "tests/server/**/*.ts", "dist", "**/*.js"]
 }
