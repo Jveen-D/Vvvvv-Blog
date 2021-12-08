@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-06-28 10:55:47
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2021-12-07 20:28:27
+ * @LastEditTime: 2021-12-08 13:05:59
  * @FilePath: \Vvvvv-Blog\src\pages\categoryLists\categoryLists.vue
 -->
 <template>
@@ -64,11 +64,10 @@
 
   import { currentDevelopment } from '/@/hooks/core/currentDevelopment';
   
-  const { getCurrentSluy } = currentDevelopment();
-  getCurrentSluy()
+  const { getCurrentSlug } = currentDevelopment();
+  const slug = getCurrentSlug()
   
   interface State {
-    slug: ComputedRef<string>;
     articleLists: Array<{
       id: string;
       title: string;
@@ -87,7 +86,6 @@
   const Router = useRouter();
   const store = useStore();
   const state = reactive<State>({
-    slug: computed(() => Router.currentRoute.value.params.slug as string),
     articleLists: [
       {
         id: '',
@@ -106,7 +104,7 @@
     mode: computed(() => store.state.mode),
     transition: true,
   });
-  const { slug, articleLists, tagSlug, mode, transition } = { ...toRefs(state) };
+  const {articleLists, tagSlug, mode, transition } = { ...toRefs(state) };
 
   watch(
     slug,
