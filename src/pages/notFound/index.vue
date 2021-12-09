@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-07-19 18:56:16
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2021-12-08 15:34:17
+ * @LastEditTime: 2021-12-09 19:08:19
  * @FilePath: \Vvvvv-Blog\src\pages\notFound\index.vue
 -->
 <template>
@@ -14,7 +14,7 @@
   import { ref, reactive, nextTick } from 'vue';
   import * as echarts from 'echarts';
   // import mapbg from '/@/assets/images/home/mapBg.png';
-  import geoJson from '/@/assets/map_s/json/all-world.json';
+  import geoJson from '/@/assets/map_s/json/all-world copy.json';
   // 地图中文名称映射
   import nameMap from '/@/assets/map_s/json/nameMap.json';
 
