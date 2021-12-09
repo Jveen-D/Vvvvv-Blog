@@ -14,7 +14,7 @@
   import { ref, reactive, nextTick } from 'vue';
   import * as echarts from 'echarts';
   // import mapbg from '/@/assets/images/home/mapBg.png';
-  import geoJson from '/@/assets/map_s/json/all-world copy.json';
+  import geoJson from '/@/assets/map_s/json/all-worldcopy.json';
   // 地图中文名称映射
   import nameMap from '/@/assets/map_s/json/nameMap.json';
 

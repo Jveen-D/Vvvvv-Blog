@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-12-08 15:42:20
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2021-12-09 19:57:02
+ * @LastEditTime: 2021-12-09 20:05:51
  * @FilePath: \Vvvvv-Blog\src\utils\ecahrts\transtionEcharts.js
  */
 function isArray(val) {
@@ -32157,7 +32157,7 @@ allWordJson.features.forEach((item) => {
       } else {
         const foo = [];
         const arr = val[0].toString().split('.');
-        arr[0] = Number(arr[0]) + 50;
+        arr[0] = Number(arr[0]) + 1;
         const str = arr.join('.');
         foo[0] = str;
         foo[1] = val[1];
