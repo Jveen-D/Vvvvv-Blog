@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-07-19 18:56:16
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2021-12-09 19:08:19
+ * @LastEditTime: 2021-12-11 16:45:53
  * @FilePath: \Vvvvv-Blog\src\pages\notFound\index.vue
 -->
 <template>
@@ -16,7 +16,7 @@
   // import mapbg from '/@/assets/images/home/mapBg.png';
   import geoJson from '/@/assets/map_s/json/all-worldcopy.json';
   // 地图中文名称映射
-  import nameMap from '/@/assets/map_s/json/nameMap.json';
+  // import nameMap from '/@/assets/map_s/json/nameMap.json';
 
   // 注册地图
   const worldMapJson = JSON.parse(JSON.stringify(geoJson));
@@ -52,14 +52,12 @@
         // 自定义地区名称
         // nameMap: nameMap,
         // center: [115.97, 29.71],
-        // zoom: 1.5,
+        zoom: 0.8,
+        roam:true,
         //--------------   标签 -----------------
         label: {
           show: true, // 国际地图国家名称太密集了  最好别展示
           color: '#fff',
-          formatter: (params) => {
-            return params.name;
-          },
         },
         //--------------   提示框 -----------------
         tooltip: {
@@ -82,10 +80,7 @@
           show: false,
           focus: 'self',
           // 区域的颜色
-          areaColor: {
-            // image: bgImg, // 支持为 HTMLImageElement, HTMLCanvasElement，不支持路径字符串
-            repeat: 'repeat', // 是否平铺，可以是 'repeat-x', 'repeat-y', 'no-repeat'
-          },
+          areaColor: 'rgba(81,159,232,0.2)',
           borderColor: '#01B3FD',
           borderWidth: 2,
           opacity: 1,
