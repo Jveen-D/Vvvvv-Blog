@@ -10,7 +10,7 @@
     "dev": "vite --host",
     "build": "vite build --mode production",
     "buildGithub": "vite build --mode test",
-    "serve": "vite preview --port 8080",
+    "preview": "vite preview --host",
     "update": "npm outdated"
   },
   "dependencies": {

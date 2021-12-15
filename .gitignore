@@ -104,3 +104,4 @@ typings/
 .idea
 
 ### vue3 build
+dist
