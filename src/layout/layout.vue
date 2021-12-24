@@ -2,7 +2,7 @@
   <Header />
   <div
     :class="[
-      state.mode === 'dark' ? 'darkMode' : 'bg-gradient-to-tr from-regal-blue to-regal-pink',
+      mode === 'dark' ? 'darkMode' : 'bg-gradient-to-tr from-regal-blue to-regal-pink',
       'flex',
     ]"
   >
@@ -29,27 +29,25 @@
     ]"
     @click="backToTop"
   ></div>
-  <Shadow/>
+  <Shadow />
 </template>
 
 <script lang="ts" setup>
   import Header from '/@/components/Header/Header.vue';
   import Profile from '/@/components/Profile/Profile.vue';
   import Shadow from '/@/components/Shadow/Shadow.vue';
-  import { computed,ComputedRef, reactive, toRefs, ref, onMounted } from 'vue';
-  import { useStore } from 'vuex';
+  import { reactive, toRefs, ref, onMounted } from 'vue';
+  import { coreHooks } from '/@/hooks/core/coreHooks';
+  const { getCurrentMode } = coreHooks();
+  const mode = getCurrentMode();
 
-  const store = useStore();
-
-  interface State{
-    mode:ComputedRef<string>,
-    showBackTop:boolean|'',
-    showBackTopBool:boolean,
-    backTopEle:any
+  interface State {
+    showBackTop: boolean | '';
+    showBackTopBool: boolean;
+    backTopEle: any;
   }
 
   const state = reactive<State>({
-    mode: computed(() => store.state.mode),
     showBackTop: '',
     showBackTopBool: false,
     backTopEle: null,
@@ -102,8 +100,6 @@
   onMounted(() => {
     safariHacks();
   });
-
-
 </script>
 
 <style scoped lang="scss">
