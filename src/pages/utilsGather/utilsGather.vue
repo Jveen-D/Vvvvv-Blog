@@ -1,10 +1,9 @@
 <template>
   <div class="flex h-full">
     <div
-      :class="[
-        mode === 'light' ? 'lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
-        'hidden lg:block  min:w-64 fixed top-0 left-0 mt-8 rounded-xl bg-white p-4 whitespace-nowrap font-medium text-sm',
-      ]"
+      class=
+        'fixed top-0 left-0 hidden p-4 mt-8 text-sm font-medium bg-white lg:block min:w-64 rounded-xl whitespace-nowrap'
+      
     >
       <div v-for="(item, index) in h4Arr" :key="index" class="hover:text-FF9100">
         <a :href="'#' + item.innerText">{{ item.innerText }}</a>
@@ -16,13 +15,12 @@
       ]"
     >
       <div
-        :class="[
-          mode === 'light' ? 'lightMode text-lightMode' : 'bg-darkMode  text-darkMode',
-          'flex justify-center w-full overflow-x-none rounded-2xl lg:p-4 lg:pb-8 relative',
-        ]"
+        class=
+          'relative flex justify-center w-full overflow-x-none rounded-2xl lg:p-4 lg:pb-8'
+        
       >
         <span
-          class="absolute hidden text-sm font-medium text-black transition-colors  min:block top-4 right-4 font-mersan"
+          class="absolute hidden text-sm font-medium text-black transition-colors min:block top-4 right-4 font-mersan"
           >累计看过：{{ postDetail.visits }}</span
         >
         <div ref="markdownBody" class="w-full p-4 break-all markdown-body lg:p-0"></div>

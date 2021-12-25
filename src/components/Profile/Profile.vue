@@ -20,8 +20,7 @@
     :class="[
       showProfile ? 'showProfile' : 'w-0',
       showProfile === false ? 'hiddenProfile' : '',
-      'fixed right-0 lg:static lg:inset-0 lg:block lg:mt-8 w-0 xl:w-auto ' +
-        'text-gray-700 dark:text-gray-400 dark:bg-gray-800 dark:text-white text-base border border-gray-900/10 overflow-hidden font-mersan flex justify-between flex-col whitespace-nowrap rounded-xl z-20 lg:z-0',
+      'border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-8 w-0 xl:w-auto ',
     ]"
   >
     <!--    protile-->
