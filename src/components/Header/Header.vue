@@ -22,10 +22,7 @@
     :class="[
       showList ? 'showList' : 'w-0',
       showList === false ? 'hiddenList' : '',
-      mode === 'light'
-        ? 'bg-gradient-to-t from-regal-blue to-regal-pink bg-red-400 shadow-xl'
-        : 'darkMode ',
-      'h-screen lg:h-20 overflow-hidden items-center fixed top-0 lg:static lg:flex lg:w-full lg:bg-opacity-70 z-20',
+      'bg-white dark:bg-gray-900 h-screen lg:h-20 overflow-hidden items-center fixed top-0 lg:static lg:flex lg:w-full z-20',
     ]"
   >
     <div class="relative mt-4 lg:hidden" @click="showCategoriesList">
@@ -36,24 +33,23 @@
     <div
       class="flex flex-col items-center justify-between flex-1 pr-6 lg:flex-row lg:h-20 lg:w-full"
     >
-      <div class="pt-4 pl-12 lg:flex lg:pt-0">
+      <div class="pt-4 pl-12 text-gray-700 lg:flex lg:pt-0 dark:text-gray-200">
         <div
           v-for="(item, index) in listCategories"
           :key="'listCategories' + index"
           :class="[
-            storeSlug === item.slug ? 'text-FF9100' : '',
-            mode === 'light' ? 'text-black' : '',
-            'font-mersan whitespace-nowrap mt-2 lg:mt-0 font-medium text-sm pr-4 transition-colors duration-500 ease-in-out  hover:text-FF9100',
+            storeSlug === item.slug ? 'text-sky-500' : '',
+            'hover:text-sky-500 dark:hover:text-sky-400 font-mersan whitespace-nowrap mt-2 lg:mt-0 font-medium text-sm pr-4 transition-colors duration-500 ease-in-out',
           ]"
           @click="goCategory(item.slug)"
         >
           {{ item.name }}
         </div>
       </div>
-      <div class="flex items-center justify-end w-full lg:justify-between lg:w-auto">
-        <div
-          class="relative z-20 flex items-center justify-between w-20 h-8 bg-gray-100 rounded-md"
-        >
+      <div
+        class="flex items-center justify-end w-full rounded-md lg:justify-between lg:w-auto bg-gray-400/10 hover:bg-gray-400/20 dark:highlight-white/5"
+      >
+        <div class="relative z-20 flex items-center justify-between w-20 h-8 rounded-md">
           <div
             class="z-20 flex items-center justify-center w-10 h-full rounded-md"
             @click="changeTheme('light')"
@@ -79,7 +75,7 @@
           <div
             :class="[
               mode === 'light' ? 'light' : 'dark',
-              'z-10 absolute flex justify-center items-center bg-white w-10 h-8 rounded-md',
+              'z-10 absolute flex justify-center items-center bg-gray-400/20 w-10 h-8 rounded-md',
             ]"
           ></div>
         </div>
@@ -94,7 +90,8 @@
   import { reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
-  import { changeTheme } from '/@/utils/tailwind/changeMode';
+  import { tailwindTheme } from '/@/utils/tailwind/tailwindTheme';
+  const { changeTheme } = tailwindTheme();
 
   import { coreHooks } from '/@/hooks/core/coreHooks';
   const { getCurrentMode, getCurrentSlug, getStoreSlug } = coreHooks();
@@ -164,13 +161,6 @@
     });
     state.listCategories = res.data;
   });
-  // 切换主题模式
-  const changeMode = () => {
-    changeTheme('');
-    // const mode = store.state.mode === 'light' ? 'dark' : 'light';
-    // store.dispatch('ChangeMode', mode);
-    // console.log(localStorage);
-  };
   // 移动端显示分类
   const showCategoriesList = () => (state.showList = !state.showList);
   // 移动端显示分类蒙层
