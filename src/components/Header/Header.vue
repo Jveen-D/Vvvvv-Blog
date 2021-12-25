@@ -22,7 +22,7 @@
     :class="[
       showList ? 'showList' : 'w-0',
       showList === false ? 'hiddenList' : '',
-      'bg-white dark:bg-gray-900 h-screen lg:h-20 overflow-hidden items-center fixed top-0 lg:static lg:flex lg:w-full z-20',
+      'lg:sticky bg-white dark:bg-gray-900 h-screen lg:h-16 overflow-hidden items-center fixed top-0 lg:flex lg:w-full z-20',
     ]"
   >
     <div class="relative mt-4 lg:hidden" @click="showCategoriesList">
@@ -47,11 +47,11 @@
         </div>
       </div>
       <div
-        class="flex items-center justify-end w-full rounded-md lg:justify-between lg:w-auto bg-gray-400/10 hover:bg-gray-400/20 dark:highlight-white/5"
+        class="flex items-center justify-end w-full overflow-hidden rounded-md lg:justify-between lg:w-auto"
       >
-        <div class="relative z-20 flex items-center justify-between w-20 h-8 rounded-md">
+        <div class="relative z-20 flex items-center justify-between w-20 h-8">
           <div
-            class="z-20 flex items-center justify-center w-10 h-full rounded-md"
+            class="z-20 flex items-center justify-center w-10 h-full rounded-md bg-gray-400/10 hover:bg-gray-400/20 dark:highlight-white/5"
             @click="changeTheme('light')"
           >
             <svg
@@ -62,7 +62,7 @@
             </svg>
           </div>
           <div
-            class="z-20 flex items-center justify-center w-10 h-full"
+            class="z-20 flex items-center justify-center w-10 h-full rounded-md bg-gray-400/10 hover:bg-gray-400/20 dark:highlight-white/5"
             @click="changeTheme('dark')"
           >
             <svg

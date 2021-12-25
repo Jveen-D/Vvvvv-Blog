@@ -3,34 +3,31 @@
 @tailwind components;
 @tailwind utilities;
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    cursor: url(//cdn.jsdelivr.net/gh/LIlGG/halo-theme-sakura@1.3.1/source/cursor/normal.cur),auto;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  cursor: url(//cdn.jsdelivr.net/gh/LIlGG/halo-theme-sakura@1.3.1/source/cursor/normal.cur), auto;
 }
 .icon {
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 0px;
+  width: 6px;
+  height: 0px;
 }
 /* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: #fe9600;
+  border-radius: 10px;
+  background: rgb(56 189 248);
 }
 
 /* 滚动槽 */
 ::-webkit-scrollbar-track {
-    border-radius: 10px;
+  border-radius: 10px;
 }
-
-
-
