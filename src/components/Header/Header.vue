@@ -50,14 +50,14 @@
           {{ item.name }}
         </div>
       </div>
-      <div
-        class="flex items-center justify-end w-full lg:justify-between lg:w-auto"
-        @click="changeMode"
-      >
+      <div class="flex items-center justify-end w-full lg:justify-between lg:w-auto">
         <div
           class="relative z-20 flex items-center justify-between w-20 h-8 bg-gray-100 rounded-md"
         >
-          <div class="z-20 flex items-center justify-center w-10 h-full rounded-md">
+          <div
+            class="z-20 flex items-center justify-center w-10 h-full rounded-md"
+            @click="changeTheme('light')"
+          >
             <svg
               :class="[mode === 'light' ? 'animate-bounce mt-1' : '', 'icon']"
               aria-hidden="true"
@@ -65,7 +65,10 @@
               <use xlink:href="#icon-taiyang" />
             </svg>
           </div>
-          <div class="z-20 flex items-center justify-center w-10 h-full">
+          <div
+            class="z-20 flex items-center justify-center w-10 h-full"
+            @click="changeTheme('dark')"
+          >
             <svg
               :class="[mode === 'light' ? '' : 'animate-bounce mt-1', 'icon']"
               aria-hidden="true"
@@ -91,12 +94,13 @@
   import { reactive, toRefs, watch } from 'vue';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
+  import { changeTheme } from '/@/utils/tailwind/changeMode';
 
   import { coreHooks } from '/@/hooks/core/coreHooks';
-  const { getCurrentMode, getCurrentSlug,getStoreSlug } = coreHooks();
+  const { getCurrentMode, getCurrentSlug, getStoreSlug } = coreHooks();
   const mode = getCurrentMode();
   const activeCategory = getCurrentSlug();
-  const storeSlug = getStoreSlug()
+  const storeSlug = getStoreSlug();
   interface State {
     listCategories: Array<{
       id: number;
@@ -162,8 +166,10 @@
   });
   // 切换主题模式
   const changeMode = () => {
-    const mode = store.state.mode === 'light' ? 'dark' : 'light';
-    store.dispatch('ChangeMode', mode);
+    changeTheme('');
+    // const mode = store.state.mode === 'light' ? 'dark' : 'light';
+    // store.dispatch('ChangeMode', mode);
+    // console.log(localStorage);
   };
   // 移动端显示分类
   const showCategoriesList = () => (state.showList = !state.showList);
