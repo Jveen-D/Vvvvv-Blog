@@ -22,7 +22,7 @@
     :class="[
       showList ? 'showList' : 'w-0',
       showList === false ? 'hiddenList' : '',
-      'lg:sticky bg-white dark:bg-gray-900 h-screen lg:h-16 overflow-hidden items-center fixed top-0 lg:flex lg:w-full z-20',
+      'lg:sticky bg-white dark:bg-gray-900/20 backdrop-blur h-screen lg:h-16 overflow-hidden items-center fixed top-0 lg:flex lg:w-full z-20 lg:border-b lg:border-gray-900/10 dark:border-gray-50/[0.06]',
     ]"
   >
     <div class="relative mt-4 lg:hidden" @click="showCategoriesList">
@@ -42,9 +42,8 @@
             'hover:text-sky-500 dark:hover:text-sky-400 font-mersan whitespace-nowrap mt-2 lg:mt-0 font-medium text-sm pr-4 transition-colors duration-500 ease-in-out',
           ]"
           @click="goCategory(item.slug)"
+          >{{ item.name }}</div
         >
-          {{ item.name }}
-        </div>
       </div>
       <div
         class="flex items-center justify-end w-full overflow-hidden rounded-md lg:justify-between lg:w-auto"

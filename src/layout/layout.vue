@@ -1,17 +1,9 @@
 <template>
   <Header />
-  <div
-    :class="[
-      mode === 'dark' ? 'darkMode' : 'bg-gradient-to-tr from-regal-blue to-regal-pink',
-      'flex',
-    ]"
-  >
+  <div class="flex bg-white dark:bg-gray-900">
     <div
       ref="backTopEle"
-      :class="[
-        isIOS ? '' : 'h-screen',
-        'wrap flex-1 lg:h-screen-90vh overflow-y-scroll lg:min-w-1080 ',
-      ]"
+      :class="[isIOS ? '' : 'h-screen', 'wrap flex-1 overflow-y-auto lg:min-w-1080 ']"
       @scroll="getScroll($event)"
     >
       <router-view class="animate__animated animate__fadeInLeftBig" />
