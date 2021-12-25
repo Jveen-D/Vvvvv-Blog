@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-06-28 10:55:47
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2021-12-25 16:28:39
+ * @LastEditTime: 2021-12-25 16:37:06
  * @FilePath: /Vvvvv-Blog/src/pages/categoryLists/categoryLists.vue
 -->
 <template>
@@ -20,18 +20,12 @@
         :class="[
           mode === 'light' ? 'bg-gridline' : '',
           index !== 0 ? 'mt-4' : '',
-          ' border border-gray-900/10 dark:bg-gray-800 dark:text-white text-base w-full p-4 rounded-lg duration-500 ease-in-out',
+          ' border border-gray-900/10 dark:bg-gray-800 text-base w-full p-4 rounded-lg duration-500 ease-in-out text-gray-700 dark:text-gray-400',
         ]"
         @click="goDetails(item.id)"
       >
         <div class="lg:flex lg:justify-between">
-          <div
-            :class="[
-              mode === 'light' ? 'text-black' : '',
-              ' font-bold transition-colors  hover:text-FF9100',
-            ]"
-            >{{ item.title }}</div
-          >
+          <div class="font-bold transition-colors hover:text-sky-500">{{ item.title }}</div>
           <div class="mr-4 text-sm italic text-right"
             >发布于 {{ getUpdateTime(item.createTime) }}</div
           >
@@ -43,7 +37,7 @@
           <div
             v-for="(tag, tagIndex) in item.tags"
             :key="'tagIndex' + tagIndex"
-            class="flex items-center pl-2 pr-2 mt-2 mr-2 text-xs text-white rounded-lg bg-sky-500 flex-nowrap"
+            class="flex items-center pl-2 pr-2 mt-2 mr-2 text-xs text-white rounded-lg bg-sky-500 dark:bg-gray-400/20 flex-nowrap"
           >
             <div class="w-1 h-1 mr-2 bg-white rounded-full animate-ping"></div>
             <span class="text-xs pt-0.5">{{ tag.name }}</span>

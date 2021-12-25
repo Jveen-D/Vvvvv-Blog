@@ -1,7 +1,7 @@
 <template>
   <!--  移动端头像-->
   <div
-    class="fixed flex items-center justify-center w-8 h-8 rounded-md  lg:hidden animate-pulse top-2 right-4"
+    class="fixed flex items-center justify-center w-8 h-8 rounded-md lg:hidden animate-pulse top-2 right-4"
     @click="showProfileWrap"
   >
     <img :src="state.profile.user.avatar" alt="avatar" class="rounded-full" />
@@ -21,17 +21,17 @@
       showProfile ? 'showProfile' : 'w-0',
       showProfile === false ? 'hiddenProfile' : '',
       'fixed right-0 lg:static lg:inset-0 lg:block lg:mt-8 w-0 xl:w-auto ' +
-        'overflow-hidden font-mersan flex justify-between flex-col whitespace-nowrap rounded-xl z-20 lg:z-0',
+        'text-gray-700 dark:text-gray-400 dark:bg-gray-800 dark:text-white text-base border border-gray-900/10 overflow-hidden font-mersan flex justify-between flex-col whitespace-nowrap rounded-xl z-20 lg:z-0',
     ]"
   >
     <!--    protile-->
     <div
       :class="[
-        mode === 'light' ? 'lightMode' : 'bg-darkMode',
+        mode === 'light' ? 'bg-gridline' : '',
         'rounded-xl overflow-hidden duration-500 ease-in-out',
       ]"
     >
-      <div :class="[mode === 'light' ? 'divide-gray-200' : 'divide-black', 'font-bold divide-y']">
+      <div class="font-bold divide-y divide-gray-200/20">
         <div class="flex justify-between py-2 ml-4">
           <div>Profile</div>
           <div class="mt-2 mr-4 lg:hidden" @click="showProfileWrap">
@@ -46,10 +46,7 @@
         <img :src="state.profile.user.avatar" alt="avatar" class="w-20 h-20 rounded-full" />
       </div>
       <div
-        :class="[
-          mode === 'light' ? 'text-black' : '',
-          'flex justify-center items-center duration-500 ease-in-out pt-4 font-bold text-sm',
-        ]"
+        class="flex items-center justify-center pt-4 text-sm font-bold duration-500 ease-in-out"
         >{{ state.profile.user.nickname }}</div
       >
       <div class="flex items-center justify-center pt-2 text-xs">
@@ -86,13 +83,7 @@
       </div>
     </div>
     <!--    细节-->
-    <div
-      :class="[
-        mode === 'light' ? 'lightMode' : 'bg-darkMode',
-        'mt-2 rounded-xl w-full pb-2 duration-500 ease-in-out',
-      ]"
-      style="width: 300px"
-    >
+    <div class="w-full pb-2 mt-2 duration-500 ease-in-out rounded-xl" style="width: 300px">
       <div class="px-4 pt-2 text-xs font-bold">博客技术细节:</div>
       <div v-for="(item, index) in des" class="flex pt-2 pl-2" :key="index">
         <svg aria-hidden="true" class="icon">
@@ -103,10 +94,7 @@
     </div>
     <!--    other-->
     <div
-      :class="[
-        mode === 'light' ? 'lightMode' : 'bg-darkMode',
-        'flex flex-col justify-between rounded-xl w-full py-2  mt-2 text-sm duration-500 ease-in-out',
-      ]"
+      class="flex flex-col justify-between w-full py-2 mt-2 text-sm duration-500 ease-in-out rounded-xl"
     >
       <div class="px-4 mb-2 text-xs font-bold">Other:</div>
       <div class="flex justify-between mb-3">
