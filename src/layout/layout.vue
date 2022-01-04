@@ -3,10 +3,10 @@
   <div class="flex bg-white dark:bg-gray-900">
     <div
       ref="backTopEle"
-      :class="[isIOS ? '' : 'h-screen', 'wrap flex-1 overflow-y-auto lg:min-w-1080 ']"
+      :class="[isIOS ? '' : 'h-[100vh]', 'wrap flex lg:min-w-1080 ']"
       @scroll="getScroll($event)"
     >
-      <router-view class="animate__animated animate__fadeInLeftBig" />
+      <router-view class="w-full h-full overflow-y-auto animate__animated animate__fadeInLeftBig" />
     </div>
     <!--右侧的profile-->
     <Profile />
@@ -29,9 +29,6 @@
   import Profile from '/@/components/Profile/Profile.vue';
   import Shadow from '/@/components/Shadow/Shadow.vue';
   import { reactive, toRefs, ref, onMounted } from 'vue';
-  import { coreHooks } from '/@/hooks/core/coreHooks';
-  const { getCurrentMode } = coreHooks();
-  const mode = getCurrentMode();
 
   interface State {
     showBackTop: boolean | '';

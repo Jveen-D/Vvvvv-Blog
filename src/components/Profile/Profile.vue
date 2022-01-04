@@ -20,101 +20,97 @@
     :class="[
       showProfile ? 'showProfile' : 'w-0',
       showProfile === false ? 'hiddenProfile' : '',
-      'border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-8 w-0 xl:w-auto ',
+      'h-full border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-8 w-0 xl:w-auto ',
     ]"
   >
     <!--    protile-->
-    <div
-      :class="[
-        mode === 'light' ? 'bg-gridline' : '',
-        'rounded-xl overflow-hidden duration-500 ease-in-out',
-      ]"
-    >
-      <div class="font-bold divide-y divide-gray-200/20">
-        <div class="flex justify-between py-2 ml-4">
-          <div>Profile</div>
-          <div class="mt-2 mr-4 lg:hidden" @click="showProfileWrap">
-            <svg aria-hidden="true" class="icon animate-bounce">
-              <use xlink:href="#icon-cha" />
-            </svg>
+    <div :class="[mode === 'light' ? 'bg-gridline' : '']">
+      <div class="rounded-xl overflow-hidden duration-500 ease-in-out">
+        <div class="font-bold divide-y divide-gray-200/20">
+          <div class="flex justify-between py-2 ml-4">
+            <div>Profile</div>
+            <div class="mt-2 mr-4 lg:hidden" @click="showProfileWrap">
+              <svg aria-hidden="true" class="icon animate-bounce">
+                <use xlink:href="#icon-cha" />
+              </svg>
+            </div>
+          </div>
+          <div></div>
+        </div>
+        <div class="flex items-end justify-center w-full h-24">
+          <img :src="state.profile.user.avatar" alt="avatar" class="w-20 h-20 rounded-full" />
+        </div>
+        <div
+          class="flex items-center justify-center pt-4 text-sm font-bold duration-500 ease-in-out"
+          >{{ state.profile.user.nickname }}</div
+        >
+        <div class="flex items-center justify-center pt-2 text-xs">
+          <svg aria-hidden="true" class="icon animate-ping">
+            <use xlink:href="#icon-12" />
+          </svg>
+          <p>南京</p>
+        </div>
+        <div class="flex items-center justify-center pt-2 text-xs">{{
+          state.profile.user.email
+        }}</div>
+        <div class="flex items-center justify-center pt-4 pb-4 rounded-xl">
+          <div class="flex justify-between w-3/6">
+            <div class="relative wx" content="dwj18066042960">
+              <svg aria-hidden="true" class="icon">
+                <use xlink:href="#icon-weixin" />
+              </svg>
+            </div>
+            <a href="https://github.com/Jveen-D" target="_blank" title="github">
+              <svg aria-hidden="true" class="icon">
+                <use xlink:href="#icon-github" />
+              </svg>
+            </a>
+            <a
+              href="https://wpa.qq.com/msgrd?v=3&uin=85066965&site=qq&menu=yes"
+              target="_blank"
+              title="和俺聊天"
+            >
+              <svg aria-hidden="true" class="icon">
+                <use xlink:href="#icon-QQ" />
+              </svg>
+            </a>
           </div>
         </div>
-        <div></div>
       </div>
-      <div class="flex items-end justify-center w-full h-24">
-        <img :src="state.profile.user.avatar" alt="avatar" class="w-20 h-20 rounded-full" />
+      <!--    细节-->
+      <div class="w-full pb-2 duration-500 ease-in-out rounded-xl" style="width: 300px">
+        <div class="px-4 pt-2 text-xs font-bold">博客技术细节:</div>
+        <div v-for="(item, index) in des" class="flex pt-2 pl-2" :key="index">
+          <svg aria-hidden="true" class="icon">
+            <use xlink:href="#icon-biaoqian" />
+          </svg>
+          <div class="text-sm">:{{ item.title }}</div>
+        </div>
       </div>
+      <!--    other-->
       <div
-        class="flex items-center justify-center pt-4 text-sm font-bold duration-500 ease-in-out"
-        >{{ state.profile.user.nickname }}</div
+        class="flex flex-col justify-between w-full py-2 text-sm duration-500 ease-in-out rounded-xl"
       >
-      <div class="flex items-center justify-center pt-2 text-xs">
-        <svg aria-hidden="true" class="icon animate-ping">
-          <use xlink:href="#icon-12" />
-        </svg>
-        <p>南京</p>
-      </div>
-      <div class="flex items-center justify-center pt-2 text-xs">{{
-        state.profile.user.email
-      }}</div>
-      <div class="flex items-center justify-center pt-4 pb-4 rounded-xl">
-        <div class="flex justify-between w-3/6">
-          <div class="relative wx" content="dwj18066042960">
+        <div class="flex justify-between mb-3">
+          <div class="flex items-center pl-2">
             <svg aria-hidden="true" class="icon">
-              <use xlink:href="#icon-weixin" />
+              <use xlink:href="#icon-shijian" />
             </svg>
+            <div class="text-sm">博客已运行:</div>
           </div>
-          <a href="https://github.com/Jveen-D" target="_blank" title="github">
-            <svg aria-hidden="true" class="icon">
-              <use xlink:href="#icon-github" />
-            </svg>
-          </a>
-          <a
-            href="https://wpa.qq.com/msgrd?v=3&uin=85066965&site=qq&menu=yes"
-            target="_blank"
-            title="和俺聊天"
-          >
-            <svg aria-hidden="true" class="icon">
-              <use xlink:href="#icon-QQ" />
-            </svg>
-          </a>
+          <div class="flex justify-end pr-2">{{ time }}</div>
         </div>
-      </div>
-    </div>
-    <!--    细节-->
-    <div class="w-full pb-2 mt-2 duration-500 ease-in-out rounded-xl" style="width: 300px">
-      <div class="px-4 pt-2 text-xs font-bold">博客技术细节:</div>
-      <div v-for="(item, index) in des" class="flex pt-2 pl-2" :key="index">
-        <svg aria-hidden="true" class="icon">
-          <use xlink:href="#icon-biaoqian" />
-        </svg>
-        <div class="text-sm">:{{ item.title }}</div>
-      </div>
-    </div>
-    <!--    other-->
-    <div
-      class="flex flex-col justify-between w-full py-2 mt-2 text-sm duration-500 ease-in-out rounded-xl"
+        <div class="flex justify-between">
+          <div class="flex items-center pl-2">
+            <svg aria-hidden="true" class="icon">
+              <use xlink:href="#icon-renshu" />
+            </svg>
+            <div class="text-sm">累计访问:</div>
+          </div>
+          <div class="flex justify-end pr-2">{{ state.profile.visitCount }}</div>
+        </div>
+      </div></div
     >
-      <div class="px-4 mb-2 text-xs font-bold">Other:</div>
-      <div class="flex justify-between mb-3">
-        <div class="flex items-center pl-2">
-          <svg aria-hidden="true" class="icon">
-            <use xlink:href="#icon-shijian" />
-          </svg>
-          <div class="text-sm">博客已运行:</div>
-        </div>
-        <div class="flex justify-end pr-2">{{ time }}</div>
-      </div>
-      <div class="flex justify-between">
-        <div class="flex items-center pl-2">
-          <svg aria-hidden="true" class="icon">
-            <use xlink:href="#icon-renshu" />
-          </svg>
-          <div class="text-sm">累计访问:</div>
-        </div>
-        <div class="flex justify-end pr-2">{{ state.profile.visitCount }}</div>
-      </div>
-    </div>
   </div>
 </template>
 
