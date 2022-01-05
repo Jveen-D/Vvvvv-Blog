@@ -3,7 +3,7 @@
   <div class="flex bg-white dark:bg-gray-900">
     <div
       ref="backTopEle"
-      :class="[isIOS ? '' : 'h-[100vh]', 'wrap flex lg:min-w-1080 ']"
+      :class="[isIOS ? '' : 'h-[100vh]', 'wrap flex w-full']"
       @scroll="getScroll($event)"
     >
       <router-view
