@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-06-28 10:55:47
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2021-12-25 16:37:06
+ * @LastEditTime: 2022-01-05 09:59:55
  * @FilePath: /Vvvvv-Blog/src/pages/categoryLists/categoryLists.vue
 -->
 <template>
@@ -10,7 +10,7 @@
       transition
         ? 'animate__animated animate__fadeInLeft'
         : 'animate__animated animate__fadeInRight',
-      'mx-4 lg:mx-8 pt-12 lg:pt-8 font-mersan',
+      'mx-1 lg:mx-8 pt-12 lg:pt-2 font-mersan',
     ]"
   >
     <div class="lg:-mr-1+1/20 lg:h-full pb-8 duration-500 ease-in-out">

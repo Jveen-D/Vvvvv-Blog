@@ -6,7 +6,9 @@
       :class="[isIOS ? '' : 'h-[100vh]', 'wrap flex lg:min-w-1080 ']"
       @scroll="getScroll($event)"
     >
-      <router-view class="w-full h-full overflow-y-auto animate__animated animate__fadeInLeftBig" />
+      <router-view
+        class="lg:mt-16 flex-1 overflow-y-auto animate__animated animate__fadeInLeftBig"
+      />
     </div>
     <!--右侧的profile-->
     <Profile />

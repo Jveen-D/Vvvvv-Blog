@@ -20,7 +20,7 @@
     :class="[
       showProfile ? 'showProfile' : 'w-0',
       showProfile === false ? 'hiddenProfile' : '',
-      'h-full border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-8 w-0 xl:w-auto ',
+      'ih-full border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-[4.5rem] w-0 xl:w-auto ',
     ]"
   >
     <!--    protile-->
