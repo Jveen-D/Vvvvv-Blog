@@ -18,14 +18,14 @@
   <!--  内容-->
   <div
     :class="[
-      showProfile ? 'showProfile' : 'w-0',
+      showProfile ? 'showProfile' : 'mr-[-20rem]',
       showProfile === false ? 'hiddenProfile' : '',
-      'ih-full border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-[4.5rem] w-0 xl:w-auto ',
+      'w-[20rem] h-[38rem] lg:mr-0 border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-[4.5rem]',
     ]"
   >
     <!--    protile-->
     <div :class="[mode === 'light' ? 'bg-gridline' : '']">
-      <div class="rounded-xl overflow-hidden duration-500 ease-in-out">
+      <div class="overflow-hidden duration-500 ease-in-out rounded-xl">
         <div class="font-bold divide-y divide-gray-200/20">
           <div class="flex justify-between py-2 ml-4">
             <div>Profile</div>

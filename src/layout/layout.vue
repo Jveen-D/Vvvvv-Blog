@@ -3,11 +3,11 @@
   <div class="flex bg-white dark:bg-gray-900">
     <div
       ref="backTopEle"
-      :class="[isIOS ? '' : 'h-[100vh]', 'wrap flex w-full']"
+      :class="[isIOS ? 'wrap ' : 'h-[100vh]', 'flex w-full']"
       @scroll="getScroll($event)"
     >
       <router-view
-        class="lg:mt-16 flex-1 overflow-y-auto animate__animated animate__fadeInLeftBig"
+        class="flex-1 overflow-y-auto lg:mt-16 animate__animated animate__fadeInLeftBig"
       />
     </div>
     <!--右侧的profile-->
