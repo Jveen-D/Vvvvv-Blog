@@ -3,7 +3,7 @@
     <div
       :class="[
         mode === 'light' ? 'bg-gridline' : '',
-        'text-gray-700 dark:text-gray-400 flex flex-col items-center w-full  rounded-2xl pt-4 lg:px-0 lg:pl-2 lg:p-4 lg:pb-8',
+        'text-gray-700 dark:text-white flex flex-col items-center w-full  rounded-2xl pt-4 lg:px-0 lg:pl-2 lg:p-4 lg:pb-8',
       ]"
     >
       <div

@@ -19,13 +19,6 @@
   animation-fill-mode: forwards;
 }
 
-.darkMode {
-  background-image: url('/src/assets/img/bg.gif');
-
-  .malfunction::after {
-    background-color: #000;
-  }
-}
 
 .lightMode {
   .malfunction {
