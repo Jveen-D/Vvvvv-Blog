@@ -75,8 +75,8 @@
   // @ts-ignore
   const weexPlatform = inWeex && WXEnvironment.platform.toLowerCase();
   const UA = inBrowser && window.navigator.userAgent.toLowerCase();
-  const isIOS = ref((UA && /iphone|ipad|ipod|ios/.test(UA)) || weexPlatform === 'ios');
-
+  const isIOS = (UA && /iphone|ipad|ipod|ios/.test(UA)) || weexPlatform === 'ios';
+  console.log(isIOS);
   const safariHacks = () => {
     let windowsVH = window.innerHeight; // 返回窗口的文档显示区的高度
     // @ts-ignore
@@ -89,7 +89,9 @@
   };
   // 挂在之后执行
   onMounted(() => {
-    safariHacks();
+    if (isIOS) {
+      safariHacks();
+    }
   });
 </script>
 

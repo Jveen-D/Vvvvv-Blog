@@ -32,7 +32,9 @@ module.exports = {
           'sans-serif',
         ],
       },
-      height: {},
+      height: {
+        'screen-4rem': 'calc(100vh - 4rem)',
+      },
       margin: {
         '-1+1/20': '-1.05rem',
         17: '17rem',
