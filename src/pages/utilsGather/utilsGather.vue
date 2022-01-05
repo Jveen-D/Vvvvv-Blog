@@ -1,26 +1,26 @@
+<!--
+ * @Date: 2021-12-12 09:53:08
+ * @LastEditors: dwj18066042960
+ * @FilePath: /Vvvvv-Blog/src/pages/utilsGather/utilsGather.vue
+-->
 <template>
-  <div class="flex h-full">
+  <Header />
+  <div class="flex w-full h-screen lg:pt-16">
     <div
-      class=
-        'fixed top-0 left-0 hidden p-4 mt-8 text-sm font-medium bg-white lg:block min:w-64 rounded-xl whitespace-nowrap'
-      
+      class="fixed left-0 hidden p-4 mt-8 text-sm font-medium bg-white top-16 lg:block min:w-64 rounded-xl whitespace-nowrap"
     >
-      <div v-for="(item, index) in h4Arr" :key="index" class="hover:text-FF9100">
+      <div v-for="(item, index) in h4Arr" :key="index" class="hover:text-[#0ea5e9]">
         <a :href="'#' + item.innerText">{{ item.innerText }}</a>
       </div>
     </div>
     <div
       :class="[
-        'flex-1 relative lg:py-8 font-mersan duration-500 ease-in-out pt-12 lg:ml-17 h-full overflow-y-scroll',
+        'flex-1 lg:py-8 font-mersan duration-500 ease-in-out pt-12 lg:ml-17 overflow-y-scroll',
       ]"
     >
-      <div
-        class=
-          'relative flex justify-center w-full overflow-x-none rounded-2xl lg:p-4 lg:pb-8'
-        
-      >
+      <div class="relative flex justify-center w-full overflow-x-none rounded-2xl lg:p-4 lg:pb-8">
         <span
-          class="absolute hidden text-sm font-medium text-black transition-colors min:block top-4 right-4 font-mersan"
+          class="absolute hidden text-sm font-medium text-black transition-colors dark:text-white min:block top-4 right-4 font-mersan"
           >累计看过：{{ postDetail.visits }}</span
         >
         <div ref="markdownBody" class="w-full p-4 break-all markdown-body lg:p-0"></div>
@@ -29,13 +29,10 @@
   </div>
 </template>
 <script lang="ts" setup>
+  import Header from '/@/components/Header/Header.vue';
   import { contentApi } from '/@/api/content';
   import { reactive, toRefs } from 'vue';
   import '/src/assets/css/markdown-body.scss';
-
-  import { coreHooks } from '/@/hooks/core/coreHooks';
-  const { getCurrentMode } = coreHooks();
-  const mode = getCurrentMode();
 
   interface State {
     postDetail: {

@@ -32,7 +32,6 @@ h4 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  z-index: 1000;
 }
 h5 {
   font-size: 20px;
@@ -208,12 +207,6 @@ textarea {
     }
     blockquote {
       background-color: rgb(30, 41, 59);
-    }
-    code:is(.hljs) {
-      // background-color: rgb(30, 41, 59);
-    }
-    .hljs {
-      // color: white;
     }
   }
   // 复制选中样式

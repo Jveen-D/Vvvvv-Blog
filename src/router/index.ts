@@ -36,16 +36,16 @@ const routes = [
         component: () => import('/@/pages/categoryLists/categoryLists.vue'),
       },
       {
-        path: '/utils/:slug',
-        name: 'utils',
-        component: () => import('/@/pages/utilsGather/utilsGather.vue'),
-      },
-      {
         path: '/detail/:id',
         name: 'detail',
         component: () => import('/@/pages/postDetail/postDetail.vue'),
       },
     ],
+  },
+  {
+    path: '/utils/:slug',
+    name: 'utils',
+    component: () => import('/@/pages/utilsGather/utilsGather.vue'),
   },
   {
     path: '/:catchAll(.*)',
