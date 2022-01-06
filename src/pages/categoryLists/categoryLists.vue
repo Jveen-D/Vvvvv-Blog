@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-06-28 10:55:47
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2022-01-05 10:19:17
+ * @LastEditTime: 2022-01-06 13:13:15
  * @FilePath: /Vvvvv-Blog/src/pages/categoryLists/categoryLists.vue
 -->
 <template>
@@ -13,7 +13,7 @@
       'pt-12 lg:pt-2 font-mersan lg:pl-4 lg:pr-6 lg:mr-2',
     ]"
   >
-    <div class="lg:-mr-1+1/20 lg:h-full pb-8 duration-500 ease-in-out">
+    <div class="lg:-mr-[-1.05rem] lg:h-full pb-8 duration-500 ease-in-out">
       <div
         v-for="(item, index) in articleLists"
         :key="'articleLists' + index"

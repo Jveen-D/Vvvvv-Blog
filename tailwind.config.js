@@ -8,17 +8,6 @@ module.exports = {
   content: ['./index.html', './src/**/*.{html,vue,js}'],
   theme: {
     extend: {
-      colors: {
-        'regal-blue': '#E1EEFB',
-        'regal-pink': '#FFF4EF',
-        lightMode: '#FFF',
-        darkMode: '#202124',
-      },
-      textColor: {
-        lightMode: '#24292e',
-        darkMode: '#2c3e50',
-        FF9100: '#FF9100',
-      },
       fontFamily: {
         mersan: [
           'Merriweather Sans',
@@ -34,18 +23,6 @@ module.exports = {
       },
       height: {
         'screen-4rem': 'calc(100vh - 4rem)',
-      },
-      margin: {
-        '-1+1/20': '-1.05rem',
-        17: '17rem',
-      },
-      maxWidth: {
-        20: '20rem',
-      },
-      minWidth: {
-        10: '10rem',
-        1080: '1080px',
-        800: '800px',
       },
       screens: {
         min: '1100px',

@@ -14,7 +14,7 @@
     </div>
     <div
       :class="[
-        'flex-1 lg:py-8 font-mersan duration-500 ease-in-out lg:ml-17 overflow-y-scroll',
+        'flex-1 lg:py-8 font-mersan duration-500 ease-in-out lg:ml-[17rem] overflow-y-scroll',
       ]"
     >
       <div class="relative flex justify-center overflow-x-none rounded-2xl lg:pb-8">

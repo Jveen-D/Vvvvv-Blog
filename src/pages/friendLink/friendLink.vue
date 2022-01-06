@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-08-12 10:51:09
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2021-12-25 16:55:10
+ * @LastEditTime: 2022-01-06 13:06:51
  * @FilePath: /Vvvvv-Blog/src/pages/friendLink/friendLink.vue
 -->
 <template>
@@ -13,7 +13,7 @@
       target="_blank"
       :key="index"
       :class="[
-        mode === 'light' ? 'bg-gridline' : 'bg-darkMode',
+        mode === 'light' ? 'bg-gridline' : 'bg-[#202124]',
         'flex w-5/6 h-24 bg-white rounded-lg py-2 px-4 overflow-hidden mb-4 animate__animated animate__bounceInUp',
       ]"
     >
