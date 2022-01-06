@@ -4,10 +4,9 @@
  * @FilePath: /Vvvvv-Blog/src/pages/utilsGather/utilsGather.vue
 -->
 <template>
-  <Header />
-  <div class="flex w-full h-screen lg:pt-16">
+  <div class="flex">
     <div
-      class="fixed left-0 hidden p-4 mt-8 text-sm font-medium bg-white top-16 lg:block min:w-64 rounded-xl whitespace-nowrap"
+      class="fixed left-0 hidden p-4 text-sm font-medium bg-white top-8 lg:block min:w-64 rounded-xl whitespace-nowrap"
     >
       <div v-for="(item, index) in h4Arr" :key="index" class="hover:text-[#0ea5e9]">
         <a :href="'#' + item.innerText">{{ item.innerText }}</a>
@@ -15,10 +14,10 @@
     </div>
     <div
       :class="[
-        'flex-1 lg:py-8 font-mersan duration-500 ease-in-out pt-12 lg:ml-17 overflow-y-scroll',
+        'flex-1 lg:py-8 font-mersan duration-500 ease-in-out lg:ml-17 overflow-y-scroll',
       ]"
     >
-      <div class="relative flex justify-center w-full overflow-x-none rounded-2xl lg:p-4 lg:pb-8">
+      <div class="relative flex justify-center overflow-x-none rounded-2xl lg:pb-8">
         <span
           class="absolute hidden text-sm font-medium text-black transition-colors dark:text-white min:block top-4 right-4 font-mersan"
           >累计看过：{{ postDetail.visits }}</span
@@ -29,7 +28,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-  import Header from '/@/components/Header/Header.vue';
   import { contentApi } from '/@/api/content';
   import { reactive, toRefs } from 'vue';
   import '/src/assets/css/markdown-body.scss';

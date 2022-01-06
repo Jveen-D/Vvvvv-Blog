@@ -1,8 +1,8 @@
 /*
  * @Date: 2021-06-28 10:55:47
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2021-12-07 17:14:38
- * @FilePath: \Vvvvv-Blog\src\router\index.ts
+ * @LastEditTime: 2022-01-06 09:35:27
+ * @FilePath: /Vvvvv-Blog/src/router/index.ts
  */
 import { createRouter, createWebHistory } from 'vue-router';
 import Layout from '/@/layout/layout.vue';
@@ -40,12 +40,12 @@ const routes = [
         name: 'detail',
         component: () => import('/@/pages/postDetail/postDetail.vue'),
       },
+      {
+        path: '/utils/:slug',
+        name: 'utils',
+        component: () => import('/@/pages/utilsGather/utilsGather.vue'),
+      },
     ],
-  },
-  {
-    path: '/utils/:slug',
-    name: 'utils',
-    component: () => import('/@/pages/utilsGather/utilsGather.vue'),
   },
   {
     path: '/:catchAll(.*)',

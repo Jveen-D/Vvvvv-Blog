@@ -3,15 +3,15 @@
   <div class="flex bg-white dark:bg-gray-900">
     <div
       ref="backTopEle"
-      :class="[isIOS ? 'wrap ' : 'h-[100vh]', 'flex w-full']"
+      :class="[isIOS ? 'wrap ' : 'h-[100vh]', 'flex-1 flex w-full']"
       @scroll="getScroll($event)"
     >
       <router-view
         class="flex-1 overflow-y-auto lg:mt-16 animate__animated animate__fadeInLeftBig"
       />
-    </div>
     <!--右侧的profile-->
     <Profile />
+    </div>
   </div>
   <!--回到顶部的动画-->
   <div
@@ -30,7 +30,7 @@
   import Header from '/@/components/Header/Header.vue';
   import Profile from '/@/components/Profile/Profile.vue';
   import Shadow from '/@/components/Shadow/Shadow.vue';
-  import { reactive, toRefs, ref, onMounted } from 'vue';
+  import { reactive, toRefs, onMounted } from 'vue';
 
   interface State {
     showBackTop: boolean | '';
@@ -76,7 +76,6 @@
   const weexPlatform = inWeex && WXEnvironment.platform.toLowerCase();
   const UA = inBrowser && window.navigator.userAgent.toLowerCase();
   const isIOS = (UA && /iphone|ipad|ipod|ios/.test(UA)) || weexPlatform === 'ios';
-  console.log(isIOS);
   const safariHacks = () => {
     let windowsVH = window.innerHeight; // 返回窗口的文档显示区的高度
     // @ts-ignore

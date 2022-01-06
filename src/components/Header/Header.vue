@@ -22,7 +22,7 @@
     :class="[
       showList ? 'showList' : 'w-0',
       showList === false ? 'hiddenList' : '',
-      'lg:fixed bg-white dark:bg-gray-900/20 backdrop-blur h-screen lg:h-16 overflow-hidden items-center fixed top-0 lg:flex lg:w-full z-20 lg:border-b lg:border-gray-900/10 dark:border-gray-50/[0.06]',
+      'bg-white dark:bg-gray-900/20 backdrop-blur-lg h-screen lg:h-16 overflow-hidden items-center fixed top-0 lg:flex lg:w-full z-20 ',
     ]"
   >
     <div class="relative mt-4 lg:hidden" @click="showCategoriesList">
@@ -42,8 +42,7 @@
             'hover:text-sky-500 dark:hover:text-sky-400 font-mersan whitespace-nowrap mt-2 lg:mt-0 font-medium text-sm pr-4 transition-colors duration-500 ease-in-out',
           ]"
           @click="goCategory(item.slug)"
-          >{{ item.name }}</div
-        >
+        >{{ item.name }}</div>
       </div>
       <div
         class="flex items-center justify-end w-full overflow-hidden rounded-md lg:justify-between lg:w-auto"
@@ -84,88 +83,88 @@
 </template>
 
 <script lang="ts" setup>
-  import { contentApi } from '/@/api/content';
-  import { preventScrollY } from '/@/utils/utils';
-  import { reactive, toRefs, watch } from 'vue';
-  import { useStore } from 'vuex';
-  import { useRouter } from 'vue-router';
-  import { tailwindTheme } from '/@/utils/tailwind/tailwindTheme';
-  const { changeTheme } = tailwindTheme();
+import { contentApi } from '/@/api/content';
+import { preventScrollY } from '/@/utils/utils';
+import { reactive, toRefs, watch } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+import { tailwindTheme } from '/@/utils/tailwind/tailwindTheme';
+const { changeTheme } = tailwindTheme();
 
-  import { coreHooks } from '/@/hooks/core/coreHooks';
-  const { getCurrentMode, getCurrentSlug, getStoreSlug } = coreHooks();
-  const mode = getCurrentMode();
-  const activeCategory = getCurrentSlug();
-  const storeSlug = getStoreSlug();
-  interface State {
-    listCategories: Array<{
-      id: number;
-      name: string;
-      slug: string;
-    }>;
-    showList: boolean | '';
+import { coreHooks } from '/@/hooks/core/coreHooks';
+const { getCurrentMode, getCurrentSlug, getStoreSlug } = coreHooks();
+const mode = getCurrentMode();
+const activeCategory = getCurrentSlug();
+const storeSlug = getStoreSlug();
+interface State {
+  listCategories: Array<{
+    id: number;
+    name: string;
+    slug: string;
+  }>;
+  showList: boolean | '';
+}
+
+const Router = useRouter();
+const store = useStore();
+const state = reactive<State>({
+  listCategories: [],
+  showList: '',
+});
+const { listCategories, showList } = {
+  ...toRefs(state),
+};
+
+watch(showList, (newVal) => {
+  preventScrollY(newVal);
+});
+// 目前所在slug分类
+watch(
+  activeCategory,
+  () => {
+    store.dispatch('ChangeSlug', activeCategory);
+  },
+  {
+    immediate: true,
   }
+);
 
-  const Router = useRouter();
-  const store = useStore();
-  const state = reactive<State>({
-    listCategories: [],
-    showList: '',
+// 点击分类切换
+const goCategory = (val) => {
+  switch (val) {
+    case 'friendLink':
+      Router.push({
+        path: `/friend/${val}`,
+      });
+      break;
+    case 'utils':
+      Router.push({
+        path: `/utils/${val}`,
+      });
+      break;
+    default:
+      Router.push({
+        path: `/category/${val}`,
+      });
+      break;
+  }
+};
+
+// 文章分类
+contentApi('listCategories').then((res) => {
+  res.data.push({
+    id: 7,
+    name: '友情链接',
+    slug: 'friendLink',
   });
-  const { listCategories, showList } = {
-    ...toRefs(state),
-  };
-
-  watch(showList, (newVal) => {
-    preventScrollY(newVal);
-  });
-  // 目前所在slug分类
-  watch(
-    activeCategory,
-    () => {
-      store.dispatch('ChangeSlug', activeCategory);
-    },
-    {
-      immediate: true,
-    }
-  );
-
-  // 点击分类切换
-  const goCategory = (val) => {
-    switch (val) {
-      case 'friendLink':
-        Router.push({
-          path: `/friend/${val}`,
-        });
-        break;
-      case 'utils':
-        Router.push({
-          path: `/utils/${val}`,
-        });
-        break;
-      default:
-        Router.push({
-          path: `/category/${val}`,
-        });
-        break;
-    }
-  };
-
-  // 文章分类
-  contentApi('listCategories').then((res) => {
-    res.data.push({
-      id: 7,
-      name: '友情链接',
-      slug: 'friendLink',
-    });
-    state.listCategories = res.data;
-  });
-  // 移动端显示分类
-  const showCategoriesList = () => (state.showList = !state.showList);
-  // 移动端显示分类蒙层
-  const showShadowCategoriesList = () => (state.showList = !state.showList);
+  state.listCategories = res.data;
+});
+// 移动端显示分类
+const showCategoriesList = () => (state.showList = !state.showList);
+// 移动端显示分类蒙层
+const showShadowCategoriesList = () => (state.showList = !state.showList);
 </script>
 
 <style lang="scss" scoped>
-  @import 'Header.scss';
+@import "Header.scss";
 </style>
