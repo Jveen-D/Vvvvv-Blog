@@ -1,14 +1,9 @@
-<!--
- * @Date: 2022-01-05 17:00:45
- * @LastEditors: dwj18066042960
- * @FilePath: /Vvvvv-Blog/src/layout/layout.vue
--->
 <template>
   <Header />
   <div class="flex bg-white dark:bg-gray-900">
     <div
       ref="backTopEle"
-      class="h-[100vh] flex w-full"
+      :class="[isIOS ? 'wrap ' : 'h-[100vh]', 'flex w-full']"
       @scroll="getScroll($event)"
     >
       <router-view
@@ -35,7 +30,7 @@
   import Header from '/@/components/Header/Header.vue';
   import Profile from '/@/components/Profile/Profile.vue';
   import Shadow from '/@/components/Shadow/Shadow.vue';
-  import { reactive, toRefs } from 'vue';
+  import { reactive, toRefs, ref, onMounted } from 'vue';
 
   interface State {
     showBackTop: boolean | '';
@@ -73,9 +68,38 @@
       }
     });
   };
+  // 浏览器检测 来自vue工具函数 地址https://github.com/vuejs/vue/blob/dev/dist/vue.runtime.esm.js
+  const inBrowser = typeof window !== 'undefined';
+  // @ts-ignore
+  const inWeex = typeof WXEnvironment !== 'undefined' && !!WXEnvironment.platform;
+  // @ts-ignore
+  const weexPlatform = inWeex && WXEnvironment.platform.toLowerCase();
+  const UA = inBrowser && window.navigator.userAgent.toLowerCase();
+  const isIOS = (UA && /iphone|ipad|ipod|ios/.test(UA)) || weexPlatform === 'ios';
+  console.log(isIOS);
+  const safariHacks = () => {
+    let windowsVH = window.innerHeight; // 返回窗口的文档显示区的高度
+    // @ts-ignore
+    document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px'); // 设置css变量
+    // 监听resize时间，回调函数同上
+    window.addEventListener('resize', () => {
+      // @ts-ignore
+      document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px');
+    });
+  };
+  // 挂在之后执行
+  onMounted(() => {
+    if (isIOS) {
+      safariHacks();
+    }
+  });
 </script>
 
 <style scoped lang="scss">
   @import '/src/assets/css/mode';
   @import '/src/assets/css/backTop';
+  /* 引用css变量 */
+  .wrap {
+    height: var(--vh);
+  }
 </style>
