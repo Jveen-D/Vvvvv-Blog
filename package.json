@@ -1,5 +1,5 @@
 {
-  "name": "vvvvvblog",
+  "name": "vvvvv-blog",
   "version": "0.0.0",
   "author": {
     "name": "dwj",
@@ -34,6 +34,7 @@
     "@vue/compiler-sfc": "^3.2.26",
     "autoprefixer": "^10.4.0",
     "cssnano": "^5.0.14",
+    "dayjs": "^1.10.7",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",

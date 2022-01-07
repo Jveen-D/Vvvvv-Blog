@@ -1,6 +1,11 @@
+/*
+ * @Date: 2022-01-07 11:03:05
+ * @LastEditors: dwj18066042960
+ * @FilePath: /Vvvvv-Blog/vite.config.ts
+ */
 import type { UserConfig, ConfigEnv } from 'vite';
 import { loadEnv } from 'vite';
-const { resolve } = require('path');
+import { resolve } from 'path';
 import vue from '@vitejs/plugin-vue';
 import viteCompression from 'vite-plugin-compression';
 import { createProxy } from './build/vite/proxy';
@@ -9,6 +14,7 @@ import { wrapperEnv } from './build/utils';
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
 }
+
 
 export default ({ mode }: ConfigEnv): UserConfig => {
   // mode 当前开发环境
