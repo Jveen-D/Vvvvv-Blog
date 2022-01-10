@@ -9,6 +9,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.8.0
   '@vitejs/plugin-vue': ^2.0.1
   '@vue/compiler-sfc': ^3.2.26
+  '@vueuse/core': ^7.5.3
   autoprefixer: ^10.4.0
   axios: ^0.24.0
   cssnano: ^5.0.14
@@ -35,6 +36,7 @@ specifiers:
   vuex: ^4.0.1
 
 dependencies:
+  '@vueuse/core': registry.npmmirror.com/@vueuse/core/7.5.3_vue@3.2.26
   axios: registry.npmmirror.com/axios/0.24.0
   echarts: registry.npmmirror.com/echarts/5.2.2
   lodash-es: registry.npmmirror.com/lodash-es/4.17.21
@@ -2052,6 +2054,43 @@ packages:
     name: '@vue/shared'
     version: 3.2.26
 
+  registry.npmmirror.com/@vueuse/core/7.5.3_vue@3.2.26:
+    resolution: {integrity: sha512-D9j5ymHFMFRXQqCp0yZJkf/bvBGiz0MrKUa364p+L8dMyd5zyq2K1JmHyvoBd4xbTFRfmQ1h878u6YE5LCkDVQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/core/download/@vueuse/core-7.5.3.tgz}
+    id: registry.npmmirror.com/@vueuse/core/7.5.3
+    name: '@vueuse/core'
+    version: 7.5.3
+    peerDependencies:
+      '@vue/composition-api': ^1.1.0
+      vue: ^2.6.0 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      '@vueuse/shared': registry.npmmirror.com/@vueuse/shared/7.5.3_vue@3.2.26
+      vue: registry.npmmirror.com/vue/3.2.26
+      vue-demi: registry.npmmirror.com/vue-demi/0.12.1_vue@3.2.26
+    dev: false
+
+  registry.npmmirror.com/@vueuse/shared/7.5.3_vue@3.2.26:
+    resolution: {integrity: sha512-BJ71cxHN5VByW1S58Gl85NFJaQu93F7Vs7K/MuAKsIIuHm9PBbkR5Vxkg9ko9cBdiKVt+FNoo13BhdbA+Vwycg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/shared/download/@vueuse/shared-7.5.3.tgz}
+    id: registry.npmmirror.com/@vueuse/shared/7.5.3
+    name: '@vueuse/shared'
+    version: 7.5.3
+    peerDependencies:
+      '@vue/composition-api': ^1.1.0
+      vue: ^2.6.0 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      vue: registry.npmmirror.com/vue/3.2.26
+      vue-demi: registry.npmmirror.com/vue-demi/0.12.1_vue@3.2.26
+    dev: false
+
   registry.npmmirror.com/acorn/7.4.1:
     resolution: {integrity: sha1-/q7SVZc9LndVW4PbwIhRpsY1IPo=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/acorn/download/acorn-7.4.1.tgz}
     name: acorn
@@ -3973,6 +4012,24 @@ packages:
       vscode-pug-languageservice: registry.npmmirror.com/vscode-pug-languageservice/0.30.2
       vscode-typescript-languageservice: registry.npmmirror.com/vscode-typescript-languageservice/0.30.2
     dev: true
+
+  registry.npmmirror.com/vue-demi/0.12.1_vue@3.2.26:
+    resolution: {integrity: sha1-9+GO++z/0RqwadFHLXoG4xm0F0w=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-demi/download/vue-demi-0.12.1.tgz}
+    id: registry.npmmirror.com/vue-demi/0.12.1
+    name: vue-demi
+    version: 0.12.1
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: registry.npmmirror.com/vue/3.2.26
+    dev: false
 
   registry.npmmirror.com/vue-eslint-parser/8.0.1_eslint@8.6.0:
     resolution: {integrity: sha1-JeCLIKQUVRUx8+GfmZkC4ez0XxM=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-eslint-parser/download/vue-eslint-parser-8.0.1.tgz}
