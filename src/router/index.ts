@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-06-28 10:55:47
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2022-01-06 09:35:27
+ * @LastEditTime: 2022-01-10 14:02:52
  * @FilePath: /Vvvvv-Blog/src/router/index.ts
  */
 import { createRouter, createWebHistory } from 'vue-router';
@@ -44,6 +44,16 @@ const routes = [
         path: '/utils/:slug',
         name: 'utils',
         component: () => import('/@/pages/utilsGather/utilsGather.vue'),
+      },
+      {
+        path: '/vueUse',
+        name: 'vueUseLayout',
+        redirect:'/vueUse/useActiveElement',
+      },
+      {
+        path: '/vueUse/:component',
+        name: 'vueUse',
+        component: () => import('/@/pages/vueUse/vueUse.vue'),
       },
     ],
   },

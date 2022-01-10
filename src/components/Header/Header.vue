@@ -86,13 +86,12 @@
 import { contentApi } from '/@/api/content';
 import { preventScrollY } from '/@/utils/utils';
 import { reactive, toRefs, watch } from 'vue';
-import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { tailwindTheme } from '/@/utils/tailwind/tailwindTheme';
 const { changeTheme } = tailwindTheme();
 
 import { coreHooks } from '/@/hooks/core/coreHooks';
-const { getCurrentMode, getCurrentSlug, getStoreSlug } = coreHooks();
+const { getCurrentMode, getCurrentSlug, getStoreSlug,dispatchChangeSlug } = coreHooks();
 const mode = getCurrentMode();
 const activeCategory = getCurrentSlug();
 const storeSlug = getStoreSlug();
@@ -106,7 +105,6 @@ interface State {
 }
 
 const Router = useRouter();
-const store = useStore();
 const state = reactive<State>({
   listCategories: [],
   showList: '',
@@ -122,7 +120,7 @@ watch(showList, (newVal) => {
 watch(
   activeCategory,
   () => {
-    store.dispatch('ChangeSlug', activeCategory);
+    dispatchChangeSlug(activeCategory.value)
   },
   {
     immediate: true,
@@ -142,6 +140,11 @@ const goCategory = (val) => {
         path: `/utils/${val}`,
       });
       break;
+    case 'vueuse':
+      Router.push({
+        path: `/${val}`,
+      });
+    break;
     default:
       Router.push({
         path: `/category/${val}`,

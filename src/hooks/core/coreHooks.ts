@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-12-07 19:33:33
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2022-01-07 13:20:09
+ * @LastEditTime: 2022-01-10 14:20:12
  * @FilePath: /Vvvvv-Blog/src/hooks/core/coreHooks.ts
  */
 import { computed, ComputedRef } from 'vue';
@@ -58,5 +58,13 @@ export const coreHooks = () => {
   const getStoreSlug = (): ComputedRef => {
     return computed(() => store.state.slug as string);
   };
-  return { getNodeEnv, getCurrentMode, getCurrentSlug, getCurrentId, getShadow, getStoreSlug };
+  /**
+   * @description: dispatch ChangeSlug
+   * @param {*}
+   * @return {*}
+   */
+  const dispatchChangeSlug = (val) => { 
+    store.dispatch('ChangeSlug', val);
+  }
+  return { getNodeEnv, getCurrentMode, getCurrentSlug, getCurrentId, getShadow, getStoreSlug, dispatchChangeSlug };
 };
