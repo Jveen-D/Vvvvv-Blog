@@ -24,7 +24,8 @@
     "paths": {
       "/@/*": ["src/*"],
       "/#/*": ["types/*"]
-    }
+    },
+    "types": ["element-plus/global"]
   },
   "include": [
     "tests/**/*.ts",

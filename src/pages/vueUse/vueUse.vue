@@ -5,7 +5,7 @@
 -->
 <template>
   <div class="flex">
-    <div class="w-[200px] pl-4 text-gray-700 dark:text-gray-200">
+    <div class="w-[200px] pt-2 pl-4 text-gray-700 dark:text-gray-200 border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]">
       <div
         v-for="(item, index) in state.categoryList"
         :key="index"
@@ -15,7 +15,7 @@
         {{ item.name }}
       </div>
     </div>
-    <div class="flex-1 mx-2 border border-red-600">
+    <div class="flex-1 pt-2 mx-2">
       <!-- 失活的组件将会被缓存！-->
       <!-- <keep-alive> -->
       <component class="w-full h-full" :is="state.activeComponent"></component>

@@ -11,10 +11,15 @@ import viteCompression from 'vite-plugin-compression';
 import { createProxy } from './build/vite/proxy';
 import { wrapperEnv } from './build/utils';
 
+// element-plus
+
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
 }
-
 
 export default ({ mode }: ConfigEnv): UserConfig => {
   // mode 当前开发环境
@@ -28,17 +33,26 @@ export default ({ mode }: ConfigEnv): UserConfig => {
   const viteEnv = wrapperEnv(env);
 
   /*
-  * VITE_PORT         开发服务器端口
-  * VITE_PUBLIC_PATH  指定输出路径
-  * VITE_PROXY        代理
-  * VITE_DROP_CONSOLE 打包去除console
-  * */
-  const { VITE_OUTPUT_DIR,VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_DROP_CONSOLE } = viteEnv;
+   * VITE_PORT         开发服务器端口
+   * VITE_PUBLIC_PATH  指定输出路径
+   * VITE_PROXY        代理
+   * VITE_DROP_CONSOLE 打包去除console
+   * */
+  const { VITE_OUTPUT_DIR, VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_DROP_CONSOLE } = viteEnv;
 
-  return{
+  return {
     base: VITE_PUBLIC_PATH,
     root,
-    plugins: [vue(), viteCompression()],
+    plugins: [
+      vue(),
+      viteCompression(),
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
+    ],
     build: {
       target: 'es2015',
       outDir: VITE_OUTPUT_DIR,
@@ -68,7 +82,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     },
     server: {
       port: VITE_PORT,
-      proxy: createProxy(VITE_PROXY)
+      proxy: createProxy(VITE_PROXY),
     },
-  }
-}
+  };
+};

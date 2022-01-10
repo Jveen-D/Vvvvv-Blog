@@ -22,7 +22,7 @@
     :class="[
       showList ? 'showList' : 'w-0',
       showList === false ? 'hiddenList' : '',
-      'bg-white dark:bg-gray-900/20 backdrop-blur-lg h-screen lg:h-16 overflow-hidden items-center fixed top-0 lg:flex lg:w-full z-20 ',
+      'bg-white dark:bg-gray-900/20 backdrop-blur-lg h-screen lg:h-16 overflow-hidden items-center fixed top-0 lg:flex lg:w-full z-20 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]',
     ]"
   >
     <div class="relative mt-4 lg:hidden" @click="showCategoriesList">
