@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-12-07 19:33:33
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2022-01-10 14:20:12
+ * @LastEditTime: 2022-01-10 14:51:25
  * @FilePath: /Vvvvv-Blog/src/hooks/core/coreHooks.ts
  */
 import { computed, ComputedRef } from 'vue';
@@ -66,5 +66,12 @@ export const coreHooks = () => {
   const dispatchChangeSlug = (val) => { 
     store.dispatch('ChangeSlug', val);
   }
-  return { getNodeEnv, getCurrentMode, getCurrentSlug, getCurrentId, getShadow, getStoreSlug, dispatchChangeSlug };
+  /**
+   * @description: 获取当前路由vueUse的组件name(component)
+   * @return {ref} 返回ref
+   */
+   const getCurrentComponentName = (): ComputedRef => {
+    return computed(() => Router.currentRoute.value.params.component as string);
+  };
+  return { getNodeEnv, getCurrentMode, getCurrentSlug, getCurrentId, getShadow, getStoreSlug, dispatchChangeSlug,getCurrentComponentName };
 };
