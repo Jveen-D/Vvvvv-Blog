@@ -63,8 +63,6 @@ contentApi('listsPostsByCategorySlug', { sluy: 'vueuse' }).then((res) => {
     state.categoryList = res.data.content;
     // 将第0项的id赋值给id再传递给组件就可以传递当前点击的文章id
     state.id = state.categoryList[0].id;
-    console.log(state.categoryList);
-    console.log(state.id);
 });
 const Router = useRouter();
 /**

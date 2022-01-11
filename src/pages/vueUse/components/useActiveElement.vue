@@ -25,7 +25,6 @@ const key = ref(null);
 watch(
   activeElement,
   (el: ElRef) => {
-    console.log(el);
     key.value = el.value ? el.value : 'null';
   },
   { immediate: true }
@@ -35,6 +34,8 @@ watch(
 import { contentApi } from '/@/api/content';
 import '/src/assets/css/markdown-body.scss';
 import { reactive } from 'vue';
+import  {markdownCode} from '/@/utils/markdown/code'
+const {language,copy} = markdownCode()
 // props
 const props = defineProps<{
   id: number;
@@ -46,7 +47,6 @@ interface State {
 const state = reactive<State>({
   postDetail: {}
 })
-let code;
 watch(
   () => props.id,
   (id) => {
@@ -59,46 +59,14 @@ watch(
       state.postDetail = res.data;
       document.title = `Vvvvv-Blog! - ` + state.postDetail.title;
       markdownBody.value.innerHTML += state.postDetail.formatContent;
-      const pre = Array.from(document.getElementsByTagName('pre'));
-      code = Array.from(document.querySelectorAll('pre code'));
-      pre.forEach((item, index) => {
-        const html = `<figcaption class="line-numbers-head">
-              <div class="custom-carbon">
-                <div class="custom-carbon-dot custom-carbon-dot--red"></div>
-                <div class="custom-carbon-dot custom-carbon-dot--yellow"></div>
-                <div class="custom-carbon-dot custom-carbon-dot--green"></div>
-              </div>
-              <div class="language">vue</div>
-              <a class="copy" onclick="copy(${index})" title="点击复制">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#icon-fuzhi"></use>
-                </svg>
-              </a>
-            </figcaption>`;
-        item.insertAdjacentHTML('beforebegin', html);
-        item.classList.add('line-numbers');
-      });
+      language()
       // @ts-ignore
       hljs.highlightAll();
     })
   }
 )
 // @ts-ignore
-window.copy = (index) => {
-  const ele = document.createElement('div');
-  ele.innerHTML = code[index].innerHTML;
-  let copyStr = '';
-  Array.from(ele.innerText).forEach((item) => {
-    copyStr += item;
-  });
-  const textarea = document.createElement('textarea');
-  document.body.appendChild(textarea);
-  textarea.value = copyStr;
-  textarea.select();
-  document.execCommand('Copy'); // 执行浏览器复制命令
-  document.body.removeChild(textarea);
-  alert('已复制');
-};
+window.copy = copy
 </script>
 
 <style lang="scss" scoped>
