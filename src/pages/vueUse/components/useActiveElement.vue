@@ -5,12 +5,12 @@
 -->
 <template>
   <div class="w-full h-full pb-4 overflow-y-auto text-gray-700 dark:text-gray-200">
-    <div class="px-2">
+    <div class="px-2 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]">
       <b>描述</b>
       <div class="pb-2">返回当前激活的dom节点</div>
       <b>效果</b>
       <div
-        class="grid grid-cols-2 gap-4 mt-2 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]"
+        class="grid grid-cols-2 gap-4 mt-2 "
       >
         <el-input v-for="i in 4" :key="i" :modelValue="`No.${i}`"></el-input>
         <p>当前选中的：{{ key }}</p>

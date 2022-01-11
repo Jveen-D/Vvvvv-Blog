@@ -5,7 +5,7 @@
 -->
 <template>
   <div class="w-full h-full pb-4 overflow-y-auto text-gray-700 dark:text-gray-200">
-    <div class="px-2">
+    <div class="px-2 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]">
       <b>描述</b>
       <div class="pb-2">判断当前视口，拉伸窗口就可以看到效果</div>
       <b>效果</b>

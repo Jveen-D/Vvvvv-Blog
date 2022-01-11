@@ -14,7 +14,8 @@ export const markdownCode = () => {
     const pre = Array.from(document.getElementsByTagName('pre'));
     code = Array.from(document.querySelectorAll('pre code'));
     pre.forEach((item, index) => {
-      const codeType = item.children[0].classList[0].split('-')[1].toUpperCase();
+      let codeType = item.children[0].classList[0].split('-')[1].toUpperCase();
+      if(codeType==='HTML') codeType = 'VUE'
       const html = `<figcaption class="line-numbers-head">
                 <div class="custom-carbon">
                   <div class="custom-carbon-dot custom-carbon-dot--red"></div>

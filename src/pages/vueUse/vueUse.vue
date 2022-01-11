@@ -29,10 +29,14 @@
 import { defineComponent } from 'vue';
 import useActiveElement from './components/useActiveElement.vue';
 import useBreakpoints from './components/useBreakpoints.vue';
+import useBroadcastChannel from './components/useBroadcastChannel.vue';
+import useBrowserLocation from './components/useBrowserLocation.vue';
 export default defineComponent({
     components: {
         useActiveElement,
         useBreakpoints,
+        useBroadcastChannel,
+        useBrowserLocation
     },
 });
 </script>
