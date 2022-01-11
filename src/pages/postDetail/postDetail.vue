@@ -85,7 +85,8 @@
     postId: id.value,
     formatDisabled: false,
     sourceDisabled: true,
-  }).then((res) => {
+  })
+  .then((res) => {
     state.postDetail = res.data;
     document.title = `Vvvvv-Blog! - ` + state.postDetail.title;
     state.createTime = getUpdateTime(Number(state.postDetail.createTime));

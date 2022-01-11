@@ -21,11 +21,13 @@ module.exports = {
           'sans-serif',
         ],
       },
+      width: {
+      },
       height: {
         'screen-4rem': 'calc(100vh - 4rem)',
       },
       screens: {
-        min: '1100px',
+        min: '1100px'
       },
     },
   },
