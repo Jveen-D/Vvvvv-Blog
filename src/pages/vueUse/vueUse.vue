@@ -15,7 +15,7 @@
                     state.activeComponent === item.title ? 'text-sky-500 dark:text-sky-400' : '',
                     'hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-500 font-bold',
                 ]"
-                @click="changeComponent(item.title)"
+                @click="changeComponent(item.title,item.id)"
             >{{ item.title }}</div>
         </div>
         <!-- 失活的组件将会被缓存！-->
@@ -60,7 +60,7 @@ const state = reactive<State>({
  * @return {*}
  */
 contentApi('listsPostsByCategorySlug', { sluy: 'vueuse' }).then((res) => {
-    state.categoryList = res.data.content;
+    state.categoryList = res.data.content.reverse();
     // 将第0项的id赋值给id再传递给组件就可以传递当前点击的文章id
     state.id = state.categoryList[0].id;
 });
@@ -70,7 +70,8 @@ const Router = useRouter();
  * @param {*}
  * @return {*}
  */
-const changeComponent = (componentName) => {
+const changeComponent = (componentName,id) => {
+    state.id = id
     state.activeComponent = componentName;
     Router.push({
         path: `/vueUse/${componentName}`,

@@ -63,7 +63,8 @@ watch(
       // @ts-ignore
       hljs.highlightAll();
     })
-  }
+  },
+  { immediate: true }
 )
 // @ts-ignore
 window.copy = copy
