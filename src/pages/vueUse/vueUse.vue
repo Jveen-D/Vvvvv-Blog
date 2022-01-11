@@ -31,12 +31,14 @@ import useActiveElement from './components/useActiveElement.vue';
 import useBreakpoints from './components/useBreakpoints.vue';
 import useBroadcastChannel from './components/useBroadcastChannel.vue';
 import useBrowserLocation from './components/useBrowserLocation.vue';
+import useClipboard from './components/useClipboard.vue';
 export default defineComponent({
     components: {
         useActiveElement,
         useBreakpoints,
         useBroadcastChannel,
-        useBrowserLocation
+        useBrowserLocation,
+        useClipboard
     },
 });
 </script>

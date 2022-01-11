@@ -5,7 +5,7 @@
 -->
 <template>
     <div class="w-full h-full pb-4 overflow-y-auto text-gray-700 dark:text-gray-200">
-        <div class="px-2 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]">
+        <div class="px-2 pb-2 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]">
             <b>描述：</b>
             <div class="pb-2">
                 <slot name="des"></slot>
@@ -58,7 +58,3 @@ watch(
 // @ts-ignore
 window.copy = copy
 </script>
-
-<style lang="scss" scoped>
-@import "/src/assets/css/markdown-body.scss";
-</style>

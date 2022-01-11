@@ -40,6 +40,3 @@ const xxxl = breakpoints.greater('2xl')
 
 </script>
 
-<style lang="scss" scoped>
-@import "/src/assets/css/markdown-body.scss";
-</style>

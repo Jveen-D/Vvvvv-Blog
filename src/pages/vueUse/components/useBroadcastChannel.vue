@@ -50,6 +50,3 @@ watch(data, () => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import "/src/assets/css/markdown-body.scss";
-</style>
