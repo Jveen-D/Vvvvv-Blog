@@ -60,7 +60,7 @@ const state = reactive<State>({
  * @return {*}
  */
 contentApi('listsPostsByCategorySlug', { sluy: 'vueuse' }).then((res) => {
-    state.categoryList = res.data.content.reverse();
+    state.categoryList = res.data.content.sort((a,b)=>a.id - b.id);
     // 将第0项的id赋值给id再传递给组件就可以传递当前点击的文章id
     state.id = state.categoryList[0].id;
 });
