@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-01-10 13:37:12
  * @LastEditors: dwj18066042960
- * @FilePath: /Vvvvv-Blog/src/pages/vueUse/vueUse.vue
+ * @FilePath: \Vvvvv-Blog\src\pages\vueUse\vueUse.vue
 -->
 <template>
     <div class="flex">
@@ -32,13 +32,17 @@ import useBreakpoints from './components/useBreakpoints.vue';
 import useBroadcastChannel from './components/useBroadcastChannel.vue';
 import useBrowserLocation from './components/useBrowserLocation.vue';
 import useClipboard from './components/useClipboard.vue';
+import useColorMode from './components/useColorMode.vue';
+import useCssVar from './components/useCssVar.vue';
 export default defineComponent({
     components: {
         useActiveElement,
         useBreakpoints,
         useBroadcastChannel,
         useBrowserLocation,
-        useClipboard
+        useClipboard,
+        useColorMode,
+        useCssVar
     },
 });
 </script>
