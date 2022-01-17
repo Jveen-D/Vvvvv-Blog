@@ -37,6 +37,8 @@ import useCssVar from './components/useCssVar.vue';
 import useDark from './components/useDark.vue';
 import useEventListener from './components/useEventListener.vue';
 import useEyeDropper from './components/useEyeDropper.vue';
+import useFavicon from './components/useFavicon.vue';
+import useFetch from './components/useFetch.vue';
 export default defineComponent({
     components: {
         useActiveElement,
@@ -48,7 +50,9 @@ export default defineComponent({
         useCssVar,
         useDark,
         useEventListener,
-        useEyeDropper
+        useEyeDropper,
+        useFavicon,
+        useFetch
     },
 });
 </script>
