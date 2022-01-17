@@ -23,8 +23,7 @@
 import { contentApi } from '/@/api/content';
 import '/src/assets/css/markdown-body.scss';
 import { reactive, ref, watch } from 'vue';
-import { markdownCode } from '/@/utils/markdown/code'
-const { language, copy } = markdownCode()
+import { copy,language } from '/@/utils/markdown/code'
 // props
 const props = defineProps<{
     id: number;
@@ -48,7 +47,7 @@ watch(
             state.postDetail = res.data;
             document.title = `Vvvvv-Blog! - ` + state.postDetail.title;
             markdownBody.value.innerHTML += state.postDetail.formatContent;
-            language()
+            language(markdownBody.value)
             // @ts-ignore
             hljs.highlightAll();
         })

@@ -32,8 +32,7 @@ import { reactive, toRefs } from 'vue';
 import '/src/assets/css/markdown-body.scss';
 
 
-import { markdownCode } from '/@/utils/markdown/code'
-const { language, copy } = markdownCode()
+import { copy,language } from '/@/utils/markdown/code'
 
 interface State {
   postDetail: {
@@ -63,7 +62,7 @@ contentApi('getPostsById', {
   state.postDetail = res.data;
   document.title = `Vvvvv-Blog! - ${state.postDetail.title}`;
   state.markdownBody.innerHTML += state.postDetail.formatContent;
-  language()
+  language(markdownBody.value)
   // @ts-ignore
   hljs.highlightAll();
   // 取出h4标签集合

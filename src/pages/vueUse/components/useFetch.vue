@@ -23,5 +23,5 @@ const props = defineProps<{
 
 import { useFetch } from '@vueuse/core'
 const { isFetching, error, data } = useFetch('/api/content/menus?api_access_key=kingofthekill').get().json()
-console.log({isFetching, error, data})
+
 </script>

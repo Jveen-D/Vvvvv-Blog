@@ -42,11 +42,11 @@ import { computed, reactive, toRefs } from 'vue';
 import { useStore } from 'vuex';
 import '/src/assets/css/markdown-body.scss';
 
-import { markdownCode } from '/@/utils/markdown/code'
-const { language, copy } = markdownCode()
+import { copy,language } from '/@/utils/markdown/code'
 
 import { coreHooks } from '/@/hooks/core/coreHooks';
-const { getCurrentMode, getCurrentId, getShadow } = coreHooks();
+// getShadow
+const { getCurrentMode, getCurrentId} = coreHooks();
 const mode = getCurrentMode();
 const id = getCurrentId();
 // const shadow = getShadow();
@@ -115,7 +115,7 @@ contentApi('getPostsById', {
         };
       });
     }
-    language()
+    language(markdownBody.value)
     // @ts-ignore
     hljs.highlightAll();
   });
