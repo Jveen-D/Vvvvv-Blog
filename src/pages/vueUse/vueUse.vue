@@ -39,6 +39,10 @@ import useEventListener from './components/useEventListener.vue';
 import useEyeDropper from './components/useEyeDropper.vue';
 import useFavicon from './components/useFavicon.vue';
 import useFetch from './components/useFetch.vue';
+import useFullscreen from './components/useFullscreen.vue';
+import useMediaControls from './components/useMediaControls.vue';
+import useMediaQuery from './components/useMediaQuery.vue';
+import useMemory from './components/useMemory.vue';
 export default defineComponent({
     components: {
         useActiveElement,
@@ -52,7 +56,11 @@ export default defineComponent({
         useEventListener,
         useEyeDropper,
         useFavicon,
-        useFetch
+        useFetch,
+        useFullscreen,
+        useMediaControls,
+        useMediaQuery,
+        useMemory
     },
 });
 </script>
