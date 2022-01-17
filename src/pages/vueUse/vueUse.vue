@@ -6,14 +6,14 @@
 <template>
     <div class="flex">
         <div
-            class="flex-shrink-0 w-[200px] pt-2 pl-4 text-gray-700 dark:text-gray-200 border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]"
+            class="flex-shrink-0 w-[200px] pt-2 text-gray-700 dark:text-gray-200 border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]"
         >
             <div
                 v-for="(item, index) in state.categoryList"
                 :key="index"
                 :class="[
                     state.activeComponent === item.title ? 'text-sky-500 dark:text-sky-400' : '',
-                    'hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-500 font-bold',
+                    'w-[200px] truncate pl-4 hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-500 font-bold',
                 ]"
                 @click="changeComponent(item.title,item.id)"
             >{{ item.title }}</div>
@@ -43,6 +43,8 @@ import useFullscreen from './components/useFullscreen.vue';
 import useMediaControls from './components/useMediaControls.vue';
 import useMediaQuery from './components/useMediaQuery.vue';
 import useMemory from './components/useMemory.vue';
+import usePermission from './components/usePermission.vue';
+import usePreferredColorScheme from './components/usePreferredColorScheme.vue';
 export default defineComponent({
     components: {
         useActiveElement,
@@ -60,7 +62,9 @@ export default defineComponent({
         useFullscreen,
         useMediaControls,
         useMediaQuery,
-        useMemory
+        useMemory,
+        usePermission,
+        usePreferredColorScheme
     },
 });
 </script>
