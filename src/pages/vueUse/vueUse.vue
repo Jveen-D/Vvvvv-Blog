@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-01-10 13:37:12
  * @LastEditors: dwj18066042960
- * @FilePath: \Vvvvv-Blog\src\pages\vueUse\vueUse.vue
+ * @FilePath: /Vvvvv-Blog/src/pages/vueUse/vueUse.vue
 -->
 <template>
     <div class="flex">
@@ -34,6 +34,9 @@ import useBrowserLocation from './components/useBrowserLocation.vue';
 import useClipboard from './components/useClipboard.vue';
 import useColorMode from './components/useColorMode.vue';
 import useCssVar from './components/useCssVar.vue';
+import useDark from './components/useDark.vue';
+import useEventListener from './components/useEventListener.vue';
+import useEyeDropper from './components/useEyeDropper.vue';
 export default defineComponent({
     components: {
         useActiveElement,
@@ -42,7 +45,10 @@ export default defineComponent({
         useBrowserLocation,
         useClipboard,
         useColorMode,
-        useCssVar
+        useCssVar,
+        useDark,
+        useEventListener,
+        useEyeDropper
     },
 });
 </script>
@@ -74,7 +80,6 @@ contentApi('listsPostsByCategorySlug', { sluy: 'vueuse' }).then((res) => {
     state.categoryList.forEach((item)=>{
         if(item.slug.toLowerCase() === componentName.value.toLowerCase()){
             state.id = item.id
-            return
         }
     })
 });
