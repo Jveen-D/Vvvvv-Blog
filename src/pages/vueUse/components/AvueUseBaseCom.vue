@@ -5,7 +5,9 @@
 -->
 <template>
     <div class="w-full h-full pb-4 overflow-y-auto text-gray-700 dark:text-gray-200">
-        <div class="px-2 pb-2 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]">
+        <div
+            class="px-2 pb-2 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]"
+        >
             <b>描述：</b>
             <div class="pb-2">
                 <slot name="des"></slot>
@@ -23,7 +25,8 @@
 import { contentApi } from '/@/api/content';
 import '/src/assets/css/markdown-body.scss';
 import { reactive, ref, watch } from 'vue';
-import { copy,language } from '/@/utils/markdown/code'
+import { copy, language } from '/@/utils/markdown/code'
+import { highlight } from '/@/hooks/core/highlight'
 // props
 const props = defineProps<{
     id: number;
@@ -48,8 +51,7 @@ watch(
             document.title = `Vvvvv-Blog! - ` + state.postDetail.title;
             markdownBody.value.innerHTML += state.postDetail.formatContent;
             language(markdownBody.value)
-            // @ts-ignore
-            hljs.highlightAll();
+            highlight()
         })
     },
     { immediate: true }

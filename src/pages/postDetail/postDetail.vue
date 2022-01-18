@@ -36,6 +36,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import {highlight} from '/@/hooks/core/highlight'
 import { contentApi } from '/@/api/content';
 import { getUpdateTime } from '/@/utils/date';
 import { computed, reactive, toRefs } from 'vue';
@@ -116,8 +117,7 @@ contentApi('getPostsById', {
       });
     }
     language(markdownBody.value)
-    // @ts-ignore
-    hljs.highlightAll();
+    highlight()
   });
 // @ts-ignore
 window.copy = copy

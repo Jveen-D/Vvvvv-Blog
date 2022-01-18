@@ -27,12 +27,12 @@
   </div>
 </template>
 <script lang="ts" setup>
+import {highlight} from '/@/hooks/core/highlight'
 import { contentApi } from '/@/api/content';
 import { reactive, toRefs } from 'vue';
 import '/src/assets/css/markdown-body.scss';
 
-
-import { copy,language } from '/@/utils/markdown/code'
+import { copy, language } from '/@/utils/markdown/code'
 
 interface State {
   postDetail: {
@@ -63,8 +63,7 @@ contentApi('getPostsById', {
   document.title = `Vvvvv-Blog! - ${state.postDetail.title}`;
   state.markdownBody.innerHTML += state.postDetail.formatContent;
   language(markdownBody.value)
-  // @ts-ignore
-  hljs.highlightAll();
+  highlight()
   // 取出h4标签集合
   state.h4Arr = Array.from(document.getElementsByTagName('h4'));
   state.h4Arr.forEach((item) => {
