@@ -5,7 +5,7 @@
 -->
 <template>
     <AvueUseBaseCom :id="props.id">
-        <template #des>用户颜色偏好</template>
+        <template #des>用户颜色偏好查询</template>
         <template #codeEffect>
             <div>当前用户颜色主题：{{preferredColor}}</div> 
             <el-button @click="checkPreferredColor">show</el-button>

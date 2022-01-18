@@ -45,6 +45,10 @@ import useMediaQuery from './components/useMediaQuery.vue';
 import useMemory from './components/useMemory.vue';
 import usePermission from './components/usePermission.vue';
 import usePreferredColorScheme from './components/usePreferredColorScheme.vue';
+import usePreferredDark from './components/usePreferredDark.vue';
+import usePreferredLanguages from './components/usePreferredLanguages.vue';
+import useScreenSafeArea from './components/useScreenSafeArea.vue';
+import useScriptTag from './components/useScriptTag.vue';
 export default defineComponent({
     components: {
         useActiveElement,
@@ -64,7 +68,11 @@ export default defineComponent({
         useMediaQuery,
         useMemory,
         usePermission,
-        usePreferredColorScheme
+        usePreferredColorScheme,
+        usePreferredDark,
+        usePreferredLanguages,
+        useScreenSafeArea,
+        useScriptTag
     },
 });
 </script>
