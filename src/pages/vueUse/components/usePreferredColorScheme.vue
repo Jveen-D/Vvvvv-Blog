@@ -7,7 +7,8 @@
     <AvueUseBaseCom :id="props.id">
         <template #des>用户颜色偏好</template>
         <template #codeEffect>
-            {{preferredColor}}
+            <div>当前用户颜色主题：{{preferredColor}}</div> 
+            <el-button @click="checkPreferredColor">show</el-button>
         </template>
     </AvueUseBaseCom>
 </template>
@@ -22,5 +23,8 @@ const props = defineProps<{
 import { usePreferredColorScheme } from '@vueuse/core'
 
 const preferredColor = usePreferredColorScheme()
+const checkPreferredColor = ()=>{
+    console.log(preferredColor.value)
+}
 
 </script>

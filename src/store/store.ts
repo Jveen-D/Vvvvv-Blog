@@ -1,10 +1,15 @@
+/*
+ * @Date: 2022-01-07 11:03:05
+ * @LastEditors: dwj18066042960
+ * @FilePath: /Vvvvv-Blog/src/store/store.ts
+ */
 import {createStore} from 'vuex';
 import type {AppState, Mode, Shadow, Sluy, ShadowImg} from '/#/store';
 
 export const store = createStore({
     state: (): AppState => ({
         slug: '', // 分类
-        mode: localStorage.getItem('mode') || 'light', // 博客主题 默认light模式
+        mode: localStorage.getItem('mode'), // 博客主题 默认为用户系统主题偏好色
         shadow: '', //阴影
         shadowImg: { // 预览图片
             width: 0,

@@ -14,4 +14,5 @@
   import { tailwindTheme } from './utils/tailwind/tailwindTheme';
   const { changeTheme } = tailwindTheme();
   changeTheme(localStorage.theme);
+
 </script>

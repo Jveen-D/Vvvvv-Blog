@@ -1,7 +1,6 @@
 /*
- * @Date: 2021-12-07 19:33:33
+ * @Date: 2022-01-07 11:03:05
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2022-01-10 14:51:25
  * @FilePath: /Vvvvv-Blog/src/hooks/core/coreHooks.ts
  */
 import { computed, ComputedRef } from 'vue';
@@ -72,6 +71,6 @@ export const coreHooks = () => {
    */
    const getCurrentComponentName = (): ComputedRef => {
     return computed(() => Router.currentRoute.value.params.component as string);
-  };
+   };
   return { getNodeEnv, getCurrentMode, getCurrentSlug, getCurrentId, getShadow, getStoreSlug, dispatchChangeSlug,getCurrentComponentName };
 };
