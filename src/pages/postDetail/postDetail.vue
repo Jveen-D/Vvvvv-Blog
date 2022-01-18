@@ -36,18 +36,18 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {highlight} from '/@/hooks/core/highlight'
+import { highlight } from '/@/hooks/core/highlight'
 import { contentApi } from '/@/api/content';
 import { getUpdateTime } from '/@/utils/date';
 import { computed, reactive, toRefs } from 'vue';
 import { useStore } from 'vuex';
 import '/src/assets/css/markdown-body.scss';
 
-import { copy,language } from '/@/utils/markdown/code'
+import { copy, language } from '/@/utils/markdown/code'
 
 import { coreHooks } from '/@/hooks/core/coreHooks';
 // getShadow
-const { getCurrentMode, getCurrentId} = coreHooks();
+const { getCurrentMode, getCurrentId } = coreHooks();
 const mode = getCurrentMode();
 const id = getCurrentId();
 // const shadow = getShadow();
@@ -118,6 +118,11 @@ contentApi('getPostsById', {
     }
     language(markdownBody.value)
     highlight()
+    // 规避控制台报错
+    try {
+      // @ts-ignore
+      hljs.highlightAll();
+    } catch { }
   });
 // @ts-ignore
 window.copy = copy

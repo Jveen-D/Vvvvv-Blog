@@ -27,7 +27,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {highlight} from '/@/hooks/core/highlight'
+import { highlight } from '/@/hooks/core/highlight'
 import { contentApi } from '/@/api/content';
 import { reactive, toRefs } from 'vue';
 import '/src/assets/css/markdown-body.scss';
@@ -64,6 +64,11 @@ contentApi('getPostsById', {
   state.markdownBody.innerHTML += state.postDetail.formatContent;
   language(markdownBody.value)
   highlight()
+  // 规避控制台报错
+  try {
+    // @ts-ignore
+    hljs.highlightAll();
+  } catch { }
   // 取出h4标签集合
   state.h4Arr = Array.from(document.getElementsByTagName('h4'));
   state.h4Arr.forEach((item) => {

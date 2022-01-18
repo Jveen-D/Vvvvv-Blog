@@ -13,8 +13,11 @@ export const highlight = () => {
       // do something
       console.log(el);
       console.log('highlight.min.js已加载');
-      // @ts-ignore
-      hljs.highlightAll();
+      // 规避控制台报错
+      try {
+        // @ts-ignore
+        hljs.highlightAll();
+      } catch {}
     }
   );
 };
