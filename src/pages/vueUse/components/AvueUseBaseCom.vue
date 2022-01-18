@@ -52,8 +52,11 @@ watch(
             markdownBody.value.innerHTML += state.postDetail.formatContent;
             language(markdownBody.value)
             highlight()
-            // @ts-ignore
-            hljs.highlightAll();
+            // 规避控制台报错
+            try {
+                // @ts-ignore
+                hljs.highlightAll();
+            } catch { }
         })
     },
     { immediate: true }

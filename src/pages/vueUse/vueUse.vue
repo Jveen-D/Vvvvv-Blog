@@ -49,6 +49,12 @@ import usePreferredDark from './components/usePreferredDark.vue';
 import usePreferredLanguages from './components/usePreferredLanguages.vue';
 import useScreenSafeArea from './components/useScreenSafeArea.vue';
 import useScriptTag from './components/useScriptTag.vue';
+import useShare from './components/useShare.vue';
+import useTitle from './components/useTitle.vue';
+import useUrlSearchParams from './components/useUrlSearchParams.vue';
+import useVibrate from './components/useVibrate.vue';
+import useWakeLock from './components/useWakeLock.vue';
+import useWebNotification from './components/useWebNotification.vue';
 export default defineComponent({
     components: {
         useActiveElement,
@@ -72,7 +78,13 @@ export default defineComponent({
         usePreferredDark,
         usePreferredLanguages,
         useScreenSafeArea,
-        useScriptTag
+        useScriptTag,
+        useShare,
+        useTitle,
+        useUrlSearchParams,
+        useVibrate,
+        useWakeLock,
+        useWebNotification
     },
 });
 </script>
