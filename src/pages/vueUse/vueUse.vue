@@ -57,6 +57,20 @@ import useWakeLock from './components/Browser/useWakeLock.vue';
 import useWebNotification from './components/Browser/useWebNotification.vue';
 import onClickOutside from './components/Sensors/onClickOutside.vue';
 import onKeyStroke from './components/Sensors/onKeyStroke.vue';
+import onStartTyping from './components/Sensors/onStartTyping.vue';
+import useBattery from './components/Sensors/useBattery.vue';
+import useDeviceMotion from './components/Sensors/useDeviceMotion.vue';
+import useDeviceOrientation from './components/Sensors/useDeviceOrientation.vue';
+import useDevicePixelRatio from './components/Sensors/useDevicePixelRatio.vue';
+import useDevicesList from './components/Sensors/useDevicesList.vue';
+import useDisplayMedia from './components/Sensors/useDisplayMedia.vue';
+import useElementByPoint from './components/Sensors/useElementByPoint.vue';
+import useElementHover from './components/Sensors/useElementHover.vue';
+import useFocus from './components/Sensors/useFocus.vue';
+import useFocusWithin from './components/Sensors/useFocusWithin.vue';
+import useFps from './components/Sensors/useFps.vue';
+import useGeolocation from './components/Sensors/useGeolocation.vue';
+import useIdle from './components/Sensors/useIdle.vue';
 export default defineComponent({
     components: {
         useActiveElement,
@@ -88,7 +102,21 @@ export default defineComponent({
         useWakeLock,
         useWebNotification,
         onClickOutside,
-        onKeyStroke
+        onKeyStroke,
+        onStartTyping,
+        useBattery,
+        useDeviceMotion,
+        useDeviceOrientation,
+        useDevicePixelRatio,
+        useDevicesList,
+        useDisplayMedia,
+        useElementByPoint,
+        useElementHover,
+        useFocus,
+        useFocusWithin,
+        useFps,
+        useGeolocation,
+        useIdle
     },
 });
 </script>

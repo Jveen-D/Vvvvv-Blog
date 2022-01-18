@@ -5,7 +5,7 @@
 -->
 <template>
     <AvueUseBaseCom :id="props.id">
-        <template #des>onClickOutside元素外点击</template>
+        <template #des>键盘事件</template>
         <template #codeEffect>
             <div class="container border border-blue-300">
                 <div
