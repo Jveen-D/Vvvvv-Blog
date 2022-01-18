@@ -6,7 +6,7 @@
 <template>
     <div class="flex">
         <div
-            class="flex-shrink-0 w-[200px] pt-2 text-gray-700 dark:text-gray-200 border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]"
+            class="flex-shrink-0 w-[200px] pt-10 lg:pt-0 text-gray-700 dark:text-gray-200 border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12] overflow-y-auto"
         >
             <div
                 v-for="(item, index) in state.categoryList"
@@ -27,34 +27,36 @@
 <script lang="ts">
 // 因为使用了动态组件，所以这里需要额外注册一下组件，如果直接在setup语法糖内导入组件那么传递给:is的变量没有作用
 import { defineComponent } from 'vue';
-import useActiveElement from './components/useActiveElement.vue';
-import useBreakpoints from './components/useBreakpoints.vue';
-import useBroadcastChannel from './components/useBroadcastChannel.vue';
-import useBrowserLocation from './components/useBrowserLocation.vue';
-import useClipboard from './components/useClipboard.vue';
-import useColorMode from './components/useColorMode.vue';
-import useCssVar from './components/useCssVar.vue';
-import useDark from './components/useDark.vue';
-import useEventListener from './components/useEventListener.vue';
-import useEyeDropper from './components/useEyeDropper.vue';
-import useFavicon from './components/useFavicon.vue';
-import useFetch from './components/useFetch.vue';
-import useFullscreen from './components/useFullscreen.vue';
-import useMediaControls from './components/useMediaControls.vue';
-import useMediaQuery from './components/useMediaQuery.vue';
-import useMemory from './components/useMemory.vue';
-import usePermission from './components/usePermission.vue';
-import usePreferredColorScheme from './components/usePreferredColorScheme.vue';
-import usePreferredDark from './components/usePreferredDark.vue';
-import usePreferredLanguages from './components/usePreferredLanguages.vue';
-import useScreenSafeArea from './components/useScreenSafeArea.vue';
-import useScriptTag from './components/useScriptTag.vue';
-import useShare from './components/useShare.vue';
-import useTitle from './components/useTitle.vue';
-import useUrlSearchParams from './components/useUrlSearchParams.vue';
-import useVibrate from './components/useVibrate.vue';
-import useWakeLock from './components/useWakeLock.vue';
-import useWebNotification from './components/useWebNotification.vue';
+import useActiveElement from './components/Browser/useActiveElement.vue';
+import useBreakpoints from './components/Browser/useBreakpoints.vue';
+import useBroadcastChannel from './components/Browser/useBroadcastChannel.vue';
+import useBrowserLocation from './components/Browser/useBrowserLocation.vue';
+import useClipboard from './components/Browser/useClipboard.vue';
+import useColorMode from './components/Browser/useColorMode.vue';
+import useCssVar from './components/Browser/useCssVar.vue';
+import useDark from './components/Browser/useDark.vue';
+import useEventListener from './components/Browser/useEventListener.vue';
+import useEyeDropper from './components/Browser/useEyeDropper.vue';
+import useFavicon from './components/Browser/useFavicon.vue';
+import useFetch from './components/Browser/useFetch.vue';
+import useFullscreen from './components/Browser/useFullscreen.vue';
+import useMediaControls from './components/Browser/useMediaControls.vue';
+import useMediaQuery from './components/Browser/useMediaQuery.vue';
+import useMemory from './components/Browser/useMemory.vue';
+import usePermission from './components/Browser/usePermission.vue';
+import usePreferredColorScheme from './components/Browser/usePreferredColorScheme.vue';
+import usePreferredDark from './components/Browser/usePreferredDark.vue';
+import usePreferredLanguages from './components/Browser/usePreferredLanguages.vue';
+import useScreenSafeArea from './components/Browser/useScreenSafeArea.vue';
+import useScriptTag from './components/Browser/useScriptTag.vue';
+import useShare from './components/Browser/useShare.vue';
+import useTitle from './components/Browser/useTitle.vue';
+import useUrlSearchParams from './components/Browser/useUrlSearchParams.vue';
+import useVibrate from './components/Browser/useVibrate.vue';
+import useWakeLock from './components/Browser/useWakeLock.vue';
+import useWebNotification from './components/Browser/useWebNotification.vue';
+import onClickOutside from './components/Sensors/onClickOutside.vue';
+import onKeyStroke from './components/Sensors/onKeyStroke.vue';
 export default defineComponent({
     components: {
         useActiveElement,
@@ -84,7 +86,9 @@ export default defineComponent({
         useUrlSearchParams,
         useVibrate,
         useWakeLock,
-        useWebNotification
+        useWebNotification,
+        onClickOutside,
+        onKeyStroke
     },
 });
 </script>

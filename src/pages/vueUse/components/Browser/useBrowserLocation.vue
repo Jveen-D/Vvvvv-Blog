@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import AvueUseBaseCom from './AvueUseBaseCom.vue'
+import AvueUseBaseCom from '../AvueUseBaseCom.vue'
 // props
 const props = defineProps<{
   id: number;
