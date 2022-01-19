@@ -80,6 +80,13 @@ import useNetwork from './components/Sensors/useNetwork.vue';
 import useOnline from './components/Sensors/useOnline.vue';
 import usePageLeave from './components/Sensors/usePageLeave.vue';
 import useParallax from './components/Sensors/useParallax.vue';
+import usePointer from './components/Sensors/usePointer.vue';
+import usePointerSwipe from './components/Sensors/usePointerSwipe.vue';
+import useScroll from './components/Sensors/useScroll.vue';
+import useScrollLock from './components/Sensors/useScrollLock.vue';
+import useSwipe from './components/Sensors/useSwipe.vue';
+import useTextSelection from './components/Sensors/useTextSelection.vue';
+import useUserMedia from './components/Sensors/useUserMedia.vue';
 export default defineComponent({
     components: {
         useActiveElement,
@@ -134,7 +141,14 @@ export default defineComponent({
         useNetwork,
         useOnline,
         usePageLeave,
-        useParallax
+        useParallax,
+        usePointer,
+        usePointerSwipe,
+        useScroll,
+        useScrollLock,
+        useSwipe,
+        useTextSelection,
+        useUserMedia
     },
 });
 </script>
