@@ -87,6 +87,14 @@ import useScrollLock from './components/Sensors/useScrollLock.vue';
 import useSwipe from './components/Sensors/useSwipe.vue';
 import useTextSelection from './components/Sensors/useTextSelection.vue';
 import useUserMedia from './components/Sensors/useUserMedia.vue';
+import useInterval from './components/Animation/useInterval.vue';
+import useIntervalFn from './components/Animation/useIntervalFn.vue';
+import useNow from './components/Animation/useNow.vue';
+import useRafFn from './components/Animation/useRafFn.vue';
+import useTimeout from './components/Animation/useTimeout.vue';
+import useTimeoutFn from './components/Animation/useTimeoutFn.vue';
+import useTimestamp from './components/Animation/useTimestamp.vue';
+import useTransition from './components/Animation/useTransition.vue';
 export default defineComponent({
     components: {
         useActiveElement,
@@ -148,7 +156,15 @@ export default defineComponent({
         useScrollLock,
         useSwipe,
         useTextSelection,
-        useUserMedia
+        useUserMedia,
+        useInterval,
+        useIntervalFn,
+        useNow,
+        useRafFn,
+        useTimeout,
+        useTimeoutFn,
+        useTimestamp,
+        useTransition
     },
 });
 </script>
