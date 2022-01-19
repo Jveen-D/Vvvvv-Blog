@@ -34,14 +34,14 @@ const props = defineProps<{
     id: number;
 }>();
 
-import { computed, reactive } from 'vue'
+import { computed, reactive,CSSProperties } from 'vue'
 import { useElementBounding, useEventListener, useMouse, useElementByPoint } from '@vueuse/core'
 
 const { x, y } = useMouse({ type: 'client' })
 const { element } = useElementByPoint({ x, y })
 const bounding = reactive(useElementBounding(element))
 useEventListener('scroll', bounding.update, true)
-const boxStyles = computed(() => {
+const boxStyles = computed(():CSSProperties => {
     if (element.value) {
         return {
             position: 'fixed',

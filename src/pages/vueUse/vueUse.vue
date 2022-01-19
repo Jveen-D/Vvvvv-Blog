@@ -71,6 +71,15 @@ import useFocusWithin from './components/Sensors/useFocusWithin.vue';
 import useFps from './components/Sensors/useFps.vue';
 import useGeolocation from './components/Sensors/useGeolocation.vue';
 import useIdle from './components/Sensors/useIdle.vue';
+import useKeyModifier from './components/Sensors/useKeyModifier.vue';
+import useMagicKeys from './components/Sensors/useMagicKeys.vue';
+import useMouse from './components/Sensors/useMouse.vue';
+import useMousePressed from './components/Sensors/useMousePressed.vue';
+import useNavigatorLanguage from './components/Sensors/useNavigatorLanguage.vue';
+import useNetwork from './components/Sensors/useNetwork.vue';
+import useOnline from './components/Sensors/useOnline.vue';
+import usePageLeave from './components/Sensors/usePageLeave.vue';
+import useParallax from './components/Sensors/useParallax.vue';
 export default defineComponent({
     components: {
         useActiveElement,
@@ -116,7 +125,16 @@ export default defineComponent({
         useFocusWithin,
         useFps,
         useGeolocation,
-        useIdle
+        useIdle,
+        useKeyModifier,
+        useMagicKeys,
+        useMouse,
+        useMousePressed,
+        useNavigatorLanguage,
+        useNetwork,
+        useOnline,
+        usePageLeave,
+        useParallax
     },
 });
 </script>
