@@ -25,7 +25,7 @@ const props = defineProps<{
     id: number;
 }>();
 
-import { ref, watchEffect } from 'vue-demi'
+import { ref, watchEffect } from 'vue'
 import { useDevicesList, useUserMedia } from '@vueuse/core'
 const currentCamera = ref<string>()
 const { videoInputs: cameras } = useDevicesList({

@@ -9,8 +9,8 @@
       <router-view
         class="flex-1 overflow-y-auto lg:mt-16 animate__animated animate__fadeInLeftBig"
       />
-    <!--右侧的profile-->
-    <Profile />
+      <!--右侧的profile-->
+      <Profile />
     </div>
   </div>
   <!--回到顶部的动画-->
@@ -27,78 +27,78 @@
 </template>
 
 <script lang="ts" setup>
-  import Header from '/@/components/Header/Header.vue';
-  import Profile from '/@/components/Profile/Profile.vue';
-  import Shadow from '/@/components/Shadow/Shadow.vue';
-  import { reactive, toRefs, onMounted } from 'vue';
+import Header from '/@/components/Header/Header.vue';
+import Profile from '/@/components/Profile/Profile.vue';
+import Shadow from '/@/components/Shadow/Shadow.vue';
+import { reactive, toRefs, onMounted } from 'vue';
 
-  interface State {
-    showBackTop: boolean | '';
-    showBackTopBool: boolean;
-    backTopEle: any;
+interface State {
+  showBackTop: boolean | '';
+  showBackTopBool: boolean;
+  backTopEle: any;
+}
+
+const state = reactive<State>({
+  showBackTop: '',
+  showBackTopBool: false,
+  backTopEle: null,
+});
+const { backTopEle } = toRefs(state);
+const getScroll = (e) => {
+  const scrollTop = e.target.scrollTop;
+  if (scrollTop >= 200) {
+    state.showBackTopBool = true;
+    state.showBackTop = true;
   }
-
-  const state = reactive<State>({
-    showBackTop: '',
-    showBackTopBool: false,
-    backTopEle: null,
-  });
-  const { backTopEle } = toRefs(state);
-  const getScroll = (e) => {
-    const scrollTop = e.target.scrollTop;
-    if (scrollTop >= 200) {
-      state.showBackTopBool = true;
-      state.showBackTop = true;
+  if (scrollTop < 200) {
+    if (state.showBackTopBool) {
+      state.showBackTop = false;
     }
-    if (scrollTop < 200) {
-      if (state.showBackTopBool) {
-        state.showBackTop = false;
-      }
-    }
-  };
-  const backToTop = () => {
-    let top = state.backTopEle.scrollTop;
-    const backTopTimer = setInterval(() => {
-      top -= top / 10;
-      state.backTopEle.scrollTo({
-        top,
-      });
-      if (top <= 0.1) {
-        clearInterval(backTopTimer);
-      }
+  }
+};
+const backToTop = () => {
+  let top = state.backTopEle.scrollTop;
+  const backTopTimer = setInterval(() => {
+    top -= top / 10;
+    state.backTopEle.scrollTo({
+      top,
     });
-  };
-  // 浏览器检测 来自vue工具函数 地址https://github.com/vuejs/vue/blob/dev/dist/vue.runtime.esm.js
-  const inBrowser = typeof window !== 'undefined';
+    if (top <= 0.1) {
+      clearInterval(backTopTimer);
+    }
+  });
+};
+// 浏览器检测 来自vue工具函数 地址https://github.com/vuejs/vue/blob/dev/dist/vue.runtime.esm.js
+const inBrowser = typeof window !== 'undefined';
+// @ts-ignore
+const inWeex = typeof WXEnvironment !== 'undefined' && !!WXEnvironment.platform;
+// @ts-ignore
+const weexPlatform = inWeex && WXEnvironment.platform.toLowerCase();
+const UA = inBrowser && window.navigator.userAgent.toLowerCase();
+const isIOS = (UA && /iphone|ipad|ipod|ios/.test(UA)) || weexPlatform === 'ios';
+const safariHacks = () => {
+  let windowsVH = window.innerHeight; // 返回窗口的文档显示区的高度
   // @ts-ignore
-  const inWeex = typeof WXEnvironment !== 'undefined' && !!WXEnvironment.platform;
-  // @ts-ignore
-  const weexPlatform = inWeex && WXEnvironment.platform.toLowerCase();
-  const UA = inBrowser && window.navigator.userAgent.toLowerCase();
-  const isIOS = (UA && /iphone|ipad|ipod|ios/.test(UA)) || weexPlatform === 'ios';
-  const safariHacks = () => {
-    let windowsVH = window.innerHeight; // 返回窗口的文档显示区的高度
+  document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px'); // 设置css变量
+  // 监听resize时间，回调函数同上
+  window.addEventListener('resize', () => {
     // @ts-ignore
-    document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px'); // 设置css变量
-    // 监听resize时间，回调函数同上
-    window.addEventListener('resize', () => {
-      // @ts-ignore
-      document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px');
-    });
-  };
-  // 挂在之后执行
-  onMounted(() => {
-    if (isIOS) {
-      safariHacks();
-    }
+    document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px');
   });
+};
+// 挂在之后执行
+onMounted(() => {
+  if (isIOS) {
+    safariHacks();
+  }
+});
 </script>
 
 <style scoped lang="scss">
-  @import '/src/assets/css/mode';
-  @import '/src/assets/css/backTop';
-  /* 引用css变量 */
-  .wrap {
-    height: var(--vh);
-  }
+@import "/src/assets/css/mode";
+@import "/src/assets/css/backTop";
+/* 引用css变量 */
+.wrap {
+  height: var(--vh);
+}
 </style>

@@ -46,7 +46,7 @@ export const contentApi = (apiName: apiType, item: any = {}): any => {
             method = 'GET';
             break;
         case 'listsPostsByCategorySlug': // 文章分类列表
-            path = `/api/content/categories/${item.sluy}/posts?page=0&size=999`;
+            path = `/api/content/categories/${item.sluy}/posts?page=0&size=999&sort=id`;
             method = 'GET';
             break;
         case 'listsAllMenus': // 获取所有分类，包括首页与友情链接

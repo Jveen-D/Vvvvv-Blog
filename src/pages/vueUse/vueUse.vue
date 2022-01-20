@@ -27,7 +27,6 @@
 <script lang="ts">
 // 因为使用了动态组件，所以这里需要额外注册一下组件，如果直接在setup语法糖内导入组件那么传递给:is的变量没有作用
 import { defineComponent } from 'vue';
-import useActiveElement from './components/Browser/useActiveElement.vue';
 import useBreakpoints from './components/Browser/useBreakpoints.vue';
 import useBroadcastChannel from './components/Browser/useBroadcastChannel.vue';
 import useBrowserLocation from './components/Browser/useBrowserLocation.vue';
@@ -103,9 +102,21 @@ import useLocalStorage from './components/State/useStorage.vue';
 import useManualRefHistory from './components/State/useManualRefHistory.vue';
 import useRefHistory from './components/State/useRefHistory.vue';
 import useThrottledRefHistory from './components/State/useThrottledRefHistory.vue';
+import useActiveElement from './components/Elements/useActiveElement.vue';
+import useDocumentVisibility from './components/Elements/useDocumentVisibility.vue';
+import useDraggable from './components/Elements/useDraggable.vue';
+import useElementBounding from './components/Elements/useElementBounding.vue';
+import useElementSize from './components/Elements/useElementSize.vue';
+import useElementVisibility from './components/Elements/useElementVisibility.vue';
+import useIntersectionObserver from './components/Elements/useIntersectionObserver.vue';
+import useMouseInElement from './components/Elements/useMouseInElement.vue';
+import useMutationObserver from './components/Elements/useMutationObserver.vue';
+import useResizeObserver from './components/Elements/useResizeObserver.vue';
+import useWindowFocus from './components/Elements/useWindowFocus.vue';
+import useWindowScroll from './components/Elements/useWindowScroll.vue';
+import useWindowSize from './components/Elements/useWindowSize.vue';
 export default defineComponent({
     components: {
-        useActiveElement,
         useBreakpoints,
         useBroadcastChannel,
         useBrowserLocation,
@@ -180,7 +191,20 @@ export default defineComponent({
         useLocalStorage,
         useManualRefHistory,
         useRefHistory,
-        useThrottledRefHistory
+        useThrottledRefHistory,
+        useActiveElement,
+        useDocumentVisibility,
+        useDraggable,
+        useElementBounding,
+        useElementSize,
+        useElementVisibility,
+        useIntersectionObserver,
+        useMouseInElement,
+        useMutationObserver,
+        useResizeObserver,
+        useWindowFocus,
+        useWindowScroll,
+        useWindowSize
     },
 });
 </script>
