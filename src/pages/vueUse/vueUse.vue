@@ -95,6 +95,14 @@ import useTimeout from './components/Animation/useTimeout.vue';
 import useTimeoutFn from './components/Animation/useTimeoutFn.vue';
 import useTimestamp from './components/Animation/useTimestamp.vue';
 import useTransition from './components/Animation/useTransition.vue';
+import createGlobalState from './components/State/createGlobalState.vue';
+import createSharedComposable from './components/State/createSharedComposable/createSharedComposable.vue';
+import useAsyncState from './components/State/useAsyncState.vue';
+import useDebouncedRefHistory from './components/State/useDebouncedRefHistory.vue';
+import useLocalStorage from './components/State/useStorage.vue';
+import useManualRefHistory from './components/State/useManualRefHistory.vue';
+import useRefHistory from './components/State/useRefHistory.vue';
+import useThrottledRefHistory from './components/State/useThrottledRefHistory.vue';
 export default defineComponent({
     components: {
         useActiveElement,
@@ -164,7 +172,15 @@ export default defineComponent({
         useTimeout,
         useTimeoutFn,
         useTimestamp,
-        useTransition
+        useTransition,
+        createGlobalState,
+        createSharedComposable,
+        useAsyncState,
+        useDebouncedRefHistory,
+        useLocalStorage,
+        useManualRefHistory,
+        useRefHistory,
+        useThrottledRefHistory
     },
 });
 </script>
