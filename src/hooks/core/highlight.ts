@@ -11,8 +11,8 @@ export const highlight = () => {
     // on script tag loaded.
     (el: HTMLScriptElement) => {
       // do something
-      console.log(el);
-      console.log('highlight.min.js已加载');
+      // console.log(el);
+      // console.log('highlight.min.js已加载');
       // 规避控制台报错
       try {
         // @ts-ignore

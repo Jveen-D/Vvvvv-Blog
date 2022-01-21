@@ -15,18 +15,23 @@
                     state.activeComponent === item.title ? 'text-sky-500 dark:text-sky-400' : '',
                     'w-[200px] truncate pl-4 hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-500 font-bold',
                 ]"
-                @click="changeComponent(item.title,item.id)"
+                @click="changeComponent(item.title, item.id)"
             >{{ item.title }}</div>
         </div>
         <!-- 失活的组件将会被缓存！-->
         <!-- <keep-alive> -->
-        <component class="flex-1 flex-shrink-0 pt-2" :is="state.activeComponent" :id="state.id"></component>
+        <component
+            class="flex-1 flex-shrink-0 pt-2"
+            :is="state.activeComponent"
+            :id="state.id"
+            @update:id="showID"
+        ></component>
         <!-- </keep-alive> -->
     </div>
 </template>
 <script lang="ts">
 // 因为使用了动态组件，所以这里需要额外注册一下组件，如果直接在setup语法糖内导入组件那么传递给:is的变量没有作用
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 import useBreakpoints from './components/Browser/useBreakpoints.vue';
 import useBroadcastChannel from './components/Browser/useBroadcastChannel.vue';
 import useBrowserLocation from './components/Browser/useBrowserLocation.vue';
@@ -98,7 +103,7 @@ import createGlobalState from './components/State/createGlobalState.vue';
 import createSharedComposable from './components/State/createSharedComposable/createSharedComposable.vue';
 import useAsyncState from './components/State/useAsyncState.vue';
 import useDebouncedRefHistory from './components/State/useDebouncedRefHistory.vue';
-import useLocalStorage from './components/State/useStorage.vue';
+import useStorage from './components/State/useStorage.vue';
 import useManualRefHistory from './components/State/useManualRefHistory.vue';
 import useRefHistory from './components/State/useRefHistory.vue';
 import useThrottledRefHistory from './components/State/useThrottledRefHistory.vue';
@@ -115,6 +120,18 @@ import useResizeObserver from './components/Elements/useResizeObserver.vue';
 import useWindowFocus from './components/Elements/useWindowFocus.vue';
 import useWindowScroll from './components/Elements/useWindowScroll.vue';
 import useWindowSize from './components/Elements/useWindowSize.vue';
+import computedInject from './components/Component/computedInject/computedInject.vue';
+import templateRef from './components/Component/templateRef.vue';
+import tryOnBeforeUnmount from './components/Component/tryOnBeforeUnmount.vue';
+import tryOnMounted from './components/Component/tryOnMounted.vue';
+import tryOnScopeDispose from './components/Component/tryOnScopeDispose.vue';
+import tryOnUnmounted from './components/Component/tryOnUnmounted.vue';
+import unrefElement from './components/Component/unrefElement.vue';
+import useMounted from './components/Component/useMounted.vue';
+import useTemplateRefsList from './components/Component/useTemplateRefsList.vue';
+import useVirtualList from './components/Component/useVirtualList.vue';
+import useVModel from './components/Component/useVModel.vue';
+import useVModels from './components/Component/useVModels.vue';
 export default defineComponent({
     components: {
         useBreakpoints,
@@ -187,8 +204,8 @@ export default defineComponent({
         createGlobalState,
         createSharedComposable,
         useAsyncState,
+        useStorage,
         useDebouncedRefHistory,
-        useLocalStorage,
         useManualRefHistory,
         useRefHistory,
         useThrottledRefHistory,
@@ -204,7 +221,19 @@ export default defineComponent({
         useResizeObserver,
         useWindowFocus,
         useWindowScroll,
-        useWindowSize
+        useWindowSize,
+        computedInject,
+        templateRef,
+        tryOnBeforeUnmount,
+        tryOnMounted,
+        tryOnScopeDispose,
+        tryOnUnmounted,
+        unrefElement,
+        useMounted,
+        useTemplateRefsList,
+        useVirtualList,
+        useVModel,
+        useVModels
     },
 });
 </script>
@@ -232,9 +261,9 @@ const state = reactive<State>({
  * @return {*}
  */
 contentApi('listsPostsByCategorySlug', { sluy: 'vueuse' }).then((res) => {
-    state.categoryList = res.data.content.sort((a,b)=>a.id - b.id);
-    state.categoryList.forEach((item)=>{
-        if(item.slug.toLowerCase() === componentName.value.toLowerCase()){
+    state.categoryList = res.data.content.sort((a, b) => a.id - b.id);
+    state.categoryList.forEach((item) => {
+        if (item.slug.toLowerCase() === componentName.value.toLowerCase()) {
             state.id = item.id
         }
     })
@@ -245,13 +274,17 @@ const Router = useRouter();
  * @param {*}
  * @return {*}
  */
-const changeComponent = (componentName,id) => {
+const changeComponent = (componentName, id) => {
     state.id = id
     state.activeComponent = componentName;
     Router.push({
         path: `/vueUse/${componentName}`,
     });
 };
+
+const showID = (id) => {
+    console.log("🚀触发父组件方法",id)
+}
 </script>
 
 <style lang="scss" scoped></style>
