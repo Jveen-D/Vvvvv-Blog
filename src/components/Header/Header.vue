@@ -20,9 +20,9 @@
   <!--  分类-->
   <div
     :class="[
+      'bg-white dark:bg-gray-900/80 h-screen backdrop-blur lg:h-16 overflow-hidden items-center fixed top-0 lg:flex  w-[200px] lg:w-full z-20 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]',
       showList ? 'showList' : 'w-0',
       showList === false ? 'hiddenList' : '',
-      'bg-white dark:bg-gray-900/20 backdrop-blur-lg h-screen lg:h-16 overflow-hidden items-center fixed top-0 lg:flex lg:w-full z-20 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]',
     ]"
   >
     <div class="relative mt-4 lg:hidden" @click="showCategoriesList">
@@ -91,7 +91,7 @@ import { tailwindTheme } from '/@/utils/tailwind/tailwindTheme';
 const { changeTheme } = tailwindTheme();
 
 import { coreHooks } from '/@/hooks/core/coreHooks';
-const { getCurrentMode, getCurrentSlug, getStoreSlug,dispatchChangeSlug } = coreHooks();
+const { getCurrentMode, getCurrentSlug, getStoreSlug, dispatchChangeSlug } = coreHooks();
 const mode = getCurrentMode();
 const activeCategory = getCurrentSlug();
 const storeSlug = getStoreSlug();
@@ -144,7 +144,7 @@ const goCategory = (val) => {
       Router.push({
         path: `/${val}`,
       });
-    break;
+      break;
     default:
       Router.push({
         path: `/category/${val}`,
