@@ -143,6 +143,8 @@ import useTemplateRefsList from './components/Component/useTemplateRefsList.vue'
 import useVirtualList from './components/Component/useVirtualList.vue';
 import useVModel from './components/Component/useVModel.vue';
 import useVModels from './components/Component/useVModels.vue';
+import debouncedWatch from './components/Watch/debouncedWatch.vue';
+import ignorableWatch from './components/Watch/ignorableWatch.vue';
 export default defineComponent({
     components: {
         useBreakpoints,
@@ -245,6 +247,8 @@ export default defineComponent({
         useVirtualList,
         useVModel,
         useVModels,
+        debouncedWatch,
+        ignorableWatch
     },
 });
 </script>
