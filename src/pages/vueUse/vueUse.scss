@@ -1,0 +1,25 @@
+// 移动端列表切换动画
+.showCategory {
+  animation: showCategoryAnimation 0.2s;
+  animation-fill-mode: forwards;
+}
+.hiddenCategory {
+  animation: hiddenCategoryAnimation 0.2s;
+  animation-fill-mode: forwards;
+}
+@keyframes showCategoryAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 200px;
+  }
+}
+@keyframes hiddenCategoryAnimation {
+  from {
+    width: 200px;
+  }
+  to {
+    width: 0;
+  }
+}

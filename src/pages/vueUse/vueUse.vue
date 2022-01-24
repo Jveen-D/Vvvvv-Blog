@@ -5,8 +5,18 @@
 -->
 <template>
     <div class="flex">
+        <!-- 按钮 -->
         <div
-            class="hidden flex-shrink-0 sm:w-[200px] pt-10 lg:pt-0 text-gray-700 dark:text-gray-200 border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12] overflow-y-auto"
+            class="fixed z-10 flex items-center justify-center w-8 h-8 border-2 border-gray-800 border-solid rounded-lg sm:hidden lg:hidden animate-pulse top-2 left-2"
+            @click="showCategoriesList"
+        >
+            <svg aria-hidden="true" class="icon">
+                <use xlink:href="#icon-gengduo" />
+            </svg>
+        </div>
+        <div
+            ref="categoryRef"
+            :class="[state.showCategory ? 'showCategory' : 'hiddenCategory', 'fixed sm:static h-screen sm:h-screen-4rem bg-white dark:bg-gray-900/80 backdrop-blur flex-shrink-0 sm:w-[200px] lg:pt-0 text-gray-700 dark:text-gray-200 sm:border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12] overflow-y-auto']"
         >
             <div
                 v-for="(item, index) in state.categoryList"
@@ -21,7 +31,7 @@
         <!-- 失活的组件将会被缓存！-->
         <!-- <keep-alive> -->
         <component
-            class="flex-1 flex-shrink-0 pt-2"
+            class="flex-1 flex-shrink-0 pt-12 sm:pt-2"
             :is="state.activeComponent"
             :id="state.id"
             @update:id="showID"
@@ -31,7 +41,7 @@
 </template>
 <script lang="ts">
 // 因为使用了动态组件，所以这里需要额外注册一下组件，如果直接在setup语法糖内导入组件那么传递给:is的变量没有作用
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 import useBreakpoints from './components/Browser/useBreakpoints.vue';
 import useBroadcastChannel from './components/Browser/useBroadcastChannel.vue';
 import useBrowserLocation from './components/Browser/useBrowserLocation.vue';
@@ -233,12 +243,13 @@ export default defineComponent({
         useTemplateRefsList,
         useVirtualList,
         useVModel,
-        useVModels
+        useVModels,
     },
 });
 </script>
 <script lang="ts" setup>
-import { reactive } from 'vue';
+import { ref, reactive } from 'vue';
+import { onClickOutside as ClickOutside } from '@vueuse/core';
 import { useRouter } from 'vue-router';
 import { contentApi } from '/@/api/content';
 import { coreHooks } from '/@/hooks/core/coreHooks';
@@ -249,11 +260,13 @@ interface State {
     id: number; // 文章的id
     activeComponent: string;
     categoryList: Array<{ [propName: string]: any }>;
+    showCategory: boolean;
 }
 const state = reactive<State>({
     id: 0,
     activeComponent: componentName.value,
     categoryList: [],
+    showCategory: false
 });
 /**
  * @description: 获取vueUse列表
@@ -264,9 +277,9 @@ contentApi('listsPostsByCategorySlug', { sluy: 'vueuse' }).then((res) => {
     state.categoryList = res.data.content.sort((a, b) => a.id - b.id);
     state.categoryList.forEach((item) => {
         if (item.slug.toLowerCase() === componentName.value.toLowerCase()) {
-            state.id = item.id
+            state.id = item.id;
         }
-    })
+    });
 });
 const Router = useRouter();
 /**
@@ -275,7 +288,7 @@ const Router = useRouter();
  * @return {*}
  */
 const changeComponent = (componentName, id) => {
-    state.id = id
+    state.id = id;
     state.activeComponent = componentName;
     Router.push({
         path: `/vueUse/${componentName}`,
@@ -283,8 +296,26 @@ const changeComponent = (componentName, id) => {
 };
 
 const showID = (id) => {
-    console.log("🚀触发父组件方法",id)
-}
+    console.log('🚀触发父组件方法', id);
+};
+
+/**
+ * @description: 移动端切换列表
+ * @param {*}
+ * @return {*}
+ */
+const showCategoriesList = () => {
+    state.showCategory = true
+};
+
+// 列表ref
+const categoryRef: ElRef = ref(null)
+// 点击列表外部关闭列表
+ClickOutside(categoryRef, () => {
+    if (state.showCategory) state.showCategory = false
+})
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "./vueUse.scss";
+</style>

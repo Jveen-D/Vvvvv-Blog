@@ -1,7 +1,7 @@
 <template>
   <!--  移动端的按钮-->
   <div
-    class="fixed z-10 flex items-center justify-center w-8 h-8 border-2 border-gray-400 border-solid rounded-md lg:hidden animate-pulse top-2 left-4"
+    class="fixed z-10 flex items-center justify-center w-12 h-12 border-2 border-gray-800 border-solid rounded-full lg:hidden animate-pulse bottom-12 left-12"
     @click="showCategoriesList"
   >
     <svg aria-hidden="true" class="icon">
@@ -20,7 +20,7 @@
   <!--  分类-->
   <div
     :class="[
-      'bg-white dark:bg-gray-900/80 backdrop-blur h-full lg:h-16 overflow-hidden items-center fixed top-0 lg:flex lg:w-full z-20 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]',
+      'bg-white dark:bg-gray-900/80 backdrop-blur h-full lg:h-16 overflow-hidden items-center fixed top-0 lg:flex lg:w-full z-20 border-b-0 sm:border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]',
       showList ? 'showList' : 'w-0',
       showList === false ? 'hiddenList' : '',
     ]"

@@ -4,7 +4,7 @@
  * @FilePath: /Vvvvv-Blog/src/App.vue
 -->
 <template>
-  <div class="bg-white animate__animated animate__fadeInTopLeft dark:bg-gray-900">
+  <div class="overflow-hidden bg-white animate__animated animate__fadeInTopLeft dark:bg-gray-900">
     <suspense>
       <router-view />
     </suspense>

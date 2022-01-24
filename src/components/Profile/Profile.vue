@@ -20,7 +20,7 @@
     :class="[
       showProfile ? 'showProfile' : 'mr-[-20rem]',
       showProfile === false ? 'hiddenProfile' : '',
-      'w-[20rem] h-[38rem] lg:mr-0 border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-[4.5rem]',
+      'h-[38rem] w-[20rem] lg:mr-0 border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-[4.5rem]',
     ]"
   >
     <!--    protile-->
@@ -42,17 +42,18 @@
         </div>
         <div
           class="flex items-center justify-center pt-4 text-sm font-bold duration-500 ease-in-out"
-          >{{ state.profile.user.nickname }}</div
-        >
+        >{{ state.profile.user.nickname }}</div>
         <div class="flex items-center justify-center pt-2 text-xs">
           <svg aria-hidden="true" class="icon animate-ping">
             <use xlink:href="#icon-12" />
           </svg>
           <p>南京</p>
         </div>
-        <div class="flex items-center justify-center pt-2 text-xs">{{
-          state.profile.user.email
-        }}</div>
+        <div class="flex items-center justify-center pt-2 text-xs">
+          {{
+            state.profile.user.email
+          }}
+        </div>
         <div class="flex items-center justify-center pt-4 pb-4 rounded-xl">
           <div class="flex justify-between w-3/6">
             <div class="relative wx" content="dwj18066042960">
@@ -109,75 +110,75 @@
           </div>
           <div class="flex justify-end pr-2">{{ state.profile.visitCount }}</div>
         </div>
-      </div></div
-    >
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { contentApi } from '/@/api/content';
-  import { getDuration } from '/@/utils/date';
-  import { reactive, toRefs, watch } from 'vue';
-  import { preventScrollY } from '/@/utils/utils';
+import { contentApi } from '/@/api/content';
+import { getDuration } from '/@/utils/date';
+import { reactive, toRefs, watch } from 'vue';
+import { preventScrollY } from '/@/utils/utils';
 
-  import { coreHooks } from '/@/hooks/core/coreHooks';
-  const { getCurrentMode } = coreHooks();
-  const mode = getCurrentMode();
-  interface State {
-    showProfile: boolean | '';
-    profile: {
-      user: {
-        avatar: string;
-        nickname: string;
-        email: string;
-        createTime: number;
-      };
-      visitCount: string;
+import { coreHooks } from '/@/hooks/core/coreHooks';
+const { getCurrentMode } = coreHooks();
+const mode = getCurrentMode();
+interface State {
+  showProfile: boolean | '';
+  profile: {
+    user: {
+      avatar: string;
+      nickname: string;
+      email: string;
+      createTime: number;
     };
-    time: string;
-    des: { title: string }[];
-  }
+    visitCount: string;
+  };
+  time: string;
+  des: { title: string }[];
+}
 
-  const state = reactive<State>({
-    showProfile: '',
-    profile: {
-      user: {
-        avatar: '',
-        nickname: '',
-        email: '',
-        createTime: 0,
-      },
-      visitCount: '0',
-    }, // profile 博主信息
-    time: '', // 运行时间
-    des: [
-      { title: '使用Vue3 Components API' },
-      { title: '使用Vue3 setup语法糖' },
-      { title: '使用Typescript' },
-      { title: '博客自动化部署与发布' },
-      { title: '使用Docker创建Jenkins持续集成' },
-      { title: '使用Docker创建Nginx发布项目' },
-      { title: '博客内容代码支持高亮显示' },
-      { title: '使用Tailwind Css响应式布局' },
-    ],
-  });
-  const { showProfile, time, des } = { ...toRefs(state) };
+const state = reactive<State>({
+  showProfile: '',
+  profile: {
+    user: {
+      avatar: '',
+      nickname: '',
+      email: '',
+      createTime: 0,
+    },
+    visitCount: '0',
+  }, // profile 博主信息
+  time: '', // 运行时间
+  des: [
+    { title: '使用Vue3 Components API' },
+    { title: '使用Vue3 setup语法糖' },
+    { title: '使用Typescript' },
+    { title: '博客自动化部署与发布' },
+    { title: '使用Docker创建Jenkins持续集成' },
+    { title: '使用Docker创建Nginx发布项目' },
+    { title: '博客内容代码支持高亮显示' },
+    { title: '使用Tailwind Css响应式布局' },
+  ],
+});
+const { showProfile, time, des } = { ...toRefs(state) };
 
-  watch(showProfile, (newVal) => {
-    preventScrollY(newVal);
-  });
-  contentApi('getBlogStatistics').then((res) => {
-    state.profile = res.data;
-    setInterval(() => {
-      state.time = getDuration(state.profile.user.createTime);
-    }, 1000);
-  });
-  //  移动端个人信息
-  const showProfileWrap = () => (state.showProfile = !state.showProfile);
-  // 移动端个人信息容器蒙层
-  const showShadowProfileWrap = () => (state.showProfile = !state.showProfile);
+watch(showProfile, (newVal) => {
+  preventScrollY(newVal);
+});
+contentApi('getBlogStatistics').then((res) => {
+  state.profile = res.data;
+  setInterval(() => {
+    state.time = getDuration(state.profile.user.createTime);
+  }, 1000);
+});
+//  移动端个人信息
+const showProfileWrap = () => (state.showProfile = !state.showProfile);
+// 移动端个人信息容器蒙层
+const showShadowProfileWrap = () => (state.showProfile = !state.showProfile);
 </script>
 
 <style lang="scss" scoped>
-  @import './Profile.scss';
+@import "./Profile.scss";
 </style>
