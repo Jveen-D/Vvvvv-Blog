@@ -6,7 +6,7 @@
 <template>
     <div class="flex">
         <div
-            class="flex-shrink-0 w-[200px] pt-10 lg:pt-0 text-gray-700 dark:text-gray-200 border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12] overflow-y-auto"
+            class="hidden flex-shrink-0 sm:w-[200px] pt-10 lg:pt-0 text-gray-700 dark:text-gray-200 border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12] overflow-y-auto"
         >
             <div
                 v-for="(item, index) in state.categoryList"

@@ -20,9 +20,8 @@
   <!--  分类-->
   <div
     :class="[
-      'bg-white dark:bg-gray-900/80 backdrop-blur h-full lg:h-16 overflow-hidden items-center fixed top-0 lg:flex  w-[200px] lg:w-full z-20 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]',
-      showList ?'':'w-0',
-      showList === true ? 'showList' : '',
+      'bg-white dark:bg-gray-900/80 backdrop-blur h-full lg:h-16 overflow-hidden items-center fixed top-0 lg:flex lg:w-full z-20 border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]',
+      showList ? 'showList' : 'w-0',
       showList === false ? 'hiddenList' : '',
     ]"
   >
