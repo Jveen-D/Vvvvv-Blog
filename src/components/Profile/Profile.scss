@@ -9,18 +9,18 @@
 }
 @keyframes showProfileAnimation {
   from {
-    margin-right: -20rem;
+    width:0;
   }
   to{
-    margin-right: 0rem;
+    width:300px;
   }
 }
 @keyframes hiddenProfileAnimation {
   from{
-    margin-right: 0rem;
+    width:300px;
   }
   to{
-    margin-right: -20rem;
+    width:0;
   }
 }
 // 移动端分类蒙层切换动画

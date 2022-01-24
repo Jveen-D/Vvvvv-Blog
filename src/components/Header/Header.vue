@@ -15,14 +15,13 @@
       showList === false ? 'hiddenShadowList' : '',
       'absolute h-screen bg-red-500 bg-opacity-5 lg:bg-transparent z-10',
     ]"
-    @click.self="showShadowCategoriesList"
   ></div>
   <!--  分类-->
   <div
+    ref="categoryRef"
     :class="[
+      showList ? 'showList' : 'hiddenList',
       'bg-white dark:bg-gray-900/80 backdrop-blur h-full lg:h-16 overflow-hidden items-center fixed top-0 lg:flex lg:w-full z-20 border-b-0 sm:border-b border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12]',
-      showList ? 'showList' : 'w-0',
-      showList === false ? 'hiddenList' : '',
     ]"
   >
     <div class="relative mt-4 lg:hidden" @click="showCategoriesList">
@@ -35,7 +34,7 @@
     >
       <div class="pt-4 pl-12 text-gray-700 lg:flex lg:pt-0 dark:text-gray-200">
         <div
-          v-for="(item, index) in listCategories"
+          v-for="(item, index) in state.listCategories"
           :key="'listCategories' + index"
           :class="[
             storeSlug === item.slug ? 'text-sky-500' : '',
@@ -84,8 +83,9 @@
 
 <script lang="ts" setup>
 import { contentApi } from '/@/api/content';
+import { onClickOutside } from '@vueuse/core';
 import { preventScrollY } from '/@/utils/utils';
-import { reactive, toRefs, watch } from 'vue';
+import { ref, reactive, toRefs, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { tailwindTheme } from '/@/utils/tailwind/tailwindTheme';
 const { changeTheme } = tailwindTheme();
@@ -107,9 +107,9 @@ interface State {
 const Router = useRouter();
 const state = reactive<State>({
   listCategories: [],
-  showList: '',
+  showList: ''
 });
-const { listCategories, showList } = {
+const { showList } = {
   ...toRefs(state),
 };
 
@@ -164,8 +164,13 @@ contentApi('listCategories').then((res) => {
 });
 // 移动端显示分类
 const showCategoriesList = () => (state.showList = !state.showList);
-// 移动端显示分类蒙层
-const showShadowCategoriesList = () => (state.showList = !state.showList);
+
+// 列表ref
+const categoryRef: ElRef = ref(null)
+// 点击列表外部关闭列表
+onClickOutside(categoryRef, () => {
+  if (state.showList) state.showList = false
+})
 </script>
 
 <style lang="scss" scoped>

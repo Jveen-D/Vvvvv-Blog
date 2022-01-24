@@ -13,14 +13,13 @@
       showProfile === false ? 'hiddenShadowProfile w-screen bg-red-500 bg-opacity-5' : '',
       'fixed h-screen lg:bg-transparent z-10',
     ]"
-    @click.self="showShadowProfileWrap"
   ></div>
   <!--  内容-->
   <div
+    ref="target"
     :class="[
-      showProfile ? 'showProfile' : 'mr-[-20rem]',
-      showProfile === false ? 'hiddenProfile' : '',
-      'h-[38rem] w-[20rem] lg:mr-0 border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-[4.5rem]',
+      showProfile ? 'showProfile' : 'hiddenProfile',
+      'lg:w-auto h-[38rem] lg:mr-0 border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 z-20 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-[4.5rem]',
     ]"
   >
     <!--    protile-->
@@ -41,7 +40,7 @@
           <img :src="state.profile.user.avatar" alt="avatar" class="w-20 h-20 rounded-full" />
         </div>
         <div
-          class="flex items-center justify-center pt-4 text-sm font-bold duration-500 ease-in-out"
+          class="flex items-center justify-center pt-4 text-sm font-bold duration-500 ease-in-out whitespace-nowrap"
         >{{ state.profile.user.nickname }}</div>
         <div class="flex items-center justify-center pt-2 text-xs">
           <svg aria-hidden="true" class="icon animate-ping">
@@ -80,35 +79,35 @@
       </div>
       <!--    细节-->
       <div class="w-full pb-2 duration-500 ease-in-out rounded-xl" style="width: 300px">
-        <div class="px-4 pt-2 text-xs font-bold">博客技术细节:</div>
+        <div class="px-4 pt-2 text-xs font-bold whitespace-nowrap">博客技术细节:</div>
         <div v-for="(item, index) in des" class="flex pt-2 pl-2" :key="index">
           <svg aria-hidden="true" class="icon">
             <use xlink:href="#icon-biaoqian" />
           </svg>
-          <div class="text-sm">:{{ item.title }}</div>
+          <div class="text-sm whitespace-nowrap">:{{ item.title }}</div>
         </div>
       </div>
       <!--    other-->
       <div
         class="flex flex-col justify-between w-full py-2 text-sm duration-500 ease-in-out rounded-xl"
       >
-        <div class="flex justify-between mb-3">
+        <div class="flex justify-between mb-3 flex-nowrap">
           <div class="flex items-center pl-2">
             <svg aria-hidden="true" class="icon">
               <use xlink:href="#icon-shijian" />
             </svg>
-            <div class="text-sm">博客已运行:</div>
+            <div class="text-sm whitespace-nowrap">博客已运行:</div>
           </div>
-          <div class="flex justify-end pr-2">{{ time }}</div>
+          <div class="flex justify-end pr-2 flex-nowrap whitespace-nowrap">{{ time }}</div>
         </div>
-        <div class="flex justify-between">
+        <div class="flex justify-between flex-nowrap">
           <div class="flex items-center pl-2">
             <svg aria-hidden="true" class="icon">
               <use xlink:href="#icon-renshu" />
             </svg>
-            <div class="text-sm">累计访问:</div>
+            <div class="text-sm whitespace-nowrap">累计访问:</div>
           </div>
-          <div class="flex justify-end pr-2">{{ state.profile.visitCount }}</div>
+          <div class="flex justify-end pr-2 whitespace-nowrap">{{ state.profile.visitCount }}</div>
         </div>
       </div>
     </div>
@@ -118,14 +117,15 @@
 <script lang="ts" setup>
 import { contentApi } from '/@/api/content';
 import { getDuration } from '/@/utils/date';
-import { reactive, toRefs, watch } from 'vue';
+import { ref, reactive, toRefs, watch } from 'vue';
 import { preventScrollY } from '/@/utils/utils';
-
+import { onClickOutside } from '@vueuse/core';
 import { coreHooks } from '/@/hooks/core/coreHooks';
+
 const { getCurrentMode } = coreHooks();
 const mode = getCurrentMode();
 interface State {
-  showProfile: boolean | '';
+  showProfile: boolean;
   profile: {
     user: {
       avatar: string;
@@ -140,7 +140,7 @@ interface State {
 }
 
 const state = reactive<State>({
-  showProfile: '',
+  showProfile: false,
   profile: {
     user: {
       avatar: '',
@@ -175,8 +175,13 @@ contentApi('getBlogStatistics').then((res) => {
 });
 //  移动端个人信息
 const showProfileWrap = () => (state.showProfile = !state.showProfile);
-// 移动端个人信息容器蒙层
-const showShadowProfileWrap = () => (state.showProfile = !state.showProfile);
+
+// 列表ref
+const target: ElRef = ref(null)
+// 点击列表外部关闭列表
+onClickOutside(target, () => {
+  if (state.showProfile) state.showProfile = false
+})
 </script>
 
 <style lang="scss" scoped>

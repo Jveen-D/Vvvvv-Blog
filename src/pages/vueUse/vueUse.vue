@@ -7,7 +7,7 @@
     <div class="flex">
         <!-- 按钮 -->
         <div
-            class="fixed z-10 flex items-center justify-center w-8 h-8 border-2 border-gray-800 border-solid rounded-lg sm:hidden lg:hidden animate-pulse top-2 left-2"
+            class="fixed z-10 flex items-center justify-center w-8 h-8 border-2 border-gray-800 border-solid rounded-lg animate-pulse sm:hidden lg:hidden top-2 left-2"
             @click="showCategoriesList"
         >
             <svg aria-hidden="true" class="icon">
@@ -16,7 +16,7 @@
         </div>
         <div
             ref="categoryRef"
-            :class="[state.showCategory ? 'showCategory' : 'hiddenCategory', 'fixed sm:static h-screen sm:h-screen-4rem bg-white dark:bg-gray-900/80 backdrop-blur flex-shrink-0 sm:w-[200px] lg:pt-0 text-gray-700 dark:text-gray-200 sm:border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12] overflow-y-auto z-10']"
+            :class="[state.showCategory ? 'showCategory' : 'hiddenCategory', 'fixed sm:static h-full sm:h-screen-4rem bg-white dark:bg-gray-900/80 backdrop-blur flex-shrink-0 sm:w-[200px] lg:pt-0 text-gray-700 dark:text-gray-200 sm:border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12] overflow-y-auto z-10']"
         >
             <div
                 v-for="(item, index) in state.categoryList"
@@ -41,6 +41,7 @@
 </template>
 <script lang="ts">
 // 因为使用了动态组件，所以这里需要额外注册一下组件，如果直接在setup语法糖内导入组件那么传递给:is的变量没有作用
+// @ts-ignore
 import { defineComponent } from 'vue';
 import useBreakpoints from './components/Browser/useBreakpoints.vue';
 import useBroadcastChannel from './components/Browser/useBroadcastChannel.vue';
