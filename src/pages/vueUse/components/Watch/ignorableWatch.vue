@@ -18,8 +18,8 @@ const props = defineProps<{
     id: number;
 }>();
 
-import { ref } from 'vue'
-import { ignorableWatch } from '@vueuse/core'
+import { ref } from 'vue';
+import { ignorableWatch } from '@vueuse/core';
 
 const input = ref<ElRef>()
 const log = ref('')

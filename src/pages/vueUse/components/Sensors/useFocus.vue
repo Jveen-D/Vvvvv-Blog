@@ -9,21 +9,20 @@
         <template #codeEffect>
             <div>inputElFocus:{{ inputElFocus }}</div>
             <div>elementInputElFocus:{{ elementInputElFocus }}</div>
-            <input ref="inputEl" />
+            <input ref="inputEl" class="border border-gray-400" />
             <el-input  class="mt-2" ref="elementInputEl" />
         </template>
     </AvueUseBaseCom>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
+import { useFocus } from '@vueuse/core'
 import AvueUseBaseCom from '../AvueUseBaseCom.vue'
 // props
 const props = defineProps<{
     id: number;
 }>();
-
-import { ref } from 'vue'
-import { useFocus } from '@vueuse/core'
 
 const inputEl = ref<ElRef>(null)
 const elementInputEl = ref<ElRef>(null)

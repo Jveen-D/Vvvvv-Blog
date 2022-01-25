@@ -145,6 +145,24 @@ import useVModel from './components/Component/useVModel.vue';
 import useVModels from './components/Component/useVModels.vue';
 import debouncedWatch from './components/Watch/debouncedWatch.vue';
 import ignorableWatch from './components/Watch/ignorableWatch.vue';
+import pausableWatch from './components/Watch/pausableWatch.vue';
+import throttledWatch from './components/Watch/throttledWatch.vue';
+import until from './components/Watch/until.vue';
+import watchAtMost from './components/Watch/watchAtMost.vue';
+import watchOnce from './components/Watch/watchOnce.vue';
+import watchWithFilter from './components/Watch/watchWithFilter.vue';
+import whenever from './components/Watch/whenever.vue';
+import useEventSource from './components/Network/useEventSource.vue';
+import useWebSocket from './components/Network/useWebSocket.vue';
+import and from './components/Utilities/and.vue';
+import or from './components/Utilities/or.vue';
+import not from './components/Utilities/not.vue';
+import asyncComputed from './components/Utilities/asyncComputed.vue';
+import autoResetRef from './components/Utilities/autoResetRef.vue';
+import synchronization from './components/Utilities/synchronization.vue';
+import controlledComputed from './components/Utilities/controlledComputed.vue';
+import controlledRef from './components/Utilities/controlledRef.vue';
+import createEventHook from './components/Utilities/createEventHook/createEventHook.vue';
 export default defineComponent({
     components: {
         useBreakpoints,
@@ -248,7 +266,25 @@ export default defineComponent({
         useVModel,
         useVModels,
         debouncedWatch,
-        ignorableWatch
+        ignorableWatch,
+        pausableWatch,
+        throttledWatch,
+        until,
+        watchAtMost,
+        watchOnce,
+        watchWithFilter,
+        whenever,
+        useEventSource,
+        useWebSocket,
+        and,
+        or,
+        not,
+        asyncComputed,
+        autoResetRef,
+        synchronization,
+        controlledComputed,
+        controlledRef,
+        createEventHook
     },
 });
 </script>

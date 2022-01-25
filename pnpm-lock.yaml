@@ -9,7 +9,6 @@ specifiers:
   '@typescript-eslint/parser': ^5.8.0
   '@vitejs/plugin-vue': ^2.0.1
   '@vue/compiler-sfc': ^3.2.26
-  '@vueuse/components': ^7.5.3
   '@vueuse/core': ^7.5.3
   '@vueuse/shared': ^7.5.3
   autoprefixer: ^10.4.0
@@ -31,7 +30,7 @@ specifiers:
   rollup-plugin-gzip: ^3.0.0
   sass: ^1.45.1
   tailwindcss: ^3.0.7
-  typescript: ^4.5.4
+  typescript: ^4.5.2
   unplugin-auto-import: ^0.5.5
   unplugin-vue-components: ^0.17.11
   vite: 2.6.13
@@ -42,7 +41,6 @@ specifiers:
   vuex: ^4.0.1
 
 dependencies:
-  '@vueuse/components': registry.npmmirror.com/@vueuse/components/7.5.3_vue@3.2.26
   '@vueuse/core': registry.npmmirror.com/@vueuse/core/7.5.3_vue@3.2.26
   '@vueuse/shared': registry.npmmirror.com/@vueuse/shared/7.5.3_vue@3.2.26
   axios: registry.npmmirror.com/axios/0.24.0
@@ -2165,20 +2163,6 @@ packages:
     resolution: {integrity: sha512-vPV6Cq+NIWbH5pZu+V+2QHE9y1qfuTq49uNWw4f7FDEeZaDU2H2cx5jcUZOAKW7qTrUS4k6qZPbMy1x4N96nbA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/shared/download/@vue/shared-3.2.26.tgz}
     name: '@vue/shared'
     version: 3.2.26
-
-  registry.npmmirror.com/@vueuse/components/7.5.3_vue@3.2.26:
-    resolution: {integrity: sha512-skJRZmKOHgLWKYl+maAkuGZYhLYNtbUnS+utvMYGln+l6qKrHpzXGeyf4LA4Yg2Vk7kWEMzb7jsxpQqnLLm2eQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/components/download/@vueuse/components-7.5.3.tgz}
-    id: registry.npmmirror.com/@vueuse/components/7.5.3
-    name: '@vueuse/components'
-    version: 7.5.3
-    dependencies:
-      '@vueuse/core': registry.npmmirror.com/@vueuse/core/7.5.3_vue@3.2.26
-      '@vueuse/shared': registry.npmmirror.com/@vueuse/shared/7.5.3_vue@3.2.26
-      vue-demi: registry.npmmirror.com/vue-demi/0.12.1_vue@3.2.26
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-    dev: false
 
   registry.npmmirror.com/@vueuse/core/7.5.3_vue@3.2.26:
     resolution: {integrity: sha512-D9j5ymHFMFRXQqCp0yZJkf/bvBGiz0MrKUa364p+L8dMyd5zyq2K1JmHyvoBd4xbTFRfmQ1h878u6YE5LCkDVQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/core/download/@vueuse/core-7.5.3.tgz}
