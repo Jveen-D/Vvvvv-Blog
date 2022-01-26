@@ -16,7 +16,7 @@
         </div>
         <div
             ref="categoryRef"
-            :class="[state.showCategory ? 'showCategory' : 'hiddenCategory', 'fixed sm:static h-full sm:h-screen-4rem bg-white dark:bg-gray-900/80 backdrop-blur flex-shrink-0 sm:w-[200px] lg:pt-0 text-gray-700 dark:text-gray-200 sm:border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12] overflow-y-auto z-10']"
+            :class="[state.showCategory ? 'showCategory' : 'hiddenCategory', 'fixed sm:static h-full lg:h-screen-4rem bg-white dark:bg-gray-900/80 backdrop-blur flex-shrink-0 sm:w-[200px] lg:pt-0 text-gray-700 dark:text-gray-200 sm:border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12] overflow-y-auto z-10']"
         >
             <div
                 v-for="(item, index) in state.categoryList"
@@ -163,6 +163,13 @@ import synchronization from './components/Utilities/synchronization.vue';
 import controlledComputed from './components/Utilities/controlledComputed.vue';
 import controlledRef from './components/Utilities/controlledRef.vue';
 import createEventHook from './components/Utilities/createEventHook/createEventHook.vue';
+import createReactiveFn from './components/Utilities/createReactiveFn.vue';
+import reactify from './components/Utilities/reactify.vue';
+import createUnrefFn from './components/Utilities/createUnrefFn.vue';
+import debouncedRef from './components/Utilities/debouncedRef.vue';
+import useDebounce from './components/Utilities/useDebounce.vue';
+import useDebounceFn from './components/Utilities/useDebounceFn.vue';
+import eagerComputed from './components/Utilities/eagerComputed/eagerComputed.vue';
 export default defineComponent({
     components: {
         useBreakpoints,
@@ -284,7 +291,14 @@ export default defineComponent({
         synchronization,
         controlledComputed,
         controlledRef,
-        createEventHook
+        createEventHook,
+        createReactiveFn,
+        reactify,
+        createUnrefFn,
+        debouncedRef,
+        useDebounce,
+        useDebounceFn,
+        eagerComputed
     },
 });
 </script>

@@ -63,4 +63,32 @@ watch(
 )
 // @ts-ignore
 window.copy = copy
+
 </script>
+<style lang="scss">
+a {
+    display: inline-block;
+    cursor: pointer;
+    padding-bottom: 2px;
+    text-decoration: none;
+    position: relative;
+    font-weight: 400;
+    color: #a862ea;
+    &:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        width: 98%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        background-color: #a862ea;
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-in-out;
+    }
+}
+</style>
