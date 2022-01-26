@@ -91,7 +91,7 @@ h6 {
   }
   code:not(.hljs) {
     word-break: break-word;
-    font-family: Source Code Pro, monospace;
+    font-family: monospace,Source Code Pro;
     padding: 0 5px;
     margin: 0 4px;
     text-shadow: none;
@@ -100,10 +100,10 @@ h6 {
     background-color: #f8f5ff;
   }
   code:is(.hljs) {
-    line-height: 24px;
+    line-height: 22px;
     background-color: #f8f5ff;
-    letter-spacing: 1px;
-    font-family: Source Code Pro, monospace;
+    font-family: monospace, Source Code Pro;
+    padding:0.5rem 1rem;
   }
   // blockquote
   blockquote {

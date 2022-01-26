@@ -170,6 +170,17 @@ import debouncedRef from './components/Utilities/debouncedRef.vue';
 import useDebounce from './components/Utilities/useDebounce.vue';
 import useDebounceFn from './components/Utilities/useDebounceFn.vue';
 import eagerComputed from './components/Utilities/eagerComputed/eagerComputed.vue';
+import extendRef from './components/Utilities/extendRef.vue';
+import get from './components/Utilities/get.vue';
+import isDefined from './components/Utilities/isDefined.vue';
+import makeDestructurable from './components/Utilities/makeDestructurable.vue';
+import reactifyObject from './components/Utilities/reactifyObject.vue';
+import reactivePick from './components/Utilities/reactivePick.vue';
+import refDefault from './components/Utilities/refDefault.vue';
+import set from './components/Utilities/set.vue';
+import syncRef from './components/Utilities/syncRef.vue';
+import throttledRef from './components/Utilities/throttledRef.vue';
+import useThrottle from './components/Utilities/useThrottle.vue';
 export default defineComponent({
     components: {
         useBreakpoints,
@@ -298,7 +309,18 @@ export default defineComponent({
         debouncedRef,
         useDebounce,
         useDebounceFn,
-        eagerComputed
+        eagerComputed,
+        extendRef,
+        get,
+        isDefined,
+        makeDestructurable,
+        reactifyObject,
+        reactivePick,
+        refDefault,
+        set,
+        syncRef,
+        throttledRef,
+        useThrottle
     },
 });
 </script>
