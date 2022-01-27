@@ -16,13 +16,13 @@
 </template>
 
 <script lang="ts" setup>
+import { useFullscreen } from '@vueuse/core'
 import AvueUseBaseCom from '../AvueUseBaseCom.vue'
 // props
 const props = defineProps<{
     id: number;
 }>();
 
-import { useFullscreen } from '@vueuse/core'
 
 const { isFullscreen, enter, exit, toggle } = useFullscreen()
 

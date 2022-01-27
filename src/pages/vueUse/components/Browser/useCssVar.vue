@@ -15,14 +15,14 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
+import { useCssVar } from '@vueuse/core'
 import AvueUseBaseCom from '../AvueUseBaseCom.vue'
 // props
 const props = defineProps<{
   id: number;
 }>();
 
-import { ref } from 'vue'
-import { useCssVar } from '@vueuse/core'
 const el = ref(null)
 const color = useCssVar('--color', el)
 const changeColor = () => {

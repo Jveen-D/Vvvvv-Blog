@@ -187,6 +187,10 @@ import useTimeAgo from './components/Misc/useTimeAgo.vue';
 import useWebWorker from './components/Misc/useWebWorker/useWebWorker.vue';
 import useWebWorkerFn from './components/Misc/useWebWorkerFn.vue';
 import useAxios from './components/Integrations/useAxios.vue';
+import useCookies from './components/Integrations/useCookies.vue';
+import useDrauu from './components/Integrations/useDrauu.vue';
+import useFocusTrap from './components/Integrations/useFocusTrap.vue';
+import useFuse from './components/Integrations/useFuse.vue';
 export default defineComponent({
     components: {
         useBreakpoints,
@@ -332,7 +336,11 @@ export default defineComponent({
         useTimeAgo,
         useWebWorker,
         useWebWorkerFn,
-        useAxios
+        useAxios,
+        useCookies,
+        useDrauu,
+        useFocusTrap,
+        useFuse
     },
 });
 </script>

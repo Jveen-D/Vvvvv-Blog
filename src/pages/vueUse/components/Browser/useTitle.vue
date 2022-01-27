@@ -13,13 +13,14 @@
 </template>
 
 <script lang="ts" setup>
+import { useTitle } from '@vueuse/core'
 import AvueUseBaseCom from '../AvueUseBaseCom.vue'
 // props
 const props = defineProps<{
     id: number;
 }>();
 
-import { useTitle } from '@vueuse/core'
+
 
 const title = useTitle()
 console.log(title.value) // print current title
