@@ -48,7 +48,7 @@
     "build/**/*.d.ts",
     "mock/**/*.ts",
     "vite.config.ts"
-  ],
+, "src/pages/vueUse/components/Misc/useWebWorker/worker.js"  ],
   "exclude": [
     "node_modules",
     "tests/server/**/*.ts",

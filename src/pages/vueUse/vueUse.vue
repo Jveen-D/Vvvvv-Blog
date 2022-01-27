@@ -181,6 +181,12 @@ import set from './components/Utilities/set.vue';
 import syncRef from './components/Utilities/syncRef.vue';
 import throttledRef from './components/Utilities/throttledRef.vue';
 import useThrottle from './components/Utilities/useThrottle.vue';
+import useThrottleFn from './components/Utilities/useThrottleFn.vue';
+import useToggle from './components/Utilities/useToggle.vue';
+import useTimeAgo from './components/Misc/useTimeAgo.vue';
+import useWebWorker from './components/Misc/useWebWorker/useWebWorker.vue';
+import useWebWorkerFn from './components/Misc/useWebWorkerFn.vue';
+import useAxios from './components/Integrations/useAxios.vue';
 export default defineComponent({
     components: {
         useBreakpoints,
@@ -320,7 +326,13 @@ export default defineComponent({
         set,
         syncRef,
         throttledRef,
-        useThrottle
+        useThrottle,
+        useThrottleFn,
+        useToggle,
+        useTimeAgo,
+        useWebWorker,
+        useWebWorkerFn,
+        useAxios
     },
 });
 </script>
