@@ -17,6 +17,7 @@
     "@element-plus/icons-vue": "^0.2.6",
     "@vueuse/core": "^7.5.3",
     "@vueuse/integrations": "^7.5.5",
+    "@vueuse/router": "^7.6.1",
     "@vueuse/shared": "^7.5.3",
     "axios": "^0.24.0",
     "echarts": "^5.2.2",

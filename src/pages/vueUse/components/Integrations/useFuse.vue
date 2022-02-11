@@ -1,10 +1,15 @@
+<!--
+ * @Date: 2022-02-11 15:13:44
+ * @LastEditors: dwj18066042960
+ * @FilePath: \Vvvvv-Blog\src\pages\vueUse\components\Integrations\useFuse.vue
+-->
 <template>
   <AvueUseBaseCom :id="props.id">
     <template #des>模糊搜索</template>
     <template #codeEffect>
       <div class="flex flex-col gap-8">
         <el-input class="w-[200px]" v-model="input" placeholder="模糊搜索"></el-input>
-        <el-radio-group v-model="keys">
+        <el-radio-group v-model="filterBy">
           <el-radio label="firstName">开头</el-radio>
           <el-radio label="lastName">结尾</el-radio>
           <el-radio label="both">不限C</el-radio>
@@ -28,9 +33,9 @@
   </AvueUseBaseCom>
 </template>
 <script lang="ts" setup>
-  import { ref, reactive, computed, watch } from 'vue';
-  import { useFuse, UseFuseOptions } from '@vueuse/integrations/useFuse';
-  import AvueUseBaseCom from '../AvueUseBaseCom.vue';
+  import { useFuse } from '@vueuse/integrations/useFuse';
+import { ref } from 'vue';
+import AvueUseBaseCom from '../AvueUseBaseCom.vue';
   // props
   const props = defineProps<{
     id: number;
@@ -48,22 +53,8 @@
   ];
 
   const filterBy = ref('both');
-  const keys = computed(() => {
-    if (filterBy.value === 'first') return ['firstName'];
-    else if (filterBy.value === 'last') return ['lastName'];
-    else return ['firstName', 'lastName'];
-  });
 
   const input = ref('');
-//   const options = computed(() => ({
-//     fuseOptions: {
-//       keys: keys.value,
-//       isCaseSensitive: isCaseSensitive.value,
-//       threshold: exactMatch.value ? 0 : undefined,
-//     },
-//     resultLimit: resultLimit.value,
-//     matchAllWhenSearchEmpty: matchAllWhenSearchEmpty.value,
-//   }));
 
   /**
    * input 数据源
