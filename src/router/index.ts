@@ -48,12 +48,22 @@ const routes = [
       {
         path: '/vueUse',
         name: 'vueUseLayout',
-        redirect:'/vueUse/useActiveElement',
+        redirect: '/vueUse/useActiveElement',
       },
       {
         path: '/vueUse/:component',
         name: 'vueUse',
         component: () => import('/@/pages/vueUse/vueUse.vue'),
+      },
+      {
+        path: '/type-challenges',
+        name: 'typeChallengesLayout',
+        redirect: '/type-challenges/pick',
+      },
+      {
+        path: '/type-challenges/:component',
+        name: 'typeChallenges',
+        component: () => import('/@/pages/type-challenges/typeChallenges.vue'),
       },
     ],
   },

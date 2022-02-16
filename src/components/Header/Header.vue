@@ -41,7 +41,8 @@
             'hover:text-sky-500 dark:hover:text-sky-400 font-mersan whitespace-nowrap mt-2 lg:mt-0 font-medium text-sm pr-4 transition-colors duration-500 ease-in-out',
           ]"
           @click="goCategory(item.slug)"
-        >{{ item.name }}</div>
+          >{{ item.name }}</div
+        >
       </div>
       <div
         class="flex items-center justify-end w-full overflow-hidden rounded-md lg:justify-between lg:w-auto"
@@ -82,97 +83,102 @@
 </template>
 
 <script lang="ts" setup>
-import { contentApi } from '/@/api/content';
-import { onClickOutside } from '@vueuse/core';
-import { preventScrollY } from '/@/utils/utils';
-import { ref, reactive, toRefs, watch } from 'vue';
-import { useRouter } from 'vue-router';
-import { tailwindTheme } from '/@/utils/tailwind/tailwindTheme';
-const { changeTheme } = tailwindTheme();
+  import { contentApi } from '/@/api/content';
+  import { onClickOutside } from '@vueuse/core';
+  import { preventScrollY } from '/@/utils/utils';
+  import { ref, reactive, toRefs, watch } from 'vue';
+  import { useRouter } from 'vue-router';
+  import { tailwindTheme } from '/@/utils/tailwind/tailwindTheme';
+  const { changeTheme } = tailwindTheme();
 
-import { coreHooks } from '/@/hooks/core/coreHooks';
-const { getCurrentMode, getCurrentSlug, getStoreSlug, dispatchChangeSlug } = coreHooks();
-const mode = getCurrentMode();
-const activeCategory = getCurrentSlug();
-const storeSlug = getStoreSlug();
-interface State {
-  listCategories: Array<{
-    id: number;
-    name: string;
-    slug: string;
-  }>;
-  showList: boolean | '';
-}
-
-const Router = useRouter();
-const state = reactive<State>({
-  listCategories: [],
-  showList: ''
-});
-const { showList } = {
-  ...toRefs(state),
-};
-
-watch(showList, (newVal) => {
-  preventScrollY(newVal);
-});
-// 目前所在slug分类
-watch(
-  activeCategory,
-  () => {
-    dispatchChangeSlug(activeCategory.value)
-  },
-  {
-    immediate: true,
+  import { coreHooks } from '/@/hooks/core/coreHooks';
+  const { getCurrentMode, getCurrentSlug, getStoreSlug, dispatchChangeSlug } = coreHooks();
+  const mode = getCurrentMode();
+  const activeCategory = getCurrentSlug();
+  const storeSlug = getStoreSlug();
+  interface State {
+    listCategories: Array<{
+      id: number;
+      name: string;
+      slug: string;
+    }>;
+    showList: boolean | '';
   }
-);
 
-// 点击分类切换
-const goCategory = (val) => {
-  switch (val) {
-    case 'friendLink':
-      Router.push({
-        path: `/friend/${val}`,
-      });
-      break;
-    case 'utils':
-      Router.push({
-        path: `/utils/${val}`,
-      });
-      break;
-    case 'vueuse':
-      Router.push({
-        path: `/${val}`,
-      });
-      break;
-    default:
-      Router.push({
-        path: `/category/${val}`,
-      });
-      break;
-  }
-};
-
-// 文章分类
-contentApi('listCategories').then((res) => {
-  res.data.push({
-    id: 7,
-    name: '友情链接',
-    slug: 'friendLink',
+  const Router = useRouter();
+  const state = reactive<State>({
+    listCategories: [],
+    showList: '',
   });
-  state.listCategories = res.data;
-});
-// 移动端显示分类
-const showCategoriesList = () => (state.showList = !state.showList);
+  const { showList } = {
+    ...toRefs(state),
+  };
 
-// 列表ref
-const categoryRef: ElRef = ref(null)
-// 点击列表外部关闭列表
-onClickOutside(categoryRef, () => {
-  if (state.showList) state.showList = false
-})
+  watch(showList, (newVal) => {
+    preventScrollY(newVal);
+  });
+  // 目前所在slug分类
+  watch(
+    activeCategory,
+    () => {
+      dispatchChangeSlug(activeCategory.value);
+    },
+    {
+      immediate: true,
+    }
+  );
+
+  // 点击分类切换
+  const goCategory = (val) => {
+    switch (val) {
+      case 'friendLink':
+        Router.push({
+          path: `/friend/${val}`,
+        });
+        break;
+      case 'utils':
+        Router.push({
+          path: `/utils/${val}`,
+        });
+        break;
+      case 'vueuse':
+        Router.push({
+          path: `/${val}`,
+        });
+        break;
+      case 'type-challenges':
+        Router.push({
+          path: `/${val}`,
+        });
+        break;
+      default:
+        Router.push({
+          path: `/category/${val}`,
+        });
+        break;
+    }
+  };
+
+  // 文章分类
+  contentApi('listCategories').then((res) => {
+    res.data.push({
+      id: 7,
+      name: '友情链接',
+      slug: 'friendLink',
+    });
+    state.listCategories = res.data;
+  });
+  // 移动端显示分类
+  const showCategoriesList = () => (state.showList = !state.showList);
+
+  // 列表ref
+  const categoryRef: ElRef = ref(null);
+  // 点击列表外部关闭列表
+  onClickOutside(categoryRef, () => {
+    if (state.showList) state.showList = false;
+  });
 </script>
 
 <style lang="scss" scoped>
-@import "Header.scss";
+  @import 'Header.scss';
 </style>
