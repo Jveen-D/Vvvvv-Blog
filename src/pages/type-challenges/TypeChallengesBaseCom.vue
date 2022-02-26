@@ -1,8 +1,8 @@
 <template>
-  <TypeChallengesBaseCom :id="props.id"></TypeChallengesBaseCom>
+  <div>{{ props }}</div>
 </template>
 <script setup lang="ts">
-  import TypeChallengesBaseCom from '../TypeChallengesBaseCom.vue';
+  // props
   const props = defineProps<{
     id: number;
   }>();

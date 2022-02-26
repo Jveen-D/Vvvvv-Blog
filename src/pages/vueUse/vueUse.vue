@@ -354,7 +354,7 @@
       useNProgress,
       useQRCode,
       useRouteHash,
-      useRouteQuery
+      useRouteQuery,
     },
   });
 </script>
