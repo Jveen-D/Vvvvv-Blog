@@ -100,7 +100,7 @@
       if (currentV) {
         state.transition = !state.transition;
         contentApi('listsPostsByCategorySlug', { sluy: currentV }).then((res) => {
-          state.articleLists = res.data.content;
+          state.articleLists = res.data.content.reverse();
         });
       }
     },
