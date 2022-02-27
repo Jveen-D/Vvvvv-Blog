@@ -87,11 +87,11 @@
   import { onClickOutside } from '@vueuse/core';
   import { preventScrollY } from '/@/utils/utils';
   import { ref, reactive, toRefs, watch } from 'vue';
+  import { coreHooks } from '/@/hooks/core/coreHooks';
   import { useRouter } from 'vue-router';
   import { tailwindTheme } from '/@/utils/tailwind/tailwindTheme';
   const { changeTheme } = tailwindTheme();
 
-  import { coreHooks } from '/@/hooks/core/coreHooks';
   const { getCurrentMode, getCurrentSlug, getStoreSlug, dispatchChangeSlug } = coreHooks();
   const mode = getCurrentMode();
   const activeCategory = getCurrentSlug();
