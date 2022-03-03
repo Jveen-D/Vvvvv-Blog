@@ -40,10 +40,12 @@
   import { defineComponent } from 'vue';
 
   import { contentApi } from '/@/api/content';
-  import pick from './components/pick.vue';
+  import typePick from './components/typePick.vue';
+  import typeReadonly from './components/typeReadonly.vue';
   export default defineComponent({
     components: {
-      pick,
+      typePick,
+      typeReadonly,
     },
   });
 </script>
@@ -92,7 +94,7 @@
     state.id = id;
     state.activeComponent = componentName;
     Router.push({
-      path: `/vueUse/${componentName}`,
+      path: `/type-challenges/${componentName}`,
     });
   };
 
