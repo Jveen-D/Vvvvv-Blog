@@ -16,22 +16,21 @@
 </template>
 
 <script lang="ts" setup>
-import AvueUseBaseCom from '../AvueUseBaseCom.vue'
-// props
-const props = defineProps<{
-  id: number;
-}>();
+  import AvueUseBaseCom from '../AvueUseBaseCom.vue';
+  import { watch, ref } from 'vue';
+  import { useActiveElement } from '@vueuse/core';
+  // props
+  const props = defineProps<{
+    id: number;
+  }>();
 
-import { watch, ref } from 'vue';
-import { useActiveElement } from '@vueuse/core';
-const activeElement = useActiveElement();
-const key = ref(null);
-watch(
-  activeElement,
-  (el: ElRef) => {
-    key.value = el.value ? el.value : 'null';
-  },
-  { immediate: true }
-);
+  const activeElement = useActiveElement();
+  const key = ref(null);
+  watch(
+    activeElement,
+    (el: ElRef) => {
+      key.value = el.value ? el.value : 'null';
+    },
+    { immediate: true }
+  );
 </script>
-

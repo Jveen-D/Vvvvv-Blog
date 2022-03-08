@@ -58,7 +58,7 @@ const routes = [
       {
         path: '/type-challenges',
         name: 'typeChallengesLayout',
-        redirect: '/type-challenges/pick',
+        redirect: '/type-challenges/typePick',
       },
       {
         path: '/type-challenges/:component',

@@ -42,10 +42,12 @@
   import { contentApi } from '/@/api/content';
   import typePick from './components/typePick.vue';
   import typeReadonly from './components/typeReadonly.vue';
+  import typeTupleToObject from './components/typeTupleToObject.vue';
   export default defineComponent({
     components: {
       typePick,
       typeReadonly,
+      typeTupleToObject,
     },
   });
 </script>
@@ -71,13 +73,14 @@
   });
 
   /**
-   * @description: 获取vueUse列表
+   * @description: 获取typeChallenges列表
    * @param {*}
    * @return {*}
    */
   contentApi('listsPostsByCategorySlug', { sluy: 'type-challenges' }).then((res) => {
     state.categoryList = res.data.content.sort((a, b) => a.id - b.id);
     state.categoryList.forEach((item) => {
+      console.log(item.slug.toLowerCase());
       if (item.slug.toLowerCase() === componentName.value.toLowerCase()) {
         state.id = item.id;
       }
@@ -86,7 +89,7 @@
 
   const Router = useRouter();
   /**
-   * @description: 切换vueUse组件
+   * @description: 切换typeChallenges组件
    * @param {*}
    * @return {*}
    */
