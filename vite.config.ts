@@ -43,9 +43,13 @@ export default ({ mode }: ConfigEnv): UserConfig => {
   return {
     base: VITE_PUBLIC_PATH,
     root,
+    define: {
+      // 禁用options api
+      __VUE_OPTIONS_API__: false,
+    },
     plugins: [
       vue(),
-      viteCompression(),
+      // viteCompression(),
       AutoImport({
         resolvers: [ElementPlusResolver()],
       }),
