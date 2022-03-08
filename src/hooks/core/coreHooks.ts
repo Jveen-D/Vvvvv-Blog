@@ -62,15 +62,24 @@ export const coreHooks = () => {
    * @param {*}
    * @return {*}
    */
-  const dispatchChangeSlug = (val) => { 
+  const dispatchChangeSlug = (val) => {
     store.dispatch('ChangeSlug', val);
-  }
+  };
   /**
-   * @description: 获取当前路由vueUse的组件name(component)
+   * @description: 获取当前路由vueUse、type-challenges的组件name(component)
    * @return {ref} 返回ref
    */
-   const getCurrentComponentName = (): ComputedRef => {
+  const getCurrentComponentName = (): ComputedRef => {
     return computed(() => Router.currentRoute.value.params.component as string);
-   };
-  return { getNodeEnv, getCurrentMode, getCurrentSlug, getCurrentId, getShadow, getStoreSlug, dispatchChangeSlug,getCurrentComponentName };
+  };
+  return {
+    getNodeEnv,
+    getCurrentMode,
+    getCurrentSlug,
+    getCurrentId,
+    getShadow,
+    getStoreSlug,
+    dispatchChangeSlug,
+    getCurrentComponentName,
+  };
 };
