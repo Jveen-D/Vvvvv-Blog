@@ -51,12 +51,12 @@
   </div>
 </template>
 <script setup lang="ts">
-  import { useElementSize, useCssVar, watchOnce } from '@vueuse/core';
-  import '/src/assets/css/markdown-body.scss';
-  import { contentApi } from '/@/api/content';
+  import { useCssVar, useElementSize, watchOnce } from '@vueuse/core';
   import { reactive, ref, toRefs, watch } from 'vue';
-  import { copy, language } from '/@/utils/markdown/code';
+  import { contentApi } from '/@/api/content';
   import { highlight } from '/@/hooks/core/highlight';
+  import { copy, language } from '/@/utils/markdown/code';
+  import '/src/assets/css/markdown-body.scss';
   // props
   const props = defineProps<{
     id: number;

@@ -37,12 +37,15 @@
 <script lang="ts">
   // 因为使用了动态组件，所以这里需要额外注册一下组件，如果直接在setup语法糖内导入组件那么传递给:is的变量没有作用
   // @ts-ignore
-  import { defineComponent } from 'vue';
-
-  import { contentApi } from '/@/api/content';
+  import { onClickOutside as ClickOutside } from '@vueuse/core';
+  import { reactive, ref } from 'vue';
+  import { useRouter } from 'vue-router';
   import typePick from './components/typePick.vue';
   import typeReadonly from './components/typeReadonly.vue';
   import typeTupleToObject from './components/typeTupleToObject.vue';
+  import { contentApi } from '/@/api/content';
+  import { coreHooks } from '/@/hooks/core/coreHooks';
+
   export default defineComponent({
     components: {
       typePick,
@@ -52,10 +55,6 @@
   });
 </script>
 <script setup lang="ts">
-  import { useRouter } from 'vue-router';
-  import { onClickOutside as ClickOutside } from '@vueuse/core';
-  import { ref, reactive } from 'vue';
-  import { coreHooks } from '/@/hooks/core/coreHooks';
   interface State {
     id: number; // 文章的id
     activeComponent: string;
