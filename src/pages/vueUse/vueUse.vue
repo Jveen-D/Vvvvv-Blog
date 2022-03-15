@@ -18,7 +18,7 @@
       ref="categoryRef"
       :class="[
         state.showCategory ? 'showCategory' : 'hiddenCategory',
-        'fixed sm:static h-full lg:h-screen-4rem bg-white dark:bg-gray-900/80 backdrop-blur flex-shrink-0 sm:w-[200px] lg:pt-0 text-gray-700 dark:text-gray-200 sm:border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12] overflow-y-auto z-10',
+        'fixed sm:static h-full lg:h-screen-4rem bg-white dark:bg-gray-900/80 backdrop-blur flex-shrink-0 sm:w-[200px] lg:pt-0 text-gray-700 dark:text-gray-200 sm:border-r border-[#3C3C43] dark:border-[#585458] border-opacity-[0.12] overflow-y-auto z-10 overflow-x-hidden',
       ]"
     >
       <div
@@ -26,7 +26,7 @@
         :key="index"
         :class="[
           state.activeComponent === item.title ? 'text-sky-500 dark:text-sky-400' : '',
-          'w-[200px] truncate pl-4 hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-500 font-bold',
+          'w-[200px] truncate pl-4 hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-500 font-bold ',
         ]"
         @click="changeComponent(item.title, item.id)"
         >{{ item.title }}</div
