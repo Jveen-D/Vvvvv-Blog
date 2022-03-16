@@ -187,6 +187,7 @@
   import set from './components/Utilities/set.vue';
   import synchronization from './components/Utilities/synchronization.vue';
   import syncRef from './components/Utilities/syncRef.vue';
+  import syncRefs from './components/Utilities/syncRefs.vue';
   import throttledRef from './components/Utilities/throttledRef.vue';
   import useDebounce from './components/Utilities/useDebounce.vue';
   import useDebounceFn from './components/Utilities/useDebounceFn.vue';
@@ -342,6 +343,7 @@
       refDefault,
       set,
       syncRef,
+      syncRefs,
       throttledRef,
       useThrottle,
       useThrottleFn,
@@ -384,7 +386,10 @@
    * @return {*}
    */
   contentApi('listsPostsByCategorySlug', { sluy: 'vueuse' }).then((res) => {
-    state.categoryList = res.data.content.sort((a, b) => a.id - b.id);
+    state.categoryList = res.data.content.sort(
+      (a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0)
+    );
+    console.log(state.categoryList);
     state.categoryList.forEach((item) => {
       if (item.slug.toLowerCase() === componentName.value.toLowerCase()) {
         state.id = item.id;
