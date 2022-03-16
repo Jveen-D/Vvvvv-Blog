@@ -10,6 +10,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.8.0
   '@vitejs/plugin-vue': ^2.0.1
   '@vue/compiler-sfc': ^3.2.26
+  '@vueuse/components': ^8.0.1
   '@vueuse/core': ^8.0.1
   '@vueuse/integrations': ^7.5.5
   '@vueuse/router': ^7.6.1
@@ -45,6 +46,7 @@ specifiers:
 
 dependencies:
   '@element-plus/icons-vue': registry.npmmirror.com/@element-plus/icons-vue/0.2.6_vue@3.2.26
+  '@vueuse/components': 8.0.1_vue@3.2.26
   '@vueuse/core': 8.0.1_vue@3.2.26
   '@vueuse/integrations': registry.npmmirror.com/@vueuse/integrations/7.5.5_vue@3.2.26
   '@vueuse/router': 7.6.1_vue-router@4.0.12+vue@3.2.26
@@ -97,6 +99,17 @@ packages:
 
   /@popperjs/core/2.11.2:
     resolution: {integrity: sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==}
+    dev: false
+
+  /@vueuse/components/8.0.1_vue@3.2.26:
+    resolution: {integrity: sha512-KdlJknzRsv/fG75eMa+pjFwAG3pqRlDF6oOq1pEYr5XGniJRRX6qXe8FDB6oQIsNDiNNA32FfE5ESMFwSRo4xQ==}
+    dependencies:
+      '@vueuse/core': 8.0.1_vue@3.2.26
+      '@vueuse/shared': 8.0.1_vue@3.2.26
+      vue-demi: 0.12.1_vue@3.2.26
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
     dev: false
 
   /@vueuse/core/7.5.5_vue@3.2.26:
