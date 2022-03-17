@@ -9,15 +9,13 @@
     <template #codeEffect>
       <div class="grid grid-cols-2">
         <pre lang="yaml">{{ scroll }}</pre>
-        <div ref="target" class="bg-gray-200 w-[260px] h-[420px] overflow-scroll">
+        <div ref="target" class="bg-gray-200 w-[260px] h-[420px] customOverflow">
           <div class="w-[400px] h-[600px] relative">
             <span class="absolute top-0 left-0 text-sky-500 dark:text-sky-400">left top</span>
             <span class="absolute top-0 right-0 text-sky-500 dark:text-sky-400">right top</span>
             <span class="absolute right-0 top-1/2 text-sky-500 dark:text-sky-400">left middle</span>
             <span class="absolute left-0 top-1/2 text-sky-500 dark:text-sky-400">right middle</span>
-            <span class="absolute bottom-0 right-0 text-sky-500 dark:text-sky-400"
-              >right button</span
-            >
+            <span class="absolute bottom-0 right-0 text-sky-500 dark:text-sky-400">right button</span>
             <span class="absolute bottom-0 left-0 text-sky-500 dark:text-sky-400">left bottom</span>
           </div>
         </div>
@@ -26,14 +24,21 @@
   </AvueUseBaseCom>
 </template>
 <script lang="ts" setup>
-  import { useScroll } from '@vueuse/core';
-  import { reactive, ref } from 'vue';
-  import AvueUseBaseCom from '../AvueUseBaseCom.vue';
-  // props
-  const props = defineProps<{
-    id: number;
-  }>();
+import { useScroll } from '@vueuse/core';
+import { reactive, ref } from 'vue';
+import AvueUseBaseCom from '../AvueUseBaseCom.vue';
+// props
+const props = defineProps<{
+  id: number;
+}>();
 
-  const target = ref<ElRef>(null);
-  const scroll = reactive(useScroll(target));
+const target = ref<ElRef>(null);
+const scroll = reactive(useScroll(target));
+
 </script>
+
+<style scoped>
+.customOverflow {
+  overflow: scroll;
+}
+</style>

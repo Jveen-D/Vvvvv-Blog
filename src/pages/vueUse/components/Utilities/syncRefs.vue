@@ -26,16 +26,16 @@
   </AvueUseBaseCom>
 </template>
 <script lang="ts" setup>
-  import { syncRefs } from '@vueuse/core';
-  import { ref } from 'vue';
-  import AvueUseBaseCom from '../AvueUseBaseCom.vue';
-  // props
-  const props = defineProps<{
-    id: number;
-  }>();
+import { syncRefs } from '@vueuse/core';
+import { ref } from 'vue';
+import AvueUseBaseCom from '../AvueUseBaseCom.vue';
+// props
+const props = defineProps<{
+  id: number;
+}>();
 
-  const source = ref('');
-  const target1 = ref('');
-  const target2 = ref('');
-  syncRefs(source, [target1, target2]);
+const source = ref('');
+const target1 = ref('');
+const target2 = ref('');
+syncRefs(source, [target1, target2]);
 </script>

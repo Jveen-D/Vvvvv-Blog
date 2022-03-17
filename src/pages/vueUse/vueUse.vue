@@ -139,6 +139,7 @@ import useFocusWithin from './components/Sensors/useFocusWithin.vue';
 import useFps from './components/Sensors/useFps.vue';
 import useGeolocation from './components/Sensors/useGeolocation.vue';
 import useIdle from './components/Sensors/useIdle.vue';
+import useInfiniteScroll from './components/Sensors/useInfiniteScroll.vue';
 import useKeyModifier from './components/Sensors/useKeyModifier.vue';
 import useMagicKeys from './components/Sensors/useMagicKeys.vue';
 import useMouse from './components/Sensors/useMouse.vue';
@@ -188,6 +189,7 @@ import synchronization from './components/Utilities/synchronization.vue';
 import syncRef from './components/Utilities/syncRef.vue';
 import syncRefs from './components/Utilities/syncRefs.vue';
 import throttledRef from './components/Utilities/throttledRef.vue';
+import useDateFormat from './components/Utilities/useDateFormat.vue';
 import useDebounce from './components/Utilities/useDebounce.vue';
 import useDebounceFn from './components/Utilities/useDebounceFn.vue';
 import useThrottle from './components/Utilities/useThrottle.vue';
@@ -240,6 +242,7 @@ export default {
     useDeviceMotion,
     useDeviceOrientation,
     useDevicePixelRatio,
+    useDateFormat,
     useDevicesList,
     useDisplayMedia,
     useElementByPoint,
@@ -262,6 +265,7 @@ export default {
     usePointerSwipe,
     useScroll,
     useScrollLock,
+    useInfiniteScroll,
     useSwipe,
     useTextSelection,
     useUserMedia,
