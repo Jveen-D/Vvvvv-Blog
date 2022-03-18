@@ -194,6 +194,7 @@ import useDebounce from './components/Utilities/useDebounce.vue';
 import useDebounceFn from './components/Utilities/useDebounceFn.vue';
 import useThrottle from './components/Utilities/useThrottle.vue';
 import useThrottleFn from './components/Utilities/useThrottleFn.vue';
+import useTimeoutPoll from './components/Utilities/useTimeoutPoll.vue';
 import useToggle from './components/Utilities/useToggle.vue';
 import debouncedWatch from './components/Watch/debouncedWatch.vue';
 import ignorableWatch from './components/Watch/ignorableWatch.vue';
@@ -208,6 +209,7 @@ import { contentApi } from '/@/api/content';
 import { coreHooks } from '/@/hooks/core/coreHooks';
 export default {
   components: {
+    useTimeoutPoll,
     useBreakpoints,
     useBroadcastChannel,
     useBrowserLocation,
