@@ -109,6 +109,7 @@ import useWindowFocus from './components/Elements/useWindowFocus.vue';
 import useWindowScroll from './components/Elements/useWindowScroll.vue';
 import useWindowSize from './components/Elements/useWindowSize.vue';
 import useAxios from './components/Integrations/useAxios.vue';
+import useChangeCase from './components/Integrations/useChangeCase.vue';
 import useCookies from './components/Integrations/useCookies.vue';
 import useDrauu from './components/Integrations/useDrauu.vue';
 import useFocusTrap from './components/Integrations/useFocusTrap.vue';
@@ -209,6 +210,7 @@ import { contentApi } from '/@/api/content';
 import { coreHooks } from '/@/hooks/core/coreHooks';
 export default {
   components: {
+    useChangeCase,
     useTimeoutPoll,
     useBreakpoints,
     useBroadcastChannel,
