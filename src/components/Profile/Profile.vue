@@ -19,7 +19,7 @@
     ref="target"
     :class="[
       showProfile ? 'showProfile' : 'hiddenProfile',
-      'lg:w-auto h-[38rem] lg:mr-0 border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 z-20 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-[4.5rem]',
+      'lg:w-auto h-[38rem] lg:mr-0 lg:border border-gray-900/10 rounded-lg text-gray-700 dark:text-gray-400 z-20 dark:bg-gray-800 fixed right-0 lg:static lg:inset-0 lg:block lg:mt-[4.5rem]',
     ]"
   >
     <!--    protile-->
