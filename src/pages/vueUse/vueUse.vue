@@ -57,6 +57,7 @@ import useTimeoutFn from './components/Animation/useTimeoutFn.vue';
 import useTimestamp from './components/Animation/useTimestamp.vue';
 import useTransition from './components/Animation/useTransition.vue';
 import useBreakpoints from './components/Browser/useBreakpoints.vue';
+import useFileSystemAccess from './components/Browser/useFileSystemAccess.vue';
 import useBroadcastChannel from './components/Browser/useBroadcastChannel.vue';
 import useBrowserLocation from './components/Browser/useBrowserLocation.vue';
 import useClipboard from './components/Browser/useClipboard.vue';
@@ -213,6 +214,7 @@ export default {
     useChangeCase,
     useTimeoutPoll,
     useBreakpoints,
+    useFileSystemAccess,
     useBroadcastChannel,
     useBrowserLocation,
     useClipboard,

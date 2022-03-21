@@ -46,7 +46,7 @@
           <svg aria-hidden="true" class="icon animate-ping">
             <use xlink:href="#icon-12" />
           </svg>
-          <p>南京</p>
+          <p>上海</p>
         </div>
         <div class="flex items-center justify-center pt-2 text-xs">
           {{
