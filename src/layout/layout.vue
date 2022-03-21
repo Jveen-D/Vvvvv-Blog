@@ -7,7 +7,7 @@
       @scroll="getScroll($event)"
     >
       <router-view
-        class="flex-1 overflow-y-auto lg:mt-16 animate__animated animate__fadeInLeftBig"
+        class="flex-1 overflow-y-auto lg:pt-16 animate__animated animate__fadeInLeftBig"
       />
       <!--右侧的profile-->
       <Profile />
@@ -27,10 +27,10 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted, reactive, toRefs } from 'vue';
 import Header from '/@/components/Header/Header.vue';
 import Profile from '/@/components/Profile/Profile.vue';
 import Shadow from '/@/components/Shadow/Shadow.vue';
-import { reactive, toRefs, onMounted } from 'vue';
 
 interface State {
   showBackTop: boolean | '';
