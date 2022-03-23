@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-06-28 10:55:47
  * @LastEditors: dwj18066042960
- * @LastEditTime: 2022-03-22 02:15:20
+ * @LastEditTime: 2022-03-23 16:09:48
  * @FilePath: \Vvvvv-Blog\src\pages\categoryLists\categoryLists.vue
 -->
 <template>
@@ -90,7 +90,6 @@ const state = reactive<State>({
   transition: true,
 });
 const { articleLists, transition } = { ...toRefs(state) };
-
 watch(
   slug,
   (currentV) => {
